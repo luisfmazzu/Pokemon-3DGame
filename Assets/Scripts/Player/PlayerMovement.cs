@@ -96,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         m_rBody.MovePosition(m_rBody.position + movement_vector * Time.deltaTime);*/
 
         // Check for new inputs, so that the new direction can be set accordingly
-        if (Input.GetButtonDown("Horizontal"))
+        if (Input.GetButton("Horizontal"))
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
                 currentDirection = 3;
             }
         }
-        else if (Input.GetButtonDown("Vertical"))
+        else if (Input.GetButton("Vertical"))
         {
             if (Input.GetAxisRaw("Vertical") > 0)
             {
