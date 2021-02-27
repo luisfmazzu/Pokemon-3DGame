@@ -27,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     public float surfSpeed = 0.2f;
     public float speed;
     public bool canReceiveInput = true;
-    public int direction = 2; // 0 = up, 1 = right, 2 = down, 3 = left
     public int lastDirection = 2; // Indicates the direction the player sprite must be facing, even if movement is not happening
     public int currentDirection = -1; // Indicates the current direction input by the user. It is -1 if there is no input
 
@@ -101,12 +100,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                lastDirection = 1;
                 currentDirection = 1;
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                lastDirection = 3;
                 currentDirection = 3;
             }
         }
@@ -114,12 +111,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                lastDirection = 0;
                 currentDirection = 0;
             }
             else if (Input.GetAxisRaw("Vertical") < 0)
             {
-                lastDirection = 2;
                 currentDirection = 2;
             }
         }
@@ -136,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
             // Checks if there is any movement to be made
             if (currentDirection >= 0)
             {
+                lastDirection = currentDirection;
+
                 Vector3 directionVector = getForwardVectorRaw();
 
                 yield return StartCoroutine(move(directionVector));
@@ -248,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     frame -= 1;
                 }
-                pawnSprite.sprite = spriteSheet[direction * frames + frame];
+                pawnSprite.sprite = spriteSheet[lastDirection * frames + frame];
                 pawnReflectionSprite.sprite = pawnSprite.sprite;
                 yield return new WaitForSeconds(secPerFrame / 4f);
             }
