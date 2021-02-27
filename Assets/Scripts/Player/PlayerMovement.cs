@@ -31,6 +31,20 @@ public class PlayerMovement : MonoBehaviour
     public int lastDirection = 2; // Indicates the direction the player sprite must be facing, even if movement is not happening
     public int currentDirection = -1; // Indicates the current direction input by the user. It is -1 if there is no input
 
+    private string animationName;
+    private Sprite[] spriteSheet;
+    private Sprite[] mountSpriteSheet;
+
+    private int frame;
+    private int frames;
+    private int framesPerSec;
+    private float secPerFrame;
+    private bool animPause;
+    private bool overrideAnimPause;
+
+    public int walkFPS = 7;
+    public int runFPS = 12;
+
     void Awake()
     {
         canReceiveInput = true;
@@ -53,6 +67,12 @@ public class PlayerMovement : MonoBehaviour
 
         speed = walkSpeed;
         canReceiveInput = true;
+
+        spriteSheet = Resources.LoadAll<Sprite>("Sprites 1/PlayerSprites/m_hgss_walk");
+
+        updateAnimation("walk", walkFPS);
+        StartCoroutine("animateSprite");
+        animPause = true;
 
         StartCoroutine(control());
     }
@@ -120,6 +140,10 @@ public class PlayerMovement : MonoBehaviour
 
                 yield return StartCoroutine(move(directionVector));
             }
+            else
+            {
+                animPause = true;
+            }
 
             yield return null;
         }
@@ -133,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
             moving = true;
             float increment = 0;
 
-            // animPause = false;
+            animPause = false;
             while (increment < 1f)
             {
                 //increment increases slowly to 1 over the frames
@@ -193,5 +217,49 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = getForwardVectorRaw(direction);
 
         return movement;
+    }
+
+    public void updateAnimation(string newAnimationName, int fps)
+    {
+        if (animationName != newAnimationName)
+        {
+            animationName = newAnimationName;
+            framesPerSec = fps;
+            secPerFrame = 1f / (float)framesPerSec;
+            frames = Mathf.RoundToInt((float)spriteSheet.Length / 4f);
+            if (frame >= frames)
+            {
+                frame = 0;
+            }
+        }
+    }
+
+    private IEnumerator animateSprite()
+    {
+        frame = 0;
+        frames = 4;
+        framesPerSec = walkFPS;
+        secPerFrame = 1f / (float)framesPerSec;
+        while (true)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                if (animPause && frame % 2 != 0 && !overrideAnimPause)
+                {
+                    frame -= 1;
+                }
+                pawnSprite.sprite = spriteSheet[direction * frames + frame];
+                pawnReflectionSprite.sprite = pawnSprite.sprite;
+                yield return new WaitForSeconds(secPerFrame / 4f);
+            }
+            if (!animPause || overrideAnimPause)
+            {
+                frame += 1;
+                if (frame >= frames)
+                {
+                    frame = 0;
+                }
+            }
+        }
     }
 }
