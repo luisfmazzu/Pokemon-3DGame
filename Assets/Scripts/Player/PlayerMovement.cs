@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         speed = walkSpeed;
         canReceiveInput = true;
 
-        spriteSheet = Resources.LoadAll<Sprite>("Sprites 1/PlayerSprites/m_hgss_walk");
+        spriteSheet = Resources.LoadAll<Sprite>("Sprites/PlayerSprites/m_hgss_walk");
 
         updateAnimation("walk", walkFPS);
         StartCoroutine("animateSprite");
