@@ -1,0 +1,1854 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-03-18, commit time:12:34, hash:22a2853</authoring_tool>
+    </contributor>
+    <created>2016-04-05T14:34:19</created>
+    <modified>2016-04-05T14:34:19</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images>
+    <image id="iaigiri_cut_png" name="iaigiri_cut_png">
+      <init_from>iaigiri_cut.png</init_from>
+    </image>
+    <image id="iaigiri_togebark_png" name="iaigiri_togebark_png">
+      <init_from>iaigiri_togebark.png</init_from>
+    </image>
+    <image id="kokage3_png" name="kokage3_png">
+      <init_from>kokage3.png</init_from>
+    </image>
+    <image id="iaigiri_toge_png" name="iaigiri_toge_png">
+      <init_from>iaigiri_toge.png</init_from>
+    </image>
+  </library_images>
+  <library_effects>
+    <effect id="iaigiri_cut1_mat_001-effect">
+      <profile_COMMON>
+        <newparam sid="iaigiri_cut_png-surface">
+          <surface type="2D">
+            <init_from>iaigiri_cut_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="iaigiri_cut_png-sampler">
+          <sampler2D>
+            <source>iaigiri_cut_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="iaigiri_cut_png-sampler" texcoord="mesh_0_cut_fx_uv0_id"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <transparent>
+              <texture texture="iaigiri_cut_png-sampler" texcoord="mesh_0_cut_fx_uv0_id"/>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0</float>
+            </transparency>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="iaigiri_bark1_mat_001-effect">
+      <profile_COMMON>
+        <newparam sid="iaigiri_togebark_png-surface">
+          <surface type="2D">
+            <init_from>iaigiri_togebark_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="iaigiri_togebark_png-sampler">
+          <sampler2D>
+            <source>iaigiri_togebark_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="iaigiri_togebark_png-sampler" texcoord="mesh_1_tree_a_uv0_id"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="kokage3_mat_001-effect">
+      <profile_COMMON>
+        <newparam sid="kokage3_png-surface">
+          <surface type="2D">
+            <init_from>kokage3_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="kokage3_png-sampler">
+          <sampler2D>
+            <source>kokage3_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="kokage3_png-sampler" texcoord="mesh_3_kage_uv0_id"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <transparent>
+              <texture texture="kokage3_png-sampler" texcoord="mesh_3_kage_uv0_id"/>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0</float>
+            </transparency>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="iaigiri_branch2_mat_001-effect">
+      <profile_COMMON>
+        <newparam sid="iaigiri_toge_png-surface">
+          <surface type="2D">
+            <init_from>iaigiri_toge_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="iaigiri_toge_png-sampler">
+          <sampler2D>
+            <source>iaigiri_toge_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="iaigiri_toge_png-sampler" texcoord="mesh_4_pPlane10_uv0_id"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <transparent>
+              <texture texture="iaigiri_toge_png-sampler" texcoord="mesh_4_pPlane10_uv0_id"/>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0</float>
+            </transparency>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="iaigiri_cut1_mat_001-material" name="iaigiri_cut1_mat_001">
+      <instance_effect url="#iaigiri_cut1_mat_001-effect"/>
+    </material>
+    <material id="iaigiri_bark1_mat_001-material" name="iaigiri_bark1_mat_001">
+      <instance_effect url="#iaigiri_bark1_mat_001-effect"/>
+    </material>
+    <material id="kokage3_mat_001-material" name="kokage3_mat_001">
+      <instance_effect url="#kokage3_mat_001-effect"/>
+    </material>
+    <material id="iaigiri_branch2_mat_001-material" name="iaigiri_branch2_mat_001">
+      <instance_effect url="#iaigiri_branch2_mat_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="mesh_0_cut_fx_001-mesh" name="mesh_0_cut_fx.001">
+      <mesh>
+        <source id="mesh_0_cut_fx_001-mesh-positions">
+          <float_array id="mesh_0_cut_fx_001-mesh-positions-array" count="27">0 14.9221 7.38577 -77.11961 51.80676 7.38577 -1.103478 12.61491 7.385761 -76.01613 54.11395 7.385779 76.01613 -24.26974 7.385761 1.103478 17.22929 7.385779 77.11961 -21.96256 7.38577 -78.22308 49.49957 7.385761 78.22308 -19.65537 7.385779</float_array>
+          <technique_common>
+            <accessor source="#mesh_0_cut_fx_001-mesh-positions-array" count="9" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_0_cut_fx_001-mesh-normals">
+          <float_array id="mesh_0_cut_fx_001-mesh-normals-array" count="21">-1.67502e-6 -3.19578e-6 1 -1.58778e-6 -3.19579e-6 1 -1.39585e-6 -3.19578e-6 1 -1.39585e-6 -3.19578e-6 1 -1.48309e-6 -3.19579e-6 1 -1.67502e-6 -3.19578e-6 1 -1.39585e-6 -3.19578e-6 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_0_cut_fx_001-mesh-normals-array" count="7" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_0_cut_fx_001-mesh-map">
+          <float_array id="mesh_0_cut_fx_001-mesh-map-array" count="48">0.967071 0.02881276 0.04116117 0.02881276 0.967071 0.962955 0.967071 0.02881276 0.04116117 0.962955 0.04116117 0.02881276 0.967071 0.02881276 0.967071 0.962955 0.04116117 0.962955 0.967071 0.02881276 0.967071 0.962955 0.04116117 0.962955 0.967071 0.02881276 0.04116117 0.962955 0.04116117 0.02881276 0.967071 0.02881276 0.04116117 0.02881276 0.967071 0.962955 0.04116117 0.02881276 0.04116117 0.962955 0.967071 0.962955 0.04116117 0.02881276 0.04116117 0.962955 0.967071 0.962955</float_array>
+          <technique_common>
+            <accessor source="#mesh_0_cut_fx_001-mesh-map-array" count="24" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_0_cut_fx_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_0_cut_fx_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_cut1_mat_001-material" count="8">
+          <input semantic="VERTEX" source="#mesh_0_cut_fx_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_0_cut_fx_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_0_cut_fx_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5 0 2 6 2 2 7 4 2 8 0 3 9 5 3 10 3 3 11 0 4 12 4 4 13 6 4 14 0 5 15 6 5 16 5 5 17 1 3 18 7 3 19 2 3 20 6 6 21 8 6 22 5 6 23</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_1_tree_a_001-mesh" name="mesh_1_tree_a.001">
+      <mesh>
+        <source id="mesh_1_tree_a_001-mesh-positions">
+          <float_array id="mesh_1_tree_a_001-mesh-positions-array" count="117">1.507224 20.33318 1.03756 1.870847 19.00863 -0.5327001 1.566656 21.37673 -0.50912 2.548247 13.90822 0.6167599 1.074227 26.0186 -1.02937 0.846487 14.7591 2.26031 0.138722 26.3394 -0.2149801 0.43016 20.39441 2.052812 1.170373 18.66455 -1.92287 2.603337 13.88067 0.29264 1.636088 14.3643 -1.88734 1.083989 22.51576 -1.7308 -0.7859131 15.5753 1.679935 -0.549043 20.56572 1.314967 -0.6077231 25.2928 -0.9964402 -1.061333 19.84749 -0.4923902 -0.2376431 22.51869 -1.93051 -1.061333 19.84749 -0.4923902 -1.128533 15.74661 0.9596 -0.435723 18.91102 -2.09518 -1.413053 15.88887 0.2399499 -0.7072731 15.53598 -2.21683 0.595143 14.88477 0.02173995 2.603337 13.88067 0.29264 2.548247 13.90822 0.6167599 1.636088 14.3643 -1.88734 2.603337 13.88067 0.29264 0.846487 14.7591 2.26031 -0.7859131 15.5753 1.679935 2.548247 13.90822 0.6167599 0.846487 14.7591 2.26031 -0.7859131 15.5753 1.679935 -1.128533 15.74661 0.9596 -1.128533 15.74661 0.9596 -1.413053 15.88887 0.2399499 -1.413053 15.88887 0.2399499 -0.7072731 15.53598 -2.21683 -0.7072731 15.53598 -2.21683 1.636088 14.3643 -1.88734</float_array>
+          <technique_common>
+            <accessor source="#mesh_1_tree_a_001-mesh-positions-array" count="39" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_1_tree_a_001-mesh-normals">
+          <float_array id="mesh_1_tree_a_001-mesh-normals-array" count="84">0.9845534 0.125251 0.1223396 0.8646991 0.1707546 0.4723754 0.9187137 0.1330323 0.3718436 0.9718146 0.1276607 -0.19819 0.9860848 0.1177597 0.1173438 0.3992232 0.05731523 0.9150606 0.6829205 0.2949675 0.6682918 0.07245188 0.213907 0.9741635 0.6642897 0.2946168 0.6869645 0.8749525 0.1170691 -0.4698435 0.9885504 0.1284556 -0.079167 0.9111621 0.07223981 -0.4056663 0.8891265 0.09088724 -0.4485461 0.9473884 0.0653848 -0.3133373 0.9409457 0.03788447 -0.3364313 -0.6144092 0.04458826 0.7877267 -0.5475374 0.2746726 0.7904163 -0.8390821 0.2305236 0.4927477 -0.8025749 0.1612352 0.5743491 -0.9669778 0.1021649 0.2334874 -0.8922234 0.03263175 -0.4504141 -0.9114003 0.1049562 0.3979117 -0.9825126 0.06757003 -0.1735031 -0.9151925 0.06837767 -0.3971741 -0.9893047 0.1207332 0.08185201 -0.931227 0.04876935 -0.3611621 -0.9540928 0.08707141 -0.2865757 -0.4472014 -0.8944334 0</float_array>
+          <technique_common>
+            <accessor source="#mesh_1_tree_a_001-mesh-normals-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_1_tree_a_001-mesh-map">
+          <float_array id="mesh_1_tree_a_001-mesh-map-array" count="198">0.847563 0.574099 1.07675 0.678766 0.981342 0.659315 0.847563 0.574099 0.856865 0.514393 1.07675 0.678766 0.847563 0.574099 0.981342 0.659315 0.73473 0.775057 0.847563 0.574099 0.643115 0.533919 0.856865 0.514393 0.847563 0.574099 0.73473 0.775057 0.581284 0.766328 0.847563 0.574099 0.634669 0.605217 0.643115 0.533919 0.847563 0.574099 0.581284 0.766328 0.634669 0.605217 1.07675 0.678766 1.07294 0.601456 0.981342 0.659315 1.07675 0.678766 0.856865 0.514393 0.90001 0.510471 1.07675 0.678766 1.11659 0.479513 1.07294 0.601456 1.07675 0.678766 0.90001 0.510471 1.11659 0.479513 0.73473 0.775057 0.981342 0.659315 1.05783 0.794915 1.05783 0.794915 0.981342 0.659315 1.07294 0.601456 0.643115 0.533919 0.634669 0.605217 0.439732 0.551881 0.581284 0.766328 0.391451 0.637214 0.634669 0.605217 0.581284 0.766328 0.353051 0.775024 0.391451 0.637214 0.634669 0.605217 0.391451 0.637214 0.439732 0.551881 0.353051 0.775024 0.08591538 0.792385 0.391451 0.637214 0.353051 0.775024 0.06085717 0.700426 0.1568869 0.687107 0.439732 0.551881 0.391451 0.637214 0.31469 0.569243 0.391451 0.637214 0.1568869 0.687107 0.31469 0.569243 0.06085717 0.700426 0.07782256 0.642342 0.1568869 0.687107 0.31469 0.569243 0.1568869 0.687107 0.272359 0.565322 0.1568869 0.687107 0.07782256 0.642342 0.272359 0.565322 0.07782256 0.642342 0.0716238 0.549074 0.272359 0.565322 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388</float_array>
+          <technique_common>
+            <accessor source="#mesh_1_tree_a_001-mesh-map-array" count="99" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_1_tree_a_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_1_tree_a_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_bark1_mat_001-material" count="33">
+          <input semantic="VERTEX" source="#mesh_1_tree_a_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_1_tree_a_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_1_tree_a_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 2 4 1 3 5 0 4 6 2 4 7 4 4 8 0 1 9 5 5 10 3 2 11 0 6 12 4 6 13 6 6 14 0 1 15 7 7 16 5 5 17 0 8 18 6 8 19 7 8 20 1 9 21 8 9 22 2 9 23 1 3 24 3 2 25 9 10 26 1 3 27 10 11 28 8 12 29 1 3 30 9 10 31 10 11 32 4 13 33 2 13 34 11 13 35 11 14 36 2 14 37 8 14 38 5 5 39 7 7 40 12 15 41 6 16 42 13 16 43 7 16 44 6 17 45 14 17 46 13 17 47 7 7 48 13 18 49 12 15 50 14 19 51 15 19 52 13 19 53 14 20 54 16 20 55 17 20 56 12 15 57 13 18 58 18 21 59 13 18 60 17 22 61 18 21 62 16 23 63 19 23 64 17 23 65 18 21 66 17 22 67 20 24 68 17 22 69 19 25 70 20 24 71 19 25 72 21 26 73 20 24 74 22 27 75 23 27 76 24 27 77 22 27 78 25 27 79 26 27 80 22 27 81 27 27 82 28 27 83 22 27 84 29 27 85 30 27 86 22 27 87 31 27 88 32 27 89 22 27 90 33 27 91 34 27 92 22 27 93 35 27 94 36 27 95 22 27 96 37 27 97 38 27 98</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_2_tree_b_001-mesh" name="mesh_2_tree_b.001">
+      <mesh>
+        <source id="mesh_2_tree_b_001-mesh-positions">
+          <float_array id="mesh_2_tree_b_001-mesh-positions-array" count="138">-1.430325 13.0669 0.7620069 -0.9058149 4.64124 0.839477 -0.843275 12.863 1.878297 -0.4826149 4.76899 -0.680814 -0.785915 15.5753 1.679937 -1.181765 12.7605 -2.316863 -1.128525 15.7466 0.9596069 -0.707275 15.5359 -2.216823 -1.413055 15.8888 0.239956 -0.06581598 4.59773 1.621497 -6.343285 2.224026 -0.778717 -1.048495 2.224026 1.379577 -6.272695 2.224026 -0.134185 0.846487 14.7591 2.260307 0.04126304 2.224026 6.901827 1.023144 12.7485 2.334337 1.068608 2.224026 6.862417 1.263598 4.67648 1.691907 2.196215 2.224026 1.579657 2.548245 13.9082 0.616757 2.887775 12.4573 0.52173 2.361685 4.53142 0.783747 7.149215 2.224026 0.02399897 2.603345 13.8806 0.292643 6.949695 2.224026 -0.859299 2.622295 12.1463 -1.869013 2.168285 4.49309 -0.638507 1.636088 14.3643 -1.887343 0.595143 14.8847 0.02174299 2.548245 13.9082 0.616757 2.603345 13.8806 0.292643 2.603345 13.8806 0.292643 1.636088 14.3643 -1.887343 -0.785915 15.5753 1.679937 0.846487 14.7591 2.260307 0.846487 14.7591 2.260307 2.548245 13.9082 0.616757 -1.128525 15.7466 0.9596069 -0.785915 15.5753 1.679937 -1.413055 15.8888 0.239956 -1.128525 15.7466 0.9596069 -0.707275 15.5359 -2.216823 -1.413055 15.8888 0.239956 0.595143 14.8847 0.02174299 1.636088 14.3643 -1.887343 -0.707275 15.5359 -2.216823</float_array>
+          <technique_common>
+            <accessor source="#mesh_2_tree_b_001-mesh-positions-array" count="46" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_2_tree_b_001-mesh-normals">
+          <float_array id="mesh_2_tree_b_001-mesh-normals-array" count="102">-0.9833521 3.96747e-4 0.18171 -0.8020719 0.3286294 0.4986817 -0.6194179 -0.004974603 0.7850457 -0.8909524 0.4161012 -0.1818345 -0.7191782 0.07416093 0.6908566 -0.9958994 0.03415083 -0.08377492 -0.9095918 0.07226926 0.4091698 -0.9811081 0.06940114 -0.1805834 -0.99991 0.008087396 0.01071196 -0.5572459 0.3170616 0.7674301 -0.413956 0.9097328 0.03204464 -0.6652511 0.3141616 0.6773061 -0.4344772 0.8683441 0.2391822 0.09406042 0.07468062 0.9927616 -0.2200721 0.8880403 0.4036741 0.2755885 0.009064197 0.961233 0.2342328 0.8817836 0.409381 0.4835773 0.3284174 0.8113538 0.6846657 0.334642 0.6474934 0.8490124 0.1574788 0.5043596 0.9461245 0.05581951 0.3189557 0.7771504 0.332938 0.5340315 0.4493362 0.8780414 0.1647434 0.9650802 0.255141 -0.05935996 0.4206129 0.9024776 -0.09283882 0.9769959 0.1204268 -0.1760014 0.8767423 0.4625886 -0.1316624 0.8721542 0.385308 -0.3014711 0.4472014 0.8944334 0 0.4472258 0.8944211 -1.22076e-4 0.4472014 0.8944334 3.05194e-5 0.4472258 0.8944211 0 0.4472014 0.8944334 -6.10389e-5 0.4471648 0.8944516 0</float_array>
+          <technique_common>
+            <accessor source="#mesh_2_tree_b_001-mesh-normals-array" count="34" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_2_tree_b_001-mesh-map">
+          <float_array id="mesh_2_tree_b_001-mesh-map-array" count="252">0.29168 0.477941 0.272381 0.147316 0.453336 0.486548 0.29168 0.477941 0.06503379 0.173378 0.272381 0.147316 0.29168 0.477941 0.453336 0.486548 0.439732 0.551881 0.29168 0.477941 0.07102936 0.460056 0.06503379 0.173378 0.29168 0.477941 0.439732 0.551881 0.31469 0.569243 0.29168 0.477941 0.0716238 0.549074 0.07102936 0.460056 0.29168 0.477941 0.31469 0.569243 0.272359 0.565322 0.29168 0.477941 0.272359 0.565322 0.0716238 0.549074 0.272381 0.147316 0.441021 0.144894 0.453336 0.486548 0.272381 0.147316 0.06503379 0.173378 -7.83777e-4 0 0.272381 0.147316 0.308012 0 0.441021 0.144894 0.272381 0.147316 -7.83777e-4 0 0.18704 0 0.272381 0.147316 0.18704 0 0.308012 0 0.439732 0.551881 0.453336 0.486548 0.643115 0.533919 0.441021 0.144894 0.308012 0 0.428983 0 0.441021 0.144894 0.648234 0.491632 0.453336 0.486548 0.441021 0.144894 0.428983 0 0.657505 0 0.441021 0.144894 0.685109 0.151129 0.648234 0.491632 0.441021 0.144894 0.657505 0 0.685109 0.151129 0.453336 0.486548 0.648234 0.491632 0.643115 0.533919 0.657505 0 0.782721 0 0.685109 0.151129 0.648234 0.491632 0.856865 0.514393 0.643115 0.533919 0.648234 0.491632 0.685109 0.151129 0.877038 0.459602 0.648234 0.491632 0.877038 0.459602 0.856865 0.514393 0.782721 0 0.8940001 0.133822 0.685109 0.151129 0.782721 0 0.907936 0 0.8940001 0.133822 0.685109 0.151129 0.8940001 0.133822 0.877038 0.459602 0.856865 0.514393 0.877038 0.459602 0.90001 0.510471 0.907936 0 1.2028 0 0.8940001 0.133822 0.877038 0.459602 1.13706 0.397399 0.90001 0.510471 0.877038 0.459602 0.8940001 0.133822 1.13706 0.397399 1.2028 0 1.17026 0.144481 0.8940001 0.133822 0.8940001 0.133822 1.17026 0.144481 1.13706 0.397399 0.90001 0.510471 1.13706 0.397399 1.11659 0.479513 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.3803 0.25 1.41666 0.25 1.38485</float_array>
+          <technique_common>
+            <accessor source="#mesh_2_tree_b_001-mesh-map-array" count="126" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_2_tree_b_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_2_tree_b_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_bark1_mat_001-material" count="42">
+          <input semantic="VERTEX" source="#mesh_2_tree_b_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_2_tree_b_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_2_tree_b_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 0 1 1 1 2 2 2 0 0 3 3 3 4 1 1 5 0 0 6 2 2 7 4 4 8 0 0 9 5 5 10 3 3 11 0 0 12 4 4 13 6 6 14 0 0 15 7 7 16 5 5 17 0 0 18 6 6 19 8 8 20 0 0 21 8 8 22 7 7 23 1 1 24 9 9 25 2 2 26 1 1 27 3 3 28 10 10 29 1 1 30 11 11 31 9 9 32 1 1 33 10 10 34 12 12 35 1 1 36 12 12 37 11 11 38 4 4 39 2 2 40 13 13 41 9 9 42 11 11 43 14 14 44 9 9 45 15 15 46 2 2 47 9 9 48 14 14 49 16 16 50 9 9 51 17 17 52 15 15 53 9 9 54 16 16 55 17 17 56 2 2 57 15 15 58 13 13 59 16 16 60 18 18 61 17 17 62 15 15 63 19 19 64 13 13 65 15 15 66 17 17 67 20 20 68 15 15 69 20 20 70 19 19 71 18 18 72 21 21 73 17 17 74 18 18 75 22 22 76 21 21 77 17 17 78 21 21 79 20 20 80 19 19 81 20 20 82 23 23 83 22 22 84 24 24 85 21 21 86 20 20 87 25 25 88 23 23 89 20 20 90 21 21 91 25 25 92 24 24 93 26 26 94 21 21 95 21 21 96 26 26 97 25 25 98 23 23 99 25 25 100 27 27 101 28 28 102 29 29 103 30 29 104 28 28 105 31 30 106 32 30 107 28 28 108 33 31 109 34 31 110 28 28 111 35 28 112 36 28 113 28 28 114 37 31 115 38 31 116 28 28 117 39 32 118 40 32 119 28 28 120 41 28 121 42 28 122 43 33 123 44 33 124 45 33 125</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_3_kage_001-mesh" name="mesh_3_kage.001">
+      <mesh>
+        <source id="mesh_3_kage_001-mesh-positions">
+          <float_array id="mesh_3_kage_001-mesh-positions-array" count="12">8.74171 1 8.724536 -8.74245 1 -8.759624 -8.74245 1 8.724536 8.74171 1 -8.759624</float_array>
+          <technique_common>
+            <accessor source="#mesh_3_kage_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_3_kage_001-mesh-normals">
+          <float_array id="mesh_3_kage_001-mesh-normals-array" count="3">0 1 0</float_array>
+          <technique_common>
+            <accessor source="#mesh_3_kage_001-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_3_kage_001-mesh-map">
+          <float_array id="mesh_3_kage_001-mesh-map-array" count="12">0.9 0.1 0.1 0.9 0.1 0.1 0.9 0.1 0.9 0.9 0.1 0.9</float_array>
+          <technique_common>
+            <accessor source="#mesh_3_kage_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_3_kage_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_3_kage_001-mesh-positions"/>
+        </vertices>
+        <polylist material="kokage3_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_3_kage_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_3_kage_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_3_kage_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 0 3 3 0 4 1 0 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_4_pPlane10_001-mesh" name="mesh_4_pPlane10.001">
+      <mesh>
+        <source id="mesh_4_pPlane10_001-mesh-positions">
+          <float_array id="mesh_4_pPlane10_001-mesh-positions-array" count="12">17.80505 9.262046 0.6303249 -2.352065 23.06919 -14.05538 -2.352065 9.262046 0.6303249 17.80505 23.06919 -14.05538</float_array>
+          <technique_common>
+            <accessor source="#mesh_4_pPlane10_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_4_pPlane10_001-mesh-normals">
+          <float_array id="mesh_4_pPlane10_001-mesh-normals-array" count="6">0 0.7285639 0.684978 0 0.7285637 0.6849781</float_array>
+          <technique_common>
+            <accessor source="#mesh_4_pPlane10_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_4_pPlane10_001-mesh-map">
+          <float_array id="mesh_4_pPlane10_001-mesh-map-array" count="12">1 0 0 1 0 0 1 0 1 1 0 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_4_pPlane10_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_4_pPlane10_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_4_pPlane10_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_4_pPlane10_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_4_pPlane10_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_4_pPlane10_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_5_pPlane11_001-mesh" name="mesh_5_pPlane11.001">
+      <mesh>
+        <source id="mesh_5_pPlane11_001-mesh-positions">
+          <float_array id="mesh_5_pPlane11_001-mesh-positions-array" count="12">1.909309 21.16853 0.5452402 -9.745846 49.21235 -14.38077 -18.43049 27.25852 -10.48864 10.59396 43.12235 -3.34689</float_array>
+          <technique_common>
+            <accessor source="#mesh_5_pPlane11_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_5_pPlane11_001-mesh-normals">
+          <float_array id="mesh_5_pPlane11_001-mesh-normals-array" count="6">-0.3816887 0.3056377 0.8722954 -0.3816884 0.3056378 0.8722956</float_array>
+          <technique_common>
+            <accessor source="#mesh_5_pPlane11_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_5_pPlane11_001-mesh-map">
+          <float_array id="mesh_5_pPlane11_001-mesh-map-array" count="12">0 0 1 1 1 0 0 0 0 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_5_pPlane11_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_5_pPlane11_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_5_pPlane11_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_5_pPlane11_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_5_pPlane11_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_5_pPlane11_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_6_pPlane14_001-mesh" name="mesh_6_pPlane14.001">
+      <mesh>
+        <source id="mesh_6_pPlane14_001-mesh-positions">
+          <float_array id="mesh_6_pPlane14_001-mesh-positions-array" count="15">0.7521628 20.04201 -0.98083 18.96955 23.76954 -3.472515 12.39279 26.72498 -8.421094 4.743132 14.09649 3.090291 4.375284 22.57683 -7.936806</float_array>
+          <technique_common>
+            <accessor source="#mesh_6_pPlane14_001-mesh-positions-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_6_pPlane14_001-mesh-normals">
+          <float_array id="mesh_6_pPlane14_001-mesh-normals-array" count="15">-0.127724 0.7382966 0.6622726 -0.05816996 0.735579 0.6749369 -0.1663884 0.8487274 0.5019729 -0.002411007 0.5638768 0.8258555 -0.4536328 0.88694 0.08691775</float_array>
+          <technique_common>
+            <accessor source="#mesh_6_pPlane14_001-mesh-normals-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_6_pPlane14_001-mesh-map">
+          <float_array id="mesh_6_pPlane14_001-mesh-map-array" count="18">0.386995 0.445574 1 0 1 0.308425 0.386995 0.445574 0.355154 0.166714 1 0 0.386995 0.445574 1 0.308425 0.694687 0.551648</float_array>
+          <technique_common>
+            <accessor source="#mesh_6_pPlane14_001-mesh-map-array" count="9" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_6_pPlane14_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_6_pPlane14_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="3">
+          <input semantic="VERTEX" source="#mesh_6_pPlane14_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_6_pPlane14_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_6_pPlane14_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 </vcount>
+          <p>0 0 0 1 1 1 2 2 2 0 0 3 3 3 4 1 1 5 0 0 6 2 2 7 4 4 8</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_7_pPlane15_001-mesh" name="mesh_7_pPlane15.001">
+      <mesh>
+        <source id="mesh_7_pPlane15_001-mesh-positions">
+          <float_array id="mesh_7_pPlane15_001-mesh-positions-array" count="15">0.434389 11.61095 -1.8706 -13.2429 20.45535 -11.18105 -14.3253 14.1413 -5.228069 4.09594 14.87486 -8.488078 -7.262252 8.922419 -3.083619</float_array>
+          <technique_common>
+            <accessor source="#mesh_7_pPlane15_001-mesh-positions-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_7_pPlane15_001-mesh-normals">
+          <float_array id="mesh_7_pPlane15_001-mesh-normals-array" count="15">0.05865848 0.7007279 0.711013 0.02966469 0.7461047 0.6651676 -0.08075338 0.5924052 0.8015828 0.1886409 0.8353182 0.5163896 -0.1986207 0.1303181 0.9713738</float_array>
+          <technique_common>
+            <accessor source="#mesh_7_pPlane15_001-mesh-normals-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_7_pPlane15_001-mesh-map">
+          <float_array id="mesh_7_pPlane15_001-mesh-map-array" count="18">0.386995 0.445574 1 0 1 0.3125 0.386995 0.445574 0.348946 0.163505 1 0 0.386995 0.445574 1 0.3125 0.694687 0.551648</float_array>
+          <technique_common>
+            <accessor source="#mesh_7_pPlane15_001-mesh-map-array" count="9" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_7_pPlane15_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_7_pPlane15_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="3">
+          <input semantic="VERTEX" source="#mesh_7_pPlane15_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_7_pPlane15_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_7_pPlane15_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 </vcount>
+          <p>0 0 0 1 1 1 2 2 2 0 0 3 3 3 4 1 1 5 0 0 6 2 2 7 4 4 8</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_8_pPlane18_001-mesh" name="mesh_8_pPlane18.001">
+      <mesh>
+        <source id="mesh_8_pPlane18_001-mesh-positions">
+          <float_array id="mesh_8_pPlane18_001-mesh-positions-array" count="15">2.466357 15.08387 -0.5068002 8.69186 26.69732 12.84787 12.35837 25.4401 5.008678 -0.9862874 12.39048 6.470017 10.10814 18.07049 0.2813591</float_array>
+          <technique_common>
+            <accessor source="#mesh_8_pPlane18_001-mesh-positions-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_8_pPlane18_001-mesh-normals">
+          <float_array id="mesh_8_pPlane18_001-mesh-normals-array" count="15">-0.6414502 0.6693752 -0.3748049 -0.6401368 0.7020294 -0.3120571 -0.487367 0.7248398 -0.4869093 -0.7843338 0.6003052 -0.1563784 -0.1364524 0.5640605 -0.8143811</float_array>
+          <technique_common>
+            <accessor source="#mesh_8_pPlane18_001-mesh-normals-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_8_pPlane18_001-mesh-map">
+          <float_array id="mesh_8_pPlane18_001-mesh-map-array" count="18">0.386995 0.445574 1 0 1 0.3125 0.386995 0.445574 0.348946 0.163505 1 0 0.386995 0.445574 1 0.3125 0.694687 0.551648</float_array>
+          <technique_common>
+            <accessor source="#mesh_8_pPlane18_001-mesh-map-array" count="9" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_8_pPlane18_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_8_pPlane18_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="3">
+          <input semantic="VERTEX" source="#mesh_8_pPlane18_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_8_pPlane18_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_8_pPlane18_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 </vcount>
+          <p>0 0 0 1 1 1 2 2 2 0 0 3 3 3 4 1 1 5 0 0 6 2 2 7 4 4 8</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_9_pPlane19_001-mesh" name="mesh_9_pPlane19.001">
+      <mesh>
+        <source id="mesh_9_pPlane19_001-mesh-positions">
+          <float_array id="mesh_9_pPlane19_001-mesh-positions-array" count="15">-0.602713 14.0597 0.5979999 -16.93798 22.24339 4.859763 -10.43657 20.52229 10.4496 -5.698492 12.02384 -5.545239 -4.098115 14.54117 8.047045</float_array>
+          <technique_common>
+            <accessor source="#mesh_9_pPlane19_001-mesh-positions-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_9_pPlane19_001-mesh-normals">
+          <float_array id="mesh_9_pPlane19_001-mesh-normals-array" count="15">0.4306513 0.8571215 -0.2826349 0.3658051 0.8831388 -0.2936878 0.4813762 0.8717448 -0.09131282 0.2788569 0.8183507 -0.5025346 0.7125907 0.6373916 0.2931665</float_array>
+          <technique_common>
+            <accessor source="#mesh_9_pPlane19_001-mesh-normals-array" count="5" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_9_pPlane19_001-mesh-map">
+          <float_array id="mesh_9_pPlane19_001-mesh-map-array" count="18">0.386995 0.445574 1 0 1 0.3125 0.386995 0.445574 0.348946 0.163505 1 0 0.386995 0.445574 1 0.3125 0.694687 0.551648</float_array>
+          <technique_common>
+            <accessor source="#mesh_9_pPlane19_001-mesh-map-array" count="9" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_9_pPlane19_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_9_pPlane19_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="3">
+          <input semantic="VERTEX" source="#mesh_9_pPlane19_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_9_pPlane19_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_9_pPlane19_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 </vcount>
+          <p>0 0 0 1 1 1 2 2 2 0 0 3 3 3 4 1 1 5 0 0 6 2 2 7 4 4 8</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_10_pPlane8_001-mesh" name="mesh_10_pPlane8.001">
+      <mesh>
+        <source id="mesh_10_pPlane8_001-mesh-positions">
+          <float_array id="mesh_10_pPlane8_001-mesh-positions-array" count="12">2.13784 17.07911 0.7792504 -18.01921 27.46481 -16.4963 -18.01921 17.07911 0.7792504 2.13784 27.46481 -16.4963</float_array>
+          <technique_common>
+            <accessor source="#mesh_10_pPlane8_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_10_pPlane8_001-mesh-normals">
+          <float_array id="mesh_10_pPlane8_001-mesh-normals-array" count="6">0 0.8570467 0.5152387 0 0.8570469 0.5152386</float_array>
+          <technique_common>
+            <accessor source="#mesh_10_pPlane8_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_10_pPlane8_001-mesh-map">
+          <float_array id="mesh_10_pPlane8_001-mesh-map-array" count="12">0 0 1 1 1 0 0 0 0 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_10_pPlane8_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_10_pPlane8_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_10_pPlane8_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_10_pPlane8_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_10_pPlane8_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_10_pPlane8_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_11_pPlane9_001-mesh" name="mesh_11_pPlane9.001">
+      <mesh>
+        <source id="mesh_11_pPlane9_001-mesh-positions">
+          <float_array id="mesh_11_pPlane9_001-mesh-positions-array" count="12">-1.611795 21.31001 -0.9410958 12.75605 40.98915 -18.9644 -7.741312 35.75855 -15.53357 18.88557 26.54062 -4.371928</float_array>
+          <technique_common>
+            <accessor source="#mesh_11_pPlane9_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_11_pPlane9_001-mesh-normals">
+          <float_array id="mesh_11_pPlane9_001-mesh-normals-array" count="6">-0.05825942 0.6970528 0.7146491 -0.05825978 0.6970529 0.714649</float_array>
+          <technique_common>
+            <accessor source="#mesh_11_pPlane9_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_11_pPlane9_001-mesh-map">
+          <float_array id="mesh_11_pPlane9_001-mesh-map-array" count="12">0 0 1 1 0 1 0 0 1 0 1 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_11_pPlane9_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_11_pPlane9_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_11_pPlane9_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_11_pPlane9_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_11_pPlane9_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_11_pPlane9_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_12_pPlane12_001-mesh" name="mesh_12_pPlane12.001">
+      <mesh>
+        <source id="mesh_12_pPlane12_001-mesh-positions">
+          <float_array id="mesh_12_pPlane12_001-mesh-positions-array" count="12">0.07987403 6.79495 -1.023601 -9.700128 11.99212 -9.668559 -9.700128 5.265616 1.520289 2.408644 11.99212 -9.668559</float_array>
+          <technique_common>
+            <accessor source="#mesh_12_pPlane12_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_12_pPlane12_001-mesh-normals">
+          <float_array id="mesh_12_pPlane12_001-mesh-normals-array" count="6">0 0.8570468 0.5152388 0 0.8570467 0.5152389</float_array>
+          <technique_common>
+            <accessor source="#mesh_12_pPlane12_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_12_pPlane12_001-mesh-map">
+          <float_array id="mesh_12_pPlane12_001-mesh-map-array" count="12">0.571817 0.558379 1 1 1 0.366035 0.571817 0.558379 0.46986 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_12_pPlane12_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_12_pPlane12_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_12_pPlane12_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_12_pPlane12_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_12_pPlane12_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_12_pPlane12_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_13_pPlane13_001-mesh" name="mesh_13_pPlane13.001">
+      <mesh>
+        <source id="mesh_13_pPlane13_001-mesh-positions">
+          <float_array id="mesh_13_pPlane13_001-mesh-positions-array" count="12">2.182235 6.53847 -0.037243 11.77978 12.98511 -6.894095 0.1486003 12.98511 -6.894095 11.77978 5.121583 1.469803</float_array>
+          <technique_common>
+            <accessor source="#mesh_13_pPlane13_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_13_pPlane13_001-mesh-normals">
+          <float_array id="mesh_13_pPlane13_001-mesh-normals-array" count="6">0 0.7285641 0.6849777 0 0.7285642 0.6849775</float_array>
+          <technique_common>
+            <accessor source="#mesh_13_pPlane13_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_13_pPlane13_001-mesh-map">
+          <float_array id="mesh_13_pPlane13_001-mesh-map-array" count="12">0.571817 0.558379 1 1 0.469768 1 0.571817 0.558379 1 0.368081 1 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_13_pPlane13_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_13_pPlane13_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_13_pPlane13_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_13_pPlane13_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_13_pPlane13_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_13_pPlane13_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_14_pPlane16_001-mesh" name="mesh_14_pPlane16.001">
+      <mesh>
+        <source id="mesh_14_pPlane16_001-mesh-positions">
+          <float_array id="mesh_14_pPlane16_001-mesh-positions-array" count="12">0.07987403 6.79495 -1.023601 -8.642515 11.7173 8.829558 2.687236 5.231633 8.734288 -8.681437 11.82717 -3.278653</float_array>
+          <technique_common>
+            <accessor source="#mesh_14_pPlane16_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_14_pPlane16_001-mesh-normals">
+          <float_array id="mesh_14_pPlane16_001-mesh-normals-array" count="6">0.4968342 0.8678229 0.006277441 0.4968342 0.8678229 0.006277561</float_array>
+          <technique_common>
+            <accessor source="#mesh_14_pPlane16_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_14_pPlane16_001-mesh-map">
+          <float_array id="mesh_14_pPlane16_001-mesh-map-array" count="12">0.571817 0.558379 1 1 1 0.366035 0.571817 0.558379 0.46986 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_14_pPlane16_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_14_pPlane16_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_14_pPlane16_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_14_pPlane16_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_14_pPlane16_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_14_pPlane16_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+    <geometry id="mesh_15_pPlane17_001-mesh" name="mesh_15_pPlane17.001">
+      <mesh>
+        <source id="mesh_15_pPlane17_001-mesh-positions">
+          <float_array id="mesh_15_pPlane17_001-mesh-positions-array" count="12">2.182235 6.53847 -0.037243 9.869273 10.61711 10.20789 10.07904 11.88861 -1.351683 0.2815881 4.362257 9.345895</float_array>
+          <technique_common>
+            <accessor source="#mesh_15_pPlane17_001-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_15_pPlane17_001-mesh-normals">
+          <float_array id="mesh_15_pPlane17_001-mesh-normals-array" count="6">-0.5497031 0.8313776 0.08147257 -0.5497027 0.8313781 0.08147221</float_array>
+          <technique_common>
+            <accessor source="#mesh_15_pPlane17_001-mesh-normals-array" count="2" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="mesh_15_pPlane17_001-mesh-map">
+          <float_array id="mesh_15_pPlane17_001-mesh-map-array" count="12">0.571817 0.558379 1 1 0.469768 1 0.571817 0.558379 1 0.368081 1 1</float_array>
+          <technique_common>
+            <accessor source="#mesh_15_pPlane17_001-mesh-map-array" count="6" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="mesh_15_pPlane17_001-mesh-vertices">
+          <input semantic="POSITION" source="#mesh_15_pPlane17_001-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001-material" count="2">
+          <input semantic="VERTEX" source="#mesh_15_pPlane17_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#mesh_15_pPlane17_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#mesh_15_pPlane17_001-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>0 0 0 1 0 1 2 0 2 0 1 3 3 1 4 1 1 5</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers>
+    <controller id="Armature_vsn_mesh_0_cut_fx-skin" name="Armature">
+      <skin source="#mesh_0_cut_fx_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_0_cut_fx-skin-joints">
+          <Name_array id="Armature_vsn_mesh_0_cut_fx-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_0_cut_fx-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_0_cut_fx-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_0_cut_fx-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_0_cut_fx-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_0_cut_fx-skin-weights">
+          <float_array id="Armature_vsn_mesh_0_cut_fx-skin-weights-array" count="9">1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_0_cut_fx-skin-weights-array" count="9" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_0_cut_fx-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_0_cut_fx-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="9">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_0_cut_fx-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_0_cut_fx-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 </vcount>
+          <v>1 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_1_tree_a-skin" name="Armature">
+      <skin source="#mesh_1_tree_a_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_1_tree_a-skin-joints">
+          <Name_array id="Armature_vsn_mesh_1_tree_a-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_1_tree_a-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_1_tree_a-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_1_tree_a-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_1_tree_a-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_1_tree_a-skin-weights">
+          <float_array id="Armature_vsn_mesh_1_tree_a-skin-weights-array" count="39">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_1_tree_a-skin-weights-array" count="39" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_1_tree_a-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_1_tree_a-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="39">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_1_tree_a-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_1_tree_a-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </vcount>
+          <v>2 0 2 1 2 2 2 3 2 4 2 5 2 6 2 7 2 8 2 9 2 10 2 11 2 12 2 13 2 14 2 15 2 16 2 17 2 18 2 19 2 20 2 21 2 22 2 23 2 24 2 25 2 26 2 27 2 28 2 29 2 30 2 31 2 32 2 33 2 34 2 35 2 36 2 37 2 38</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_2_tree_b-skin" name="Armature">
+      <skin source="#mesh_2_tree_b_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_2_tree_b-skin-joints">
+          <Name_array id="Armature_vsn_mesh_2_tree_b-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_2_tree_b-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_2_tree_b-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_2_tree_b-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_2_tree_b-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_2_tree_b-skin-weights">
+          <float_array id="Armature_vsn_mesh_2_tree_b-skin-weights-array" count="46">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_2_tree_b-skin-weights-array" count="46" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_2_tree_b-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_2_tree_b-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="46">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_2_tree_b-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_2_tree_b-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </vcount>
+          <v>11 0 11 1 11 2 11 3 11 4 11 5 11 6 11 7 11 8 11 9 11 10 11 11 11 12 11 13 11 14 11 15 11 16 11 17 11 18 11 19 11 20 11 21 11 22 11 23 11 24 11 25 11 26 11 27 11 28 11 29 11 30 11 31 11 32 11 33 11 34 11 35 11 36 11 37 11 38 11 39 11 40 11 41 11 42 11 43 11 44 11 45</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_3_kage-skin" name="Armature">
+      <skin source="#mesh_3_kage_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_3_kage-skin-joints">
+          <Name_array id="Armature_vsn_mesh_3_kage-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_3_kage-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_3_kage-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_3_kage-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_3_kage-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_3_kage-skin-weights">
+          <float_array id="Armature_vsn_mesh_3_kage-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_3_kage-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_3_kage-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_3_kage-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_3_kage-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_3_kage-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>12 0 12 1 12 2 12 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_4_pPlane10-skin" name="Armature">
+      <skin source="#mesh_4_pPlane10_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_4_pPlane10-skin-joints">
+          <Name_array id="Armature_vsn_mesh_4_pPlane10-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_4_pPlane10-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_4_pPlane10-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_4_pPlane10-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_4_pPlane10-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_4_pPlane10-skin-weights">
+          <float_array id="Armature_vsn_mesh_4_pPlane10-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_4_pPlane10-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_4_pPlane10-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_4_pPlane10-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_4_pPlane10-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_4_pPlane10-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>3 0 3 1 3 2 3 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_5_pPlane11-skin" name="Armature">
+      <skin source="#mesh_5_pPlane11_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_5_pPlane11-skin-joints">
+          <Name_array id="Armature_vsn_mesh_5_pPlane11-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_5_pPlane11-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_5_pPlane11-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_5_pPlane11-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_5_pPlane11-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_5_pPlane11-skin-weights">
+          <float_array id="Armature_vsn_mesh_5_pPlane11-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_5_pPlane11-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_5_pPlane11-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_5_pPlane11-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_5_pPlane11-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_5_pPlane11-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>4 0 4 1 4 2 4 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_6_pPlane14-skin" name="Armature">
+      <skin source="#mesh_6_pPlane14_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_6_pPlane14-skin-joints">
+          <Name_array id="Armature_vsn_mesh_6_pPlane14-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_6_pPlane14-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_6_pPlane14-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_6_pPlane14-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_6_pPlane14-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_6_pPlane14-skin-weights">
+          <float_array id="Armature_vsn_mesh_6_pPlane14-skin-weights-array" count="5">1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_6_pPlane14-skin-weights-array" count="5" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_6_pPlane14-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_6_pPlane14-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="5">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_6_pPlane14-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_6_pPlane14-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 </vcount>
+          <v>5 0 5 1 5 2 5 3 5 4</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_7_pPlane15-skin" name="Armature">
+      <skin source="#mesh_7_pPlane15_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_7_pPlane15-skin-joints">
+          <Name_array id="Armature_vsn_mesh_7_pPlane15-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_7_pPlane15-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_7_pPlane15-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_7_pPlane15-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_7_pPlane15-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_7_pPlane15-skin-weights">
+          <float_array id="Armature_vsn_mesh_7_pPlane15-skin-weights-array" count="5">1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_7_pPlane15-skin-weights-array" count="5" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_7_pPlane15-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_7_pPlane15-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="5">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_7_pPlane15-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_7_pPlane15-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 </vcount>
+          <v>6 0 6 1 6 2 6 3 6 4</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_8_pPlane18-skin" name="Armature">
+      <skin source="#mesh_8_pPlane18_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_8_pPlane18-skin-joints">
+          <Name_array id="Armature_vsn_mesh_8_pPlane18-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_8_pPlane18-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_8_pPlane18-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_8_pPlane18-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_8_pPlane18-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_8_pPlane18-skin-weights">
+          <float_array id="Armature_vsn_mesh_8_pPlane18-skin-weights-array" count="5">1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_8_pPlane18-skin-weights-array" count="5" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_8_pPlane18-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_8_pPlane18-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="5">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_8_pPlane18-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_8_pPlane18-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 </vcount>
+          <v>7 0 7 1 7 2 7 3 7 4</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_9_pPlane19-skin" name="Armature">
+      <skin source="#mesh_9_pPlane19_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_9_pPlane19-skin-joints">
+          <Name_array id="Armature_vsn_mesh_9_pPlane19-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_9_pPlane19-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_9_pPlane19-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_9_pPlane19-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_9_pPlane19-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_9_pPlane19-skin-weights">
+          <float_array id="Armature_vsn_mesh_9_pPlane19-skin-weights-array" count="5">1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_9_pPlane19-skin-weights-array" count="5" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_9_pPlane19-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_9_pPlane19-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="5">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_9_pPlane19-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_9_pPlane19-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 </vcount>
+          <v>8 0 8 1 8 2 8 3 8 4</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_10_pPlane8-skin" name="Armature">
+      <skin source="#mesh_10_pPlane8_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_10_pPlane8-skin-joints">
+          <Name_array id="Armature_vsn_mesh_10_pPlane8-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_10_pPlane8-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_10_pPlane8-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_10_pPlane8-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_10_pPlane8-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_10_pPlane8-skin-weights">
+          <float_array id="Armature_vsn_mesh_10_pPlane8-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_10_pPlane8-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_10_pPlane8-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_10_pPlane8-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_10_pPlane8-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_10_pPlane8-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>9 0 9 1 9 2 9 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_11_pPlane9-skin" name="Armature">
+      <skin source="#mesh_11_pPlane9_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_11_pPlane9-skin-joints">
+          <Name_array id="Armature_vsn_mesh_11_pPlane9-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_11_pPlane9-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_11_pPlane9-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_11_pPlane9-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_11_pPlane9-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_11_pPlane9-skin-weights">
+          <float_array id="Armature_vsn_mesh_11_pPlane9-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_11_pPlane9-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_11_pPlane9-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_11_pPlane9-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_11_pPlane9-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_11_pPlane9-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>10 0 10 1 10 2 10 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_12_pPlane12-skin" name="Armature">
+      <skin source="#mesh_12_pPlane12_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_12_pPlane12-skin-joints">
+          <Name_array id="Armature_vsn_mesh_12_pPlane12-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_12_pPlane12-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_12_pPlane12-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_12_pPlane12-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_12_pPlane12-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_12_pPlane12-skin-weights">
+          <float_array id="Armature_vsn_mesh_12_pPlane12-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_12_pPlane12-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_12_pPlane12-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_12_pPlane12-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_12_pPlane12-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_12_pPlane12-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>13 0 13 1 13 2 13 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_13_pPlane13-skin" name="Armature">
+      <skin source="#mesh_13_pPlane13_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_13_pPlane13-skin-joints">
+          <Name_array id="Armature_vsn_mesh_13_pPlane13-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_13_pPlane13-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_13_pPlane13-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_13_pPlane13-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_13_pPlane13-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_13_pPlane13-skin-weights">
+          <float_array id="Armature_vsn_mesh_13_pPlane13-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_13_pPlane13-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_13_pPlane13-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_13_pPlane13-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_13_pPlane13-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_13_pPlane13-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>14 0 14 1 14 2 14 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_14_pPlane16-skin" name="Armature">
+      <skin source="#mesh_14_pPlane16_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_14_pPlane16-skin-joints">
+          <Name_array id="Armature_vsn_mesh_14_pPlane16-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_14_pPlane16-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_14_pPlane16-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_14_pPlane16-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_14_pPlane16-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_14_pPlane16-skin-weights">
+          <float_array id="Armature_vsn_mesh_14_pPlane16-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_14_pPlane16-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_14_pPlane16-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_14_pPlane16-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_14_pPlane16-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_14_pPlane16-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>15 0 15 1 15 2 15 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+    <controller id="Armature_vsn_mesh_15_pPlane17-skin" name="Armature">
+      <skin source="#mesh_15_pPlane17_001-mesh">
+        <bind_shape_matrix>1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</bind_shape_matrix>
+        <source id="Armature_vsn_mesh_15_pPlane17-skin-joints">
+          <Name_array id="Armature_vsn_mesh_15_pPlane17-skin-joints-array" count="17">iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_15_pPlane17-skin-joints-array" count="17" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_15_pPlane17-skin-bind_poses">
+          <float_array id="Armature_vsn_mesh_15_pPlane17-skin-bind_poses-array" count="272">1 0 0 0 0 0 1 0 0 -1 0 0 0 0 0 1 0.9021281 0 -0.4314686 6.438417 -1.51992e-6 -1 -2.92063e-6 -7.499957 -0.4314686 3.20951e-6 -0.9021281 13.46167 0 0 0 1 1 0 0 -0.8464869 0 0 1 -14.7591 0 -1 0 -2.26031 0 0 0 1 1 0 0 -1.007745 0 0.7285641 0.6849777 -7.044172 0 -0.6849777 0.728564 -7.179751 0 0 0 1 0.3629513 0.1626613 0.9175006 -23.59403 -0.850047 0.4611312 0.2545152 -4.889225 -0.3816885 -0.8722954 0.3056375 -6.216744 0 0 0 1 0.6537955 0.575502 0.4912739 -10.90235 -0.5759742 -0.04254746 0.8163588 -15.88651 0.4907192 -0.8166928 0.303658 -5.653981 0 0 0 1 -0.9912337 0.1187173 0.05798339 -0.4648438 -0.1184672 -0.992928 0.007745683 1.819139 0.05849283 8.08824e-4 0.9982876 -11.61799 0 0 0 1 0.7149801 -0.2284355 0.6607729 -11.61464 -0.1204311 0.8907484 0.438251 -6.76493 -0.6886942 -0.3929183 0.6093576 -7.293775 0 0 0 1 -0.5360347 -0.7454417 0.3962118 -6.33947 0.8006367 -0.3000923 0.5185807 -6.987993 -0.2676714 0.5951988 0.7576877 -10.45826 0 0 0 1 1 0 0 1.026023 0 0.8570472 0.5152378 -9.291061 0 -0.5152378 0.8570474 -15.03911 0 0 0 1 0.9564515 0.1600899 0.2440713 -7.005485 -0.2860176 0.680917 0.6742005 -16.70138 -0.05826061 -0.714649 0.6970529 -14.27555 0 0 0 1 1 0 0 -0.759455 0 0 1 -2 0 -1 0 0.260693 0 0 0 1 1 0 0 3.70072e-4 0 0 1 -0.9999999 0 -1 0 0.01754397 0 0 0 1 1 0 0 -0.07987415 0 0.8570467 0.5152387 -4.378294 0 -0.5152387 0.857047 -5.296193 0 0 0 1 1 0 0 -2.182235 -1.34285e-7 0.7285639 0.684978 -4.505842 -1.41209e-7 -0.6849778 0.7285641 -4.738183 0 0 0 1 -0.003204286 0.9999536 0.00907886 -1.084961 -0.8678397 -0.007291555 0.4967908 -3.298887 0.496834 -0.006287276 0.8678228 -5.930061 0 0 0 1 -0.01803249 -0.9938431 -0.1093196 0.7911528 0.8351658 -0.0750851 0.5448493 -5.382211 -0.5497028 -0.08147495 0.8313777 -4.233323 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_15_pPlane17-skin-bind_poses-array" count="17" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Armature_vsn_mesh_15_pPlane17-skin-weights">
+          <float_array id="Armature_vsn_mesh_15_pPlane17-skin-weights-array" count="4">1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#Armature_vsn_mesh_15_pPlane17-skin-weights-array" count="4" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#Armature_vsn_mesh_15_pPlane17-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#Armature_vsn_mesh_15_pPlane17-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="4">
+          <input semantic="JOINT" source="#Armature_vsn_mesh_15_pPlane17-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#Armature_vsn_mesh_15_pPlane17-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 </vcount>
+          <v>16 0 16 1 16 2 16 3</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_visual_scenes>
+    <visual_scene id="Default" name="Default">
+      <node id="Armature" name="Armature" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 7.54979e-8 -1 0 0 1 7.54979e-8 0 0 0 0 1</matrix>
+        <node id="iaigiri_cut" name="iaigiri_cut" sid="iaigiri_cut" type="JOINT">
+          <matrix sid="transform">1 0 0 0 0 0.9999999 0 0 0 0 1 0 0 0 0 1</matrix>
+          <node id="cut_fx" name="cut_fx" sid="cut_fx" type="JOINT">
+            <matrix sid="transform">0.902128 -1.49012e-6 -0.4314686 4.44713e-7 -0.4314686 -2.982e-6 -0.902128 14.9221 5.76351e-8 1 -3.33132e-6 7.500002 0 0 0 1</matrix>
+          </node>
+          <node id="tree_a" name="tree_a" sid="tree_a" type="JOINT">
+            <matrix sid="transform">1 0 0 0.8464869 0 1 0 14.7591 0 0 1 2.26031 0 0 0 1</matrix>
+            <node id="pPlane10" name="pPlane10" sid="pPlane10" type="JOINT">
+              <matrix sid="transform">1 2.55174e-9 5.93565e-9 0.161258 -2.3471e-9 0.6849778 0.728564 -4.703091 -2.20668e-9 -0.728564 0.6849778 -2.474469 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane11" name="pPlane11" sid="pPlane11" type="JOINT">
+              <matrix sid="transform">0.3629516 -0.8500471 -0.3816885 1.188072 0.9175008 0.2545153 0.3056376 10.0329 -0.1626608 -0.4611312 0.8722956 -2.929868 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane14" name="pPlane14" sid="pPlane14" type="JOINT">
+              <matrix sid="transform">0.6537945 -0.5759757 0.4907186 -0.09432173 0.491274 0.8163588 0.303658 5.282916 -0.575502 0.04254738 0.8166927 -3.241141 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane15" name="pPlane15" sid="pPlane15" type="JOINT">
+              <matrix sid="transform">-0.9912336 -0.1184671 0.05849288 -0.4121781 0.05798342 0.007745747 0.9982876 -3.148147 -0.1187173 0.9929276 -8.08621e-4 -4.131162 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane18" name="pPlane18" sid="pPlane18" type="JOINT">
+              <matrix sid="transform">0.7149805 -0.1204307 -0.6886938 1.619868 0.6607724 0.4382507 0.6093572 0.3247728 0.2284352 -0.8907483 0.3929181 -2.767112 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane19" name="pPlane19" sid="pPlane19" type="JOINT">
+              <matrix sid="transform">-0.5360346 0.8006364 -0.2676715 -1.449199 0.3962116 0.5185805 0.7576877 -0.6993961 0.7454415 0.3000923 -0.5951986 -1.662306 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane8" name="pPlane8" sid="pPlane8" type="JOINT">
+              <matrix sid="transform">1 1.91941e-9 4.81095e-9 -1.87251 -1.38687e-9 0.5152379 0.8570474 2.917235 -8.33757e-10 -0.8570473 0.5152377 -2.474469 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane9" name="pPlane9" sid="pPlane9" type="JOINT">
+              <matrix sid="transform">0.956452 -0.2860166 -0.05825957 0.2453665 0.2440714 0.6742005 0.6970529 8.161632 -0.1600901 -0.6809171 0.714649 -4.552067 0 0 0 1</matrix>
+            </node>
+          </node>
+          <node id="tree_b" name="tree_b" sid="tree_b" type="JOINT">
+            <matrix sid="transform">1 0 0 0.759455 0 1 0 2 0 0 1 -0.260693 0 0 0 1</matrix>
+            <node id="kage" name="kage" sid="kage" type="JOINT">
+              <matrix sid="transform">1 7.63961e-8 0 -0.759825 -4.65938e-8 1 0 -1 0 0 1 0.243149 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane12" name="pPlane12" sid="pPlane12" type="JOINT">
+              <matrix sid="transform">1 1.53553e-8 2.54008e-8 -0.6795807 1.20983e-10 0.5152385 0.8570468 4.79495 7.27326e-11 -0.8570468 0.5152385 -0.7629071 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane13" name="pPlane13" sid="pPlane13" type="JOINT">
+              <matrix sid="transform">1 2.04139e-8 2.17129e-8 1.422781 0 0.6849778 0.7285639 4.538471 0 -0.7285639 0.6849778 0.2234503 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane16" name="pPlane16" sid="pPlane16" type="JOINT">
+              <matrix sid="transform">-0.003204318 -0.8678397 0.496834 -0.6795809 0.009078979 0.4967909 0.8678229 4.79495 -0.9999537 0.007291523 0.006287217 -0.7628803 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane17" name="pPlane17" sid="pPlane17" type="JOINT">
+              <matrix sid="transform">-0.01803251 0.8351655 -0.5497028 1.422779 -0.1093197 0.544849 0.8313777 4.538471 0.993843 0.07508516 0.081475 0.2234454 0 0 0 1</matrix>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node id="vsn_mesh_0_cut_fx" name="vsn_mesh_0_cut_fx" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_0_cut_fx-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_cut1_mat_001-material" target="#iaigiri_cut1_mat_001-material">
+                <bind_vertex_input semantic="mesh_0_cut_fx_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_1_tree_a" name="vsn_mesh_1_tree_a" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_1_tree_a-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_bark1_mat_001-material" target="#iaigiri_bark1_mat_001-material">
+                <bind_vertex_input semantic="mesh_1_tree_a_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_2_tree_b" name="vsn_mesh_2_tree_b" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_2_tree_b-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_bark1_mat_001-material" target="#iaigiri_bark1_mat_001-material">
+                <bind_vertex_input semantic="mesh_2_tree_b_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_3_kage" name="vsn_mesh_3_kage" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_3_kage-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="kokage3_mat_001-material" target="#kokage3_mat_001-material">
+                <bind_vertex_input semantic="mesh_3_kage_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_4_pPlane10" name="vsn_mesh_4_pPlane10" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_4_pPlane10-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_4_pPlane10_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_5_pPlane11" name="vsn_mesh_5_pPlane11" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_5_pPlane11-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_5_pPlane11_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_6_pPlane14" name="vsn_mesh_6_pPlane14" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_6_pPlane14-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_6_pPlane14_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_7_pPlane15" name="vsn_mesh_7_pPlane15" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_7_pPlane15-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_7_pPlane15_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_8_pPlane18" name="vsn_mesh_8_pPlane18" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_8_pPlane18-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_8_pPlane18_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_9_pPlane19" name="vsn_mesh_9_pPlane19" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_9_pPlane19-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_9_pPlane19_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_10_pPlane8" name="vsn_mesh_10_pPlane8" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_10_pPlane8-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_10_pPlane8_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_11_pPlane9" name="vsn_mesh_11_pPlane9" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_11_pPlane9-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_11_pPlane9_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_12_pPlane12" name="vsn_mesh_12_pPlane12" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_12_pPlane12-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_12_pPlane12_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_13_pPlane13" name="vsn_mesh_13_pPlane13" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_13_pPlane13-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_13_pPlane13_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_14_pPlane16" name="vsn_mesh_14_pPlane16" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_14_pPlane16-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_14_pPlane16_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+      <node id="vsn_mesh_15_pPlane17" name="vsn_mesh_15_pPlane17" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#Armature_vsn_mesh_15_pPlane17-skin">
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001-material" target="#iaigiri_branch2_mat_001-material">
+                <bind_vertex_input semantic="mesh_15_pPlane17_uv0_id" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Default"/>
+  </scene>
+</COLLADA>

@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.77.0 commit date:2016-03-18, commit time:12:34, hash:22a2853</authoring_tool>
+    </contributor>
+    <created>2016-04-05T14:50:36</created>
+    <modified>2016-04-05T14:50:36</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_images>
+    <image id="iaigiri_toge_png" name="iaigiri_toge_png">
+      <init_from>iaigiri_toge.png</init_from>
+    </image>
+    <image id="kokage3_png" name="kokage3_png">
+      <init_from>kokage3.png</init_from>
+    </image>
+    <image id="iaigiri_togebark_png" name="iaigiri_togebark_png">
+      <init_from>iaigiri_togebark.png</init_from>
+    </image>
+    <image id="iaigiri_cut_png" name="iaigiri_cut_png">
+      <init_from>iaigiri_cut.png</init_from>
+    </image>
+  </library_images>
+  <library_effects>
+    <effect id="iaigiri_branch2_mat_001_001-effect">
+      <profile_COMMON>
+        <newparam sid="iaigiri_toge_png-surface">
+          <surface type="2D">
+            <init_from>iaigiri_toge_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="iaigiri_toge_png-sampler">
+          <sampler2D>
+            <source>iaigiri_toge_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="iaigiri_toge_png-sampler" texcoord="iaigiri_002-mesh-map"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.125 0.125 0.125 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <transparent>
+              <texture texture="iaigiri_toge_png-sampler" texcoord="iaigiri_002-mesh-map"/>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0</float>
+            </transparency>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="kokage3_mat_001_001-effect">
+      <profile_COMMON>
+        <newparam sid="kokage3_png-surface">
+          <surface type="2D">
+            <init_from>kokage3_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="kokage3_png-sampler">
+          <sampler2D>
+            <source>kokage3_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="kokage3_png-sampler" texcoord="iaigiri_002-mesh-map"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.125 0.125 0.125 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <transparent>
+              <texture texture="kokage3_png-sampler" texcoord="iaigiri_002-mesh-map"/>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0</float>
+            </transparency>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="iaigiri_bark1_mat_001_001-effect">
+      <profile_COMMON>
+        <newparam sid="iaigiri_togebark_png-surface">
+          <surface type="2D">
+            <init_from>iaigiri_togebark_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="iaigiri_togebark_png-sampler">
+          <sampler2D>
+            <source>iaigiri_togebark_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="iaigiri_togebark_png-sampler" texcoord="iaigiri_002-mesh-map"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.125 0.125 0.125 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="iaigiri_cut1_mat_001_001-effect">
+      <profile_COMMON>
+        <newparam sid="iaigiri_cut_png-surface">
+          <surface type="2D">
+            <init_from>iaigiri_cut_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="iaigiri_cut_png-sampler">
+          <sampler2D>
+            <source>iaigiri_cut_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="iaigiri_cut_png-sampler" texcoord="iaigiri_002-mesh-map"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.125 0.125 0.125 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">1</float>
+            </shininess>
+            <transparent>
+              <texture texture="iaigiri_cut_png-sampler" texcoord="iaigiri_002-mesh-map"/>
+            </transparent>
+            <transparency>
+              <float sid="transparency">0</float>
+            </transparency>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="iaigiri_branch2_mat_001_001-material" name="iaigiri_branch2_mat_001_001">
+      <instance_effect url="#iaigiri_branch2_mat_001_001-effect"/>
+    </material>
+    <material id="kokage3_mat_001_001-material" name="kokage3_mat_001_001">
+      <instance_effect url="#kokage3_mat_001_001-effect"/>
+    </material>
+    <material id="iaigiri_bark1_mat_001_001-material" name="iaigiri_bark1_mat_001_001">
+      <instance_effect url="#iaigiri_bark1_mat_001_001-effect"/>
+    </material>
+    <material id="iaigiri_cut1_mat_001_001-material" name="iaigiri_cut1_mat_001_001">
+      <instance_effect url="#iaigiri_cut1_mat_001_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="iaigiri_003-mesh" name="iaigiri.003">
+      <mesh>
+        <source id="iaigiri_003-mesh-positions">
+          <float_array id="iaigiri_003-mesh-positions-array" count="342">10.07904 -11.88861 1.351675 0.281588 -4.362251 -9.345899 9.869275 -10.6171 -10.2079 2.687236 -5.231627 -8.734293 -8.681437 -11.82717 3.278644 -8.642517 -11.71729 -8.829566 2.182235 -6.53847 0.03723829 11.77978 -12.98511 6.894087 0.1486 -12.98511 6.894087 11.77978 -5.121582 -1.469807 -9.700128 -11.99213 9.668553 -9.700128 -5.265615 -1.520293 0.07987397 -6.79495 1.023596 2.408644 -11.99213 9.668553 -7.741312 -35.75856 15.53355 -1.611795 -21.31001 0.9410809 18.88557 -26.54062 4.37191 12.75605 -40.98916 18.96437 2.13784 -17.07911 -0.7792617 -18.01921 -27.46482 16.49629 -18.01921 -17.07911 -0.7792617 2.13784 -27.46482 16.49629 -16.93798 -22.24339 -4.859778 -0.602713 -14.0597 -0.59801 -5.698492 -12.02384 5.545231 -10.43657 -20.52228 -10.44961 -4.098115 -14.54116 -8.047056 -0.986287 -12.39048 -6.470025 8.691862 -26.69731 -12.84788 2.466357 -15.08387 0.5067895 12.35837 -25.4401 -5.008695 10.10814 -18.07049 -0.2813712 -13.2429 -20.45536 11.18104 -14.3253 -14.1413 5.228059 4.09594 -14.87486 8.488069 0.434389 -11.61095 1.870592 -7.262252 -8.922421 3.083613 0.752163 -20.04201 0.9808167 4.743132 -14.09649 -3.090301 18.96955 -23.76954 3.472499 12.39279 -26.72498 8.421077 4.375284 -22.57683 7.93679 -9.745846 -49.21236 14.38073 -18.43049 -27.25853 10.48862 1.909309 -21.16853 -0.545255 10.59396 -43.12235 3.346861 17.80505 -9.262046 -0.6303312 -2.352065 -9.262046 -0.6303312 17.80505 -23.0692 14.05537 -2.352065 -23.0692 14.05537 -8.74245 -0.999994 -8.724537 8.74171 -0.999994 -8.724537 8.74171 -1.000006 8.759623 -8.74245 -1.000006 8.759623 -0.482615 -4.76899 0.6808103 -0.905815 -4.64124 -0.8394806 -1.430325 -13.0669 -0.7620154 -1.128525 -15.7466 -0.9596179 -0.707275 -15.5359 2.216812 -1.181765 -12.7605 2.316855 -6.343285 -2.224026 0.7787157 -6.272695 -2.224026 0.1341837 -0.843275 -12.863 -1.878306 -1.048495 -2.224025 -1.379578 0.04126298 -2.224021 -6.901828 -0.06581598 -4.597729 -1.621501 1.023144 -12.7485 -2.334345 1.263598 -4.676479 -1.691911 1.068608 -2.224021 -6.86242 2.196215 -2.224025 -1.579658 2.361685 -4.531419 -0.7837505 2.887775 -12.4573 -0.5217381 2.603345 -13.8806 -0.2926529 7.149215 -2.224026 -0.02400022 6.949695 -2.224026 0.8592978 2.622295 -12.1463 1.869005 2.168285 -4.49309 0.6385034 -0.785915 -15.5753 -1.679948 0.846487 -14.7591 -2.260317 2.548245 -13.9082 -0.6167669 0.595143 -14.8847 -0.02175331 -1.413055 -15.8888 -0.2399669 1.636088 -14.3643 1.887333 1.870847 -19.00863 0.5326873 1.074227 -26.0186 1.029352 0.138722 -26.3394 0.2149621 1.507224 -20.33318 -1.037573 1.566656 -21.37673 0.509105 2.603337 -13.88067 -0.2926498 1.083989 -22.51576 1.730784 1.170373 -18.66455 1.922857 0.43016 -20.39441 -2.052825 -0.549043 -20.56572 -1.314982 -0.785913 -15.5753 -1.679946 -0.607723 -25.2928 0.9964228 -0.237643 -22.51869 1.930494 -1.061333 -19.84749 0.4923768 -0.435723 -18.91102 2.095167 -0.707273 -15.53598 2.216819 2.548247 -13.90822 -0.6167699 0.846487 -14.7591 -2.26032 0.595143 -14.88477 -0.02175033 -1.128533 -15.74661 -0.9596109 -1.413053 -15.88887 -0.2399609 1.636088 -14.3643 1.88733 -1.103478 -12.61491 -7.385769 1.103478 -17.22929 -7.38579 -76.01613 -54.11394 -7.385817 0 -14.9221 -7.38578 76.01613 24.26974 -7.385744 -77.11961 -51.80675 -7.385805 -78.22308 -49.49956 -7.385795 77.11961 21.96256 -7.385755 78.22308 19.65537 -7.385766</float_array>
+          <technique_common>
+            <accessor source="#iaigiri_003-mesh-positions-array" count="114" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="iaigiri_003-mesh-normals">
+          <float_array id="iaigiri_003-mesh-normals-array" count="285">-0.3015367 -0.8557476 -0.4204422 -0.5497118 -0.8313736 -0.0814557 0.2657904 -0.9227739 -0.2790051 0.4968292 -0.8678259 -0.00625652 0 -0.7285619 -0.68498 0 -0.857051 -0.5152317 -0.05825984 -0.6970524 -0.7146494 -0.0582596 -0.6970525 -0.7146494 0 -0.8570464 -0.5152392 0 -0.8570467 -0.5152389 0.4306513 -0.8571215 0.2826349 0.3658051 -0.8831388 0.2936878 0.4813762 -0.8717448 0.09131282 0.2788569 -0.8183507 0.5025346 0.7125907 -0.6373916 -0.2931665 -0.6414502 -0.6693752 0.3748049 -0.6401368 -0.7020294 0.3120571 -0.487367 -0.7248398 0.4869093 -0.7843338 -0.6003052 0.1563784 -0.1364524 -0.5640605 0.8143811 0.05865848 -0.7007279 -0.711013 0.02966469 -0.7461047 -0.6651676 -0.08075338 -0.5924052 -0.8015828 0.1886409 -0.8353182 -0.5163896 -0.1986207 -0.1303181 -0.9713738 -0.127724 -0.7382966 -0.6622726 -0.05816996 -0.735579 -0.6749369 -0.1663884 -0.8487274 -0.5019729 -0.002411007 -0.5638768 -0.8258555 -0.4536328 -0.88694 -0.08691775 -0.381689 -0.3056368 -0.8722956 -0.3816884 -0.3056374 -0.8722957 0 -0.7285634 -0.6849784 0 -0.7285634 -0.6849784 0 -1 -6.73852e-7 0 -1 -6.8633e-7 -0.9833521 -3.96747e-4 -0.18171 -0.8020719 -0.3286294 -0.4986817 -0.6194179 0.004974603 -0.7850457 -0.8909524 -0.4161012 0.1818345 -0.2926504 -0.7401561 -0.605413 -0.9958994 -0.03415083 0.08377492 -0.4118586 -0.8374205 -0.3593043 -0.4568145 -0.8752357 0.1590061 -0.5905496 -0.8069319 -0.01059019 -0.5572513 -0.3170342 -0.7674376 -0.413956 -0.9097328 -0.03204464 -0.6652511 -0.3141616 -0.6773061 -0.4344772 -0.8683441 -0.2391822 0.3250012 -0.5632053 -0.7597198 -0.2200721 -0.8880403 -0.4036741 0.2755885 -0.009064197 -0.961233 0.2342328 -0.8817836 -0.409381 0.4835773 -0.3284174 -0.8113538 0.6846657 -0.334642 -0.6474934 0.7751774 -0.5378022 -0.3314647 0.9461245 -0.05581951 -0.3189557 0.7771504 -0.332938 -0.5340315 0.4493362 -0.8780414 -0.1647434 0.8196837 -0.571563 0.03787428 0.4206129 -0.9024776 0.09283882 0.9769959 -0.1204268 0.1760014 0.8767423 -0.4625886 0.1316624 0.6406553 -0.7590386 0.1158502 0.4472014 -0.8944334 0 0.8646991 -0.1707546 -0.4723754 0.9718146 -0.1276607 0.19819 0.9892442 -0.0930525 0.1128594 0.5414779 0.7406179 -0.3978528 0.8218327 -0.2634455 -0.505161 0.02694845 0.59604 -0.8025024 0.08331781 -0.4005056 -0.9124985 0.07245188 -0.213907 -0.9741635 0.8891265 -0.09088724 0.4485461 0.6295506 0.7720755 0.0869798 0.3368686 0.8708288 0.3580182 0.9456014 -0.0571621 0.3202666 -0.6859263 0.4588916 -0.5647333 -0.8025749 -0.1612352 -0.5743491 -0.9262134 -0.1934888 -0.3235597 -0.9931475 -0.07593113 0.08884066 -0.8972336 -0.03988856 0.4397509 -0.8423565 0.477898 -0.2490965 -0.931227 -0.04876935 0.3611621 -0.9203315 0.3870117 -0.05667376 -0.8184999 0.5530116 0.1556795 -0.4472014 0.8944334 0 -1.67502e-6 3.99374e-6 -1 -1.65757e-6 4.16192e-6 -1 -1.67502e-6 3.99613e-6 -1 -1.11668e-6 3.66455e-6 -1 -1.43075e-6 3.83035e-6 -1 -1.67502e-6 3.66214e-6 -1 -1.39585e-6 3.66214e-6 -1 -1.39585e-6 4.15952e-6 -1</float_array>
+          <technique_common>
+            <accessor source="#iaigiri_003-mesh-normals-array" count="95" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="iaigiri_003-mesh-map">
+          <float_array id="iaigiri_003-mesh-map-array" count="678">0.571817 0.558379 1 1 0.469768 1 0.571817 0.558379 1 0.368081 1 1 0.571817 0.558379 1 1 1 0.366035 0.571817 0.558379 0.46986 1 1 1 0.571817 0.558379 1 1 0.469768 1 0.571817 0.558379 1 0.368081 1 1 0.571817 0.558379 1 1 1 0.366035 0.571817 0.558379 0.46986 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 0 0 0 1 1 1 0.386995 0.445574 1 0 1 0.3125 0.386995 0.445574 0.348946 0.163505 1 0 0.386995 0.445574 1 0.3125 0.694687 0.551648 0.386995 0.445574 1 0 1 0.3125 0.386995 0.445574 0.348946 0.163505 1 0 0.386995 0.445574 1 0.3125 0.694687 0.551648 0.386995 0.445574 1 0 1 0.3125 0.386995 0.445574 0.348946 0.163505 1 0 0.386995 0.445574 1 0.3125 0.694687 0.551648 0.386995 0.445574 1 0 1 0.308425 0.386995 0.445574 0.355154 0.166714 1 0 0.386995 0.445574 1 0.308425 0.694687 0.551648 0 0 1 1 1 0 0 0 0 1 1 1 1 0 0 1 0 0 1 0 1 1 0 1 0.9 0.1 0.1 0.9 0.1 0.1 0.9 0.1 0.9 0.9 0.1 0.9 0.29168 0.477941 0.272381 0.147316 0.453336 0.486548 0.29168 0.477941 0.06503397 0.173378 0.272381 0.147316 0.29168 0.477941 0.453336 0.486548 0.439732 0.551881 0.29168 0.477941 0.071029 0.460056 0.06503397 0.173378 0.29168 0.477941 0.439732 0.551881 0.31469 0.569243 0.29168 0.477941 0.07162398 0.549074 0.071029 0.460056 0.29168 0.477941 0.31469 0.569243 0.272359 0.565322 0.29168 0.477941 0.272359 0.565322 0.07162398 0.549074 0.272381 0.147316 0.441021 0.144894 0.453336 0.486548 0.272381 0.147316 0.06503397 0.173378 -7.84e-4 0 0.272381 0.147316 0.308012 0 0.441021 0.144894 0.272381 0.147316 -7.84e-4 0 0.18704 0 0.272381 0.147316 0.18704 0 0.308012 0 0.439732 0.551881 0.453336 0.486548 0.643115 0.533919 0.441021 0.144894 0.308012 0 0.428983 0 0.441021 0.144894 0.648234 0.491632 0.453336 0.486548 0.441021 0.144894 0.428983 0 0.657505 0 0.441021 0.144894 0.685109 0.151129 0.648234 0.491632 0.441021 0.144894 0.657505 0 0.685109 0.151129 0.453336 0.486548 0.648234 0.491632 0.643115 0.533919 0.657505 0 0.782721 0 0.685109 0.151129 0.648234 0.491632 0.856865 0.514393 0.643115 0.533919 0.648234 0.491632 0.685109 0.151129 0.877038 0.459602 0.648234 0.491632 0.877038 0.459602 0.856865 0.514393 0.782721 0 0.8940001 0.133822 0.685109 0.151129 0.782721 0 0.907936 0 0.8940001 0.133822 0.685109 0.151129 0.8940001 0.133822 0.877038 0.459602 0.856865 0.514393 0.877038 0.459602 0.90001 0.510471 0.907936 0 1.2028 0 0.8940001 0.133822 0.877038 0.459602 1.13706 0.397399 0.90001 0.510471 0.877038 0.459602 0.8940001 0.133822 1.13706 0.397399 1.2028 0 1.17026 0.144481 0.8940001 0.133822 0.8940001 0.133822 1.17026 0.144481 1.13706 0.397399 0.90001 0.510471 1.13706 0.397399 1.11659 0.479513 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.37977 0.25 1.4172 0.25 1.38538 0.842152 1.3803 0.25 1.41666 0.25 1.38485 0.847563 0.574099 1.07675 0.678766 0.981342 0.659315 0.847563 0.574099 0.856865 0.514393 1.07675 0.678766 0.847563 0.574099 0.981342 0.659315 0.73473 0.775057 0.847563 0.574099 0.643115 0.533919 0.856865 0.514393 0.847563 0.574099 0.73473 0.775057 0.581284 0.766328 0.847563 0.574099 0.634669 0.605217 0.643115 0.533919 0.847563 0.574099 0.581284 0.766328 0.634669 0.605217 1.07675 0.678766 1.07294 0.601456 0.981342 0.659315 1.07675 0.678766 0.856865 0.514393 0.90001 0.510471 1.07675 0.678766 1.11659 0.479513 1.07294 0.601456 1.07675 0.678766 0.90001 0.510471 1.11659 0.479513 0.73473 0.775057 0.981342 0.659315 1.05783 0.794915 1.05783 0.794915 0.981342 0.659315 1.07294 0.601456 0.643115 0.533919 0.634669 0.605217 0.439732 0.551881 0.581284 0.766328 0.391451 0.637214 0.634669 0.605217 0.581284 0.766328 0.353051 0.775024 0.391451 0.637214 0.634669 0.605217 0.391451 0.637214 0.439732 0.551881 0.353051 0.775024 0.08591496 0.792385 0.391451 0.637214 0.353051 0.775024 0.06085693 0.700426 0.1568869 0.687107 0.439732 0.551881 0.391451 0.637214 0.31469 0.569243 0.391451 0.637214 0.1568869 0.687107 0.31469 0.569243 0.06085693 0.700426 0.07782298 0.642342 0.1568869 0.687107 0.31469 0.569243 0.1568869 0.687107 0.272359 0.565322 0.1568869 0.687107 0.07782298 0.642342 0.272359 0.565322 0.07782298 0.642342 0.07162398 0.549074 0.272359 0.565322 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.924691 -0.62673 0.25 -0.613072 0.25 -0.640388 0.967071 0.028813 0.041161 0.028813 0.967071 0.962955 0.967071 0.028813 0.041161 0.962955 0.041161 0.028813 0.967071 0.028813 0.967071 0.962955 0.041161 0.962955 0.967071 0.028813 0.967071 0.962955 0.041161 0.962955 0.967071 0.028813 0.041161 0.962955 0.041161 0.028813 0.967071 0.028813 0.041161 0.028813 0.967071 0.962955 0.041161 0.028813 0.041161 0.962955 0.967071 0.962955 0.041161 0.028813 0.041161 0.962955 0.967071 0.962955</float_array>
+          <technique_common>
+            <accessor source="#iaigiri_003-mesh-map-array" count="339" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="iaigiri_003-mesh-vertices">
+          <input semantic="POSITION" source="#iaigiri_003-mesh-positions"/>
+        </vertices>
+        <polylist material="iaigiri_branch2_mat_001_001-material" count="28">
+          <input semantic="VERTEX" source="#iaigiri_003-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#iaigiri_003-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#iaigiri_003-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>6 0 0 2 1 1 0 1 2 6 0 3 1 1 4 2 1 5 12 2 6 5 3 7 3 3 8 12 2 9 4 3 10 5 3 11 6 0 12 7 4 13 8 4 14 6 0 15 9 4 16 7 4 17 12 2 18 10 5 19 11 5 20 12 2 21 13 5 22 10 5 23 15 6 24 17 6 25 14 6 26 15 7 27 16 7 28 17 7 29 18 8 30 19 8 31 20 8 32 18 9 33 21 9 34 19 9 35 23 10 36 22 11 37 25 12 38 23 10 39 24 13 40 22 11 41 23 10 42 25 12 43 26 14 44 29 15 45 28 16 46 30 17 47 29 15 48 27 18 49 28 16 50 29 15 51 30 17 52 31 19 53 35 20 54 32 21 55 33 22 56 35 20 57 34 23 58 32 21 59 35 20 60 33 22 61 36 24 62 37 25 63 39 26 64 40 27 65 37 25 66 38 28 67 39 26 68 37 25 69 40 27 70 41 29 71 44 30 72 42 30 73 43 30 74 44 31 75 45 31 76 42 31 77 46 32 78 49 32 79 47 32 80 46 33 81 48 33 82 49 33 83</p>
+        </polylist>
+        <polylist material="kokage3_mat_001_001-material" count="2">
+          <input semantic="VERTEX" source="#iaigiri_003-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#iaigiri_003-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#iaigiri_003-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 </vcount>
+          <p>51 34 84 53 34 85 50 34 86 51 35 87 52 35 88 53 35 89</p>
+        </polylist>
+        <polylist material="iaigiri_bark1_mat_001_001-material" count="75">
+          <input semantic="VERTEX" source="#iaigiri_003-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#iaigiri_003-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#iaigiri_003-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>56 36 90 55 37 91 62 38 92 56 36 93 54 39 94 55 37 95 56 36 96 62 38 97 77 40 98 56 36 99 59 41 100 54 39 101 56 36 102 77 40 103 57 42 104 56 36 105 58 43 106 59 41 107 56 36 108 57 42 109 81 44 110 56 36 111 81 44 112 58 43 113 55 37 114 65 45 115 62 38 116 55 37 117 54 39 118 60 46 119 55 37 120 63 47 121 65 45 122 55 37 123 60 46 124 61 48 125 55 37 126 61 48 127 63 47 128 77 40 129 62 38 130 78 49 131 65 45 132 63 47 133 64 50 134 65 45 135 66 51 136 62 38 137 65 45 138 64 50 139 68 52 140 65 45 141 67 53 142 66 51 143 65 45 144 68 52 145 67 53 146 62 38 147 66 51 148 78 49 149 68 52 150 69 54 151 67 53 152 66 51 153 79 55 154 78 49 155 66 51 156 67 53 157 71 56 158 66 51 159 71 56 160 79 55 161 69 54 162 70 57 163 67 53 164 69 54 165 73 58 166 70 57 167 67 53 168 70 57 169 71 56 170 79 55 171 71 56 172 72 59 173 73 58 174 74 60 175 70 57 176 71 56 177 75 61 178 72 59 179 71 56 180 70 57 181 75 61 182 74 60 183 76 62 184 70 57 185 70 57 186 76 62 187 75 61 188 72 59 189 75 61 190 82 63 191 80 64 192 79 55 193 72 59 194 80 64 195 72 59 196 82 63 197 80 64 198 77 40 199 78 49 200 80 64 201 78 49 202 79 55 203 80 64 204 57 42 205 77 40 206 80 64 207 81 44 208 57 42 209 80 64 210 58 43 211 81 44 212 80 64 213 82 63 214 58 43 215 86 65 216 83 66 217 87 67 218 86 65 219 99 68 220 83 66 221 86 65 222 87 67 223 84 69 224 86 65 225 100 70 226 99 68 227 86 65 228 84 69 229 85 71 230 86 65 231 91 72 232 100 70 233 86 65 234 85 71 235 91 72 236 83 66 237 90 73 238 87 67 239 83 66 240 99 68 241 88 74 242 83 66 243 104 75 244 90 73 245 83 66 246 88 74 247 104 75 248 84 69 249 87 67 250 89 76 251 89 76 252 87 67 253 90 73 254 100 70 255 91 72 256 93 77 257 85 71 258 92 78 259 91 72 260 85 71 261 94 79 262 92 78 263 91 72 264 92 78 265 93 77 266 94 79 267 96 80 268 92 78 269 94 79 270 95 81 271 96 80 272 93 77 273 92 78 274 102 82 275 92 78 276 96 80 277 102 82 278 95 81 279 97 83 280 96 80 281 102 82 282 96 80 283 103 84 284 96 80 285 97 83 286 103 84 287 97 83 288 98 85 289 103 84 290 101 86 291 88 74 292 99 68 293 101 86 294 104 75 295 88 74 296 101 86 297 100 70 298 93 77 299 101 86 300 99 68 301 100 70 302 101 86 303 93 77 304 102 82 305 101 86 306 102 82 307 103 84 308 101 86 309 103 84 310 98 85 311 101 86 312 98 85 313 104 75 314</p>
+        </polylist>
+        <polylist material="iaigiri_cut1_mat_001_001-material" count="8">
+          <input semantic="VERTEX" source="#iaigiri_003-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#iaigiri_003-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#iaigiri_003-mesh-map" offset="2" set="0"/>
+          <vcount>3 3 3 3 3 3 3 3 </vcount>
+          <p>108 87 315 110 87 316 105 87 317 108 88 318 107 88 319 110 88 320 108 89 321 105 89 322 109 89 323 108 90 324 106 90 325 107 90 326 108 91 327 109 91 328 112 91 329 108 92 330 112 92 331 106 92 332 110 93 333 111 93 334 105 93 335 112 94 336 113 94 337 106 94 338</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_animations>
+    <animation id="iaigiri_skeleton_blender_implicit_pose_matrix">
+      <source id="iaigiri_skeleton_blender_implicit_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_blender_implicit_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_blender_implicit_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_blender_implicit_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_blender_implicit_pose_matrix-output-array" count="320">-1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1 -1 1.50996e-7 2.02876e-14 0 4.26004e-14 4.16489e-7 -0.9999999 0 -1.50996e-7 -1 -4.16489e-7 0 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_blender_implicit_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_blender_implicit_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_blender_implicit_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_blender_implicit_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_blender_implicit_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_blender_implicit_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_blender_implicit_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_blender_implicit_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_blender_implicit_pose_matrix-sampler" target="blender_implicit/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_iaigiri_cut_pose_matrix">
+      <source id="iaigiri_skeleton_iaigiri_cut_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_iaigiri_cut_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_iaigiri_cut_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_iaigiri_cut_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_iaigiri_cut_pose_matrix-output-array" count="320">1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1 1 -1.50996e-7 2.23128e-14 0 -4.26004e-14 -4.29901e-7 -1 0 1.50996e-7 1 -4.29901e-7 0 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_iaigiri_cut_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_iaigiri_cut_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_iaigiri_cut_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_iaigiri_cut_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_iaigiri_cut_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_iaigiri_cut_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_iaigiri_cut_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_iaigiri_cut_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_iaigiri_cut_pose_matrix-sampler" target="iaigiri_cut/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_cut_fx_pose_matrix">
+      <source id="iaigiri_skeleton_cut_fx_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_cut_fx_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_cut_fx_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_cut_fx_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_cut_fx_pose_matrix-output-array" count="320">0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1 0.9021286 -1.96646e-6 -0.4314671 -4.0055e-5 -0.4314669 1.36641e-6 -0.9021288 20.32333 2.36356e-6 1 3.84214e-7 10.45184 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_cut_fx_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_cut_fx_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_cut_fx_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_cut_fx_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_cut_fx_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_cut_fx_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_cut_fx_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_cut_fx_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_cut_fx_pose_matrix-sampler" target="cut_fx/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_tree_a_pose_matrix">
+      <source id="iaigiri_skeleton_tree_a_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_tree_a_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_tree_a_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_tree_a_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_tree_a_pose_matrix-output-array" count="320">1 2.28754e-9 -6.54357e-8 0.8464872 -2.28752e-9 1 2.19432e-7 14.7591 6.54357e-8 -2.19432e-7 1 2.26025 0 0 0 1 1 2.28754e-9 -6.54357e-8 0.8464872 -2.28752e-9 1 2.19432e-7 14.7591 6.54357e-8 -2.19432e-7 1 2.26025 0 0 0 1 1 -6.26691e-5 4.65551e-5 0.8448378 6.26664e-5 1 5.86383e-5 14.75836 -4.65588e-5 -5.86353e-5 1 2.200766 0 0 0 1 0.9999872 -0.003451147 0.003698437 0.7415237 0.003432558 0.9999816 0.005020563 14.69604 -0.003715695 -0.005007803 0.9999806 4.585018 0 0 0 1 0.9998015 -0.01370889 0.01445678 0.4324764 0.01341903 0.9997109 0.01995976 14.5047 -0.01472623 -0.0197618 0.9996963 9.141886 0 0 0 1 0.9990654 -0.03029068 0.03083533 -0.05444813 0.02893096 0.998629 0.04362612 14.19049 -0.03211452 -0.04269325 0.9985719 11.48382 0 0 0 1 0.9973238 -0.05244776 0.05093514 -0.6827719 0.04858323 0.9960478 0.07435437 13.7625 -0.05463355 -0.07168079 0.9959303 11.06482 0 0 0 1 0.9941826 -0.07930762 0.07287856 -1.414177 0.07098684 0.9913464 0.1104226 13.23167 -0.08100526 -0.1046068 0.9912091 10.31824 0 0 0 1 0.9894129 -0.1097409 0.09496874 -2.208233 0.09475046 0.9841256 0.1500645 12.6133 -0.1099294 -0.1394775 0.9841045 9.132474 0 0 0 1 0.9830207 -0.1423146 0.1158313 -3.023375 0.1184871 0.9743116 0.191515 11.92819 -0.1401111 -0.1745387 0.9746308 7.463953 0 0 0 1 0.9752781 -0.1753189 0.1345209 -3.818688 0.140822 0.9622096 0.233071 11.20282 -0.1702991 -0.2083656 0.9631106 5.486918 0 0 0 1 0.966718 -0.2068859 0.1505146 -4.55584 0.1603985 0.948424 0.273431 10.46375 -0.1993207 -0.2401884 0.9500425 3.373277 0 0 0 1 0.9580441 -0.2352947 0.1636701 -5.203768 0.1761622 0.9338327 0.3113256 9.741776 -0.2260937 -0.2694312 0.9361028 1.25616 0 0 0 1 0.9500962 -0.2584714 0.1746704 -5.735713 0.1867414 0.919744 0.3452514 9.077965 -0.2498897 -0.2954039 0.9221127 -0.7474365 0 0 0 1 0.9437851 -0.2744081 0.1843091 -6.127418 0.1906438 0.9073444 0.3746745 8.499178 -0.2700455 -0.3184748 0.9086524 -1.020275 0 0 0 1 0.9435936 -0.2766106 0.1819828 -6.135828 0.1908107 0.9034567 0.3838713 8.318063 -0.2705964 -0.3274942 0.9052762 -1.129572 0 0 0 1 0.9436006 -0.2811554 0.1748415 -6.123919 0.190809 0.8933644 0.406807 7.859629 -0.2705731 -0.350502 0.8966262 -1.413036 0 0 0 1 0.9436006 -0.2874182 0.1643431 -6.099292 0.190809 0.8777379 0.4395091 7.184937 -0.2705731 -0.383363 0.8830759 -1.802948 0 0 0 1 0.9436006 -0.294148 0.15197 -6.059179 0.190809 0.8582504 0.4764434 6.391636 -0.2705731 -0.420575 0.8659716 -2.222492 0 0 0 1 0.9436006 -0.3004028 0.1391979 -6.005996 0.190809 0.8369982 0.5128605 5.574769 -0.2705731 -0.4573753 0.8471116 -2.613083 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_tree_a_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_tree_a_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_tree_a_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_tree_a_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_tree_a_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_tree_a_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_tree_a_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_tree_a_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_tree_a_pose_matrix-sampler" target="tree_a/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane10_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane10_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane10_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane10_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane10_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane10_pose_matrix-output-array" count="320">0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1 0.9999999 -4.32134e-7 3.42727e-7 0.1612587 -1.19209e-7 0.6849775 0.728564 -4.703042 -5.06639e-7 -0.7285635 0.6849778 -2.474418 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane10_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane10_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane10_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane10_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane10_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane10_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane10_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane10_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane10_pose_matrix-sampler" target="pPlane10/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane11_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane11_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane11_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane11_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane11_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane11_pose_matrix-output-array" count="320">0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1 0.362947 -0.8500491 -0.3816891 1.187994 0.917502 0.2545112 0.3056371 10.03293 -0.1626621 -0.4611299 0.8722975 -2.929847 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane11_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane11_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane11_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane11_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane11_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane11_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane11_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane11_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane11_pose_matrix-sampler" target="pPlane11/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane14_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane14_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane14_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane14_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane14_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane14_pose_matrix-output-array" count="320">0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1 0.6537868 -0.5759826 0.4907217 -0.09447122 0.4912793 0.8163551 0.3036618 5.282892 -0.5755065 0.04255131 0.8166895 -3.241133 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane14_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane14_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane14_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane14_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane14_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane14_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane14_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane14_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane14_pose_matrix-sampler" target="pPlane14/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane15_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane15_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane15_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane15_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane15_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane15_pose_matrix-output-array" count="320">-0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1 -0.9912354 -0.118453 0.05849311 -0.4122727 0.05798391 0.007744521 0.9982879 -3.148468 -0.1187032 0.9929296 -8.08239e-4 -4.131209 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane15_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane15_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane15_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane15_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane15_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane15_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane15_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane15_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane15_pose_matrix-sampler" target="pPlane15/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane18_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane18_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane18_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane18_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane18_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane18_pose_matrix-output-array" count="320">0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1 0.71498 -0.1204305 -0.6886947 1.619862 0.660773 0.4382502 0.6093571 0.3248811 0.2284355 -0.8907486 0.3929173 -2.767017 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane18_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane18_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane18_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane18_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane18_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane18_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane18_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane18_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane18_pose_matrix-sampler" target="pPlane18/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane19_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane19_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane19_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane19_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane19_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane19_pose_matrix-output-array" count="320">-0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1 -0.5360347 0.8006369 -0.2676725 -1.449214 0.3962117 0.5185813 0.7576873 -0.699368 0.745442 0.3000916 -0.595199 -1.662276 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane19_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane19_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane19_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane19_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane19_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane19_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane19_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane19_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane19_pose_matrix-sampler" target="pPlane19/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane8_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane8_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane8_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane8_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane8_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane8_pose_matrix-output-array" count="320">1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1 1 -4.77303e-8 -5.96046e-8 -1.872508 -2.98023e-8 0.5152386 0.8570473 2.917138 7.45058e-9 -0.8570468 0.5152388 -2.474574 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane8_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane8_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane8_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane8_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane8_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane8_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane8_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane8_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane8_pose_matrix-sampler" target="pPlane8/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane9_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane9_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane9_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane9_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane9_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane9_pose_matrix-output-array" count="320">0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1 0.9564533 -0.2860127 -0.05825675 0.2454553 0.2440667 0.6742019 0.6970523 8.161386 -0.1600892 -0.6809168 0.7146484 -4.552266 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane9_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane9_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane9_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane9_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane9_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane9_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane9_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane9_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane9_pose_matrix-sampler" target="pPlane9/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_tree_b_pose_matrix">
+      <source id="iaigiri_skeleton_tree_b_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_tree_b_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_tree_b_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_tree_b_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_tree_b_pose_matrix-output-array" count="320">1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1 1 0 -6.3573e-8 0.7594552 1.42109e-14 1 2.67725e-7 2 6.3573e-8 -2.67725e-7 1 -0.2606932 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_tree_b_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_tree_b_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_tree_b_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_tree_b_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_tree_b_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_tree_b_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_tree_b_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_tree_b_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_tree_b_pose_matrix-sampler" target="tree_b/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_kage_pose_matrix">
+      <source id="iaigiri_skeleton_kage_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_kage_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_kage_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_kage_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_kage_pose_matrix-output-array" count="320">0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1 0.9999999 2.78182e-8 2.08687e-15 -0.7598251 1.42109e-14 1 1.49011e-8 -0.9999997 3.67157e-15 -1.66377e-8 1 0.2431491 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_kage_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_kage_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_kage_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_kage_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_kage_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_kage_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_kage_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_kage_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_kage_pose_matrix-sampler" target="kage/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane12_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane12_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane12_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane12_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane12_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane12_pose_matrix-output-array" count="320">0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1 0.9999999 7.6413e-8 -2.22104e-8 -0.6795808 7.48264e-9 0.5152389 0.8570465 4.794948 7.69332e-8 -0.857047 0.5152385 -0.7629124 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane12_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane12_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane12_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane12_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane12_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane12_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane12_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane12_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane12_pose_matrix-sampler" target="pPlane12/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane13_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane13_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane13_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane13_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane13_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane13_pose_matrix-output-array" count="320">0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1 0.9999999 1.32444e-7 -1.93532e-7 1.42278 7.80975e-8 0.6849779 0.7285638 4.538461 2.29059e-7 -0.7285638 0.6849779 0.2234409 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane13_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane13_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane13_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane13_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane13_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane13_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane13_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane13_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane13_pose_matrix-sampler" target="pPlane13/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane16_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane16_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane16_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane16_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane16_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane16_pose_matrix-output-array" count="320">-0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1 -0.003202374 -0.8678446 0.4968261 -0.6796315 0.009073662 0.4967832 0.8678276 4.794946 -0.9999537 0.007287011 0.006283638 -0.762906 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane16_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane16_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane16_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane16_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane16_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane16_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane16_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane16_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane16_pose_matrix-sampler" target="pPlane16/transform"/>
+    </animation>
+    <animation id="iaigiri_skeleton_pPlane17_pose_matrix">
+      <source id="iaigiri_skeleton_pPlane17_pose_matrix-input">
+        <float_array id="iaigiri_skeleton_pPlane17_pose_matrix-input-array" count="20">0 0.04166656 0.08333331 0.125 0.1666666 0.2083333 0.25 0.2916666 0.3333333 0.375 0.4166666 0.4583333 0.5 0.5416667 0.5833333 0.625 0.6666667 0.7083333 0.75 0.7916667</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane17_pose_matrix-input-array" count="20" stride="1">
+            <param name="TIME" type="float"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane17_pose_matrix-output">
+        <float_array id="iaigiri_skeleton_pPlane17_pose_matrix-output-array" count="320">-0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1 -0.0180285 0.8351661 -0.5497025 1.422776 -0.1093182 0.5448493 0.8313777 4.538459 0.9938437 0.07508087 0.08147602 0.2234374 0 0 0 1</float_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane17_pose_matrix-output-array" count="20" stride="16">
+            <param name="TRANSFORM" type="float4x4"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <source id="iaigiri_skeleton_pPlane17_pose_matrix-interpolation">
+        <Name_array id="iaigiri_skeleton_pPlane17_pose_matrix-interpolation-array" count="20">LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR LINEAR</Name_array>
+        <technique_common>
+          <accessor source="#iaigiri_skeleton_pPlane17_pose_matrix-interpolation-array" count="20" stride="1">
+            <param name="INTERPOLATION" type="name"/>
+          </accessor>
+        </technique_common>
+      </source>
+      <sampler id="iaigiri_skeleton_pPlane17_pose_matrix-sampler">
+        <input semantic="INPUT" source="#iaigiri_skeleton_pPlane17_pose_matrix-input"/>
+        <input semantic="OUTPUT" source="#iaigiri_skeleton_pPlane17_pose_matrix-output"/>
+        <input semantic="INTERPOLATION" source="#iaigiri_skeleton_pPlane17_pose_matrix-interpolation"/>
+      </sampler>
+      <channel source="#iaigiri_skeleton_pPlane17_pose_matrix-sampler" target="pPlane17/transform"/>
+    </animation>
+  </library_animations>
+  <library_controllers>
+    <controller id="iaigiri_skeleton_iaigiri-skin" name="iaigiri_skeleton">
+      <skin source="#iaigiri_003-mesh">
+        <bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+        <source id="iaigiri_skeleton_iaigiri-skin-joints">
+          <Name_array id="iaigiri_skeleton_iaigiri-skin-joints-array" count="18">blender_implicit iaigiri_cut cut_fx tree_a pPlane10 pPlane11 pPlane14 pPlane15 pPlane18 pPlane19 pPlane8 pPlane9 tree_b kage pPlane12 pPlane13 pPlane16 pPlane17</Name_array>
+          <technique_common>
+            <accessor source="#iaigiri_skeleton_iaigiri-skin-joints-array" count="18" stride="1">
+              <param name="JOINT" type="name"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="iaigiri_skeleton_iaigiri-skin-bind_poses">
+          <float_array id="iaigiri_skeleton_iaigiri-skin-bind_poses-array" count="288">-1 0 -1.50996e-7 0 0 -1 -2.8213e-7 0 -1.50996e-7 -2.8213e-7 1 0 0 0 0 1 1 0 1.50996e-7 0 0 -1 -5.6426e-7 0 1.50996e-7 5.6426e-7 -1 0 0 0 0 1 0.9021279 0.4314687 -1.61984e-6 6.438408 -1.60933e-6 -3.57628e-7 -1 -7.500011 -0.4314687 0.9021279 3.43072e-7 13.46165 0 0 0 1 1 0 0 -0.8464869 0 -1 -5.6426e-7 -14.7591 0 5.66244e-7 -1 -2.260306 0 0 0 1 1 0 0 -1.007745 -4.19863e-7 -0.6849746 0.7285669 -7.04414 -4.27948e-7 -0.728567 -0.6849746 -7.179784 0 0 0 1 0.3629482 -0.917502 0.1626624 -23.59406 -0.8500478 -0.2545111 0.4611322 -4.889121 -0.3816903 -0.3056378 -0.8722947 -6.216755 0 0 0 1 0.6537924 -0.4912797 0.575501 -10.90246 -0.5759801 -0.816354 -0.04254829 -15.88641 0.4907166 -0.3036602 -0.8166937 -5.654028 0 0 0 1 -0.9912338 -0.05798363 0.1187162 -0.4648448 -0.1184664 -0.007739007 -0.9929278 1.819214 0.0584923 -0.9982876 8.02025e-4 -11.61798 0 0 0 1 0.7149802 -0.6607739 -0.2284314 -11.61466 -0.1204304 -0.4382448 0.8907513 -6.764838 -0.6886945 -0.6093598 -0.3929136 -7.293814 0 0 0 1 -0.5360349 -0.3962123 -0.7454411 -6.339481 0.8006358 -0.5185814 -0.3000915 -6.988007 -0.267672 -0.7576866 0.5951997 -10.45824 0 0 0 1 1 0 0 1.026022 4.89942e-7 -0.5152435 0.8570438 -9.291161 9.34786e-7 -0.8570438 -0.5152436 -15.03905 0 0 0 1 0.9564529 -0.2440696 0.1600881 -7.005446 -0.2860143 -0.674209 0.6809095 -16.70155 -0.0582562 -0.6970453 -0.7146565 -14.27537 0 0 0 1 1 0 0 -0.7594553 0 -1 -2.96039e-7 -2 0 2.98023e-7 -1 0.2606927 0 0 0 1 1 0 0 3.69965e-4 0 -1 -2.81138e-7 -1 0 2.81138e-7 -1 0.01754361 0 0 0 1 1 0 0 -0.07987409 0 -0.515239 0.8570466 -4.378295 0 -0.8570464 -0.5152392 -5.29619 0 0 0 1 1 0 0 -2.182235 0 -0.6849789 0.7285629 -4.505847 0 -0.7285628 -0.6849789 -4.738177 0 0 0 1 -0.00320357 -0.009077847 0.9999536 -1.084953 -0.8678389 -0.4967918 -0.007290422 -3.298897 0.4968351 -0.8678219 -0.006286561 -5.930056 0 0 0 1 -0.01803183 0.1093192 -0.993843 0.7911472 0.8351638 -0.5448516 -0.07508468 -5.382222 -0.5497052 -0.8313759 -0.08147478 -4.233307 0 0 0 1</float_array>
+          <technique_common>
+            <accessor source="#iaigiri_skeleton_iaigiri-skin-bind_poses-array" count="18" stride="16">
+              <param name="TRANSFORM" type="float4x4"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="iaigiri_skeleton_iaigiri-skin-weights">
+          <float_array id="iaigiri_skeleton_iaigiri-skin-weights-array" count="114">1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#iaigiri_skeleton_iaigiri-skin-weights-array" count="114" stride="1">
+              <param name="WEIGHT" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <joints>
+          <input semantic="JOINT" source="#iaigiri_skeleton_iaigiri-skin-joints"/>
+          <input semantic="INV_BIND_MATRIX" source="#iaigiri_skeleton_iaigiri-skin-bind_poses"/>
+        </joints>
+        <vertex_weights count="114">
+          <input semantic="JOINT" source="#iaigiri_skeleton_iaigiri-skin-joints" offset="0"/>
+          <input semantic="WEIGHT" source="#iaigiri_skeleton_iaigiri-skin-weights" offset="1"/>
+          <vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 </vcount>
+          <v>17 0 17 1 17 2 16 3 16 4 16 5 15 6 15 7 15 8 15 9 14 10 14 11 14 12 14 13 11 14 11 15 11 16 11 17 10 18 10 19 10 20 10 21 9 22 9 23 9 24 9 25 9 26 8 27 8 28 8 29 8 30 8 31 7 32 7 33 7 34 7 35 7 36 6 37 6 38 6 39 6 40 6 41 5 42 5 43 5 44 5 45 4 46 4 47 4 48 4 49 13 50 13 51 13 52 13 53 12 54 12 55 12 56 12 57 12 58 12 59 12 60 12 61 12 62 12 63 12 64 12 65 12 66 12 67 12 68 12 69 12 70 12 71 12 72 12 73 12 74 12 75 12 76 12 77 12 78 12 79 12 80 12 81 12 82 3 83 3 84 3 85 3 86 3 87 3 88 3 89 3 90 3 91 3 92 3 93 3 94 3 95 3 96 3 97 3 98 3 99 3 100 3 101 3 102 3 103 3 104 2 105 2 106 2 107 2 108 2 109 2 110 2 111 2 112 2 113</v>
+        </vertex_weights>
+      </skin>
+    </controller>
+  </library_controllers>
+  <library_visual_scenes>
+    <visual_scene id="Default" name="Default">
+      <node id="iaigiri_skeleton" name="iaigiri_skeleton" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">0.9999999 1 1</scale>
+        <node id="blender_implicit" name="blender_implicit" sid="blender_implicit" type="JOINT">
+          <matrix sid="transform">-1 0 -1.50996e-7 0 4.26004e-14 -0.9999997 -2.8213e-7 0 -1.50996e-7 -2.8213e-7 1 0 0 0 0 1</matrix>
+        </node>
+        <node id="iaigiri_cut" name="iaigiri_cut" sid="iaigiri_cut" type="JOINT">
+          <matrix sid="transform">1 4.26004e-14 1.50996e-7 0 -4.26004e-14 -1 5.6426e-7 0 1.50996e-7 -5.6426e-7 -1 0 0 0 0 1</matrix>
+          <node id="cut_fx" name="cut_fx" sid="cut_fx" type="JOINT">
+            <matrix sid="transform">0.9021279 -1.76032e-6 -0.4314687 1.0911e-6 -0.4314687 9.53674e-7 -0.9021279 14.92211 1.99952e-6 1 1.0081e-7 7.499998 0 0 0 1</matrix>
+          </node>
+          <node id="tree_a" name="tree_a" sid="tree_a" type="JOINT">
+            <matrix sid="transform">1 0 -6.3573e-8 0.8464867 0 1 0 14.7591 6.3573e-8 0 1 2.260306 0 0 0 1</matrix>
+            <node id="pPlane10" name="pPlane10" sid="pPlane10" type="JOINT">
+              <matrix sid="transform">1 5.96046e-8 -5.98824e-8 0.1612583 2.8007e-9 0.6849742 0.7285674 -4.703088 8.44439e-8 -0.7285674 0.6849741 -2.47447 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane11" name="pPlane11" sid="pPlane11" type="JOINT">
+              <matrix sid="transform">0.3629481 -0.8500477 -0.3816904 1.188071 0.9175017 0.254511 0.3056383 10.0329 -0.1626628 -0.4611324 0.8722944 -2.929871 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane14" name="pPlane14" sid="pPlane14" type="JOINT">
+              <matrix sid="transform">0.6537912 -0.5759819 0.4907157 -0.09432256 0.4912795 0.8163545 0.3036607 5.282912 -0.575501 0.04254793 0.8166934 -3.24114 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane15" name="pPlane15" sid="pPlane15" type="JOINT">
+              <matrix sid="transform">-0.9912338 -0.1184665 0.05849233 -0.4121783 0.0579836 0.007739544 0.9982876 -3.148142 -0.1187163 0.9929279 -8.02605e-4 -4.131164 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane18" name="pPlane18" sid="pPlane18" type="JOINT">
+              <matrix sid="transform">0.7149804 -0.1204301 -0.6886942 1.619873 0.6607741 0.4382443 0.6093601 0.3247814 0.228431 -0.8907517 0.3929131 -2.767111 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane19" name="pPlane19" sid="pPlane19" type="JOINT">
+              <matrix sid="transform">-0.5360351 0.8006365 -0.267672 -1.449196 0.3962128 0.5185818 0.7576863 -0.699398 0.7454407 0.3000913 -0.5952002 -1.662305 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane8" name="pPlane8" sid="pPlane8" type="JOINT">
+              <matrix sid="transform">1 -1.42109e-14 -5.08764e-8 -1.87251 4.36033e-8 0.5152431 0.8570441 2.917237 2.62137e-8 -0.857044 0.515243 -2.474474 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane9" name="pPlane9" sid="pPlane9" type="JOINT">
+              <matrix sid="transform">0.9564527 -0.2860147 -0.05825656 0.2453688 0.2440696 0.6742086 0.6970457 8.16163 -0.1600882 -0.6809099 0.7146561 -4.55207 0 0 0 1</matrix>
+            </node>
+          </node>
+          <node id="tree_b" name="tree_b" sid="tree_b" type="JOINT">
+            <matrix sid="transform">1 0 -6.3573e-8 0.7594552 1.70516e-14 1 2.68221e-7 2 6.3573e-8 -2.68221e-7 1 -0.2606932 0 0 0 1</matrix>
+            <node id="kage" name="kage" sid="kage" type="JOINT">
+              <matrix sid="transform">1 -2.37803e-14 7.10543e-15 -0.7598252 0 1 1.49012e-8 -1 0 -1.68853e-8 1 0.2431491 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane12" name="pPlane12" sid="pPlane12" type="JOINT">
+              <matrix sid="transform">1 5.96046e-8 -4.54482e-8 -0.679581 8.24059e-9 0.5152389 0.8570466 4.79495 7.45006e-8 -0.8570467 0.5152389 -0.7629079 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane13" name="pPlane13" sid="pPlane13" type="JOINT">
+              <matrix sid="transform">1 -1.42109e-14 -8.32421e-8 1.42278 6.06471e-8 0.6849787 0.7285631 4.538471 5.7019e-8 -0.7285632 0.6849788 0.2234487 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane16" name="pPlane16" sid="pPlane16" type="JOINT">
+              <matrix sid="transform">-0.003203614 -0.8678392 0.4968353 -0.6795819 0.009077621 0.4967922 0.8678222 4.79495 -0.9999539 0.007290119 0.006286379 -0.7628821 0 0 0 1</matrix>
+            </node>
+            <node id="pPlane17" name="pPlane17" sid="pPlane17" type="JOINT">
+              <matrix sid="transform">-0.01803204 0.8351642 -0.5497054 1.422779 -0.109319 0.5448518 0.831376 4.538471 0.9938434 0.07508456 0.08147451 0.2234447 0 0 0 1</matrix>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node id="iaigiri" name="iaigiri" type="NODE">
+        <translate sid="location">0 0 0</translate>
+        <rotate sid="rotationZ">0 0 1 0</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 0</rotate>
+        <scale sid="scale">1 1 1</scale>
+        <instance_controller url="#iaigiri_skeleton_iaigiri-skin">
+          <skeleton>#blender_implicit</skeleton>
+          <skeleton>#iaigiri_cut</skeleton>
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="iaigiri_branch2_mat_001_001-material" target="#iaigiri_branch2_mat_001_001-material">
+                <bind_vertex_input semantic="iaigiri_002-mesh-map" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="kokage3_mat_001_001-material" target="#kokage3_mat_001_001-material">
+                <bind_vertex_input semantic="iaigiri_002-mesh-map" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="iaigiri_bark1_mat_001_001-material" target="#iaigiri_bark1_mat_001_001-material">
+                <bind_vertex_input semantic="iaigiri_002-mesh-map" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="iaigiri_cut1_mat_001_001-material" target="#iaigiri_cut1_mat_001_001-material">
+                <bind_vertex_input semantic="iaigiri_002-mesh-map" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_controller>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Default"/>
+  </scene>
+</COLLADA>

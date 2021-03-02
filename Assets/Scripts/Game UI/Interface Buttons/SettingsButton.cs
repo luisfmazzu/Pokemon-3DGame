@@ -11,6 +11,6 @@ public class SettingsButton : MonoBehaviour
     {
         RectTransform transform = gameObject.GetComponent<RectTransform>();
 
-        transform.position = new Vector3(Screen.width - (transform.rect.width - 8), Screen.height - (transform.rect.height - 8), 0.0f);
+        transform.position = new Vector3(Screen.width - (transform.rect.width / 2), Screen.height - (transform.rect.height / 2), 0.0f);
     }
 }

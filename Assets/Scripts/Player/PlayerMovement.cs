@@ -6,18 +6,31 @@ using System.Collections;
 /// </summary>
 public class PlayerMovement : MonoBehaviour
 {
-    public Transform pawn;
-    public Transform pawnReflection;
+    enum direction
+    {
+        UP,
+        RIGHT,
+        DOWN,
+        LEFT,
+        UNDEFINED
+    }
+
+    private const int IDLE_POSITION_IN_SPRITESHEET = 7;
+
+    public Transform    pawn;
+    public Transform    pawnReflection;
+    public Transform    hitBox;
+
     public SpriteRenderer pawnSprite;
     public SpriteRenderer pawnReflectionSprite;
+
     public MapCollider currentMap;
-    public Transform hitBox;
 
-    //private Rigidbody2D m_rBody;
-    //private Animator m_anim;
+    private Sprite[] spriteSheet;
+    private Sprite[] mountSpriteSheet;
 
-    public bool moving = false;
-    public bool idle = true;
+    public bool moving  = false;
+    public bool idle    = true;
     public bool running = false;
     public bool surfing = false;
 
@@ -27,12 +40,11 @@ public class PlayerMovement : MonoBehaviour
     public float surfSpeed = 0.2f;
     public float speed;
     public bool canReceiveInput = true;
-    public int lastDirection = 2; // Indicates the direction the player sprite must be facing, even if movement is not happening
-    public int currentDirection = -1; // Indicates the current direction input by the user. It is -1 if there is no input
+    
+    private direction lastDirection     = direction.UNDEFINED;
+    private direction currentDirection  = direction.UNDEFINED;
 
     private string animationName;
-    private Sprite[] spriteSheet;
-    private Sprite[] mountSpriteSheet;
 
     private int frame;
     private int frames;
@@ -46,14 +58,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        pawn            = transform.Find("Pawn");
+        pawnReflection  = transform.Find("PawnReflection");
+        hitBox          = transform.Find("Player_Transparent");
+
+        pawnSprite              = pawn.GetComponent<SpriteRenderer>();
+        pawnReflectionSprite    = pawnReflection.GetComponent<SpriteRenderer>();
+
         canReceiveInput = true;
-
-        pawn = transform.Find("Pawn");
-        pawnReflection = transform.Find("PawnReflection");
-        pawnSprite = pawn.GetComponent<SpriteRenderer>();
-        pawnReflectionSprite = pawnReflection.GetComponent<SpriteRenderer>();
-
-        hitBox = transform.Find("Player_Transparent");
     }
 
     /// <summary>
@@ -61,13 +73,13 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //m_rBody = GetComponent<Rigidbody2D>();
-        //m_anim = GetComponent<Animator>();
-
         speed = walkSpeed;
+
         canReceiveInput = true;
 
-        spriteSheet = Resources.LoadAll<Sprite>("Sprites/PlayerSprites/m_hgss_walk");
+        spriteSheet = Resources.LoadAll<Sprite>("Sprites/npc/OfficerJenny");
+
+        pawnSprite.sprite = spriteSheet[IDLE_POSITION_IN_SPRITESHEET];
 
         updateAnimation("walk", walkFPS);
         StartCoroutine("animateSprite");
@@ -81,46 +93,32 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        /*Vector2 movement_vector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-        if (movement_vector != Vector2.zero)
-        { 
-            m_anim.SetBool("isWalking", true);
-
-            m_anim.SetFloat("input_x", movement_vector.x);
-            m_anim.SetFloat("input_y", movement_vector.y);
-        }
-        else
-            m_anim.SetBool("isWalking", false);
-
-        m_rBody.MovePosition(m_rBody.position + movement_vector * Time.deltaTime);*/
-
         // Check for new inputs, so that the new direction can be set accordingly
         if (Input.GetButton("Horizontal"))
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                currentDirection = 1;
+                currentDirection = direction.RIGHT;
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                currentDirection = 3;
+                currentDirection = direction.LEFT;
             }
         }
         else if (Input.GetButton("Vertical"))
         {
             if (Input.GetAxisRaw("Vertical") > 0)
             {
-                currentDirection = 0;
+                currentDirection = direction.UP;
             }
             else if (Input.GetAxisRaw("Vertical") < 0)
             {
-                currentDirection = 2;
+                currentDirection = direction.DOWN;
             }
         }
         else
         {
-            currentDirection = -1;
+            currentDirection = direction.UNDEFINED;
         }
     }
 
@@ -129,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         while(true)
         {
             // Checks if there is any movement to be made
-            if (currentDirection >= 0)
+            if (currentDirection != direction.UNDEFINED)
             {
                 lastDirection = currentDirection;
 
@@ -159,11 +157,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 //increment increases slowly to 1 over the frames
                 increment += (1f / speed) * Time.deltaTime;
+
                 //speed is determined by how many squares are crossed in one second
                 if (increment > 1)
                 {
                     increment = 1;
                 }
+
                 transform.position = startPosition + (movement * increment);
                 hitBox.position = startPosition + movement;
                 yield return null;
@@ -176,42 +176,43 @@ public class PlayerMovement : MonoBehaviour
         return getForwardVectorRaw(currentDirection);
     }
 
-    public Vector3 getForwardVectorRaw(int direction)
+    private Vector3 getForwardVectorRaw(direction dir)
     {
         //set vector3 based off of direction
         Vector3 forwardVector = new Vector3(0, 0, 0);
-        if (direction == 0)
+
+        if (dir == direction.UP)
         {
             forwardVector = new Vector3(0, 0, 1f);
         }
-        else if (direction == 1)
+        else if (dir == direction.RIGHT)
         {
             forwardVector = new Vector3(1f, 0, 0);
         }
-        else if (direction == 2)
+        else if (dir == direction.DOWN)
         {
             forwardVector = new Vector3(0, 0, -1f);
         }
-        else if (direction == 3)
+        else if (dir == direction.LEFT)
         {
             forwardVector = new Vector3(-1f, 0, 0);
         }
         return forwardVector;
     }
 
-    public Vector3 getForwardVector()
+    private Vector3 getForwardVector()
     {
         return getForwardVector(currentDirection, true);
     }
 
-    public Vector3 getForwardVector(int direction)
+    private Vector3 getForwardVector(direction dir)
     {
-        return getForwardVector(direction, true);
+        return getForwardVector(dir, true);
     }
 
-    public Vector3 getForwardVector(int direction, bool checkForBridge)
+    private Vector3 getForwardVector(direction dir, bool checkForBridge)
     {
-        Vector3 movement = getForwardVectorRaw(direction);
+        Vector3 movement = getForwardVectorRaw(dir);
 
         return movement;
     }
@@ -221,40 +222,57 @@ public class PlayerMovement : MonoBehaviour
         if (animationName != newAnimationName)
         {
             animationName = newAnimationName;
+
             framesPerSec = fps;
+
             secPerFrame = 1f / (float)framesPerSec;
-            frames = Mathf.RoundToInt((float)spriteSheet.Length / 4f);
+
+            frames = Mathf.RoundToInt((float)spriteSheet.Length / 3f);
+
             if (frame >= frames)
             {
-                frame = 0;
+                frame = 1;
             }
         }
     }
 
     private IEnumerator animateSprite()
     {
+        int[] frameOrder = {0, 2, 1, 1};
+
+        const int spriteFrames = 3;
+
         frame = 0;
-        frames = 4;
+        frames = 3;
         framesPerSec = walkFPS;
         secPerFrame = 1f / (float)framesPerSec;
+        
         while (true)
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < frames; i++)
             {
                 if (animPause && frame % 2 != 0 && !overrideAnimPause)
                 {
                     frame -= 1;
                 }
-                pawnSprite.sprite = spriteSheet[lastDirection * frames + frame];
+
+                if (lastDirection != direction.UNDEFINED)
+                {
+                    pawnSprite.sprite = spriteSheet[(int)lastDirection * spriteFrames + frameOrder[frame]];
+                }
+
                 pawnReflectionSprite.sprite = pawnSprite.sprite;
-                yield return new WaitForSeconds(secPerFrame / 4f);
+
+                yield return new WaitForSeconds(secPerFrame / 3f);
             }
+
             if (!animPause || overrideAnimPause)
             {
                 frame += 1;
-                if (frame >= frames)
+
+                if (frame >= spriteFrames)
                 {
-                    frame = 0;
+                    frame = 1;
                 }
             }
         }

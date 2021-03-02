@@ -11,6 +11,6 @@ public class AchievementsButton : MonoBehaviour
     {
         RectTransform transform = gameObject.GetComponent<RectTransform>();
 
-        transform.position = new Vector3(Screen.width - ((transform.rect.width * 3) - 8), Screen.height - (transform.rect.height - 8), 0.0f);
+        transform.position = new Vector3(Screen.width - ((transform.rect.width * 3) - (transform.rect.width / 2)), Screen.height - (transform.rect.height / 2), 0.0f);
     }
 }
