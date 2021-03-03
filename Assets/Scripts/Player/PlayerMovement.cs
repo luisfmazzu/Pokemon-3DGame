@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     public bool surfing = false;
 
     // Parameters
-    public float walkSpeed = 0.3f; // Time to walk one square in seconds
+    public float walkSpeed = 0.03f; // Time to walk one square in seconds
     public float runSpeed = 0.14f;
     public float surfSpeed = 0.2f;
     public float speed;
@@ -164,8 +164,8 @@ public class PlayerMovement : MonoBehaviour
                     increment = 1;
                 }
 
-                transform.position = startPosition + (movement * increment);
-                hitBox.position = startPosition + movement;
+                transform.position = startPosition + (movement * increment * 15);
+                hitBox.position = startPosition + movement * 15;
                 yield return null;
             }
         }
