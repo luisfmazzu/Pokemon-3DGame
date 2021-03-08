@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: grass_03_com_soil_05_com
-  m_Shader: {fileID: 4800000, guid: b3c47152fbf57ed48a724915646667c2, type: 3}
-  m_ShaderKeywords: _GROUNDUVSET_UV1 _TRANSITIONUVSET_UV3
+  m_Shader: {fileID: -6465566751694194690, guid: 0d65ecf9a033f5b4c9c584178605957f,
+    type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,45 +20,29 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _TexA:
+    - noise:
+        m_Texture: {fileID: 2800000, guid: 8692f23cc71be514b99794c369d50c70, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - texA:
         m_Texture: {fileID: 2800000, guid: 3a366719920dff741996816336b56dec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TexB:
-        m_Texture: {fileID: 2800000, guid: c2048323ad8e85f448a19b9d9b0c4d1b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TexC:
-        m_Texture: {fileID: 2800000, guid: 372bde3e15fcc524aa58be311146ae3b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TexD:
+    - texB:
         m_Texture: {fileID: 2800000, guid: 3a7432cfb65ae404cb6ce9f8fd52ea2b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TexNoise:
-        m_Texture: {fileID: 2800000, guid: ebd256d09baa0694bb9f8873066ff45b, type: 3}
+    - texC:
+        m_Texture: {fileID: 2800000, guid: 372bde3e15fcc524aa58be311146ae3b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _TexTransition:
-        m_Texture: {fileID: 2800000, guid: aee1843d89041a547a832060263a36af, type: 3}
+    - texD:
+        m_Texture: {fileID: 2800000, guid: c2048323ad8e85f448a19b9d9b0c4d1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _texcoord1:
-        m_Texture: {fileID: 0}
+    - transition:
+        m_Texture: {fileID: 2800000, guid: ba5b1f2af895e3249b8a6f8be6a37d68, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _texcoord2:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _texcoord3:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _GroundUVSet: 0
-    - _TransitionUVSet: 2
-    m_Colors:
-    - _HColor: {r: 0.8627451, g: 0.8627451, b: 0.8627451, a: 1}
-    - _TransitionColor: {r: 0, g: 0.29410666, b: 0.6509434, a: 1}
+    m_Floats: []
+    m_Colors: []

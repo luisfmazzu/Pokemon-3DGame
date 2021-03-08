@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41173986273d469449db5c10e26d6088, type: 3}
+  m_Name: 3DStoUnitySettings
+  m_EditorClassIdentifier: 
+  whatToImport:
+    ImportModel: 1
+    ImportTextures: 1
+    ImportMaterials: 1
+    ApplyMaterials: 1
+    SkeletalAnimations: 1
+    MaterialAnimationsWip: 0
+    RenameGeneratedAnimationFiles: 1
+  mergedBinariesPreview:
+  - PokemonMergedBinary:
+    - Assets/Bin3DS/Anim_Basic\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Anim_Extra\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Anim_Fight\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Anim_Misc\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/model\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Textures (Shiny)\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Textures (Tex)\0001 - Bulbasaur.bin
+  - PokemonMergedBinary:
+    - Assets/Bin3DS/Anim_Basic\0038 - Pikachu.bin
+    - Assets/Bin3DS/Anim_Extra\0038 - Pikachu.bin
+    - Assets/Bin3DS/Anim_Fight\0038 - Pikachu.bin
+    - Assets/Bin3DS/Anim_Misc\0038 - Pikachu.bin
+    - Assets/Bin3DS/model\0038 - Pikachu.bin
+    - Assets/Bin3DS/Textures (Shiny)\0038 - Pikachu.bin
+    - Assets/Bin3DS/Textures (Tex)\0038 - Pikachu.bin
+  customShaderSettings:
+    bodyShader: {fileID: -6465566751694194690, guid: 34c05285aa3b74c4a9a06f440468af29,
+      type: 3}
+    irisShader: {fileID: -6465566751694194690, guid: e64715a567d5f42458b11030dd0a186a,
+      type: 3}
+    BaseMap: _BaseMap
+    BaseMapTiling: _BaseMapTiling
+    NormalMap: _NormalMap
+    NormalMapTiling: _NormalMapTiling
+    OcclusionMap: _OcclusionMap
+    OcclusionMapTiling: _OcclusionMapTiling
+  chosenFormat: 1
