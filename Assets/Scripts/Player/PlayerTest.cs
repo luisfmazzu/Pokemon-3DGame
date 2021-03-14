@@ -9,6 +9,8 @@ public class PlayerTest : MonoBehaviour
     [SerializeField]
     private float speed = 0.6f;
     [SerializeField]
+    private float player_graphics_scale = 425.0f;
+    [SerializeField]
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
     private Animator animator;
@@ -32,14 +34,16 @@ public class PlayerTest : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(direction * speed * Time.deltaTime);
         }
 
         // Updates the animator
         animator.SetFloat("DirX", direction.x);
         animator.SetFloat("DirY", direction.z);
         animator.SetBool("isRunning", isRunning);
+
+        Vector3 updatedPos = new Vector3(animator.GetFloat("DirX"), 0, animator.GetFloat("DirY"));
+        updatedPos.x /= player_graphics_scale;
+        updatedPos.z /= player_graphics_scale;
+        controller.Move(updatedPos);
     }
 }
