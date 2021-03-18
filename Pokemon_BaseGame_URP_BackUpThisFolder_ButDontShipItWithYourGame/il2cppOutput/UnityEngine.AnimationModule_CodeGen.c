@@ -50,10 +50,10 @@ extern void StateMachineBehaviour_OnStateMachineEnter_m6DE0F767D565EFC33361BA13A
 extern void StateMachineBehaviour_OnStateMachineExit_m01575716EA20F88A56C3CB778FACE2CBDA68EF26 (void);
 // 0x0000000F System.Void UnityEngine.StateMachineBehaviour::.ctor()
 extern void StateMachineBehaviour__ctor_m60289315ADCB494227D881EEFA6C4458BACA79DB (void);
-// 0x00000010 System.Void UnityEngine.Animator::SetFloat(System.String,System.Single)
+// 0x00000010 System.Single UnityEngine.Animator::GetFloat(System.String)
+extern void Animator_GetFloat_m1C8B853CA82031CE4775FBDCDEDDB3C9E702695F (void);
+// 0x00000011 System.Void UnityEngine.Animator::SetFloat(System.String,System.Single)
 extern void Animator_SetFloat_mE4C29F6980EBBBD954637721E6E13A0BE2B13C43 (void);
-// 0x00000011 System.Void UnityEngine.Animator::SetBool(System.String,System.Boolean)
-extern void Animator_SetBool_m497805BA217139E42808899782FA05C15BC9879E (void);
 // 0x00000012 System.Void UnityEngine.Animator::SetTrigger(System.String)
 extern void Animator_SetTrigger_m68D29B7FA54C2F230F5AD780D462612B18E74245 (void);
 // 0x00000013 System.Void UnityEngine.Animator::ResetTrigger(System.String)
@@ -62,8 +62,8 @@ extern void Animator_ResetTrigger_m70120C9A00EA482BF0880D2C02EC814CE3D71FD1 (voi
 extern void Animator_get_hasBoundPlayables_m283AF0BA9B841E3FD1ADC5541C41B936A9D1EB05 (void);
 // 0x00000015 System.Void UnityEngine.Animator::SetFloatString(System.String,System.Single)
 extern void Animator_SetFloatString_mE425F554C50682E41D362D7593B3B069609B7091 (void);
-// 0x00000016 System.Void UnityEngine.Animator::SetBoolString(System.String,System.Boolean)
-extern void Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46 (void);
+// 0x00000016 System.Single UnityEngine.Animator::GetFloatString(System.String)
+extern void Animator_GetFloatString_mB1518F1964EE15625814C558BB3565330491F3C2 (void);
 // 0x00000017 System.Void UnityEngine.Animator::SetTriggerString(System.String)
 extern void Animator_SetTriggerString_m77CE57996467D0C973FA2D0CB4DF87BD062C8A1E (void);
 // 0x00000018 System.Void UnityEngine.Animator::ResetTriggerString(System.String)
@@ -185,13 +185,13 @@ static Il2CppMethodPointer s_methodPointers[74] =
 	StateMachineBehaviour_OnStateMachineEnter_m6DE0F767D565EFC33361BA13A6DCC65AC89D3D07,
 	StateMachineBehaviour_OnStateMachineExit_m01575716EA20F88A56C3CB778FACE2CBDA68EF26,
 	StateMachineBehaviour__ctor_m60289315ADCB494227D881EEFA6C4458BACA79DB,
+	Animator_GetFloat_m1C8B853CA82031CE4775FBDCDEDDB3C9E702695F,
 	Animator_SetFloat_mE4C29F6980EBBBD954637721E6E13A0BE2B13C43,
-	Animator_SetBool_m497805BA217139E42808899782FA05C15BC9879E,
 	Animator_SetTrigger_m68D29B7FA54C2F230F5AD780D462612B18E74245,
 	Animator_ResetTrigger_m70120C9A00EA482BF0880D2C02EC814CE3D71FD1,
 	Animator_get_hasBoundPlayables_m283AF0BA9B841E3FD1ADC5541C41B936A9D1EB05,
 	Animator_SetFloatString_mE425F554C50682E41D362D7593B3B069609B7091,
-	Animator_SetBoolString_mA61F1A44D13EF82A7C2CAF466EBA81E65D054D46,
+	Animator_GetFloatString_mB1518F1964EE15625814C558BB3565330491F3C2,
 	Animator_SetTriggerString_m77CE57996467D0C973FA2D0CB4DF87BD062C8A1E,
 	Animator_ResetTriggerString_m31B233F948D7551D220FEDA56B002E6724B89851,
 	AnimatorOverrideController_OnInvalidateOverrideController_mA538F1349FCF3968C5042F2D8860114F51818CB2,
@@ -319,13 +319,13 @@ static const int32_t s_InvokerIndices[74] =
 	2021,
 	2021,
 	23,
+	233,
 	965,
-	474,
 	26,
 	26,
 	89,
 	965,
-	474,
+	233,
 	26,
 	26,
 	166,

@@ -32,14 +32,14 @@ public class PlayerTest : MonoBehaviour
         if(direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+
             transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
         }
 
         // Updates the animator
         animator.SetFloat("DirX", direction.x);
         animator.SetFloat("DirY", direction.z);
-        animator.SetBool("isRunning", isRunning);
+        //animator.SetBool("isRunning", isRunning);
 
         Vector3 updatedPos = new Vector3(animator.GetFloat("DirX"), 0, animator.GetFloat("DirY"));
         updatedPos.x /= player_graphics_scale;

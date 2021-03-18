@@ -11,6 +11,6 @@ public class ShopButton : MonoBehaviour
     {
         RectTransform transform = gameObject.GetComponent<RectTransform>();
 
-        transform.position = new Vector3(Screen.width - ((transform.rect.width * 5) - (transform.rect.width / 2)), Screen.height - (transform.rect.height / 2), 0.0f);
+        transform.position = new Vector3(Screen.width - (transform.rect.width * 5.75f), Screen.height - (transform.rect.height * 0.75f), 0.0f);
     }
 }
