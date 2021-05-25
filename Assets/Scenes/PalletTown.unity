@@ -407,6 +407,38 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: -4771139271722913602, guid: bf4f76b4ef7dd0843ab7d2b5ba2a9e67, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bf4f76b4ef7dd0843ab7d2b5ba2a9e67, type: 3}
+--- !u!1 &579123165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7681641897799865102, guid: bf4f76b4ef7dd0843ab7d2b5ba2a9e67,
+    type: 3}
+  m_PrefabInstance: {fileID: 251848591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &579123168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579123165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 45.3479, y: 127.5933, z: 47.404327}
+  m_Center: {x: -2220.5574, y: 63.79665, z: 647.9278}
+--- !u!65 &579123169
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579123165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 48.43109, y: 127.5933, z: 47.404327}
+  m_Center: {x: -1424.9623, y: 63.79665, z: 647.9278}
 --- !u!1 &734187177 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3599644504695106576, guid: bf4f76b4ef7dd0843ab7d2b5ba2a9e67,
@@ -963,6 +995,21 @@ PrefabInstance:
         type: 3}
       propertyPath: player_graphics_scale
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200775971558764043, guid: 8e3a9a9fdf1d2d74080ba9f17a0c074d,
+        type: 3}
+      propertyPath: m_Height
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200775971558764043, guid: 8e3a9a9fdf1d2d74080ba9f17a0c074d,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200775971558764043, guid: 8e3a9a9fdf1d2d74080ba9f17a0c074d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 8200775971558764047, guid: 8e3a9a9fdf1d2d74080ba9f17a0c074d,
         type: 3}
