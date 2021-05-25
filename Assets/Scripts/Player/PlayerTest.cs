@@ -15,11 +15,13 @@ public class PlayerTest : MonoBehaviour
     private float turnSmoothVelocity;
     private Animator animator;
     private bool isRunning = false;
+    private Rigidbody rigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -28,8 +30,9 @@ public class PlayerTest : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(-horizontal, 0, -vertical).normalized;
+        float verticalSpeed = -9.8f;
 
-        if(direction.magnitude >= 0.1f)
+        if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
@@ -41,7 +44,7 @@ public class PlayerTest : MonoBehaviour
         animator.SetFloat("DirY", direction.z);
         //animator.SetBool("isRunning", isRunning);
 
-        Vector3 updatedPos = new Vector3(animator.GetFloat("DirX"), 0, animator.GetFloat("DirY"));
+        Vector3 updatedPos = new Vector3(animator.GetFloat("DirX"), verticalSpeed, animator.GetFloat("DirY"));
         updatedPos.x /= player_graphics_scale;
         updatedPos.z /= player_graphics_scale;
         controller.Move(updatedPos);
