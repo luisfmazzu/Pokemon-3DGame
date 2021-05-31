@@ -18,9 +18,16 @@ public class PlayerTest : MonoBehaviour
     private Animator animator;
     private bool isRunning = false;
 
+    //private Transform characterParent;
+    //private Transform playerTransform;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        //characterParent = GetComponentInParent<Transform>("");
+
+        //playerTransform = GetComponent<Transform>();
     }
 
     void Update()
@@ -44,14 +51,11 @@ public class PlayerTest : MonoBehaviour
         animator.SetFloat("DirY", direction.z);
         animator.SetBool("IsRunning", isRunning);
 
-        if(isRunning == true)
-        {
-            animator.SetBool("isRunning", isRunning);
-        }
-
         Vector3 updatedMotion = new Vector3(animator.GetFloat("DirX") * horizontalSpeed, verticalSpeed, animator.GetFloat("DirY") * horizontalSpeed);
         updatedMotion.x /= player_graphics_scale;
         updatedMotion.z /= player_graphics_scale;
         controller.Move(updatedMotion);
+
+        //transform.parent.position = transform.position;
     }
 }

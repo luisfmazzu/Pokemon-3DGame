@@ -10,6 +10,17 @@ public class LightningManager : MonoBehaviour
 
     [SerializeField, Range(0, 24)] private float TimeOfDay;
 
+    [SerializeField, Range(1, 100)] private float speed;
+
+    private float game_vs_irl_time_ratio;
+
+    void Start()
+    {
+        int secs_per_hour = 3600;
+
+        game_vs_irl_time_ratio = secs_per_hour / speed;
+    }
+
     private void Update()
     {
         if(Preset == null)
@@ -19,8 +30,10 @@ public class LightningManager : MonoBehaviour
 
         if(Application.isPlaying)
         {
-            TimeOfDay += Time.deltaTime;
+            TimeOfDay += (Time.deltaTime / game_vs_irl_time_ratio);
+
             TimeOfDay %= 24; // Clamp between 0-24
+
             UpdateLightning(TimeOfDay / 24f);
         }
         else
