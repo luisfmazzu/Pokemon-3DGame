@@ -17,16 +17,12 @@ public class PlayerTest : MonoBehaviour
     private float turnSmoothVelocity;
     private Animator animator;
     private bool isRunning = false;
-    private Rigidbody rigidBody;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        rigidBody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");

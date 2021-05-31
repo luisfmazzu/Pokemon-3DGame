@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BodyAVco
-  m_Shader: {fileID: -6465566751694194690, guid: 547d3a6fd0842574fb98666a508e7878,
+  m_Shader: {fileID: -6465566751694194690, guid: 707e4c837f2b58240a84f53df2eb732e,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _MAIN_LIGHT_CALCULATE_SHADOWS _MAIN_LIGHT_SHADOW_CASCADE _SHADOWS_SOFT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -32,12 +32,8 @@ Material:
         m_Texture: {fileID: 2800000, guid: d072300c3a1f61a4692ed74771ac1695, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_2522527B_Texture_1:
-        m_Texture: {fileID: 2800000, guid: e633f836f61b967459927e5c430e4b43, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_6f8cccd0d2c9bf819f861911b9c91d8b_Texture_1:
-        m_Texture: {fileID: 2800000, guid: e633f836f61b967459927e5c430e4b43, type: 3}
+    - _SampleTexture2DLOD_20a7031f97ddfe83aa143ed1bc9c65a2_Texture_1:
+        m_Texture: {fileID: 2800000, guid: bd03817a144dc3a46a7d05f3e6348bb2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -53,10 +49,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Occlusion: 0
     - _AlphaClipThreshold: 0.5
     - _NormalStrength: 1
-    - _Occlusion: 1
-    - _Smoothness: 0
     m_Colors:
     - _BaseMapOffset: {r: 0, g: 0, b: 0, a: 0}
     - _BaseMapTiling: {r: 2, g: 1, b: 0, a: 0}
