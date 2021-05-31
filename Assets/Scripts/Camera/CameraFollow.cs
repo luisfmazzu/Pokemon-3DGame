@@ -10,8 +10,10 @@ public class CameraFollow : MonoBehaviour
 
     public Transform target;
 
-    public float cameraScale = 4.0f; // The Camera Scale
-    public float cameraSpeed = 0.1f; // The Velocity the Camera "runs afer" the Player
+    public Vector3 offset;
+
+    public float zoom = 1f;
+    public float currentYaw = 0f;
 
     #endregion
 
@@ -31,11 +33,8 @@ public class CameraFollow : MonoBehaviour
     /// </summary>
     void Update ()
     {
-        Vector3 CAMERA_POSITION = new Vector3(0.0f, 0.0f, -10.0f); // The Camera in Unity is in a 3D World, knowing this we need to "add" the Z-Coord in our new Position
-
-        m_myCam.orthographicSize = (Screen.height / 100.0f) / cameraScale;
-
-        if (target)
-            transform.position = Vector3.Lerp(transform.position, target.position, cameraSpeed) + CAMERA_POSITION;
+        transform.position = target.position + offset * zoom;
+        transform.LookAt(target.position);
+        transform.RotateAround(target.position, Vector3.up, currentYaw);
 	}
 }
