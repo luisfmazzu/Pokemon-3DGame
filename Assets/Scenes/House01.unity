@@ -5221,6 +5221,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3514107324064427615, guid: 92a71980b1bf2024e954eef89405e937,
         type: 3}
+      propertyPath: TheFollower
+      value: 
+      objectReference: {fileID: 8245215915710314130, guid: edbbfd2c05d4c5343914f902451b1e3f,
+        type: 3}
+    - target: {fileID: 3514107324064427615, guid: 92a71980b1bf2024e954eef89405e937,
+        type: 3}
       propertyPath: allowedDistance
       value: 2
       objectReference: {fileID: 0}
@@ -6783,7 +6789,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3066715937646684940}
   - component: {fileID: 7144140604626170426}
-  - component: {fileID: 8368083433757727481}
   m_Layer: 0
   m_Name: desk02_03
   m_TagString: Untagged
@@ -6791,19 +6796,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!65 &8368083433757727481
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8368083433757727480}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 186.8125, y: 0, z: 81.09229}
-  m_Center: {x: -6397.016, y: 28.27, z: 492.93036}
 --- !u!1 &8399674033816044632
 GameObject:
   m_ObjectHideFlags: 0
