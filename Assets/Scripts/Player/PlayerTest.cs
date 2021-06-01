@@ -24,10 +24,6 @@ public class PlayerTest : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-
-        //characterParent = GetComponentInParent<Transform>("");
-
-        //playerTransform = GetComponent<Transform>();
     }
 
     void Update()
@@ -55,7 +51,5 @@ public class PlayerTest : MonoBehaviour
         updatedMotion.x /= player_graphics_scale;
         updatedMotion.z /= player_graphics_scale;
         controller.Move(updatedMotion);
-
-        //transform.parent.position = transform.position;
     }
 }

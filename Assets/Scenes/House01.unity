@@ -626,6 +626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7753644616630554885}
   - component: {fileID: 4627194155040255548}
+  - component: {fileID: 557540348578552473}
   m_Layer: 0
   m_Name: floor_stairs_t001r0102_girl
   m_TagString: Untagged
@@ -633,6 +634,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &557540348578552473
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557540348578552472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 233.41127, y: 109.69411, z: 149.99982}
+  m_Center: {x: -6695.34, y: -65.09178, z: 174.99393}
 --- !u!4 &569968388313762309
 Transform:
   m_ObjectHideFlags: 0
@@ -974,6 +988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7531278845669421551}
   - component: {fileID: 3752951051250527092}
+  - component: {fileID: 1157864445550898067}
   m_Layer: 0
   m_Name: eae052f71a0836a0a90482
   m_TagString: Untagged
@@ -981,6 +996,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!65 &1157864445550898067
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157864445550898066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 56.963867, y: 84.26807, z: 61.338196}
+  m_Center: {x: -6093.232, y: 42.134014, z: 221.4281}
 --- !u!1 &1350431884319365505
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,8 +1117,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 970.6758, y: 330, z: 685}
-  m_Center: {x: -6448.662, y: 135, z: 387.5}
+  m_Size: {x: 970.6763, y: 330, z: 41.175995}
+  m_Center: {x: -6448.662, y: 135, z: 709.4134}
 --- !u!4 &1571182274335470427
 Transform:
   m_ObjectHideFlags: 0
@@ -1688,6 +1716,8 @@ GameObject:
   - component: {fileID: 7469511770433611789}
   - component: {fileID: 6806329949420644975}
   - component: {fileID: 2146932958605904629}
+  - component: {fileID: 2146932958605904631}
+  - component: {fileID: 2146932958605904630}
   m_Layer: 0
   m_Name: wall_t001r0102_girl
   m_TagString: Untagged
@@ -1706,8 +1736,34 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 969, y: 282.18073, z: 596}
-  m_Center: {x: -6449.5, y: 118.90964, z: 398}
+  m_Size: {x: 87.5, y: 282.18073, z: 596}
+  m_Center: {x: -5979.99, y: 118.90964, z: 398}
+--- !u!65 &2146932958605904630
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146932958605904628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 969, y: 282.18073, z: 59.9}
+  m_Center: {x: -6449.5, y: 118.90964, z: 79.1}
+--- !u!65 &2146932958605904631
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146932958605904628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 101, y: 282.18073, z: 596}
+  m_Center: {x: -6918, y: 118.90964, z: 398}
 --- !u!1 &2162509853186780465
 GameObject:
   m_ObjectHideFlags: 0
@@ -5163,6 +5219,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 3514107324064427615, guid: 92a71980b1bf2024e954eef89405e937,
+        type: 3}
+      propertyPath: allowedDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a71980b1bf2024e954eef89405e937, type: 3}
 --- !u!1 &6797329154421224887
@@ -6146,13 +6207,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557540348578552472}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.000035180507, y: 0.00024773923, z: 0.3324668, w: 0.94311494}
+  m_LocalPosition: {x: -1480, y: 4137.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 543450653307214433}
   m_RootOrder: 28
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.006, y: 0.028, z: 38.837}
 --- !u!4 &7765746398104217829
 Transform:
   m_ObjectHideFlags: 0
@@ -6771,6 +6832,8 @@ GameObject:
   - component: {fileID: 3762716410969634365}
   - component: {fileID: 6984461708425905813}
   - component: {fileID: 8420555315778502984}
+  - component: {fileID: 8420555315778502985}
+  - component: {fileID: 8420555315778502986}
   m_Layer: 6
   m_Name: Floor_t001r0102_girl
   m_TagString: Untagged
@@ -6789,8 +6852,34 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 971.2, y: 126.5, z: 681.7}
-  m_Center: {x: -6451.6, y: -65.2, z: 388.2}
+  m_Size: {x: 640.89294, y: 126.50001, z: 681.7001}
+  m_Center: {x: -6286.4688, y: -65.2, z: 388.20004}
+--- !u!65 &8420555315778502985
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420555315778502983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 446.5, y: 126.5, z: 492}
+  m_Center: {x: -6792.2, y: -65.2, z: 512.7}
+--- !u!65 &8420555315778502986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420555315778502983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 311, y: 18.5, z: 143.9}
+  m_Center: {x: -6776.1, y: -132.8, z: 200.1}
 --- !u!1 &8463373070492509878
 GameObject:
   m_ObjectHideFlags: 0

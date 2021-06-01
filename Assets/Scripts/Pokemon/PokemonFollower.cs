@@ -15,9 +15,8 @@ public class PokemonFollower : MonoBehaviour
     private float runningSpeed = 1.2f;
     [SerializeField]
     private float player_graphics_scale = 425.0f;
-
-    public float TargetDistance;
-    public float AllowedDistance;
+    [SerializeField]
+    private float               allowedDistance;
 
     private Animator            animator;
     private CharacterController followerController;
@@ -35,7 +34,7 @@ public class PokemonFollower : MonoBehaviour
 
     void Start()
     {
-        DistanceToRun = AllowedDistance * 1.5f;
+        DistanceToRun = allowedDistance * 1.5f;
 
         isRunning = false;
 
@@ -51,9 +50,9 @@ public class PokemonFollower : MonoBehaviour
     {
         float verticalSpeed = -9.8f;
 
-        TargetDistance = Vector3.Distance(ThePlayer.transform.position, TheFollower.transform.position);
+        float TargetDistance = Vector3.Distance(ThePlayer.transform.position, TheFollower.transform.position);
 
-        if(TargetDistance >= AllowedDistance)
+        if(TargetDistance >= allowedDistance)
         {
             TheFollower.transform.LookAt(ThePlayer.transform);
 
