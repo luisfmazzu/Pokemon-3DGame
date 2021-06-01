@@ -11,7 +11,7 @@ public class ChatBoxWindow : MonoBehaviour
     public GUIStyle printGUIStyle;
     public GUISkin skin;
 
-    public Player player;
+    //public Player player;
     
     public int maxLogMessages = 200;
 
@@ -137,7 +137,7 @@ public class ChatBoxWindow : MonoBehaviour
 
             else if (!string.IsNullOrEmpty(stringToEdit))
             {
-                log.Add("[" + customDateFormat + "] " + player.PlayerName + ": " + stringToEdit);
+                //log.Add("[" + customDateFormat + "] " + player.PlayerName + ": " + stringToEdit);
 
                 selectTextfield = true;
 
