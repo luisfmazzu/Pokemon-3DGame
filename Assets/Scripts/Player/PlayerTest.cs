@@ -17,9 +17,8 @@ public class PlayerTest : MonoBehaviour
     private float turnSmoothVelocity;
     private Animator animator;
     private bool isRunning = false;
-
-    //private Transform characterParent;
-    //private Transform playerTransform;
+    public string CurrentMapLocationName = "House01_02";
+    public string CurrentAreaTransitionName;
 
     void Start()
     {

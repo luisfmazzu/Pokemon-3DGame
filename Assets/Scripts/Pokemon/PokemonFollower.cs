@@ -83,4 +83,10 @@ public class PokemonFollower : MonoBehaviour
             isRunning = false;
         }
     }
+
+    public void UpdateFollowerPosition(Vector3 position, Quaternion rotation)
+    {
+        TheFollower.transform.position = position;
+        TheFollower.transform.rotation = rotation;
+    }
 }
