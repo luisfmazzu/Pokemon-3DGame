@@ -5,65 +5,71 @@ using UnityEngine;
 [ExecuteAlways]
 public class LightningManager : MonoBehaviour
 {
-    [SerializeField] private Light DirectionalLight;
-    [SerializeField] private LightningPreset Preset;
+    #region SerializeFields
+        [SerializeField]                private Light           directionalLight;
+    
+        [SerializeField]                private LightningPreset preset;
 
-    [SerializeField, Range(0, 24)] private float TimeOfDay;
+        [SerializeField, Range(0, 24)]  private float           timeOfDay;
+        [SerializeField, Range(1, 100)] private float           speed;
+    #endregion
 
-    [SerializeField, Range(1, 100)] private float speed;
-
-    private float game_vs_irl_time_ratio;
+    #region PrivateVariables
+        private float gameTimeRatio;
+    #endregion
 
     void Start()
     {
-        int secs_per_hour = 3600;
+        const int secsPerHour = 3600;
 
-        game_vs_irl_time_ratio = secs_per_hour / speed;
+        gameTimeRatio = (secsPerHour / speed);
     }
 
     private void Update()
     {
-        if(Preset == null)
+        const float hoursPerDay = 24f;
+
+        if(preset == null)
         {
             return;
         }
 
         if(Application.isPlaying)
         {
-            TimeOfDay += (Time.deltaTime / game_vs_irl_time_ratio);
+            timeOfDay += (Time.deltaTime / gameTimeRatio);
 
-            TimeOfDay %= 24; // Clamp between 0-24
+            timeOfDay %= hoursPerDay; // Clamp between 0-24
 
-            UpdateLightning(TimeOfDay / 24f);
+            UpdateLightning(timeOfDay / hoursPerDay);
         }
         else
         {
-            UpdateLightning(TimeOfDay / 24f);
+            UpdateLightning(timeOfDay / hoursPerDay);
         }
     }
 
     private void UpdateLightning(float timePercent)
     {
-        RenderSettings.ambientLight = Preset.AmbientColor.Evaluate(timePercent);
-        RenderSettings.fogColor = Preset.FogColor.Evaluate(timePercent);
+        RenderSettings.ambientLight = preset.AmbientColor.Evaluate(timePercent);
+        RenderSettings.fogColor     = preset.FogColor.Evaluate(timePercent);
 
-        if(DirectionalLight != null)
+        if(directionalLight != null)
         {
-            DirectionalLight.color = Preset.DirectionalColor.Evaluate(timePercent);
-            DirectionalLight.transform.localRotation = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0));
+            directionalLight.color                      = preset.DirectionalColor.Evaluate(timePercent);
+            directionalLight.transform.localRotation    = Quaternion.Euler(new Vector3((timePercent * 360f) - 90f, 170f, 0));
         }
     }
 
     private void OnValidate()
     {
-        if(DirectionalLight != null)
+        if(directionalLight != null)
         {
             return;
         }
 
         if(RenderSettings.sun != null)
         {
-            DirectionalLight = RenderSettings.sun;
+            directionalLight = RenderSettings.sun;
         }
         else
         {
@@ -73,7 +79,7 @@ public class LightningManager : MonoBehaviour
             {
                 if(light.type == LightType.Directional)
                 {
-                    DirectionalLight = light;
+                    directionalLight = light;
 
                     return;
                 }

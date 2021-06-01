@@ -5,25 +5,25 @@ using UnityEngine.AI;
 
 public class PokemonFollower : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject ThePlayer;
-    [SerializeField]
-    private GameObject TheFollower;
-    [SerializeField]
-    private float normalSpeed = 1f;
-    [SerializeField]
-    private float runningSpeed = 1.2f;
-    [SerializeField]
-    private float player_graphics_scale = 425.0f;
-    [SerializeField]
-    private float               allowedDistance;
+    #region SerializeFields
+        [SerializeField] private GameObject thePlayer;
+        [SerializeField] private GameObject theFollower;
 
-    private Animator            animator;
-    private CharacterController followerController;
+        [SerializeField] private float      normalSpeed         = 1f;
+        [SerializeField] private float      runningSpeed        = 2.5f;
+        [SerializeField] private float      playerGraphicsScale = 20f;
+        [SerializeField] private float      allowedDistance     = 2f;
+    #endregion
 
-    private float DistanceToRun;
+    #region PrivateVariables
+        private Animator            animator;
 
-    private bool isRunning;
+        private CharacterController followerController;
+
+        private float               distanceToRun;
+
+        private bool                isRunning;
+    #endregion
 
     static class Animations
     {
@@ -34,29 +34,29 @@ public class PokemonFollower : MonoBehaviour
 
     void Start()
     {
-        DistanceToRun = allowedDistance * 1.5f;
+        distanceToRun   = (allowedDistance * 1.5f);
 
-        isRunning = false;
+        isRunning       = false;
 
-        Vector3 followerPos = new Vector3(ThePlayer.transform.position.x - 1, ThePlayer.transform.position.y, ThePlayer.transform.position.z - 1);
+        Vector3 followerPos = new Vector3(thePlayer.transform.position.x - 1, thePlayer.transform.position.y, thePlayer.transform.position.z - 1);
 
-        TheFollower = Instantiate(TheFollower, followerPos, ThePlayer.transform.rotation) as GameObject;
+        theFollower = Instantiate(theFollower, followerPos, thePlayer.transform.rotation) as GameObject;
 
-        followerController  = TheFollower.GetComponent<CharacterController>();
-        animator            = TheFollower.GetComponentInChildren<Animator>();
+        followerController  = theFollower.GetComponent<CharacterController>();
+        animator            = theFollower.GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
         float verticalSpeed = -9.8f;
 
-        float TargetDistance = Vector3.Distance(ThePlayer.transform.position, TheFollower.transform.position);
+        float TargetDistance = Vector3.Distance(thePlayer.transform.position, theFollower.transform.position);
 
         if(TargetDistance >= allowedDistance)
         {
-            TheFollower.transform.LookAt(ThePlayer.transform);
+            theFollower.transform.LookAt(thePlayer.transform);
 
-            if((TargetDistance <= DistanceToRun) && (isRunning == false))
+            if((TargetDistance <= distanceToRun) && (isRunning == false))
             {
                 animator.Play(Animations.Walking);
             }
@@ -69,11 +69,13 @@ public class PokemonFollower : MonoBehaviour
 
             float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
 
-            Vector3 norm = (ThePlayer.transform.position - TheFollower.transform.position).normalized;
+            Vector3 norm = (thePlayer.transform.position - theFollower.transform.position).normalized;
 
             Vector3 updatedMotion = new Vector3(norm.x * horizontalSpeed, verticalSpeed, norm.z * horizontalSpeed);
-            updatedMotion.x /= player_graphics_scale;
-            updatedMotion.z /= player_graphics_scale;
+            
+            updatedMotion.x /= playerGraphicsScale;
+            updatedMotion.z /= playerGraphicsScale;
+            
             followerController.Move(updatedMotion);
         }
         else
