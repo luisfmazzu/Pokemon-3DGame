@@ -1,11 +1,9 @@
-﻿#include "il2cpp-config.h"
-
+﻿#include "pch-c.h"
 #ifndef _MSC_VER
 # include <alloca.h>
 #else
 # include <malloc.h>
 #endif
-
 
 
 #include "codegen/il2cpp-codegen-metadata.h"
@@ -14,111 +12,78 @@
 
 
 
-IL2CPP_EXTERN_C_BEGIN
-IL2CPP_EXTERN_C_END
-
-
-
-
 // 0x00000001 System.Boolean UnityEngine.XR.XRSettings::get_enabled()
-extern void XRSettings_get_enabled_m74A0B484E1B6D7187A34EEFFC7CDFD60E3575AA0 (void);
+extern void XRSettings_get_enabled_m970BB98BF899D943776BE6EB66FE40AA9C12A902 (void);
 // 0x00000002 System.Boolean UnityEngine.XR.XRSettings::get_isDeviceActive()
-extern void XRSettings_get_isDeviceActive_m78039C1D584FA84ED884C1D7228A8E0287BEE42E (void);
+extern void XRSettings_get_isDeviceActive_m8A54A2D4D91CA2BC1B1554576B2FACFE5F65B087 (void);
 // 0x00000003 System.Single UnityEngine.XR.XRSettings::get_eyeTextureResolutionScale()
-extern void XRSettings_get_eyeTextureResolutionScale_mFFBC6E9C0D8146D1B3BD579DA743A26FBA934B8E (void);
+extern void XRSettings_get_eyeTextureResolutionScale_mA45B94CA056D8DBFFF534FB9DAF6185796033614 (void);
 // 0x00000004 System.Void UnityEngine.XR.XRSettings::set_eyeTextureResolutionScale(System.Single)
-extern void XRSettings_set_eyeTextureResolutionScale_mAB54DE7EA38F44B10B67AD0F27BB5D27BAF91253 (void);
+extern void XRSettings_set_eyeTextureResolutionScale_mBABE036EB59B20AF02A26771F34BB35453C806D2 (void);
 // 0x00000005 System.Int32 UnityEngine.XR.XRSettings::get_eyeTextureWidth()
-extern void XRSettings_get_eyeTextureWidth_m214FD01E2CA4D825BDCB51AD35390BB81DFE36CD (void);
+extern void XRSettings_get_eyeTextureWidth_m6202CB8B350531730FAFBBC6CF64EECCA3CBD860 (void);
 // 0x00000006 System.Int32 UnityEngine.XR.XRSettings::get_eyeTextureHeight()
-extern void XRSettings_get_eyeTextureHeight_m819C153D5D44BAB89F0AF99474AA987471B416B9 (void);
+extern void XRSettings_get_eyeTextureHeight_m045874DF2D8935D59582C65D8EA9A0A3D96D091A (void);
 // 0x00000007 UnityEngine.RenderTextureDescriptor UnityEngine.XR.XRSettings::get_eyeTextureDesc()
-extern void XRSettings_get_eyeTextureDesc_mE8B378ED9A6692FF7E8BE261C46A426F630B69DD (void);
-// 0x00000008 UnityEngine.Rendering.TextureDimension UnityEngine.XR.XRSettings::get_deviceEyeTextureDimension()
-extern void XRSettings_get_deviceEyeTextureDimension_m8428FB644BB9072997A9F4F0204C1928FA88236B (void);
-// 0x00000009 System.Single UnityEngine.XR.XRSettings::get_renderViewportScale()
-extern void XRSettings_get_renderViewportScale_mAD4CE67ED8318B9D26CA9B092EBC592C1E38AE59 (void);
-// 0x0000000A System.Single UnityEngine.XR.XRSettings::get_renderViewportScaleInternal()
-extern void XRSettings_get_renderViewportScaleInternal_m68CF4633C56407C080DD0930AEAC9286AAA304F1 (void);
-// 0x0000000B System.String UnityEngine.XR.XRSettings::get_loadedDeviceName()
-extern void XRSettings_get_loadedDeviceName_m952D46346306FD9477B13992E5797A85CCD3C98C (void);
-// 0x0000000C System.String[] UnityEngine.XR.XRSettings::get_supportedDevices()
-extern void XRSettings_get_supportedDevices_m6FD437B8469BA7EFCEA26D254C049BCDC9766374 (void);
-// 0x0000000D UnityEngine.XR.XRSettings/StereoRenderingMode UnityEngine.XR.XRSettings::get_stereoRenderingMode()
-extern void XRSettings_get_stereoRenderingMode_mCCC5ED4A6AED856B344334D5860C9CA1C4ECD5C5 (void);
-// 0x0000000E System.Void UnityEngine.XR.XRSettings::get_eyeTextureDesc_Injected(UnityEngine.RenderTextureDescriptor&)
-extern void XRSettings_get_eyeTextureDesc_Injected_m2E5464BF666C27FB20CD0D0CCA703F40ED382597 (void);
-// 0x0000000F System.Void UnityEngine.XR.XRDevice::UpdateEyeTextureMSAASetting()
-extern void XRDevice_UpdateEyeTextureMSAASetting_mC56D9328B079FB189E7A7F5CA97C66EFBA363165 (void);
-// 0x00000010 System.Void UnityEngine.XR.XRDevice::InvokeDeviceLoaded(System.String)
-extern void XRDevice_InvokeDeviceLoaded_mD5D5577A4E03D0474FAFBB2596B698B6A8B5FD11 (void);
-// 0x00000011 System.Void UnityEngine.XR.XRDevice::.cctor()
-extern void XRDevice__cctor_m4FE111291FBDF43A481045CBABECF9AEC70B5EC9 (void);
-// 0x00000012 System.Void UnityEngine.XR.WSA.WorldAnchor::Internal_TriggerEventOnTrackingLost(UnityEngine.XR.WSA.WorldAnchor,System.Boolean)
-extern void WorldAnchor_Internal_TriggerEventOnTrackingLost_m30225CE01803079AAA7C81877ABE5A4150960B3A (void);
-// 0x00000013 System.Void UnityEngine.XR.WSA.WorldAnchor/OnTrackingChangedDelegate::.ctor(System.Object,System.IntPtr)
-extern void OnTrackingChangedDelegate__ctor_m9CAD493361EE71D73CB61E7BFD889E88B5649497 (void);
-// 0x00000014 System.Void UnityEngine.XR.WSA.WorldAnchor/OnTrackingChangedDelegate::Invoke(UnityEngine.XR.WSA.WorldAnchor,System.Boolean)
-extern void OnTrackingChangedDelegate_Invoke_mC3AAC3FBDB589E9DEE9D83664191AED37F03A23C (void);
-// 0x00000015 System.IAsyncResult UnityEngine.XR.WSA.WorldAnchor/OnTrackingChangedDelegate::BeginInvoke(UnityEngine.XR.WSA.WorldAnchor,System.Boolean,System.AsyncCallback,System.Object)
-extern void OnTrackingChangedDelegate_BeginInvoke_mF0EFF2F8F200DEEEF063BB19BA44ACFF920D5D8C (void);
-// 0x00000016 System.Void UnityEngine.XR.WSA.WorldAnchor/OnTrackingChangedDelegate::EndInvoke(System.IAsyncResult)
-extern void OnTrackingChangedDelegate_EndInvoke_m00461C6664BBAAF38549748E6F2BEEBBA5F3EDD7 (void);
-static Il2CppMethodPointer s_methodPointers[22] = 
+extern void XRSettings_get_eyeTextureDesc_m58F62EE4C7F46984BDC58081AF2E40DE625AC582 (void);
+// 0x00000008 System.Single UnityEngine.XR.XRSettings::get_renderViewportScale()
+extern void XRSettings_get_renderViewportScale_m7611DFAB2B3914ABAB79D1BF1A61909DD91A9538 (void);
+// 0x00000009 System.Single UnityEngine.XR.XRSettings::get_renderViewportScaleInternal()
+extern void XRSettings_get_renderViewportScaleInternal_m99A2E45DE86E39CAD2795A32424B3FF99A10261C (void);
+// 0x0000000A System.String UnityEngine.XR.XRSettings::get_loadedDeviceName()
+extern void XRSettings_get_loadedDeviceName_m1E091DB259635ACAE9C3B77980CDB00AC06B6D4C (void);
+// 0x0000000B System.String[] UnityEngine.XR.XRSettings::get_supportedDevices()
+extern void XRSettings_get_supportedDevices_m48F7F0CC911EB45AD210523FA957A4E8412AE93F (void);
+// 0x0000000C UnityEngine.XR.XRSettings/StereoRenderingMode UnityEngine.XR.XRSettings::get_stereoRenderingMode()
+extern void XRSettings_get_stereoRenderingMode_m2E44AF3D772559836F2357AEC1E175C68E6D94B9 (void);
+// 0x0000000D System.Void UnityEngine.XR.XRSettings::get_eyeTextureDesc_Injected(UnityEngine.RenderTextureDescriptor&)
+extern void XRSettings_get_eyeTextureDesc_Injected_m639509084F5EC222779474C77EF7586989C4F856 (void);
+// 0x0000000E System.Void UnityEngine.XR.XRDevice::InvokeDeviceLoaded(System.String)
+extern void XRDevice_InvokeDeviceLoaded_m3BDF6825A2A56E4923D4E6593C7BA2949B6A3581 (void);
+// 0x0000000F System.Void UnityEngine.XR.XRDevice::.cctor()
+extern void XRDevice__cctor_mC83C1293819B81E68EC72D01A5CC107DFE29B98C (void);
+static Il2CppMethodPointer s_methodPointers[15] = 
 {
-	XRSettings_get_enabled_m74A0B484E1B6D7187A34EEFFC7CDFD60E3575AA0,
-	XRSettings_get_isDeviceActive_m78039C1D584FA84ED884C1D7228A8E0287BEE42E,
-	XRSettings_get_eyeTextureResolutionScale_mFFBC6E9C0D8146D1B3BD579DA743A26FBA934B8E,
-	XRSettings_set_eyeTextureResolutionScale_mAB54DE7EA38F44B10B67AD0F27BB5D27BAF91253,
-	XRSettings_get_eyeTextureWidth_m214FD01E2CA4D825BDCB51AD35390BB81DFE36CD,
-	XRSettings_get_eyeTextureHeight_m819C153D5D44BAB89F0AF99474AA987471B416B9,
-	XRSettings_get_eyeTextureDesc_mE8B378ED9A6692FF7E8BE261C46A426F630B69DD,
-	XRSettings_get_deviceEyeTextureDimension_m8428FB644BB9072997A9F4F0204C1928FA88236B,
-	XRSettings_get_renderViewportScale_mAD4CE67ED8318B9D26CA9B092EBC592C1E38AE59,
-	XRSettings_get_renderViewportScaleInternal_m68CF4633C56407C080DD0930AEAC9286AAA304F1,
-	XRSettings_get_loadedDeviceName_m952D46346306FD9477B13992E5797A85CCD3C98C,
-	XRSettings_get_supportedDevices_m6FD437B8469BA7EFCEA26D254C049BCDC9766374,
-	XRSettings_get_stereoRenderingMode_mCCC5ED4A6AED856B344334D5860C9CA1C4ECD5C5,
-	XRSettings_get_eyeTextureDesc_Injected_m2E5464BF666C27FB20CD0D0CCA703F40ED382597,
-	XRDevice_UpdateEyeTextureMSAASetting_mC56D9328B079FB189E7A7F5CA97C66EFBA363165,
-	XRDevice_InvokeDeviceLoaded_mD5D5577A4E03D0474FAFBB2596B698B6A8B5FD11,
-	XRDevice__cctor_m4FE111291FBDF43A481045CBABECF9AEC70B5EC9,
-	WorldAnchor_Internal_TriggerEventOnTrackingLost_m30225CE01803079AAA7C81877ABE5A4150960B3A,
-	OnTrackingChangedDelegate__ctor_m9CAD493361EE71D73CB61E7BFD889E88B5649497,
-	OnTrackingChangedDelegate_Invoke_mC3AAC3FBDB589E9DEE9D83664191AED37F03A23C,
-	OnTrackingChangedDelegate_BeginInvoke_mF0EFF2F8F200DEEEF063BB19BA44ACFF920D5D8C,
-	OnTrackingChangedDelegate_EndInvoke_m00461C6664BBAAF38549748E6F2BEEBBA5F3EDD7,
+	XRSettings_get_enabled_m970BB98BF899D943776BE6EB66FE40AA9C12A902,
+	XRSettings_get_isDeviceActive_m8A54A2D4D91CA2BC1B1554576B2FACFE5F65B087,
+	XRSettings_get_eyeTextureResolutionScale_mA45B94CA056D8DBFFF534FB9DAF6185796033614,
+	XRSettings_set_eyeTextureResolutionScale_mBABE036EB59B20AF02A26771F34BB35453C806D2,
+	XRSettings_get_eyeTextureWidth_m6202CB8B350531730FAFBBC6CF64EECCA3CBD860,
+	XRSettings_get_eyeTextureHeight_m045874DF2D8935D59582C65D8EA9A0A3D96D091A,
+	XRSettings_get_eyeTextureDesc_m58F62EE4C7F46984BDC58081AF2E40DE625AC582,
+	XRSettings_get_renderViewportScale_m7611DFAB2B3914ABAB79D1BF1A61909DD91A9538,
+	XRSettings_get_renderViewportScaleInternal_m99A2E45DE86E39CAD2795A32424B3FF99A10261C,
+	XRSettings_get_loadedDeviceName_m1E091DB259635ACAE9C3B77980CDB00AC06B6D4C,
+	XRSettings_get_supportedDevices_m48F7F0CC911EB45AD210523FA957A4E8412AE93F,
+	XRSettings_get_stereoRenderingMode_m2E44AF3D772559836F2357AEC1E175C68E6D94B9,
+	XRSettings_get_eyeTextureDesc_Injected_m639509084F5EC222779474C77EF7586989C4F856,
+	XRDevice_InvokeDeviceLoaded_m3BDF6825A2A56E4923D4E6593C7BA2949B6A3581,
+	XRDevice__cctor_mC83C1293819B81E68EC72D01A5CC107DFE29B98C,
 };
-static const int32_t s_InvokerIndices[22] = 
+static const int32_t s_InvokerIndices[15] = 
 {
-	49,
-	49,
-	1620,
-	1791,
-	106,
-	106,
-	2289,
-	106,
-	1620,
-	1620,
-	4,
-	4,
-	106,
-	17,
-	3,
-	166,
-	3,
-	633,
-	128,
-	474,
-	876,
-	26,
+	4961,
+	4961,
+	4963,
+	4903,
+	4943,
+	4943,
+	4960,
+	4963,
+	4963,
+	4949,
+	4949,
+	4943,
+	4891,
+	4898,
+	4973,
 };
-extern const Il2CppCodeGenModule g_UnityEngine_VRModuleCodeGenModule;
-const Il2CppCodeGenModule g_UnityEngine_VRModuleCodeGenModule = 
+extern const CustomAttributesCacheGenerator g_UnityEngine_VRModule_AttributeGenerators[];
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_VRModule_CodeGenModule;
+const Il2CppCodeGenModule g_UnityEngine_VRModule_CodeGenModule = 
 {
 	"UnityEngine.VRModule.dll",
-	22,
+	15,
 	s_methodPointers,
 	0,
 	NULL,
@@ -128,6 +93,11 @@ const Il2CppCodeGenModule g_UnityEngine_VRModuleCodeGenModule =
 	0,
 	NULL,
 	0,
+	NULL,
+	NULL,
+	g_UnityEngine_VRModule_AttributeGenerators,
+	NULL, // module initializer,
+	NULL,
 	NULL,
 	NULL,
 };

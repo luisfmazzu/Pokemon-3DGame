@@ -1,11 +1,9 @@
-﻿#include "il2cpp-config.h"
-
+﻿#include "pch-c.h"
 #ifndef _MSC_VER
 # include <alloca.h>
 #else
 # include <malloc.h>
 #endif
-
 
 
 #include "codegen/il2cpp-codegen-metadata.h"
@@ -14,175 +12,170 @@
 
 
 
-IL2CPP_EXTERN_C_BEGIN
-IL2CPP_EXTERN_C_END
-
-
-
-
 // 0x00000001 System.Void UnityEngine.Tilemaps.ITilemap::.ctor()
-extern void ITilemap__ctor_m35D698BF933B4EF8217C29617B9F81E0E8826B7A (void);
+extern void ITilemap__ctor_m94E2A628CC647832AA3B576274241AAB0CDAC504 (void);
 // 0x00000002 System.Void UnityEngine.Tilemaps.ITilemap::RefreshTile(UnityEngine.Vector3Int)
-extern void ITilemap_RefreshTile_mA824B41C2B9791C91FC5FB3AA93DDD478713564C (void);
+extern void ITilemap_RefreshTile_mC602A7D2A938BFF0D959CAE20BCF8253A34B4D87 (void);
 // 0x00000003 UnityEngine.Tilemaps.ITilemap UnityEngine.Tilemaps.ITilemap::CreateInstance()
-extern void ITilemap_CreateInstance_m3DD29D9D393B923E0901DB830E0FE9170757AF9E (void);
+extern void ITilemap_CreateInstance_mAFF78AF4B2AB532C3A95FB324D2DB5F062D7E821 (void);
 // 0x00000004 UnityEngine.Sprite UnityEngine.Tilemaps.Tile::get_sprite()
-extern void Tile_get_sprite_m3D0A9B402A6296694D1448B7D54EA47F46F42D95 (void);
+extern void Tile_get_sprite_m55D8F25A18CA3FA4DAF1FB60E77D8552978FC7E9 (void);
 // 0x00000005 System.Void UnityEngine.Tilemaps.Tile::set_sprite(UnityEngine.Sprite)
-extern void Tile_set_sprite_m3572C470BBE7214895DAD09702F4D52C178D1BC2 (void);
+extern void Tile_set_sprite_m29904A3BC52CDFB8BF48604CD0FED0EF3477BCE4 (void);
 // 0x00000006 UnityEngine.Color UnityEngine.Tilemaps.Tile::get_color()
-extern void Tile_get_color_m347AC0D960A944E3B67E55EA28C7421297CE78DC (void);
+extern void Tile_get_color_mD8EBC5D6FFD0CCCE7AE4C23F4AFEE7FA73CCE838 (void);
 // 0x00000007 System.Void UnityEngine.Tilemaps.Tile::set_color(UnityEngine.Color)
-extern void Tile_set_color_m7EBCE0611ADD33AE67B6F8077D515029EE4E3066 (void);
+extern void Tile_set_color_m855E5C00F35C08077450D27BC5BB18BA7F2D67FC (void);
 // 0x00000008 UnityEngine.Matrix4x4 UnityEngine.Tilemaps.Tile::get_transform()
-extern void Tile_get_transform_m2E9EB31510CA7CC58F7ECD4B8540E8755F87DAF5 (void);
+extern void Tile_get_transform_m010FA5FE2A3C48BCE79DAF095D2B7A652BD2B32B (void);
 // 0x00000009 System.Void UnityEngine.Tilemaps.Tile::set_transform(UnityEngine.Matrix4x4)
-extern void Tile_set_transform_m7216085293F3BB15A279B766F59D7EE6DAE4B552 (void);
+extern void Tile_set_transform_mDD4E70226F1A89377D3E4822DDD666B1E4F7EDFB (void);
 // 0x0000000A UnityEngine.GameObject UnityEngine.Tilemaps.Tile::get_gameObject()
-extern void Tile_get_gameObject_m854EDF4B180447489889C5522D618221BE40F89B (void);
+extern void Tile_get_gameObject_m5121800140E9009AE43AA782AC2437EB05E0477B (void);
 // 0x0000000B System.Void UnityEngine.Tilemaps.Tile::set_gameObject(UnityEngine.GameObject)
-extern void Tile_set_gameObject_m97619192006CCECC0FFB3748EDE45D736F631390 (void);
+extern void Tile_set_gameObject_mB450C0800EDB44EDB8E8F56DAFF75B7C13FC6420 (void);
 // 0x0000000C UnityEngine.Tilemaps.TileFlags UnityEngine.Tilemaps.Tile::get_flags()
-extern void Tile_get_flags_mE8AA55ED6BBB851E1ECCEC7182EAD676EEA55630 (void);
+extern void Tile_get_flags_m10DF194D35F7B96B52795369365B332F1432143C (void);
 // 0x0000000D System.Void UnityEngine.Tilemaps.Tile::set_flags(UnityEngine.Tilemaps.TileFlags)
-extern void Tile_set_flags_mAD725C9CD9928F20D5C86BC1F3311769A0F3A517 (void);
+extern void Tile_set_flags_mAF0336180878A6D396DFFE4B9D3C188F6D6010CB (void);
 // 0x0000000E UnityEngine.Tilemaps.Tile/ColliderType UnityEngine.Tilemaps.Tile::get_colliderType()
-extern void Tile_get_colliderType_m77DF59033D6AA8045E6BFBEDC420FA49DA369531 (void);
+extern void Tile_get_colliderType_m978D12FD1D9210E990576B0515A6296B0566025E (void);
 // 0x0000000F System.Void UnityEngine.Tilemaps.Tile::set_colliderType(UnityEngine.Tilemaps.Tile/ColliderType)
-extern void Tile_set_colliderType_mEE9420C62F7500856CB48EA6717072C85326B852 (void);
+extern void Tile_set_colliderType_m0D7FFF0A6A80C2C026030149CF924E9FB8A852C1 (void);
 // 0x00000010 System.Void UnityEngine.Tilemaps.Tile::GetTileData(UnityEngine.Vector3Int,UnityEngine.Tilemaps.ITilemap,UnityEngine.Tilemaps.TileData&)
-extern void Tile_GetTileData_m370E5271B8270137DB62EF7890FA4AA7C7C71541 (void);
+extern void Tile_GetTileData_m6BDFA53AD74BF38AAD340203F43D1C796BAB8F9A (void);
 // 0x00000011 System.Void UnityEngine.Tilemaps.Tile::.ctor()
-extern void Tile__ctor_mCF182CC986391B7BC36D0C543E7D422F492FA445 (void);
+extern void Tile__ctor_m8783DD13225005DB9323B7A7E86AB8641033B4A8 (void);
 // 0x00000012 System.Void UnityEngine.Tilemaps.TileBase::RefreshTile(UnityEngine.Vector3Int,UnityEngine.Tilemaps.ITilemap)
-extern void TileBase_RefreshTile_m3094382B655073ED6F59FAC838C6BACEE05BE131 (void);
+extern void TileBase_RefreshTile_m5614A37F408CCA8FABACB0A911D5EB5883ED051D (void);
 // 0x00000013 System.Void UnityEngine.Tilemaps.TileBase::GetTileData(UnityEngine.Vector3Int,UnityEngine.Tilemaps.ITilemap,UnityEngine.Tilemaps.TileData&)
-extern void TileBase_GetTileData_m3A1CE78996D8498F5EEB3FE0F16BF82BB903D331 (void);
+extern void TileBase_GetTileData_m936097A6D3A32A3C3E54EE7FF4EDA22CC7FF6088 (void);
 // 0x00000014 UnityEngine.Tilemaps.TileData UnityEngine.Tilemaps.TileBase::GetTileDataNoRef(UnityEngine.Vector3Int,UnityEngine.Tilemaps.ITilemap)
-extern void TileBase_GetTileDataNoRef_m669665FCC7CE24E81D803944D1F319DDC72B889F (void);
+extern void TileBase_GetTileDataNoRef_mF9B5CA6886A8761D504478146F053484AF3CFACA (void);
 // 0x00000015 System.Boolean UnityEngine.Tilemaps.TileBase::GetTileAnimationData(UnityEngine.Vector3Int,UnityEngine.Tilemaps.ITilemap,UnityEngine.Tilemaps.TileAnimationData&)
-extern void TileBase_GetTileAnimationData_m674999CD0CD7208F960DDC3B618CD95D5CE2626F (void);
+extern void TileBase_GetTileAnimationData_mA54F70D100129EC2074DC2F17471FDE315FF0C02 (void);
 // 0x00000016 UnityEngine.Tilemaps.TileAnimationData UnityEngine.Tilemaps.TileBase::GetTileAnimationDataNoRef(UnityEngine.Vector3Int,UnityEngine.Tilemaps.ITilemap)
-extern void TileBase_GetTileAnimationDataNoRef_mE10FEDA60DC93F3282482EB66BAE99236CACFBB3 (void);
+extern void TileBase_GetTileAnimationDataNoRef_m0562FCB94DCECA5DFD526806900B14D69ADB2FBF (void);
 // 0x00000017 System.Boolean UnityEngine.Tilemaps.TileBase::StartUp(UnityEngine.Vector3Int,UnityEngine.Tilemaps.ITilemap,UnityEngine.GameObject)
-extern void TileBase_StartUp_m17522434C955AB943A4C3C0AA0C701BBE39757E2 (void);
+extern void TileBase_StartUp_mD3221FE426FCFC3F0CC0ECDEE2DFEE7E6F94C8E7 (void);
 // 0x00000018 System.Void UnityEngine.Tilemaps.TileBase::.ctor()
-extern void TileBase__ctor_m24A60EEED10D8C5667B24C8FB486087662417720 (void);
+extern void TileBase__ctor_mEF753C200728FD143A358A5AF2B7978D9A982A67 (void);
 // 0x00000019 System.Void UnityEngine.Tilemaps.Tilemap::RefreshTile(UnityEngine.Vector3Int)
-extern void Tilemap_RefreshTile_m9F32ACD729A4C9D843662E956B38BB91351E01EA (void);
+extern void Tilemap_RefreshTile_m1A2B0119B58A5E409BF899A1F88CBD3E23599193 (void);
 // 0x0000001A System.Void UnityEngine.Tilemaps.Tilemap::RefreshTile_Injected(UnityEngine.Vector3Int&)
-extern void Tilemap_RefreshTile_Injected_m71B01A4DDE057FE002AE5BEC5ACB38F04BC64792 (void);
+extern void Tilemap_RefreshTile_Injected_mB711BD24637434562FA9278325FEE07FC0931B32 (void);
 // 0x0000001B System.Void UnityEngine.Tilemaps.TilemapRenderer::RegisterSpriteAtlasRegistered()
-extern void TilemapRenderer_RegisterSpriteAtlasRegistered_mEB59A59F64A24CA108AF6147B09274FC07B2670A (void);
+extern void TilemapRenderer_RegisterSpriteAtlasRegistered_mB338307A0CCCF3193B76CAF873FCC898463C1DF8 (void);
 // 0x0000001C System.Void UnityEngine.Tilemaps.TilemapRenderer::UnregisterSpriteAtlasRegistered()
-extern void TilemapRenderer_UnregisterSpriteAtlasRegistered_m4792F06F18295B37CE2046C11E1D77F8DA85DB2A (void);
+extern void TilemapRenderer_UnregisterSpriteAtlasRegistered_mCE258B84F549040922D062E22F1205C562E0577A (void);
 // 0x0000001D System.Void UnityEngine.Tilemaps.TilemapRenderer::OnSpriteAtlasRegistered(UnityEngine.U2D.SpriteAtlas)
-extern void TilemapRenderer_OnSpriteAtlasRegistered_m469FE4B5787B9363CD13299B66E415533C82F0EE (void);
+extern void TilemapRenderer_OnSpriteAtlasRegistered_m5C732CF912E2BC489C5E621EB3820DA1AF0A7093 (void);
 // 0x0000001E System.Void UnityEngine.Tilemaps.TileData::set_sprite(UnityEngine.Sprite)
-extern void TileData_set_sprite_m8E47803AAA5DA51504EF24A57EC2432D53B9CCB0 (void);
+extern void TileData_set_sprite_m24F99D8E52155C9E6F56B5CF647C7A423ACB76E8 (void);
 // 0x0000001F System.Void UnityEngine.Tilemaps.TileData::set_color(UnityEngine.Color)
-extern void TileData_set_color_m518FDC6D6A2287BB1C69BA55FE8C02977A55EA4C (void);
+extern void TileData_set_color_m821F675529A25C6ED8D8786DBD2DFE286A6385AF (void);
 // 0x00000020 System.Void UnityEngine.Tilemaps.TileData::set_transform(UnityEngine.Matrix4x4)
-extern void TileData_set_transform_m4F98BB7795C0837AE119FE7C629E14238184422A (void);
+extern void TileData_set_transform_m39FBC6A129739589B8993B4185DFF72B0B472E2C (void);
 // 0x00000021 System.Void UnityEngine.Tilemaps.TileData::set_gameObject(UnityEngine.GameObject)
-extern void TileData_set_gameObject_m1E8E839859E84C9E578E8C5F23CD343BD7933C49 (void);
+extern void TileData_set_gameObject_m02BDDD787C6E5AD0DFA29E510E4FFD101090D685 (void);
 // 0x00000022 System.Void UnityEngine.Tilemaps.TileData::set_flags(UnityEngine.Tilemaps.TileFlags)
-extern void TileData_set_flags_m7817AC2D2183D25550281C3F868DAD2D4BCDB425 (void);
+extern void TileData_set_flags_m1AC7BA3912E9B4B85F4F0B322FE2361AE475B0E4 (void);
 // 0x00000023 System.Void UnityEngine.Tilemaps.TileData::set_colliderType(UnityEngine.Tilemaps.Tile/ColliderType)
-extern void TileData_set_colliderType_mC23D9C79557D9C0D41F507D4F8B427B843E5C11B (void);
+extern void TileData_set_colliderType_mEF741658774E43C8AB0986EEA9FBDA1838BF34A3 (void);
 static Il2CppMethodPointer s_methodPointers[35] = 
 {
-	ITilemap__ctor_m35D698BF933B4EF8217C29617B9F81E0E8826B7A,
-	ITilemap_RefreshTile_mA824B41C2B9791C91FC5FB3AA93DDD478713564C,
-	ITilemap_CreateInstance_m3DD29D9D393B923E0901DB830E0FE9170757AF9E,
-	Tile_get_sprite_m3D0A9B402A6296694D1448B7D54EA47F46F42D95,
-	Tile_set_sprite_m3572C470BBE7214895DAD09702F4D52C178D1BC2,
-	Tile_get_color_m347AC0D960A944E3B67E55EA28C7421297CE78DC,
-	Tile_set_color_m7EBCE0611ADD33AE67B6F8077D515029EE4E3066,
-	Tile_get_transform_m2E9EB31510CA7CC58F7ECD4B8540E8755F87DAF5,
-	Tile_set_transform_m7216085293F3BB15A279B766F59D7EE6DAE4B552,
-	Tile_get_gameObject_m854EDF4B180447489889C5522D618221BE40F89B,
-	Tile_set_gameObject_m97619192006CCECC0FFB3748EDE45D736F631390,
-	Tile_get_flags_mE8AA55ED6BBB851E1ECCEC7182EAD676EEA55630,
-	Tile_set_flags_mAD725C9CD9928F20D5C86BC1F3311769A0F3A517,
-	Tile_get_colliderType_m77DF59033D6AA8045E6BFBEDC420FA49DA369531,
-	Tile_set_colliderType_mEE9420C62F7500856CB48EA6717072C85326B852,
-	Tile_GetTileData_m370E5271B8270137DB62EF7890FA4AA7C7C71541,
-	Tile__ctor_mCF182CC986391B7BC36D0C543E7D422F492FA445,
-	TileBase_RefreshTile_m3094382B655073ED6F59FAC838C6BACEE05BE131,
-	TileBase_GetTileData_m3A1CE78996D8498F5EEB3FE0F16BF82BB903D331,
-	TileBase_GetTileDataNoRef_m669665FCC7CE24E81D803944D1F319DDC72B889F,
-	TileBase_GetTileAnimationData_m674999CD0CD7208F960DDC3B618CD95D5CE2626F,
-	TileBase_GetTileAnimationDataNoRef_mE10FEDA60DC93F3282482EB66BAE99236CACFBB3,
-	TileBase_StartUp_m17522434C955AB943A4C3C0AA0C701BBE39757E2,
-	TileBase__ctor_m24A60EEED10D8C5667B24C8FB486087662417720,
-	Tilemap_RefreshTile_m9F32ACD729A4C9D843662E956B38BB91351E01EA,
-	Tilemap_RefreshTile_Injected_m71B01A4DDE057FE002AE5BEC5ACB38F04BC64792,
-	TilemapRenderer_RegisterSpriteAtlasRegistered_mEB59A59F64A24CA108AF6147B09274FC07B2670A,
-	TilemapRenderer_UnregisterSpriteAtlasRegistered_m4792F06F18295B37CE2046C11E1D77F8DA85DB2A,
-	TilemapRenderer_OnSpriteAtlasRegistered_m469FE4B5787B9363CD13299B66E415533C82F0EE,
-	TileData_set_sprite_m8E47803AAA5DA51504EF24A57EC2432D53B9CCB0,
-	TileData_set_color_m518FDC6D6A2287BB1C69BA55FE8C02977A55EA4C,
-	TileData_set_transform_m4F98BB7795C0837AE119FE7C629E14238184422A,
-	TileData_set_gameObject_m1E8E839859E84C9E578E8C5F23CD343BD7933C49,
-	TileData_set_flags_m7817AC2D2183D25550281C3F868DAD2D4BCDB425,
-	TileData_set_colliderType_mC23D9C79557D9C0D41F507D4F8B427B843E5C11B,
+	ITilemap__ctor_m94E2A628CC647832AA3B576274241AAB0CDAC504,
+	ITilemap_RefreshTile_mC602A7D2A938BFF0D959CAE20BCF8253A34B4D87,
+	ITilemap_CreateInstance_mAFF78AF4B2AB532C3A95FB324D2DB5F062D7E821,
+	Tile_get_sprite_m55D8F25A18CA3FA4DAF1FB60E77D8552978FC7E9,
+	Tile_set_sprite_m29904A3BC52CDFB8BF48604CD0FED0EF3477BCE4,
+	Tile_get_color_mD8EBC5D6FFD0CCCE7AE4C23F4AFEE7FA73CCE838,
+	Tile_set_color_m855E5C00F35C08077450D27BC5BB18BA7F2D67FC,
+	Tile_get_transform_m010FA5FE2A3C48BCE79DAF095D2B7A652BD2B32B,
+	Tile_set_transform_mDD4E70226F1A89377D3E4822DDD666B1E4F7EDFB,
+	Tile_get_gameObject_m5121800140E9009AE43AA782AC2437EB05E0477B,
+	Tile_set_gameObject_mB450C0800EDB44EDB8E8F56DAFF75B7C13FC6420,
+	Tile_get_flags_m10DF194D35F7B96B52795369365B332F1432143C,
+	Tile_set_flags_mAF0336180878A6D396DFFE4B9D3C188F6D6010CB,
+	Tile_get_colliderType_m978D12FD1D9210E990576B0515A6296B0566025E,
+	Tile_set_colliderType_m0D7FFF0A6A80C2C026030149CF924E9FB8A852C1,
+	Tile_GetTileData_m6BDFA53AD74BF38AAD340203F43D1C796BAB8F9A,
+	Tile__ctor_m8783DD13225005DB9323B7A7E86AB8641033B4A8,
+	TileBase_RefreshTile_m5614A37F408CCA8FABACB0A911D5EB5883ED051D,
+	TileBase_GetTileData_m936097A6D3A32A3C3E54EE7FF4EDA22CC7FF6088,
+	TileBase_GetTileDataNoRef_mF9B5CA6886A8761D504478146F053484AF3CFACA,
+	TileBase_GetTileAnimationData_mA54F70D100129EC2074DC2F17471FDE315FF0C02,
+	TileBase_GetTileAnimationDataNoRef_m0562FCB94DCECA5DFD526806900B14D69ADB2FBF,
+	TileBase_StartUp_mD3221FE426FCFC3F0CC0ECDEE2DFEE7E6F94C8E7,
+	TileBase__ctor_mEF753C200728FD143A358A5AF2B7978D9A982A67,
+	Tilemap_RefreshTile_m1A2B0119B58A5E409BF899A1F88CBD3E23599193,
+	Tilemap_RefreshTile_Injected_mB711BD24637434562FA9278325FEE07FC0931B32,
+	TilemapRenderer_RegisterSpriteAtlasRegistered_mB338307A0CCCF3193B76CAF873FCC898463C1DF8,
+	TilemapRenderer_UnregisterSpriteAtlasRegistered_mCE258B84F549040922D062E22F1205C562E0577A,
+	TilemapRenderer_OnSpriteAtlasRegistered_m5C732CF912E2BC489C5E621EB3820DA1AF0A7093,
+	TileData_set_sprite_m24F99D8E52155C9E6F56B5CF647C7A423ACB76E8,
+	TileData_set_color_m821F675529A25C6ED8D8786DBD2DFE286A6385AF,
+	TileData_set_transform_m39FBC6A129739589B8993B4185DFF72B0B472E2C,
+	TileData_set_gameObject_m02BDDD787C6E5AD0DFA29E510E4FFD101090D685,
+	TileData_set_flags_m1AC7BA3912E9B4B85F4F0B322FE2361AE475B0E4,
+	TileData_set_colliderType_mEF741658774E43C8AB0986EEA9FBDA1838BF34A3,
 };
-extern void TileData_set_sprite_m8E47803AAA5DA51504EF24A57EC2432D53B9CCB0_AdjustorThunk (void);
-extern void TileData_set_color_m518FDC6D6A2287BB1C69BA55FE8C02977A55EA4C_AdjustorThunk (void);
-extern void TileData_set_transform_m4F98BB7795C0837AE119FE7C629E14238184422A_AdjustorThunk (void);
-extern void TileData_set_gameObject_m1E8E839859E84C9E578E8C5F23CD343BD7933C49_AdjustorThunk (void);
-extern void TileData_set_flags_m7817AC2D2183D25550281C3F868DAD2D4BCDB425_AdjustorThunk (void);
-extern void TileData_set_colliderType_mC23D9C79557D9C0D41F507D4F8B427B843E5C11B_AdjustorThunk (void);
+extern void TileData_set_sprite_m24F99D8E52155C9E6F56B5CF647C7A423ACB76E8_AdjustorThunk (void);
+extern void TileData_set_color_m821F675529A25C6ED8D8786DBD2DFE286A6385AF_AdjustorThunk (void);
+extern void TileData_set_transform_m39FBC6A129739589B8993B4185DFF72B0B472E2C_AdjustorThunk (void);
+extern void TileData_set_gameObject_m02BDDD787C6E5AD0DFA29E510E4FFD101090D685_AdjustorThunk (void);
+extern void TileData_set_flags_m1AC7BA3912E9B4B85F4F0B322FE2361AE475B0E4_AdjustorThunk (void);
+extern void TileData_set_colliderType_mEF741658774E43C8AB0986EEA9FBDA1838BF34A3_AdjustorThunk (void);
 static Il2CppTokenAdjustorThunkPair s_adjustorThunks[6] = 
 {
-	{ 0x0600001E, TileData_set_sprite_m8E47803AAA5DA51504EF24A57EC2432D53B9CCB0_AdjustorThunk },
-	{ 0x0600001F, TileData_set_color_m518FDC6D6A2287BB1C69BA55FE8C02977A55EA4C_AdjustorThunk },
-	{ 0x06000020, TileData_set_transform_m4F98BB7795C0837AE119FE7C629E14238184422A_AdjustorThunk },
-	{ 0x06000021, TileData_set_gameObject_m1E8E839859E84C9E578E8C5F23CD343BD7933C49_AdjustorThunk },
-	{ 0x06000022, TileData_set_flags_m7817AC2D2183D25550281C3F868DAD2D4BCDB425_AdjustorThunk },
-	{ 0x06000023, TileData_set_colliderType_mC23D9C79557D9C0D41F507D4F8B427B843E5C11B_AdjustorThunk },
+	{ 0x0600001E, TileData_set_sprite_m24F99D8E52155C9E6F56B5CF647C7A423ACB76E8_AdjustorThunk },
+	{ 0x0600001F, TileData_set_color_m821F675529A25C6ED8D8786DBD2DFE286A6385AF_AdjustorThunk },
+	{ 0x06000020, TileData_set_transform_m39FBC6A129739589B8993B4185DFF72B0B472E2C_AdjustorThunk },
+	{ 0x06000021, TileData_set_gameObject_m02BDDD787C6E5AD0DFA29E510E4FFD101090D685_AdjustorThunk },
+	{ 0x06000022, TileData_set_flags_m1AC7BA3912E9B4B85F4F0B322FE2361AE475B0E4_AdjustorThunk },
+	{ 0x06000023, TileData_set_colliderType_mEF741658774E43C8AB0986EEA9FBDA1838BF34A3_AdjustorThunk },
 };
 static const int32_t s_InvokerIndices[35] = 
 {
-	23,
-	2689,
-	4,
-	14,
-	26,
-	1579,
-	2058,
-	1582,
-	1583,
-	14,
-	26,
-	10,
-	32,
-	10,
-	32,
-	2690,
-	23,
-	2691,
-	2690,
-	2692,
-	2693,
-	2694,
-	2695,
-	23,
-	2689,
-	6,
-	23,
-	23,
-	26,
-	26,
-	2058,
-	1583,
-	26,
-	32,
-	32,
+	3140,
+	2675,
+	4949,
+	3070,
+	2606,
+	3029,
+	2560,
+	3067,
+	2603,
+	3070,
+	2606,
+	3056,
+	2593,
+	3056,
+	2593,
+	1092,
+	3140,
+	1636,
+	1092,
+	1336,
+	964,
+	1335,
+	965,
+	3140,
+	2675,
+	2553,
+	3140,
+	3140,
+	2606,
+	2606,
+	2560,
+	2603,
+	2606,
+	2593,
+	2593,
 };
-extern const Il2CppCodeGenModule g_UnityEngine_TilemapModuleCodeGenModule;
-const Il2CppCodeGenModule g_UnityEngine_TilemapModuleCodeGenModule = 
+extern const CustomAttributesCacheGenerator g_UnityEngine_TilemapModule_AttributeGenerators[];
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_TilemapModule_CodeGenModule;
+const Il2CppCodeGenModule g_UnityEngine_TilemapModule_CodeGenModule = 
 {
 	"UnityEngine.TilemapModule.dll",
 	35,
@@ -195,6 +188,11 @@ const Il2CppCodeGenModule g_UnityEngine_TilemapModuleCodeGenModule =
 	0,
 	NULL,
 	0,
+	NULL,
+	NULL,
+	g_UnityEngine_TilemapModule_AttributeGenerators,
+	NULL, // module initializer,
+	NULL,
 	NULL,
 	NULL,
 };

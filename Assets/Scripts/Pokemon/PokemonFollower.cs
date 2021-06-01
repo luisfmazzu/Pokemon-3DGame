@@ -10,8 +10,6 @@ public class PokemonFollower : MonoBehaviour
     [SerializeField]
     private GameObject TheFollower;
     [SerializeField]
-    private CharacterController followerController;
-    [SerializeField]
     private float normalSpeed = 1f;
     [SerializeField]
     private float runningSpeed = 1.2f;
@@ -21,7 +19,8 @@ public class PokemonFollower : MonoBehaviour
     public float TargetDistance;
     public float AllowedDistance;
 
-    public Animator animator;
+    private Animator            animator;
+    private CharacterController followerController;
 
     private float DistanceToRun;
 
@@ -39,18 +38,24 @@ public class PokemonFollower : MonoBehaviour
         DistanceToRun = AllowedDistance * 1.5f;
 
         isRunning = false;
+
+        Vector3 followerPos = new Vector3(ThePlayer.transform.position.x - 1, ThePlayer.transform.position.y, ThePlayer.transform.position.z - 1);
+
+        TheFollower = Instantiate(TheFollower, followerPos, ThePlayer.transform.rotation) as GameObject;
+
+        followerController  = TheFollower.GetComponent<CharacterController>();
+        animator            = TheFollower.GetComponentInChildren<Animator>();
     }
 
     void Update()
     {
         float verticalSpeed = -9.8f;
 
-        //Vector3 direction = ThePlayer.transform.position - transform.position;
-        TargetDistance = Vector3.Distance(ThePlayer.transform.position, transform.position);
+        TargetDistance = Vector3.Distance(ThePlayer.transform.position, TheFollower.transform.position);
 
         if(TargetDistance >= AllowedDistance)
         {
-            transform.LookAt(ThePlayer.transform);
+            TheFollower.transform.LookAt(ThePlayer.transform);
 
             if((TargetDistance <= DistanceToRun) && (isRunning == false))
             {
@@ -71,8 +76,6 @@ public class PokemonFollower : MonoBehaviour
             updatedMotion.x /= player_graphics_scale;
             updatedMotion.z /= player_graphics_scale;
             followerController.Move(updatedMotion);
-
-            //transform.position = Vector3.MoveTowards(transform.position, ThePlayer.transform.position, FollowSpeed);
         }
         else
         {
