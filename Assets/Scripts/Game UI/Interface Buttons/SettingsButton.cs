@@ -8,22 +8,17 @@ public class SettingsButton : MonoBehaviour
     #region Public Variables Declaration
     #endregion
 
-    void OnMouseOver()
+    void Start()
     {
-        //If your mouse hovers over the GameObject with the script attached, output this message
-        Debug.Log("Mouse is over GameObject.");
-    }
+        const float defaultWidth  = 1920.0f;
+        const float defaultHeight = 1080.0f;
 
-    void OnMouseExit()
-    {
-        //The mouse is no longer hovering over the GameObject so output this message each frame
-        Debug.Log("Mouse is no longer on GameObject.");
-    }
-
-    void Start ()
-    {
         RectTransform transform = gameObject.GetComponent<RectTransform>();
 
-        transform.position = new Vector3(Screen.width - (transform.rect.width * 0.75f), Screen.height - (transform.rect.height * 0.75f), 0.0f);
+        // First we need to find the correct ratio between the actual screen and the default one (Full HD)
+        float widthRatio  = (0.75f * (Screen.width / defaultWidth));
+        float heigthRatio = (0.75f * (Screen.height / defaultHeight));
+
+        transform.position = new Vector3(Screen.width - (transform.rect.width * widthRatio), Screen.height - (transform.rect.height * heigthRatio), 0.0f);
     }
 }

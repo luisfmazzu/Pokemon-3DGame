@@ -123,12 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!108 &1057987081 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1870048930}
-  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &1522283495
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -257,67 +251,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.99322957
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.99322957
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.99322957
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.08712594
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.002281471
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.99585336
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.026077313
-      objectReference: {fileID: 0}
     - target: {fileID: 3190633576912732126, guid: 0a11ec43a59adf64ea18c24247427f8c,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 4282697622698871014}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: speed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: preset
-      value: 
-      objectReference: {fileID: 11400000, guid: 740a07f1f65bcf7439c92a7566259fb8,
-        type: 2}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: timeOfDay
-      value: 6.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: directionalLight
-      value: 
-      objectReference: {fileID: 1057987081}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a11ec43a59adf64ea18c24247427f8c, type: 3}
 --- !u!137 &103143839329339838
