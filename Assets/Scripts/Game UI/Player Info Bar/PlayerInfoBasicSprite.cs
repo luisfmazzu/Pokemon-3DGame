@@ -7,14 +7,14 @@ public class PlayerInfoBasicSprite : MonoBehaviour
 
     void Start()
     {
-        const float defaultWidth    = 1920.0f;
-        const float defaultHeight   = 1080.0f;
+        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
 
         RectTransform transform = gameObject.GetComponent<RectTransform>();
 
-        // First we need to find the correct ratio between the actual screen and the default one (Full HD)
-        float widthRatio    = (2.0f / (Screen.width / defaultWidth));
-        float heigthRatio   = (2.0f / (Screen.height / defaultHeight));
+        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+
+        float widthRatio = 2.0f / ratio.width;
+        float heigthRatio = 2.0f / ratio.heigth;
 
         transform.position = new Vector3((transform.rect.width / widthRatio), Screen.height - (transform.rect.height / heigthRatio), 0.0f);
     }

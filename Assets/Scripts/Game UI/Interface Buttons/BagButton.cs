@@ -7,15 +7,15 @@ public class BagButton : MonoBehaviour
 
     void Start()
     {
-        const float defaultWidth  = 1920.0f;
-        const float defaultHeight = 1080.0f;
+        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
 
         RectTransform transform = gameObject.GetComponent<RectTransform>();
 
-        // First we need to find the correct ratio between the actual screen and the default one (Full HD)
-        float widthRatio  = (7.0f * (Screen.width / defaultWidth));
-        float heigthRatio = (0.75f * (Screen.height / defaultHeight));
+        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
 
-        transform.position = new Vector3(Screen.width - (transform.rect.width * widthRatio), Screen.height - (transform.rect.height * heigthRatio), 0.0f);
+        float widthRatio = 0.0189f / ratio.width;
+        float heigthRatio = 1.3f / ratio.heigth;
+
+        transform.position = new Vector3((transform.rect.width / widthRatio), Screen.height - (transform.rect.height / heigthRatio), 0.0f);
     }
 }
