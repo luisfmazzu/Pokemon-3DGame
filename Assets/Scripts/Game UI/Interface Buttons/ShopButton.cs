@@ -11,13 +11,13 @@ public class ShopButton : MonoBehaviour
     {
         GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
 
-        RectTransform transform = gameObject.GetComponent<RectTransform>();
+        RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
 
         GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
 
         float widthRatio = 0.01845f / ratio.width;
         float heigthRatio = 1.3f / ratio.heigth;
 
-        transform.position = new Vector3((transform.rect.width / widthRatio), Screen.height - (transform.rect.height / heigthRatio), 0.0f);
+        spriteTransform.position = new Vector3((spriteTransform.rect.width / widthRatio), Screen.height - (spriteTransform.rect.height / heigthRatio), 0.0f);
     }
 }
