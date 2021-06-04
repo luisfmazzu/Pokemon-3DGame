@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
-using UnityEngine.U2D;
-using UnityEngine.UI;
 
 public class BagButton : MonoBehaviour
 {
     #region Public Variables Declaration
     #endregion
 
-    void Start ()
+    void Start()
     {
-        RectTransform transform = gameObject.GetComponent<RectTransform>();
+        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
 
-        transform.position = new Vector3(Screen.width - (transform.rect.width * 7), Screen.height - (transform.rect.height * 0.75f), 0.0f);
+        RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
+
+        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+
+        float widthRatio = 0.0189f / ratio.width;
+        float heigthRatio = 1.3f / ratio.heigth;
+
+        spriteTransform.position = new Vector3((spriteTransform.rect.width / widthRatio), Screen.height - (spriteTransform.rect.height / heigthRatio), 0.0f);
     }
 }

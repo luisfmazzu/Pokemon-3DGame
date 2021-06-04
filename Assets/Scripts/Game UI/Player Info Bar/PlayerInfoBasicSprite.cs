@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.U2D;
-using UnityEngine.UI;
 
-public class AchievementsButton : MonoBehaviour
+public class PlayerInfoBasicSprite : MonoBehaviour
 {
     #region Public Variables Declaration
     #endregion
@@ -15,8 +13,8 @@ public class AchievementsButton : MonoBehaviour
 
         GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
 
-        float widthRatio = 0.01765f / ratio.width;
-        float heigthRatio = 1.3f / ratio.heigth;
+        float widthRatio = 2.0f / ratio.width;
+        float heigthRatio = 2.0f / ratio.heigth;
 
         spriteTransform.position = new Vector3((spriteTransform.rect.width / widthRatio), Screen.height - (spriteTransform.rect.height / heigthRatio), 0.0f);
     }

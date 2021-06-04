@@ -7,10 +7,17 @@ public class ShopButton : MonoBehaviour
     #region Public Variables Declaration
     #endregion
 
-    void Start ()
+    void Start()
     {
-        RectTransform transform = gameObject.GetComponent<RectTransform>();
+        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
 
-        transform.position = new Vector3(Screen.width - (transform.rect.width * 5.75f), Screen.height - (transform.rect.height * 0.75f), 0.0f);
+        RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
+
+        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+
+        float widthRatio = 0.01845f / ratio.width;
+        float heigthRatio = 1.3f / ratio.heigth;
+
+        spriteTransform.position = new Vector3((spriteTransform.rect.width / widthRatio), Screen.height - (spriteTransform.rect.height / heigthRatio), 0.0f);
     }
 }

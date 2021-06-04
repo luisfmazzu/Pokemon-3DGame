@@ -8,22 +8,17 @@ public class SettingsButton : MonoBehaviour
     #region Public Variables Declaration
     #endregion
 
-    void OnMouseOver()
+    void Start()
     {
-        //If your mouse hovers over the GameObject with the script attached, output this message
-        Debug.Log("Mouse is over GameObject.");
-    }
+        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
 
-    void OnMouseExit()
-    {
-        //The mouse is no longer hovering over the GameObject so output this message each frame
-        Debug.Log("Mouse is no longer on GameObject.");
-    }
+        RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
 
-    void Start ()
-    {
-        RectTransform transform = gameObject.GetComponent<RectTransform>();
+        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
 
-        transform.position = new Vector3(Screen.width - (transform.rect.width * 0.75f), Screen.height - (transform.rect.height * 0.75f), 0.0f);
+        float widthRatio = 0.0169f / ratio.width;
+        float heigthRatio = 1.3f / ratio.heigth;
+
+        spriteTransform.position = new Vector3((spriteTransform.rect.width / widthRatio), Screen.height - (spriteTransform.rect.height / heigthRatio), 0.0f);
     }
 }
