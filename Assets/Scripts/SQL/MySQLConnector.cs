@@ -7,9 +7,9 @@ public class MySQLConnector
     {
         bool Pooling = false;
 
-        string Server = "localhost";
-        string User = "root";
-        string Password = "root";
+        string Server = "192.185.176.93:3306";
+        string User = "leonar14_unity";
+        string Password = "Leo.Pereira91";
 
         string source = @"Server=" + Server +
                         ";Database=" + database +
@@ -22,10 +22,8 @@ public class MySQLConnector
         dbconn.Open();
     }
 
-    public void ExecuteQuery(ref MySqlConnection dbconn, ref MySqlCommand dbcmd, ref MySqlDataReader reader, string database, string sqlQuery)
+    public void ExecuteQuery(ref MySqlConnection dbconn, ref MySqlCommand dbcmd, ref MySqlDataReader reader, string sqlQuery)
     {
-        ConnectToDB(ref dbconn, database);
-
         dbcmd = dbconn.CreateCommand();
 
         dbcmd.CommandText = sqlQuery;

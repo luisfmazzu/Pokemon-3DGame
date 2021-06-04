@@ -20,10 +20,10 @@ public class GUIScreenInfo : MonoBehaviour
             }
 
             public float heigth
-        {
+            {
                 get { return _heigth; }
             }
-    }
+        }
     #endregion
 
     #region Private Variables Declaration

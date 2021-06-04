@@ -560,12 +560,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 273, y: 76.79423, z: 18}
   m_Center: {x: -2362.75, y: 38.397114, z: 1675}
---- !u!108 &871040414 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 4143533592877198832}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &965438819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3889750111504974619, guid: bf4f76b4ef7dd0843ab7d2b5ba2a9e67,
@@ -898,67 +892,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.934354
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.934354
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152436, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.934354
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.024753576
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0835667
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.2829345
-      objectReference: {fileID: 0}
-    - target: {fileID: 3190633576483152439, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.95517117
-      objectReference: {fileID: 0}
     - target: {fileID: 3190633576912732126, guid: 0a11ec43a59adf64ea18c24247427f8c,
         type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 2005005340}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: speed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: preset
-      value: 
-      objectReference: {fileID: 11400000, guid: 740a07f1f65bcf7439c92a7566259fb8,
-        type: 2}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: timeOfDay
-      value: 15.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143533591046718023, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: directionalLight
-      value: 
-      objectReference: {fileID: 871040414}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a11ec43a59adf64ea18c24247427f8c, type: 3}
 --- !u!1001 &4282697623087967779

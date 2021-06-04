@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Pokeballs : MonoBehaviour
+public class PlayerInfoPokeballs : MonoBehaviour
 {
     #region Private Variables Declaration
         [SerializeField, Range(1, 6)] private int pokeballIndex;
