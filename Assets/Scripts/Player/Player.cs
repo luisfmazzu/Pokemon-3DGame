@@ -21,12 +21,10 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        //Rigidbody2D player_rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>(); // We instantiate our player RigidBody2D, so we can freeze it's movements
-
         ctrlPlayer = new CtrlPlayer();
 
         // hard-coded for now
-        playerID = 1;
+        playerID = 2;
 
         string  _playerName         = "";
         string  _playerClass        = "";
@@ -45,10 +43,6 @@ public class Player : MonoBehaviour
         playerCurrentMap    = _playerCurrentMap;
         playerPosition      = _playerPosition;
         playerMoney         = _playerMoney;
-
-        /*PlayerID = ctrlPlayer.getPlayerID("LeoWPereira", "Leonardo91"); //TODO: Modify this function call to call with the values of the user's input at the menu screen 
-
-        player_rb2D.position = PlayerPosition; // Here we set the player Position in World Coords*/
 
         ready = true;
     }

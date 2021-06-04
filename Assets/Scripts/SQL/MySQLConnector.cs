@@ -7,7 +7,8 @@ public class MySQLConnector
     {
         bool Pooling = false;
 
-        string Server = "192.185.176.93:3306";
+        //string Server = "localhost";
+        string Server = "192.185.176.93";
         string User = "leonar14_unity";
         string Password = "Leo.Pereira91";
 
