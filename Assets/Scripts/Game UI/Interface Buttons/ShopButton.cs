@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class ShopButton : MonoBehaviour
 {
-    #region Public Variables Declaration
+    #region Private Variables Declaration
     #endregion
 
     void Start()
@@ -19,5 +18,18 @@ public class ShopButton : MonoBehaviour
         float heigthRatio = 1.3f / ratio.heigth;
 
         spriteTransform.position = new Vector3((spriteTransform.rect.width / widthRatio), Screen.height - (spriteTransform.rect.height / heigthRatio), 0.0f);
+
+        /**
+         * Now we do the work for the Button
+         */
+
+        Button button = this.transform.Find("Sprite").GetComponent<Button>();
+
+        button.onClick.AddListener(TaskOnClick);
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the Shop Button!");
     }
 }

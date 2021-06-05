@@ -16,11 +16,15 @@ public class DAOPlayer
     public void connectToDB()
     {
         con.ConnectToDB(ref dbconn, database);
+
+        Debug.Log("Connected to DB");
     }
 
     public void closeConnection()
     {
         con.CloseConnection(ref dbconn, ref dbcmd, ref reader);
+
+        Debug.Log("Closed Connection with DB");
     }
 
     public int getPlayerID(string username, string password)
@@ -110,9 +114,10 @@ public class DAOPlayer
     {
         string currentMap = null;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.currentMap" +
-                                                            " FROM " + database + ".Players players" +
-                                                            " WHERE players.playerID = " + playerID);
+        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT maps.name" +
+                                                            " FROM " + database + ".Players players, " + database + ".Maps maps" +
+                                                            " WHERE players.playerID = " + playerID +
+                                                            " AND players. = maps.mapID");
 
         while (reader.Read())
         {
@@ -156,10 +161,10 @@ public class DAOPlayer
 
     public void getPlayerInfo(int playerID, out string playerName, out string playerClass, out int playerBaseLvl, out float playerBaseLvlExp, out string playerCurrentMap, out Vector3 playerPosition, out int playerMoney)
     {
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.name, playableClasses.name, players.baseLvl, players.baseLvlExp, players.currentMap, players.positionX, players.positionY, players.positionZ, players.money" +
-                                                            " FROM " + database + ".Players players, " + database + ".PlayableClasses playableClasses" +
-                                                            " WHERE players.playerID = " + playerID +
-                                                            " AND playableClasses.classID = players.classID");
+        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT Players.name, PlayableClasses.name, Players.baseLvl, Players.baseLvlExp, Maps.name, Players.positionX, Players.positionY, Players.positionZ, Players.money" +
+                                                            " FROM " + database + ".Players INNER JOIN " + database + ".PlayableClasses ON Players.classID = PlayableClasses.classID" +
+                                                            " LEFT JOIN " + database + ".Maps ON Players.currentMapID = Maps.mapID" + 
+                                                            " WHERE Players.playerID = " + playerID);
 
         playerName          = "";
         playerClass         = "";
