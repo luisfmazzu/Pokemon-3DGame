@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.73916435, g: 0.7688451, b: 0.71455485, a: 1}
+  m_FogColor: {r: 0.5576796, g: 0.6845289, b: 0.8648899, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9823391, g: 0.94256186, b: 0.7792661, a: 1}
+  m_AmbientSkyColor: {r: 0.9971789, g: 0.99082506, b: 0.96474075, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.28497437, g: 0.36956322, b: 0.48253027, a: 1}
+  m_IndirectSpecularColor: {r: 0.28385365, g: 0.37043393, b: 0.50075674, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -389,6 +389,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 16a7e2689752d5f4b8be05478ed891fa, type: 2}
+    - target: {fileID: 7165841149248345969, guid: bf4f76b4ef7dd0843ab7d2b5ba2a9e67,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 199c69cefd395164eac4d67358598576, type: 2}
     - target: {fileID: 7176400922298355452, guid: bf4f76b4ef7dd0843ab7d2b5ba2a9e67,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
