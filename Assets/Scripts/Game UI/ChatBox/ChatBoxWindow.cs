@@ -3,70 +3,66 @@ using System.Collections;
 
 public class ChatBoxWindow : MonoBehaviour
 {
-    const float boxHeightmin = 0.0f;
-    const float boxHeightmax = 300.0f;
+    #region Serialize Fields Variables Declaration
+        [SerializeField] private GUIStyle   printGUIStyle;
+        [SerializeField] private GUISkin    skin;
 
-    #region Public Variables Declaration
+        [SerializeField] private int        maxLogMessages          = 200;
+        [SerializeField] private int        maxStringLength         = 150;
 
-    public GUIStyle printGUIStyle;
-    public GUISkin skin;
-
-    //public Player player;
-    
-    public int maxLogMessages = 200;
-
-    public float boxWidth = 600.0f;
-    public float boxHeight = 60.0f; // This will be changed accordingly to the User's input config file!
+        [SerializeField] private float      boxWidth                = 600.0f;
+        [SerializeField] private float      boxHeight               = 60.0f; // This will be changed accordingly to the User's input config file!
+        [SerializeField] private float      boxHeightIncreaseRate   = 60.0f;
+        [SerializeField] private float      messageSpacing          = 10.0f;
     #endregion
 
-    private ArrayList log = new ArrayList();
+    #region Private Variables Declaration
+        private ArrayList       log             = new ArrayList();
+        private System.DateTime actualDate      = new System.DateTime();
+        private bool            visible         = true;
+        private bool            selectTextfield = true;
+        private string          stringToEdit    = "";
+    #endregion
 
-    System.DateTime actualDate = new System.DateTime();
+    #region Constant Variables Declaration
+        const float boxHeightmin        = 0.0f;
+        const float boxHeightmax        = 300.0f;
+        const float maxLogLabelHeight   = 100.0f;
+    #endregion
 
-    bool visible = true;
-    bool selectTextfield = true;
-
-    string stringToEdit = "";
-    
 #pragma warning disable 618
-
-    void Start ()
+    void Start()
+    //IEnumerator Start()
     {
         Input.eatKeyPressOnTextFieldFocus = false;
     }
-
 #pragma warning restore 618
 
-    void print (string String)
+    void print(string String)
     {
         log.Add(String);
 
         if (log.Count > maxLogMessages)
+        { 
             log.RemoveAt(0);
+        }
     }
 
-    protected Vector2 scrollPos = Vector2.zero;
-    private int lastLogLen = 0;
-
-    float maxLogLabelHeight = 100.0f;
- 
     void OnGUI()
     {
         GUI.skin = skin;
 
         float[] logBoxHeights = new float[log.Count];
 
-        float logBoxHeight = 0.0f;
-        float totalHeight = 0.0f;
-
-        int maxStringLength = 150;
+        float logBoxHeight  = 0.0f;
+        float totalHeight   = 0.0f;
         
-        if (visible)
+        if(visible)
         {
             GUI.SetNextControlName("chatWindow2");
             GUI.TextField(new Rect(0.0f, 5000.0f, 20.0f, 20.0f), "", maxStringLength);
 
-            if (!selectTextfield)
+            if(!selectTextfield)
             {
                 GUI.SetNextControlName("chatWindow");
 
@@ -76,22 +72,27 @@ public class ChatBoxWindow : MonoBehaviour
             }
 
             else
+            { 
                 GUI.FocusControl("chatWindow2");
+            }
 
             int i = 0;
-
             foreach (string String in log)
             {
                 logBoxHeight = Mathf.Min(maxLogLabelHeight, printGUIStyle.CalcHeight(new GUIContent(String), boxWidth));
                 
-                logBoxHeights[i++] = logBoxHeight;
-                totalHeight += logBoxHeight + 10.0f;
+                logBoxHeights[i++]  = logBoxHeight;
+                totalHeight        += logBoxHeight + messageSpacing;
             }
 
             float innerScrollHeight = totalHeight;
 
+            Vector2 scrollPos = Vector2.zero;
+
+            int lastLogLen = 0;
+
             // if there's a new message, automatically scroll to bottom
-            if (lastLogLen != log.Count)
+            if(lastLogLen != log.Count)
             {
                 scrollPos = new Vector2(0.0f, innerScrollHeight);
 
@@ -103,14 +104,13 @@ public class ChatBoxWindow : MonoBehaviour
             float currY = 0.0f;
 
             i = 0;
-
             foreach (string String in log)
             {
                 logBoxHeight = logBoxHeights[i++];
 
-                GUI.Label(new Rect(10.0f, currY, boxWidth, logBoxHeight), String, printGUIStyle);
+                GUI.Label(new Rect(messageSpacing, currY, boxWidth, logBoxHeight), String, printGUIStyle);
 
-                currY += logBoxHeight + 10.0f;
+                currY += logBoxHeight + messageSpacing;
             }
 
             GUI.EndScrollView();
@@ -123,21 +123,23 @@ public class ChatBoxWindow : MonoBehaviour
 
         string customDateFormat = actualDate.ToString("HH:mm:ss");
 
-        if (Input.GetKeyDown("return"))
+        if(Input.GetKeyDown("return"))
         {
-            if (selectTextfield)
+            if(selectTextfield)
+            { 
                 selectTextfield = !selectTextfield;
-            
-            if (stringToEdit == " ")
+            }
+
+            if(stringToEdit == " ")
             {
                 selectTextfield = true;
 
                 stringToEdit = string.Empty;
             }
 
-            else if (!string.IsNullOrEmpty(stringToEdit))
+            else if(!string.IsNullOrEmpty(stringToEdit))
             {
-                //log.Add("[" + customDateFormat + "] " + player.PlayerName + ": " + stringToEdit);
+                log.Add("[" + customDateFormat + "] " + /*player.PlayerName +*/ ": " + stringToEdit);
 
                 selectTextfield = true;
 
@@ -145,15 +147,17 @@ public class ChatBoxWindow : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F10))
+        if(Input.GetKeyDown(KeyCode.F10))
         {
-            float boxHeightIncreaseRate = 60.0f;
-
             if (boxHeight <= boxHeightmax)
+            { 
                 boxHeight += boxHeightIncreaseRate;
+            }
 
             else
+            { 
                 boxHeight = boxHeightmin;
+            }
         }
     }
 }

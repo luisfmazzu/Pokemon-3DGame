@@ -16,11 +16,15 @@ public class DAOPlayer
     public void connectToDB()
     {
         con.ConnectToDB(ref dbconn, database);
+
+        Debug.Log("Connected to DB");
     }
 
     public void closeConnection()
     {
         con.CloseConnection(ref dbconn, ref dbcmd, ref reader);
+
+        Debug.Log("Closed Connection with DB");
     }
 
     public int getPlayerID(string username, string password)
