@@ -8,11 +8,9 @@ public class PokedexButton : MonoBehaviour
 
     void Start()
     {
-        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
-
         RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
 
-        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+        GUIScreenInfo.ScreenRatio ratio = GUIScreenInfo.Instance.currentToDefaultRatio;
 
         float widthRatio = 0.01805f / ratio.width;
         float heigthRatio = 1.3f / ratio.heigth;

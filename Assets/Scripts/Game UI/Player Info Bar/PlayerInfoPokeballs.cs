@@ -16,11 +16,9 @@ public class PlayerInfoPokeballs : MonoBehaviour
 
     void Start()
     {
-        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
-
         RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
 
-        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+        GUIScreenInfo.ScreenRatio ratio = GUIScreenInfo.Instance.currentToDefaultRatio;
 
         float pokeballPlacementMultiplier;
 

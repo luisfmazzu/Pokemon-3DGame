@@ -7,11 +7,9 @@ public class PlayerInfoBasicSprite : MonoBehaviour
 
     void Start()
     {
-        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
-
         RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
 
-        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+        GUIScreenInfo.ScreenRatio ratio = GUIScreenInfo.Instance.currentToDefaultRatio;
 
         float widthRatio = 2.0f / ratio.width;
         float heigthRatio = 2.0f / ratio.heigth;

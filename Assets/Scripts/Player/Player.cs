@@ -23,32 +23,30 @@ public class Player : MonoBehaviour
         private static  Player      _instance;
     #endregion
 
-    #region Public Variables Declaration
-        public static Player Instance
+    public static Player Instance
+    {
+        get
         {
-            get
+            if(_instance == null)
             {
+                _instance = (Player)GameObject.FindObjectOfType(typeof(Player));
+
                 if(_instance == null)
                 {
-                    _instance = (Player)GameObject.FindObjectOfType(typeof(Player));
+                    // gameObject.AddComponent<Player>()
+                    GameObject go = new GameObject("Player:Singleton");
 
-                    if(_instance == null)
-                    {
-                        // gameObject.AddComponent<Player>()
-                        GameObject go = new GameObject("Player:Singleton");
-
-                        _instance = go.AddComponent<Player>();
-                    }
+                    _instance = go.AddComponent<Player>();
                 }
+            }
 
-                return _instance;
-            }
-            set
-            {
-                _instance = value;
-            }
+            return _instance;
         }
-    #endregion
+        set
+        {
+            _instance = value;
+        }
+    }
 
     private void Awake()
     {

@@ -9,14 +9,13 @@ public class PlayerInfoName : MonoBehaviour
 
     IEnumerator Start()
     {
-        GUIScreenInfo   screenInfo      = gameObject.AddComponent<GUIScreenInfo>();
         Player          playerInfo      = Player.Instance;
 
         RectTransform   textTransform   = this.transform.Find("Text").GetComponent<RectTransform>();
 
         Text            text            = this.transform.Find("Text").GetComponent<Text>();
-        
-        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+
+        GUIScreenInfo.ScreenRatio ratio = GUIScreenInfo.Instance.currentToDefaultRatio;
 
         float widthRatio  = 1.0f / ratio.width;
         float heigthRatio = 2.0f / ratio.heigth;

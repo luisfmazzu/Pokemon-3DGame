@@ -8,11 +8,9 @@ public class TrainerButton : MonoBehaviour
 
     void Start()
     {
-        GUIScreenInfo screenInfo = gameObject.AddComponent<GUIScreenInfo>();
-
         RectTransform spriteTransform = this.transform.Find("Sprite").GetComponent<RectTransform>();
 
-        GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
+        GUIScreenInfo.ScreenRatio ratio = GUIScreenInfo.Instance.currentToDefaultRatio;
 
         float widthRatio = 0.01935f / ratio.width;
         float heigthRatio = 1.3f / ratio.heigth;

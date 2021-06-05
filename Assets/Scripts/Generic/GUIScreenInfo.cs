@@ -31,7 +31,34 @@ public class GUIScreenInfo : MonoBehaviour
         private const float _defaultHeigth = 1080.0f;
 
         private ScreenRatio _currentToDefaultRatio = new ScreenRatio(Screen.width / _defaultWidth, Screen.height / _defaultHeigth);
+
+        private static GUIScreenInfo _instance;
     #endregion
+
+    public static GUIScreenInfo Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = (GUIScreenInfo)GameObject.FindObjectOfType(typeof(GUIScreenInfo));
+
+                if (_instance == null)
+                {
+                    // gameObject.AddComponent<Player>()
+                    GameObject go = new GameObject("GUIScreenInfo:Singleton");
+
+                    _instance = go.AddComponent<GUIScreenInfo>();
+                }
+            }
+
+            return _instance;
+        }
+        set
+        {
+            _instance = value;
+        }
+    }
 
     public float defaultWidth
     {
