@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         ctrlPlayer = new CtrlPlayer();
 
         // hard-coded for now
-        playerID = 2;
+        playerID = 1;
 
         string  _playerName         = "";
         string  _playerClass        = "";
