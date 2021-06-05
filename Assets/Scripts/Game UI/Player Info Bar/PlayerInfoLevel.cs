@@ -10,7 +10,7 @@ public class PlayerInfoLevel : MonoBehaviour
     IEnumerator Start()
     {
         GUIScreenInfo   screenInfo      = gameObject.AddComponent<GUIScreenInfo>();
-        Player          playerInfo      = gameObject.AddComponent<Player>();
+        Player          playerInfo      = Player.Instance;
 
         RectTransform   textTransform   = this.transform.Find("Text").GetComponent<RectTransform>();
 
@@ -19,7 +19,7 @@ public class PlayerInfoLevel : MonoBehaviour
         GUIScreenInfo.ScreenRatio ratio = screenInfo.currentToDefaultRatio;
 
         float widthRatio  = 1.25f / ratio.width;
-        float heigthRatio = 0.325f / ratio.heigth;
+        float heigthRatio = 0.3285f / ratio.heigth;
 
         textTransform.position = new Vector3((textTransform.rect.width / widthRatio), Screen.height - (textTransform.rect.height / heigthRatio), 0.0f);
 

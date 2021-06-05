@@ -15,12 +15,57 @@ public class Player : MonoBehaviour
         internal int        playerMoney         { get; set; }
     #endregion
 
-    private CtrlPlayer ctrlPlayer;
+    #region Private Variables Declaration
+        private         CtrlPlayer  ctrlPlayer;
 
-    private bool ready = false;
+        private         bool        ready       = false;
+
+        private static  Player      _instance;
+    #endregion
+
+    #region Public Variables Declaration
+        public static Player Instance
+        {
+            get
+            {
+                if(_instance == null)
+                {
+                    _instance = (Player)GameObject.FindObjectOfType(typeof(Player));
+
+                    if(_instance == null)
+                    {
+                        // gameObject.AddComponent<Player>()
+                        GameObject go = new GameObject("Player:Singleton");
+
+                        _instance = go.AddComponent<Player>();
+                    }
+                }
+
+                return _instance;
+            }
+            set
+            {
+                _instance = value;
+            }
+        }
+    #endregion
+
+    private void Awake()
+    {
+        if(_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+         
+            return;
+        }
+
+        _instance = this;
+    }
 
     void Start()
     {
+        Debug.Log("Creating Player Singleton instance");
+
         ctrlPlayer = new CtrlPlayer();
 
         // hard-coded for now

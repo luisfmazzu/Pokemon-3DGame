@@ -10,7 +10,7 @@ public class PlayerInfoName : MonoBehaviour
     IEnumerator Start()
     {
         GUIScreenInfo   screenInfo      = gameObject.AddComponent<GUIScreenInfo>();
-        Player          playerInfo      = gameObject.AddComponent<Player>();
+        Player          playerInfo      = Player.Instance;
 
         RectTransform   textTransform   = this.transform.Find("Text").GetComponent<RectTransform>();
 
