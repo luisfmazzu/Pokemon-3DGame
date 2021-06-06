@@ -18,7 +18,7 @@ public class PlayerInfoLevel : MonoBehaviour
         GUIScreenInfo.ScreenRatio ratio = GUIScreenInfo.Instance.currentToDefaultRatio;
 
         float widthRatio  = 1.25f / ratio.width;
-        float heigthRatio = 0.3285f / ratio.heigth;
+        float heigthRatio = 0.32f / ratio.heigth;
 
         textTransform.position = new Vector3((textTransform.rect.width / widthRatio), Screen.height - (textTransform.rect.height / heigthRatio), 0.0f);
 
