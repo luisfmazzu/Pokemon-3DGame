@@ -6,35 +6,28 @@ using System.Collections;
 /// </summary>
 public class CameraFollow : MonoBehaviour
 {
-    #region Public Variables Declaration
-
-    public Transform target;
-
-    public Vector3 offset;
-
-    public float zoom = 1f;
-    public float currentYaw = 0f;
-
+    #region SerializeFields
+        [SerializeField]                        private Transform  target;
+        [SerializeField]                        private Vector3    offset;
+        [SerializeField, Range(0.01f, 0.015f)]  private float      zoom         = 0.01f;
+        [SerializeField]                        private float      currentYaw   = 0.00f;
     #endregion
 
-    private Camera m_myCam;
+    #region PrivateVariables
+        private Camera m_myCam;
+    #endregion
 
-    /// <summary>
-    /// Use this for initialization.
-    /// </summary>
-    void Start ()
+    void Start()
     {
         m_myCam = GetComponent<Camera>();
 	}
 
-
-    /// <summary>
-    /// Update is called once per frame.
-    /// </summary>
-    void Update ()
+    void Update()
     {
         transform.position = target.position + offset * zoom;
+
         transform.LookAt(target.position);
+
         transform.RotateAround(target.position, Vector3.up, currentYaw);
 	}
 }

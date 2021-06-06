@@ -3,8 +3,8 @@ using UnityEngine;
 public class Woman01Controller : MonoBehaviour
 {
     #region SerializeFields
-        [SerializeField] private float normalSpeed          = 1f;
-        [SerializeField] private float playerGraphicsScale  = 20f;
+        //[SerializeField] private float normalSpeed          = 1f;
+        //[SerializeField] private float playerGraphicsScale  = 20f;
     #endregion
 
     #region PrivateVariables
@@ -29,9 +29,18 @@ public class Woman01Controller : MonoBehaviour
 
     void Update()
     {
+        /*
         float verticalSpeed     = -9.8f;
         float horizontalSpeed   = normalSpeed;
 
+        Vector3 updatedMotion = new Vector3(animator.GetFloat("DirX") * horizontalSpeed, verticalSpeed, animator.GetFloat("DirY") * horizontalSpeed);
+
+        updatedMotion.x /= playerGraphicsScale;
+        updatedMotion.z /= playerGraphicsScale;
+
+        characterController.Move(updatedMotion);
+
         animator.Play(Animations.Idle);
+        */
     }
 }
