@@ -43,4 +43,12 @@ public class Woman01Controller : MonoBehaviour
         animator.Play(Animations.Idle);
         */
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if((other.tag == "Player") && (Input.GetKeyDown(KeyCode.Space)))
+        {
+            Debug.Log("[Woman01] You Started a Conversation with me");
+        }
+    }
 }
