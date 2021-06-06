@@ -256,11 +256,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 4282697622698871014}
-    - target: {fileID: 3190633576912732126, guid: 0a11ec43a59adf64ea18c24247427f8c,
-        type: 3}
-      propertyPath: interiorMap
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a11ec43a59adf64ea18c24247427f8c, type: 3}
 --- !u!137 &103143839329339838
@@ -4859,6 +4854,7 @@ GameObject:
   - component: {fileID: 8470951154314142060}
   - component: {fileID: 6347526057765604647}
   - component: {fileID: 6395531767755422585}
+  - component: {fileID: 6395531767755422586}
   m_Layer: 0
   m_Name: tvlight01_1
   m_TagString: Untagged
@@ -4874,11 +4870,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6395531767755422584}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 144.5498, y: 75.63219, z: 0}
-  m_Center: {x: -6396.164, y: 81.0192, z: 460.6555}
+  m_Size: {x: 144.54956, y: 75.63219, z: 95.25932}
+  m_Center: {x: -6396.164, y: 81.0192, z: 500.0359}
+--- !u!114 &6395531767755422586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6395531767755422584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c74320ba2af16469940fb10d3cf789, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tvOffMaterial: {fileID: 2100000, guid: 473d82989c6edec44a5d2340d3447c16, type: 2}
+  tvOnMaterial: {fileID: 2100000, guid: f2a8708fe4a67de4b8d46a19047b5356, type: 2}
 --- !u!4 &6453127593902803612
 Transform:
   m_ObjectHideFlags: 0
@@ -7085,8 +7095,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 205.19728, y: 27.27, z: 96}
-  m_Center: {x: -6395.5977, y: 14.135, z: 484}
+  m_Size: {x: 205.77881, y: 123.12894, z: 99.058914}
+  m_Center: {x: -6395.9873, y: 62.06446, z: 485.02917}
 --- !u!137 &8614420564841387649
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

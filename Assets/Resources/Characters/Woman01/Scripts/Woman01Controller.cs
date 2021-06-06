@@ -7,7 +7,7 @@ public class Woman01Controller : MonoBehaviour
         //[SerializeField] private float playerGraphicsScale  = 20f;
     #endregion
 
-    #region PrivateVariables
+    #region Private Variables
         private Animator            animator;
 
         private CharacterController characterController;
