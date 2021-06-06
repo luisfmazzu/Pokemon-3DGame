@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PlayerInfoPokeballs : MonoBehaviour
 {
@@ -16,8 +17,6 @@ public class PlayerInfoPokeballs : MonoBehaviour
 
     void Start()
     {
-        RectTransform spriteTransform = this.transform.Find("Ball Sprite").GetComponent<RectTransform>();
-
         GUIScreenInfo.ScreenRatio ratio = GUIScreenInfo.Instance.currentToDefaultRatio;
 
         float pokeballPlacementMultiplier;
@@ -27,6 +26,31 @@ public class PlayerInfoPokeballs : MonoBehaviour
         float widthRatio  = pokeballPlacementMultiplier / ratio.width;
         float heigthRatio = 0.61f / ratio.heigth;
 
+        /**
+         * Now we handle the Pokeballs
+         */
+        RectTransform   spriteTransform = this.transform.Find("Ball Sprite").GetComponent<RectTransform>();
+        Image           image           = this.transform.Find("Ball Sprite").GetComponent<Image>();
+
         spriteTransform.position = new Vector3((spriteTransform.rect.width / widthRatio), Screen.height - (spriteTransform.rect.height / heigthRatio), 0.0f);
+
+        /**
+         * Now we handle the Pokemon Icons
+         */
+        RectTransform   pokemonIconSpriteTransform  = this.transform.Find("Pokemon Sprite").GetComponent<RectTransform>();
+        Image           pokemonIconImage            = this.transform.Find("Pokemon Sprite").GetComponent<Image>();
+
+        pokemonIconSpriteTransform.position = spriteTransform.position;
+
+        if(pokemonIconImage.sprite == null)
+        {
+            image.color             = new Color(image.color.r, image.color.g, image.color.b, 1.00f);
+            pokemonIconImage.color  = new Color(image.color.r, image.color.g, image.color.b, 0.00f);
+        }
+        else
+        {
+            image.color             = new Color(image.color.r, image.color.g, image.color.b, 0.75f);
+            pokemonIconImage.color  = new Color(image.color.r, image.color.g, image.color.b, 1.00f);
+        }
     }
 }
