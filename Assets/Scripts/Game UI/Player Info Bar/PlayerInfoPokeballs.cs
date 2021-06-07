@@ -44,13 +44,13 @@ public class PlayerInfoPokeballs : MonoBehaviour
 
         if(pokemonIconImage.sprite == null)
         {
-            image.color             = new Color(image.color.r, image.color.g, image.color.b, 1.00f);
+            image.color             = new Color(image.color.r, image.color.g, image.color.b, 0.75f);
             pokemonIconImage.color  = new Color(image.color.r, image.color.g, image.color.b, 0.00f);
         }
         else
         {
-            image.color             = new Color(image.color.r, image.color.g, image.color.b, 0.75f);
-            pokemonIconImage.color  = new Color(image.color.r, image.color.g, image.color.b, 1.00f);
+            image.color             = new Color(image.color.r, image.color.g, image.color.b, 0.50f);
+            pokemonIconImage.color  = new Color(image.color.r, image.color.g, image.color.b, 0.75f);
         }
     }
 }
