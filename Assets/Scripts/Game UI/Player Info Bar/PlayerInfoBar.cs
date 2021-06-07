@@ -63,7 +63,10 @@ public class PlayerInfoBar : MonoBehaviour
 
     private void Update()
     {
-        for(int i = 0; i < 6; i++)
+        this.handlePlayerLevel();
+        this.handlePlayerLevelProgressBar();
+
+        for (int i = 0; i < 6; i++)
         {
             this.lineup_small[i].color = (this.lineup_small[i].sprite == null) ? (this.lineup_small[i].color = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 0.00f))
                                                                                : (this.lineup_small[i].color = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 1.00f));

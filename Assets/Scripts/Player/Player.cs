@@ -33,7 +33,6 @@ public class Player : MonoBehaviour
 
                 if(_instance == null)
                 {
-                    // gameObject.AddComponent<Player>()
                     GameObject go = new GameObject("Player:Singleton");
 
                     _instance = go.AddComponent<Player>();
@@ -101,5 +100,20 @@ public class Player : MonoBehaviour
         { 
             yield return null;
         }
+    }
+
+    public void AwardExp(float value)
+    {
+        if((this.playerBaseLvlExp + value) >= 100)
+        {
+            this.playerBaseLvl    += 1;
+            this.playerBaseLvlExp  = (this.playerBaseLvlExp + value) - 100.0f;
+        }
+        else
+        {
+            this.playerBaseLvlExp += value;
+        }
+
+        Debug.Log("Lv " + this.playerBaseLvl + " (" + this.playerBaseLvlExp + "%)");
     }
 }

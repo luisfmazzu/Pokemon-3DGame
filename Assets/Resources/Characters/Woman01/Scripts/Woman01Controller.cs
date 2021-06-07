@@ -7,10 +7,12 @@ public class Woman01Controller : MonoBehaviour
         //[SerializeField] private float playerGraphicsScale  = 20f;
     #endregion
 
-    #region Private Variables
+    #region Private Variables Declaration
         private Animator            animator;
 
         private CharacterController characterController;
+
+        private Player              playerInfo;
     #endregion
 
     static class Animations
@@ -18,12 +20,16 @@ public class Woman01Controller : MonoBehaviour
         public const string Idle    = "wait_01";
         public const string Walking = "walk";
     }
+    private void Awake()
+    {
+        this.playerInfo             = Player.Instance;
+
+        this.characterController    = GetComponent<CharacterController>();
+        this.animator               = GetComponent<Animator>();
+    }
 
     void Start()
     {
-        characterController = GetComponent<CharacterController>();
-        animator            = GetComponent<Animator>();
-
         animator.Play(Animations.Idle);
     }
 
@@ -49,6 +55,8 @@ public class Woman01Controller : MonoBehaviour
         if((other.tag == "Player") && (Input.GetKeyDown(KeyCode.Space)))
         {
             Debug.Log("[Woman01] You Started a Conversation with me");
+
+            playerInfo.AwardExp(20.0f);
         }
     }
 }
