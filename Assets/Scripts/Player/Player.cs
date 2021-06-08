@@ -104,16 +104,15 @@ public class Player : MonoBehaviour
 
     public void AwardExp(float value)
     {
-        if((this.playerBaseLvlExp + value) >= 100)
+        if((this.playerBaseLvlExp + value) >= 100.0f)
         {
-            this.playerBaseLvl    += 1;
+            this.playerBaseLvl++;
+
             this.playerBaseLvlExp  = (this.playerBaseLvlExp + value) - 100.0f;
         }
         else
         {
             this.playerBaseLvlExp += value;
         }
-
-        Debug.Log("Lv " + this.playerBaseLvl + " (" + this.playerBaseLvlExp + "%)");
     }
 }

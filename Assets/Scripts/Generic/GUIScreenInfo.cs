@@ -45,7 +45,6 @@ public class GUIScreenInfo : MonoBehaviour
 
                 if (_instance == null)
                 {
-                    // gameObject.AddComponent<Player>()
                     GameObject go = new GameObject("GUIScreenInfo:Singleton");
 
                     _instance = go.AddComponent<GUIScreenInfo>();

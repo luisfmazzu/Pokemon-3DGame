@@ -56,7 +56,7 @@ public class Woman01Controller : MonoBehaviour
         {
             Debug.Log("[Woman01] You Started a Conversation with me");
 
-            playerInfo.AwardExp(20.0f);
+            playerInfo.AwardExp(30.0f);
         }
     }
 }
