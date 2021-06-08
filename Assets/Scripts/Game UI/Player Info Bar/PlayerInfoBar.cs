@@ -23,7 +23,7 @@ public class PlayerInfoBar : MonoBehaviour
         var basicSprite = this.transform.Find("Basic Sprite");
 
         this.playerLvl                  = basicSprite.Find("Player Level").GetComponent<Text>();
-        this.playerBaseLevelProgressBar = basicSprite.Find("Player Level Progress Bar").GetComponent<ProgressBar>();
+        this.playerBaseLevelProgressBar = basicSprite.Find("Player Level Progress Bar").Find("Experience Progress Bar").GetComponent<ProgressBar>();
 
         var lineUp = basicSprite.Find("Line-Up");
 

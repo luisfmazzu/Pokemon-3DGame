@@ -4,15 +4,15 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     #region Enumerators
-    enum BarTypes
-    {
-        ExperienceBar = 0,
-        HealthBar = 1
-    }
+        enum BarTypes
+        {
+            ExperienceBar,
+            HealthBar
+        }
     #endregion
 
     #region Delegates
-    public delegate void HandlerDelegate();
+        public delegate void HandlerDelegate();
     #endregion
 
     #region Constant Variables
@@ -37,9 +37,9 @@ public class ProgressBar : MonoBehaviour
     #endregion
 
     #region Internal Variables Declaration
-    internal float CurrentBarValue;
+        internal float CurrentBarValue;
 
-    internal HandlerDelegate HandleBarFunction;
+        internal HandlerDelegate HandleBarFunction;
     #endregion
 
     public float BarValue
@@ -65,8 +65,6 @@ public class ProgressBar : MonoBehaviour
         bar.color               = BarColor;
         barBackground.color     = BarBackGroundColor;
         barBackground.sprite    = BarBackGroundSprite;
-
-        //text.
 
         UpdateValue(barValue);
 
@@ -143,10 +141,5 @@ public class ProgressBar : MonoBehaviour
 
             this.UpdateValue(this.CurrentBarValue);
         }
-    }
-
-    public void OnMouseOver()
-    {
-        Debug.Log("OnMouseOver");
     }
 }
