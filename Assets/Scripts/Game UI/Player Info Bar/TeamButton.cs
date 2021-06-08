@@ -23,7 +23,7 @@ public class TeamButton : MonoBehaviour
     #region Private Variables Declaration
         private Player      playerInfo;
         private Text        text;
-        private Canvas      pokemons;
+        private Canvas[]    pokemons    = { null, null, null, null, null, null };
 
         private FSM         currentState;
     #endregion
@@ -35,8 +35,13 @@ public class TeamButton : MonoBehaviour
     {
         this.playerInfo = Player.Instance;
 
-        this.text       = this.transform.Find("Text").GetComponent<Text>();
-        this.pokemons   = this.transform.parent.Find("Pokemon 01").GetComponent<Canvas>();
+        this.text           = this.transform.Find("Text").GetComponent<Text>();
+        this.pokemons[0]    = this.transform.parent.Find("Pokemon 01").GetComponent<Canvas>();
+        this.pokemons[1]    = this.transform.parent.Find("Pokemon 02").GetComponent<Canvas>();
+        this.pokemons[2]    = this.transform.parent.Find("Pokemon 03").GetComponent<Canvas>();
+        this.pokemons[3]    = this.transform.parent.Find("Pokemon 04").GetComponent<Canvas>();
+        this.pokemons[4]    = this.transform.parent.Find("Pokemon 05").GetComponent<Canvas>();
+        this.pokemons[5]    = this.transform.parent.Find("Pokemon 06").GetComponent<Canvas>();
     }
 
     IEnumerator Start()
@@ -60,16 +65,12 @@ public class TeamButton : MonoBehaviour
         switch(newState)
         {
             case FSM.ShowingTeam:
-                this.currentState       = FSM.ShowingTeam;
-                this.text.text          = HIDE_TEAM;
-                this.pokemons.enabled   = true;
+                this.HandleShowingTeamFSM();
 
                 break;
 
             case FSM.HiddingTeam:
-                this.currentState       = FSM.HiddingTeam;
-                this.text.text          = SHOW_TEAM;
-                this.pokemons.enabled   = false;
+                this.HandleHiddingTeamFSM();
 
                 break;
 
@@ -80,10 +81,24 @@ public class TeamButton : MonoBehaviour
 
     void HandleShowingTeamFSM()
     {
+        this.currentState   = FSM.ShowingTeam;
+        this.text.text      = HIDE_TEAM;
+
+        foreach (Canvas pokemon in this.pokemons)
+        {
+            pokemon.enabled = true;
+        }
     }
 
     void HandleHiddingTeamFSM()
     {
+        this.currentState   = FSM.HiddingTeam;
+        this.text.text      = SHOW_TEAM;
+
+        foreach (Canvas pokemon in this.pokemons)
+        {
+            pokemon.enabled = false;
+        }
 
     }
 

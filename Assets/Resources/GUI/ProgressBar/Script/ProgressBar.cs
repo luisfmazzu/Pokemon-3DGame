@@ -27,6 +27,7 @@ public class ProgressBar : MonoBehaviour
         [SerializeField]                    private Sprite     BarBackGroundSprite;
         [SerializeField]                    private BarTypes   BarType;
         [SerializeField, Range(0.5f, 5f)]   private float      BarUpdateSpeedPerFrame = 1.0f;
+        [SerializeField]                    private bool       IsTextAvailable;
     #endregion
 
     #region Private Variables Declaration
@@ -56,8 +57,12 @@ public class ProgressBar : MonoBehaviour
     private void Awake()
     {
         bar             = transform.Find("Bar").GetComponent<Image>();
-        text            = transform.Find("Text With Trigger Button").Find("Text").GetComponent<Text>();
         barBackground   = transform.Find("BarBackground").GetComponent<Image>();
+
+        if(IsTextAvailable)
+        {
+            text = transform.Find("Text With Trigger Button").Find("Text").GetComponent<Text>();
+        }
     }
 
     private void Start()
@@ -81,8 +86,12 @@ public class ProgressBar : MonoBehaviour
     void UpdateValue(float val)
     {
         bar.fillAmount  = this.GetValueNormalized(val);
-        text.text       = val.ToString("F2") + "%";
         CurrentBarValue = val;
+
+        if (IsTextAvailable)
+        {
+            text.text = val.ToString("F2") + "%";
+        }
     }
 
     float GetValueNormalized(float val)
