@@ -4,20 +4,12 @@ using UnityEngine.UI;
 
 public class PokemonInfo : MonoBehaviour
 {
-    #region Constant Variables
-    #endregion
-
-    #region Enumerators
-    #endregion
-
-    #region Public Variables Declaration
+    #region Serialize Fields
+        [SerializeField, Range(0, 5)] private int pokemonIndex;
     #endregion
 
     #region Private Variables Declaration
         private Player playerInfo;
-    #endregion
-
-    #region Internal Variables
     #endregion
 
     private void Awake()
@@ -41,6 +33,6 @@ public class PokemonInfo : MonoBehaviour
 
     void TaskOnClick()
     {
-        Debug.Log("You Clicked on a Pokemon");
+        Debug.Log("You Clicked on Pokemon " + this.pokemonIndex);
     }
 }
