@@ -4,6 +4,18 @@ using UnityEngine.UI;
 
 public class TeamButton : MonoBehaviour
 {
+    public class Pokemon
+    {
+        public Canvas   canvas  { get; set; } = null;
+        public Image    image   { get; set; } = null;
+
+        public Pokemon(Canvas _canvas, Image _image)
+        {
+            this.canvas = _canvas;
+            this.image  = _image;
+        }
+    }
+
     #region Constant Variables
         private const string SHOW_TEAM = "Show Team";
         private const string HIDE_TEAM = "Hide Team";
@@ -23,7 +35,7 @@ public class TeamButton : MonoBehaviour
     #region Private Variables Declaration
         private Player      playerInfo;
         private Text        text;
-        private Transform[] pokemons    = { null, null, null, null, null, null };
+        private Pokemon[]   pokemons = { null, null, null, null, null, null };
 
         private FSM         currentState;
     #endregion
@@ -32,13 +44,25 @@ public class TeamButton : MonoBehaviour
     {
         this.playerInfo = Player.Instance;
 
-        this.text           = this.transform.Find("Text").GetComponent<Text>();
-        this.pokemons[0]    = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
-        this.pokemons[1]    = this.transform.parent.Find("Pokemon 02").Find("Pokemon Info");
-        this.pokemons[2]    = this.transform.parent.Find("Pokemon 03").Find("Pokemon Info");
-        this.pokemons[3]    = this.transform.parent.Find("Pokemon 04").Find("Pokemon Info");
-        this.pokemons[4]    = this.transform.parent.Find("Pokemon 05").Find("Pokemon Info");
-        this.pokemons[5]    = this.transform.parent.Find("Pokemon 06").Find("Pokemon Info");
+        this.text       = this.transform.Find("Text").GetComponent<Text>();
+
+        Transform currentTransform = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
+        this.pokemons[0] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+
+        currentTransform = this.transform.parent.Find("Pokemon 02").Find("Pokemon Info");
+        this.pokemons[1] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+
+        currentTransform = this.transform.parent.Find("Pokemon 03").Find("Pokemon Info");
+        this.pokemons[2] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+
+        currentTransform = this.transform.parent.Find("Pokemon 04").Find("Pokemon Info");
+        this.pokemons[3] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+
+        currentTransform = this.transform.parent.Find("Pokemon 05").Find("Pokemon Info");
+        this.pokemons[4] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+
+        currentTransform = this.transform.parent.Find("Pokemon 06").Find("Pokemon Info");
+        this.pokemons[5] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
     }
 
     IEnumerator Start()
@@ -56,13 +80,7 @@ public class TeamButton : MonoBehaviour
     {
         if(this.currentState == FSM.ShowingTeam)
         {
-            foreach(Transform pokemon in this.pokemons)
-            {
-                if (pokemon.Find("Basic Sprite").GetComponent<Image>().sprite != null)
-                {
-                    pokemon.GetComponent<Canvas>().enabled = true;
-                }
-            }
+            this.EnableCanvasIfPokemonExists();
         }
     }
 
@@ -85,18 +103,23 @@ public class TeamButton : MonoBehaviour
         }
     }
 
+    void EnableCanvasIfPokemonExists()
+    {
+        foreach(Pokemon pokemon in this.pokemons)
+        {
+            if(pokemon.image.sprite != null)
+            {
+                pokemon.canvas.enabled = true;
+            }
+        }
+    }
+
     void HandleShowingTeamFSM()
     {
         this.currentState   = FSM.ShowingTeam;
         this.text.text      = HIDE_TEAM;
 
-        foreach(Transform pokemon in this.pokemons)
-        {
-            if(pokemon.Find("Basic Sprite").GetComponent<Image>().sprite != null)
-            {
-                pokemon.GetComponent<Canvas>().enabled = true;
-            }
-        }
+        this.EnableCanvasIfPokemonExists();
     }
 
     void HandleHiddingTeamFSM()
@@ -104,11 +127,10 @@ public class TeamButton : MonoBehaviour
         this.currentState   = FSM.HiddingTeam;
         this.text.text      = SHOW_TEAM;
 
-        foreach(Transform pokemon in this.pokemons)
+        foreach(Pokemon pokemon in this.pokemons)
         {
-            pokemon.GetComponent<Canvas>().enabled = false;
+            pokemon.canvas.enabled = false;
         }
-
     }
 
     void TaskOnClick()
