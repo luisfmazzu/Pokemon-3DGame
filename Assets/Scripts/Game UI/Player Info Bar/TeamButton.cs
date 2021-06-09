@@ -23,12 +23,9 @@ public class TeamButton : MonoBehaviour
     #region Private Variables Declaration
         private Player      playerInfo;
         private Text        text;
-        private Canvas[]    pokemons    = { null, null, null, null, null, null };
+        private Transform[] pokemons    = { null, null, null, null, null, null };
 
         private FSM         currentState;
-    #endregion
-
-    #region Internal Variables
     #endregion
 
     private void Awake()
@@ -36,12 +33,12 @@ public class TeamButton : MonoBehaviour
         this.playerInfo = Player.Instance;
 
         this.text           = this.transform.Find("Text").GetComponent<Text>();
-        this.pokemons[0]    = this.transform.parent.Find("Pokemon 01").GetComponent<Canvas>();
-        this.pokemons[1]    = this.transform.parent.Find("Pokemon 02").GetComponent<Canvas>();
-        this.pokemons[2]    = this.transform.parent.Find("Pokemon 03").GetComponent<Canvas>();
-        this.pokemons[3]    = this.transform.parent.Find("Pokemon 04").GetComponent<Canvas>();
-        this.pokemons[4]    = this.transform.parent.Find("Pokemon 05").GetComponent<Canvas>();
-        this.pokemons[5]    = this.transform.parent.Find("Pokemon 06").GetComponent<Canvas>();
+        this.pokemons[0]    = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
+        this.pokemons[1]    = this.transform.parent.Find("Pokemon 02").Find("Pokemon Info");
+        this.pokemons[2]    = this.transform.parent.Find("Pokemon 03").Find("Pokemon Info");
+        this.pokemons[3]    = this.transform.parent.Find("Pokemon 04").Find("Pokemon Info");
+        this.pokemons[4]    = this.transform.parent.Find("Pokemon 05").Find("Pokemon Info");
+        this.pokemons[5]    = this.transform.parent.Find("Pokemon 06").Find("Pokemon Info");
     }
 
     IEnumerator Start()
@@ -52,7 +49,7 @@ public class TeamButton : MonoBehaviour
 
         yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do nothing until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
-        this.SwitchState(FSM.ShowingTeam);
+        this.SwitchState(FSM.HiddingTeam);
     }
 
     private void Update()
@@ -84,9 +81,12 @@ public class TeamButton : MonoBehaviour
         this.currentState   = FSM.ShowingTeam;
         this.text.text      = HIDE_TEAM;
 
-        foreach (Canvas pokemon in this.pokemons)
+        foreach(Transform pokemon in this.pokemons)
         {
-            pokemon.enabled = true;
+            if(pokemon.Find("Basic Sprite").GetComponent<Image>().sprite != null)
+            {
+                pokemon.GetComponent<Canvas>().enabled = true;
+            }
         }
     }
 
@@ -95,9 +95,9 @@ public class TeamButton : MonoBehaviour
         this.currentState   = FSM.HiddingTeam;
         this.text.text      = SHOW_TEAM;
 
-        foreach (Canvas pokemon in this.pokemons)
+        foreach(Transform pokemon in this.pokemons)
         {
-            pokemon.enabled = false;
+            pokemon.GetComponent<Canvas>().enabled = false;
         }
 
     }
