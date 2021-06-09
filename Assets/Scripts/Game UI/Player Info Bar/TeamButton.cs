@@ -54,7 +54,16 @@ public class TeamButton : MonoBehaviour
 
     private void Update()
     {
-        
+        if(this.currentState == FSM.ShowingTeam)
+        {
+            foreach(Transform pokemon in this.pokemons)
+            {
+                if (pokemon.Find("Basic Sprite").GetComponent<Image>().sprite != null)
+                {
+                    pokemon.GetComponent<Canvas>().enabled = true;
+                }
+            }
+        }
     }
 
     void SwitchState(FSM newState)
