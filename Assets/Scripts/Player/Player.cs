@@ -57,26 +57,28 @@ public class Player : MonoBehaviour
         }
 
         _instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
     {
+    }
+
+    public void RetrievePlayerInformation(int _playerID)
+    {
         Debug.Log("Creating Player Singleton instance");
-
+        
         ctrlPlayer = new CtrlPlayer();
-
-        // hard-coded for now
-        playerID = 1;
-
-        string  _playerName         = "";
-        string  _playerClass        = "";
-        int     _playerBaseLvl      = 0;
-        float   _playerBaseLvlExp   = 0;
-        string  _playerCurrentMap   = "";
+        
+        string _playerName          = "";
+        string _playerClass         = "";
+        int _playerBaseLvl          = 0;
+        float _playerBaseLvlExp     = 0;
+        string _playerCurrentMap    = "";
         Vector3 _playerPosition     = Vector3.zero;
-        int     _playerMoney        = 0;
+        int _playerMoney            = 0;
 
-        ctrlPlayer.getPlayerInfo(playerID, out _playerName, out _playerClass, out _playerBaseLvl, out _playerBaseLvlExp, out _playerCurrentMap, out _playerPosition, out _playerMoney);
+        ctrlPlayer.getPlayerInfo(_playerID, out _playerName, out _playerClass, out _playerBaseLvl, out _playerBaseLvlExp, out _playerCurrentMap, out _playerPosition, out _playerMoney);
 
         playerName          = _playerName;
         playerClass         = _playerClass;

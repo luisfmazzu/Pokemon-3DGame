@@ -46,8 +46,8 @@ public class TeamButton : MonoBehaviour
 
         this.text       = this.transform.Find("Text").GetComponent<Text>();
 
-        Transform currentTransform = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
-        this.pokemons[0] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+        Transform currentTransform  = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
+        this.pokemons[0]            = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
 
         currentTransform = this.transform.parent.Find("Pokemon 02").Find("Pokemon Info");
         this.pokemons[1] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());

@@ -37,7 +37,7 @@ public class PlayerInfoBar : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do nothing until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
         this.handlePlayerName();
         this.handlePlayerLevel();

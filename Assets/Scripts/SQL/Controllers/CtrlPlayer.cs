@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Security.Cryptography;
+using System.Text;
+using UnityEngine;
 
 public class CtrlPlayer
 {
@@ -115,5 +117,49 @@ public class CtrlPlayer
         dao.getPlayerInfo(playerID, out playerName, out playerClass, out playerBaseLvl, out playerBaseLvlExp, out playerCurrentMap, out playerPosition, out playerMoney);
 
         dao.closeConnection();
+    }
+
+    public bool accountExists(string username)
+    {
+        bool exists = false;
+
+        dao.connectToDB();
+
+        if(dao.accountExists(username))
+        {
+            exists = true;
+        }
+
+        dao.closeConnection();
+
+        return exists;
+    }
+
+    public void registerPlayer(string username, string password)
+    {
+        string passwordHash = computeSha256Hash(password);
+
+        dao.connectToDB();
+
+        dao.registerPlayer(username, passwordHash);
+
+        dao.closeConnection();
+    }
+
+    public string computeSha256Hash(string rawData)
+    {
+        using(SHA256 sha256Hash = SHA256.Create())
+        {
+            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+            StringBuilder builder = new StringBuilder();
+
+            for(int i = 0; i < bytes.Length; i++)
+            {
+                builder.Append(bytes[i].ToString("x2"));
+            }
+
+            return builder.ToString();
+        }
     }
 }

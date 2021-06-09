@@ -4,13 +4,13 @@ using UnityEngine;
 public class DAOPlayer
 {
     #region Private Variables
-        MySQLConnector  con     = new MySQLConnector();
+    MySQLConnector con = new MySQLConnector();
 
-        MySqlConnection dbconn  = null;
-        MySqlCommand    dbcmd   = null;
-        MySqlDataReader reader  = null;
+    MySqlConnection dbconn = null;
+    MySqlCommand dbcmd = null;
+    MySqlDataReader reader = null;
 
-        private string  database = "leonar14_pokemon_unity";
+    private string database = "leonar14_pokemon_unity";
     #endregion
 
     public void connectToDB()
@@ -30,7 +30,7 @@ public class DAOPlayer
     public int getPlayerID(string username, string password)
     {
         int id = 0;
-        
+
         // TODO, change accounts.password to use a hash and a salt
 
         con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.playerID" +
@@ -161,30 +161,53 @@ public class DAOPlayer
 
     public void getPlayerInfo(int playerID, out string playerName, out string playerClass, out int playerBaseLvl, out float playerBaseLvlExp, out string playerCurrentMap, out Vector3 playerPosition, out int playerMoney)
     {
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT Players.name, PlayableClasses.name, Players.baseLvl, Players.baseLvlExp, Maps.name, Players.positionX, Players.positionY, Players.positionZ, Players.money" +
+        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT Players.name, PlayableClasses.name, Players.baseLvl, Players.baseLvlExp, Maps.scene, Players.positionX, Players.positionY, Players.positionZ, Players.money" +
                                                             " FROM " + database + ".Players INNER JOIN " + database + ".PlayableClasses ON Players.classID = PlayableClasses.classID" +
-                                                            " LEFT JOIN " + database + ".Maps ON Players.currentMapID = Maps.mapID" + 
+                                                            " LEFT JOIN " + database + ".Maps ON Players.currentMapID = Maps.mapID" +
                                                             " WHERE Players.playerID = " + playerID);
 
-        playerName          = "";
-        playerClass         = "";
-        playerBaseLvl       = 1;
-        playerBaseLvlExp    = 0;
-        playerCurrentMap    = "";
-        playerPosition      = Vector3.zero;
-        playerMoney         = 0;
+        playerName = "";
+        playerClass = "";
+        playerBaseLvl = 1;
+        playerBaseLvlExp = 0;
+        playerCurrentMap = "";
+        playerPosition = Vector3.zero;
+        playerMoney = 0;
 
         while (reader.Read())
         {
-            playerName          = reader.GetString(0);
-            playerClass         = reader.GetString(1);
-            playerBaseLvl       = reader.GetInt32(2);
-            playerBaseLvlExp    = reader.GetFloat(3);
-            playerCurrentMap    = reader.GetString(4);
-            playerPosition.x    = reader.GetFloat(5);
-            playerPosition.y    = reader.GetFloat(6);
-            playerPosition.z    = reader.GetFloat(7);
-            playerMoney         = reader.GetInt32(8);
+            playerName = reader.GetString(0);
+            playerClass = reader.GetString(1);
+            playerBaseLvl = reader.GetInt32(2);
+            playerBaseLvlExp = reader.GetFloat(3);
+            playerCurrentMap = reader.GetString(4);
+            playerPosition.x = reader.GetFloat(5);
+            playerPosition.y = reader.GetFloat(6);
+            playerPosition.z = reader.GetFloat(7);
+            playerMoney = reader.GetInt32(8);
         }
+    }
+
+    public bool accountExists(string username)
+    {
+        bool exists = false;
+
+        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT Accounts.username" +
+                                                            " FROM " + database + ".Accounts" +
+                                                            " WHERE Accounts.username='" + username + "'");
+
+        while (reader.Read())
+        {
+            exists = true;
+        }
+
+        return exists;
+    }
+
+    public void registerPlayer(string username, string passwordHash)
+    {
+        string query = "INSERT INTO " + database + ".Accounts(`username`, `passwordHash`) VALUES ('" + username + "', '" + passwordHash + "')";
+
+        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, query);
     }
 }
