@@ -32,10 +32,8 @@ public class MySQLConnector
         reader = dbcmd.ExecuteReader();
     }
 
-    public void CloseConnection(ref MySqlConnection dbconn, ref MySqlCommand dbcmd, ref MySqlDataReader reader)
+    public void CloseConnection(ref MySqlConnection dbconn, ref MySqlCommand dbcmd)
     {
-        reader.Close();
-
         dbcmd.Dispose();
 
         dbconn.Close();

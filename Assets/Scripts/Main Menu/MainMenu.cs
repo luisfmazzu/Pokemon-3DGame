@@ -47,11 +47,20 @@ public class MainMenu : MonoBehaviour
     {
         this.playerInfo = Player.Instance;
 
-        this.playerInfo.RetrievePlayerInformation(1);
+        int accountID = 0;
 
-        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+        if((!validateInputFields()) || (!ctrlPlayer.getAccountId(this.username.text, this.password.text, out accountID)))
+        {
+            Debug.Log("Invalid Login Information");
+        }
+        else
+        {
+            this.playerInfo.RetrievePlayerInformation(ctrlPlayer, accountID);
 
-        this.GoToMap(this.playerInfo.playerCurrentMap);
+            yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+
+            this.GoToMap(this.playerInfo.playerCurrentMap);
+        }
     }
 
     void HandleRegisterButton()

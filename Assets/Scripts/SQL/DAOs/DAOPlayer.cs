@@ -22,7 +22,7 @@ public class DAOPlayer
 
     public void closeConnection()
     {
-        con.CloseConnection(ref dbconn, ref dbcmd, ref reader);
+        con.CloseConnection(ref dbconn, ref dbcmd);
 
         Debug.Log("Closed Connection with DB");
     }
@@ -30,8 +30,6 @@ public class DAOPlayer
     public int getPlayerID(string username, string password)
     {
         int id = 0;
-
-        // TODO, change accounts.password to use a hash and a salt
 
         con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.playerID" +
                                                             " FROM " + database + ".Players players, " + database + ".Accounts accounts" +
@@ -43,6 +41,8 @@ public class DAOPlayer
         {
             id = reader.GetInt32(0);
         }
+
+        reader.Close();
 
         return id;
     }
@@ -59,6 +59,8 @@ public class DAOPlayer
         {
             name = reader.GetString(0);
         }
+
+        reader.Close();
 
         return name;
     }
@@ -77,6 +79,8 @@ public class DAOPlayer
             playerClass = reader.GetString(0);
         }
 
+        reader.Close();
+
         return playerClass;
     }
 
@@ -92,6 +96,8 @@ public class DAOPlayer
             lvl = reader.GetInt32(0);
         }
 
+        reader.Close();
+
         return lvl;
     }
 
@@ -106,6 +112,8 @@ public class DAOPlayer
         {
             exp = reader.GetFloat(0);
         }
+
+        reader.Close();
 
         return exp;
     }
@@ -124,6 +132,8 @@ public class DAOPlayer
             currentMap = reader.GetString(0);
         }
 
+        reader.Close();
+
         return currentMap;
     }
 
@@ -141,6 +151,8 @@ public class DAOPlayer
             position.z = reader.GetFloat(2);
         }
 
+        reader.Close();
+
         return position;
     }
 
@@ -155,6 +167,8 @@ public class DAOPlayer
         {
             money = reader.GetInt32(0);
         }
+
+        reader.Close();
 
         return money;
     }
@@ -176,16 +190,18 @@ public class DAOPlayer
 
         while (reader.Read())
         {
-            playerName = reader.GetString(0);
-            playerClass = reader.GetString(1);
-            playerBaseLvl = reader.GetInt32(2);
-            playerBaseLvlExp = reader.GetFloat(3);
-            playerCurrentMap = reader.GetString(4);
-            playerPosition.x = reader.GetFloat(5);
-            playerPosition.y = reader.GetFloat(6);
-            playerPosition.z = reader.GetFloat(7);
-            playerMoney = reader.GetInt32(8);
+            playerName          = reader.GetString(0);
+            playerClass         = reader.GetString(1);
+            playerBaseLvl       = reader.GetInt32(2);
+            playerBaseLvlExp    = reader.GetFloat(3);
+            playerCurrentMap    = reader.GetString(4);
+            playerPosition.x    = reader.GetFloat(5);
+            playerPosition.y    = reader.GetFloat(6);
+            playerPosition.z    = reader.GetFloat(7);
+            playerMoney         = reader.GetInt32(8);
         }
+
+        reader.Close();
     }
 
     public bool accountExists(string username)
@@ -201,7 +217,33 @@ public class DAOPlayer
             exists = true;
         }
 
+        reader.Close();
+
         return exists;
+    }
+
+    public bool getAccountId(string username, string passwordHash, out int id)
+    {
+        bool success = false;
+
+        id = 0;
+
+        string query = "SELECT Accounts.accountID" + 
+                       " FROM " + database + ".Accounts" + 
+                       " WHERE Accounts.username='" + username + "' AND Accounts.passwordHash='" + passwordHash + "'";
+
+        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, query);
+
+        while(reader.Read())
+        {
+            id = reader.GetInt32(0);
+
+            success = true;
+        }
+
+        reader.Close();
+
+        return success;
     }
 
     public void registerPlayer(string username, string passwordHash)
@@ -209,5 +251,7 @@ public class DAOPlayer
         string query = "INSERT INTO " + database + ".Accounts(`username`, `passwordHash`) VALUES ('" + username + "', '" + passwordHash + "')";
 
         con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, query);
+
+        reader.Close();
     }
 }

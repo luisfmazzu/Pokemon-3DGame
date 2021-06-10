@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-        private         CtrlPlayer  ctrlPlayer;
-
         private         bool        ready       = false;
 
         private static  Player      _instance;
@@ -64,12 +62,8 @@ public class Player : MonoBehaviour
     {
     }
 
-    public void RetrievePlayerInformation(int _playerID)
+    public void RetrievePlayerInformation(CtrlPlayer ctrlPlayer, int _playerID)
     {
-        Debug.Log("Creating Player Singleton instance");
-        
-        ctrlPlayer = new CtrlPlayer();
-        
         string _playerName          = "";
         string _playerClass         = "";
         int _playerBaseLvl          = 0;
