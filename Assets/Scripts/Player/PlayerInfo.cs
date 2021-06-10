@@ -14,6 +14,7 @@ public class PlayerInfo : MonoBehaviour
         internal string     playerCurrentMap    { get; set; }
         internal Vector3    playerPosition      { get; set; }
         internal int        playerMoney         { get; set; }
+        internal Pokemon[]  partyPokemons       { get; set; } = { null, null, null, null, null, null };
     #endregion
 
     #region Private Variables Declaration
@@ -26,25 +27,39 @@ public class PlayerInfo : MonoBehaviour
 
     public void RetrievePlayerInformation(CtrlPlayer ctrlPlayer, int _playerID)
     {
-        string _playerName          = "";
-        string _playerClass         = "";
-        int _playerBaseLvl          = 0;
-        float _playerBaseLvlExp     = 0;
-        string _playerCurrentMap    = "";
-        Vector3 _playerPosition     = Vector3.zero;
-        int _playerMoney            = 0;
+        this.playerID = _playerID;
 
-        ctrlPlayer.getPlayerInfo(_playerID, out _playerName, out _playerClass, out _playerBaseLvl, out _playerBaseLvlExp, out _playerCurrentMap, out _playerPosition, out _playerMoney);
+        this.GetPlayerInfo(ctrlPlayer);
 
-        playerName          = _playerName;
-        playerClass         = _playerClass;
-        playerBaseLvl       = _playerBaseLvl;
-        playerBaseLvlExp    = _playerBaseLvlExp;
-        playerCurrentMap    = _playerCurrentMap;
-        playerPosition      = _playerPosition;
-        playerMoney         = _playerMoney;
+        this.GetPlayerPartyInfo(ctrlPlayer);
 
         ready = true;
+    }
+
+    private void GetPlayerInfo(CtrlPlayer ctrlPlayer)
+    {
+        string  _playerName         = "";
+        string  _playerClass        = "";
+        int     _playerBaseLvl      = 0;
+        float   _playerBaseLvlExp   = 0;
+        string  _playerCurrentMap   = "";
+        Vector3 _playerPosition     = Vector3.zero;
+        int     _playerMoney        = 0;
+
+        ctrlPlayer.getPlayerInfo(this.playerID, out _playerName, out _playerClass, out _playerBaseLvl, out _playerBaseLvlExp, out _playerCurrentMap, out _playerPosition, out _playerMoney);
+
+        this.playerName          = _playerName;
+        this.playerClass         = _playerClass;
+        this.playerBaseLvl       = _playerBaseLvl;
+        this.playerBaseLvlExp    = _playerBaseLvlExp;
+        this.playerCurrentMap    = _playerCurrentMap;
+        this.playerPosition      = _playerPosition;
+        this.playerMoney         = _playerMoney;
+    }
+
+    private void GetPlayerPartyInfo(CtrlPlayer ctrlPlayer)
+    {
+
     }
 
     void Update()
