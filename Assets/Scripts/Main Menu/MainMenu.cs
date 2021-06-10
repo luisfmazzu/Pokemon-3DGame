@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,6 +5,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     #region Serialize Fields
+        [SerializeField] UnityEditor.SceneAsset loadingSceneAsset;
     #endregion
 
     #region Private Variables
@@ -34,7 +33,7 @@ public class MainMenu : MonoBehaviour
     {
         ctrlPlayer = new CtrlPlayer();
 
-        this.clientLoginButton.onClick.AddListener(() => StartCoroutine(this.HandleClientLoginButton()));
+        this.clientLoginButton.onClick.AddListener(this.HandleClientLoginButton);
         this.registerButton.onClick.AddListener(this.HandleRegisterButton);
     }
 
@@ -43,7 +42,7 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    IEnumerator HandleClientLoginButton()
+    void HandleClientLoginButton()
     {
         this.playerInfo = Player.Instance;
 
@@ -55,11 +54,9 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            this.playerInfo.RetrievePlayerInformation(ctrlPlayer, accountID);
+            this.playerInfo.accountID = accountID;
 
-            yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
-
-            this.GoToMap(this.playerInfo.playerCurrentMap);
+            SceneManager.LoadScene(loadingSceneAsset.name);
         }
     }
 
@@ -91,10 +88,5 @@ public class MainMenu : MonoBehaviour
         }
 
         return valid;
-    }
-
-    public void GoToMap(string scene)
-    {
-        SceneManager.LoadScene(scene);
     }
 }

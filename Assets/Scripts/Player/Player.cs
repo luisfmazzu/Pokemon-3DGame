@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region Internal Variables Declaration 
+        internal int        accountID           { get; set; }
         internal int        playerID            { get; set; }
         internal string     playerName          { get; set; }
         internal string     playerClass         { get; set; }

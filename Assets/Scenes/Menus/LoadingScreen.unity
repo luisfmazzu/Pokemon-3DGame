@@ -182,21 +182,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2446925831574891854, guid: c4dbb100532f7984faeaf5e379154f4a,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446925831574891854, guid: c4dbb100532f7984faeaf5e379154f4a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446925831574891854, guid: c4dbb100532f7984faeaf5e379154f4a,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2446925831574891854, guid: c4dbb100532f7984faeaf5e379154f4a,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -254,11 +239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5311602218120465122, guid: c4dbb100532f7984faeaf5e379154f4a,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.5499878
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4dbb100532f7984faeaf5e379154f4a, type: 3}
@@ -492,6 +472,7 @@ GameObject:
   - component: {fileID: 1825342660}
   - component: {fileID: 1825342659}
   - component: {fileID: 1825342658}
+  - component: {fileID: 1825342662}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -581,6 +562,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1825342662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825342657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d12f813d30de4f4a9911eb0d81fa89c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988625229
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +674,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Retrieving Player Information
+  m_Text: Step Text
 --- !u!222 &2112427476
 CanvasRenderer:
   m_ObjectHideFlags: 0

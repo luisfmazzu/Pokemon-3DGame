@@ -31,10 +31,10 @@ public class ProgressBar : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-    private Image bar;
-    private Image barBackground;
-    private Text text;
-    private float barValue;
+        private Image   bar;
+        private Image   barBackground;
+        private Text    text;
+        private float   barValue;
     #endregion
 
     #region Internal Variables Declaration
