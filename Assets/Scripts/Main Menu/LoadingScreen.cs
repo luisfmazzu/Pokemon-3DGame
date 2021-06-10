@@ -42,14 +42,18 @@ public class LoadingScreen : MonoBehaviour
 
     IEnumerator HandleLoadingSteps()
     {
-        int step = 0;
-
         this.loadingBar.BarValue = 0.00f;
 
+        yield return StartCoroutine(this.HandleFirstLoadingStep());
+        yield return StartCoroutine(this.HandleSecondLoadingStep());
+    }
+
+    IEnumerator HandleFirstLoadingStep()
+    {
         /**
          * 1st step -> Retrieve Player Information
          */
-        this.text.text = LoadingSteps.steps[step];
+        this.text.text = LoadingSteps.steps[0];
 
         this.playerInfo.RetrievePlayerInformation(ctrlPlayer, this.playerInfo.accountID);
 
@@ -57,21 +61,20 @@ public class LoadingScreen : MonoBehaviour
 
         this.loadingBar.BarValue = (100.0f / LoadingSteps.steps.Length);
 
-        step++;
-
         yield return new WaitForSeconds(0.5f);
+    }
 
+    IEnumerator HandleSecondLoadingStep()
+    {
         /**
          * 2nd step -> Load Map
          */
-        this.text.text = LoadingSteps.steps[step];
+        this.text.text = LoadingSteps.steps[1];
 
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(this.playerInfo.playerCurrentMap);
 
-        while(!loadingOperation.isDone)
+        while (!loadingOperation.isDone)
         {
-            Debug.Log("Bar Progress: " + this.loadingBar.BarValue + "      Map Loading Progress: " + loadingOperation.progress);
-
             this.loadingBar.BarValue = (100.0f / LoadingSteps.steps.Length) + ((loadingOperation.progress * 100.0f) / LoadingSteps.steps.Length);
 
             yield return null;
