@@ -1,3 +1,4 @@
+using LukeWaffel.BUI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -5,7 +6,9 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     #region Serialize Fields
-        [SerializeField] UnityEditor.SceneAsset loadingSceneAsset;
+        [SerializeField]                    private UnityEditor.SceneAsset loadingSceneAsset;
+
+        [SerializeField, Range(0, 10.0f)]   private float                  secondsToDisplayMessageDisappear = 2;
     #endregion
 
     #region Private Variables
@@ -16,17 +19,27 @@ public class MainMenu : MonoBehaviour
         private Button      clientLoginButton;
         private Button      hostLoginButton;
         private Button      registerButton;
+        private Text        dynamicDisplayMessage;
 
         private CtrlPlayer  ctrlPlayer;
+
+        private float       startMessageTime;
+        private bool        isMessageBeingDisplayed;
     #endregion
 
     private void Awake()
     {
-        this.username           = this.transform.Find("Text Fields").Find("Username").Find("InputField").GetComponent<InputField>();
-        this.password           = this.transform.Find("Text Fields").Find("Password").Find("InputField").GetComponent<InputField>();
-        this.clientLoginButton  = this.transform.Find("Client Login Button").GetComponent<Button>();
-        this.hostLoginButton    = this.transform.Find("Host Login Button").GetComponent<Button>();
-        this.registerButton     = this.transform.Find("Register Button").GetComponent<Button>();
+        Transform background        = this.transform.Find("Background");
+
+        this.username               = background.Find("Text Fields").Find("Username").Find("InputField").GetComponent<InputField>();
+        this.password               = background.Find("Text Fields").Find("Password").Find("InputField").GetComponent<InputField>();
+        this.dynamicDisplayMessage  = background.Find("Error Message").GetComponent<Text>();
+
+        this.clientLoginButton      = this.transform.Find("Buttons").Find("Client Login Button").GetComponent<Button>();
+        this.hostLoginButton        = this.transform.Find("Buttons").Find("Host Login Button").GetComponent<Button>();
+        this.registerButton         = this.transform.Find("Buttons").Find("Register Button").GetComponent<Button>();
+
+        this.isMessageBeingDisplayed = false;
     }
 
     void Start()
@@ -39,7 +52,14 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        
+        if(isMessageBeingDisplayed)
+        {
+            if((Time.time - this.startMessageTime) >= this.secondsToDisplayMessageDisappear)
+            {
+                this.dynamicDisplayMessage.text = "";
+                this.isMessageBeingDisplayed    = false;
+            }
+        }
     }
 
     void HandleClientLoginButton()
@@ -50,7 +70,7 @@ public class MainMenu : MonoBehaviour
 
         if((!validateInputFields()) || (!ctrlPlayer.getAccountId(this.username.text, this.password.text, out accountID)))
         {
-            Debug.Log("Invalid Login Information");
+            this.DisplayMessage("Invalid Login Information");
         }
         else
         {
@@ -64,17 +84,17 @@ public class MainMenu : MonoBehaviour
     {
         if(!validateInputFields())
         {
-            Debug.Log("Invalid Register Information");
+            this.DisplayMessage("Invalid Register Information");
         }
         else if(ctrlPlayer.accountExists(this.username.text))
         {
-            Debug.Log("Account already Exists");
+            this.DisplayMessage("Account already Exists");
         }
         else
         {
             ctrlPlayer.registerPlayer(this.username.text, this.password.text);
 
-            Debug.Log("Account successfully created");
+            this.DisplayMessage("Account successfully created");
         }
     }
 
@@ -88,5 +108,12 @@ public class MainMenu : MonoBehaviour
         }
 
         return valid;
+    }
+
+    void DisplayMessage(string message)
+    {
+        this.dynamicDisplayMessage.text = message;
+        this.startMessageTime           = Time.time;
+        this.isMessageBeingDisplayed    = true;
     }
 }
