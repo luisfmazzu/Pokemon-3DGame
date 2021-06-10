@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PrivateVariables
+        private Player              playerInfo;
+        
         private CharacterController controller;
 
         private Animator            animator;
@@ -21,11 +23,19 @@ public class PlayerController : MonoBehaviour
         private bool                isRunning           = false;
     #endregion
 
-    void Start()
+    private void Awake()
     {
-        controller  = GetComponent<CharacterController>();
+        this.playerInfo = Player.Instance;
 
-        animator    = GetComponent<Animator>();
+        this.controller = GetComponent<CharacterController>();
+        this.animator   = GetComponent<Animator>();
+    }
+
+    IEnumerator Start()
+    {
+        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+
+        controller.Move(this.playerInfo.playerPosition);
     }
 
     void Update()
