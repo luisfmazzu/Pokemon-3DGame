@@ -23,6 +23,27 @@ TextureImporter:
   - first:
       213: 6942102271335863429
     second: GUIAtlas_6
+  - first:
+      213: 6222295623466156527
+    second: GUIAtlas_7
+  - first:
+      213: -4720856390093841348
+    second: GUIAtlas_8
+  - first:
+      213: 1387299261143816162
+    second: GUIAtlas_9
+  - first:
+      213: 415794193735433724
+    second: GUIAtlas_10
+  - first:
+      213: -3103052137940305608
+    second: GUIAtlas_13
+  - first:
+      213: -6921163728680791714
+    second: GUIAtlas_11
+  - first:
+      213: 5186708214878493249
+    second: GUIAtlas_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,6 +65,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -53,11 +75,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -75,9 +97,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -290,7 +315,7 @@ TextureImporter:
         width: 21
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -298,6 +323,153 @@ TextureImporter:
       bones: []
       spriteID: 58418652c3d475060800000000000000
       internalID: 6942102271335863429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUIAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 72
+        width: 193
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe10b2407e80a5650800000000000000
+      internalID: 6222295623466156527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUIAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 2027
+        y: 458
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cd2d810262c7eb0800000000000000
+      internalID: -4720856390093841348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUIAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 2027
+        y: 438
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e793a9e35da04310800000000000000
+      internalID: 1387299261143816162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUIAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 403
+        width: 60
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd3541cd9235c500800000000000000
+      internalID: 415794193735433724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUIAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 747
+        width: 117
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8393d8e658ebfe4d0800000000000000
+      internalID: -3103052137940305608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUIAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 798
+        width: 117
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51d9a7324613ff90800000000000000
+      internalID: -6921163728680791714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GUIAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 747
+        width: 117
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ade6d14a3eaf740800000000000000
+      internalID: 5186708214878493249
       vertices: []
       indices: 
       edges: []

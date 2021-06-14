@@ -7,9 +7,10 @@ public class MySQLConnector
     {
         bool Pooling = false;
 
-        string Server = "localhost";
-        string User = "root";
-        string Password = "root";
+        //string Server = "localhost";
+        string Server = "192.185.176.93";
+        string User = "leonar14_unity";
+        string Password = "Leo.Pereira91";
 
         string source = @"Server=" + Server +
                         ";Database=" + database +
@@ -22,10 +23,8 @@ public class MySQLConnector
         dbconn.Open();
     }
 
-    public void ExecuteQuery(ref MySqlConnection dbconn, ref MySqlCommand dbcmd, ref MySqlDataReader reader, string database, string sqlQuery)
+    public void ExecuteQuery(ref MySqlConnection dbconn, ref MySqlCommand dbcmd, ref MySqlDataReader reader, string sqlQuery)
     {
-        ConnectToDB(ref dbconn, database);
-
         dbcmd = dbconn.CreateCommand();
 
         dbcmd.CommandText = sqlQuery;
@@ -33,10 +32,8 @@ public class MySQLConnector
         reader = dbcmd.ExecuteReader();
     }
 
-    public void CloseConnection(ref MySqlConnection dbconn, ref MySqlCommand dbcmd, ref MySqlDataReader reader)
+    public void CloseConnection(ref MySqlConnection dbconn, ref MySqlCommand dbcmd)
     {
-        reader.Close();
-
         dbcmd.Dispose();
 
         dbconn.Close();

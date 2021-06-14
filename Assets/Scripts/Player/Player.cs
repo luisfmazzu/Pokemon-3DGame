@@ -5,51 +5,111 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     #region Internal Variables Declaration 
-
-    internal int PlayerID { get; set; }
-    internal string PlayerName { get; set; }
-    internal string PlayerClass { get; set; }
-    internal int PlayerBaseLvl { get; set; }
-    internal float PlayerBaseLvlExp { get; set; }
-    internal Vector2 PlayerPosition { get; set; }
-    internal int PlayerMoney { get; set; }
-
+        internal int        accountID           { get; set; }
+        internal int        playerID            { get; set; }
+        internal string     playerName          { get; set; }
+        internal string     playerClass         { get; set; }
+        internal int        playerBaseLvl       { get; set; }
+        internal float      playerBaseLvlExp    { get; set; }
+        internal string     playerCurrentMap    { get; set; }
+        internal Vector3    playerPosition      { get; set; }
+        internal int        playerMoney         { get; set; }
     #endregion
 
-    private CtrlPlayer ctrlPlayer;
+    #region Private Variables Declaration
+        private         bool        ready       = false;
 
-    private bool ready = false;
+        private static  Player      _instance;
+    #endregion
 
-    // Use this for initialization
-    void Start ()
+    public static Player Instance
     {
-        Rigidbody2D player_rb2D = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>(); // We instantiate our player RigidBody2D, so we can freeze it's movements
+        get
+        {
+            if(_instance == null)
+            {
+                _instance = (Player)GameObject.FindObjectOfType(typeof(Player));
 
-        ctrlPlayer = new CtrlPlayer();
+                if(_instance == null)
+                {
+                    GameObject go = new GameObject("Player:Singleton");
 
-        PlayerID = ctrlPlayer.getPlayerID("LeoWPereira", "Leonardo91"); //TODO: Modify this function call to call with the values of the user's input at the menu screen 
-        
-        PlayerName = ctrlPlayer.getPlayerName(PlayerID);
-        PlayerClass = ctrlPlayer.getPlayerClass(PlayerID);
-        PlayerBaseLvl = ctrlPlayer.getPlayerBaseLvl(PlayerID);
-        PlayerPosition = ctrlPlayer.getPosition(PlayerID);
-        PlayerBaseLvlExp = ctrlPlayer.getPlayerBaseLvlExp(PlayerID);
-        PlayerMoney = ctrlPlayer.getPlayerMoney(PlayerID);
+                    _instance = go.AddComponent<Player>();
+                }
+            }
 
-        player_rb2D.position = PlayerPosition; // Here we set the player Position in World Coords
+            return _instance;
+        }
+        set
+        {
+            _instance = value;
+        }
+    }
+
+    private void Awake()
+    {
+        if(_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+         
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    void Start()
+    {
+    }
+
+    public void RetrievePlayerInformation(CtrlPlayer ctrlPlayer, int _playerID)
+    {
+        string _playerName          = "";
+        string _playerClass         = "";
+        int _playerBaseLvl          = 0;
+        float _playerBaseLvlExp     = 0;
+        string _playerCurrentMap    = "";
+        Vector3 _playerPosition     = Vector3.zero;
+        int _playerMoney            = 0;
+
+        ctrlPlayer.getPlayerInfo(_playerID, out _playerName, out _playerClass, out _playerBaseLvl, out _playerBaseLvlExp, out _playerCurrentMap, out _playerPosition, out _playerMoney);
+
+        playerName          = _playerName;
+        playerClass         = _playerClass;
+        playerBaseLvl       = _playerBaseLvl;
+        playerBaseLvlExp    = _playerBaseLvlExp;
+        playerCurrentMap    = _playerCurrentMap;
+        playerPosition      = _playerPosition;
+        playerMoney         = _playerMoney;
 
         ready = true;
     }
-	
-    // Update is called once per frame
-    void Update ()
+
+    void Update()
     {
-	
+
     }
 
     public IEnumerator IsReady()
     {
-        while (!ready)
+        while(!ready)
+        { 
             yield return null;
+        }
+    }
+
+    public void AwardExp(float value)
+    {
+        if((this.playerBaseLvlExp + value) >= 100.0f)
+        {
+            this.playerBaseLvl++;
+
+            this.playerBaseLvlExp  = (this.playerBaseLvlExp + value) - 100.0f;
+        }
+        else
+        {
+            this.playerBaseLvlExp += value;
+        }
     }
 }

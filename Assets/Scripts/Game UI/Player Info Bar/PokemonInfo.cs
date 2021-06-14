@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PokemonInfo : MonoBehaviour
+{
+    #region Serialize Fields
+        [SerializeField, Range(0, 5)] private int pokemonIndex;
+    #endregion
+
+    #region Private Variables Declaration
+        private Player playerInfo;
+    #endregion
+
+    private void Awake()
+    {
+        this.playerInfo = Player.Instance;
+    }
+
+    IEnumerator Start()
+    {
+        Button button = this.GetComponent<Button>();
+
+        button.onClick.AddListener(TaskOnClick);
+
+        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You Clicked on Pokemon " + this.pokemonIndex);
+    }
+}
