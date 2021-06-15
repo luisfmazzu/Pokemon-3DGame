@@ -8,7 +8,7 @@ public class PlayerInfoBar : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-        private Player      playerInfo;
+        private PlayerInfo  playerInfo;
 
         private Text        playerLvl;
         private ProgressBar playerBaseLevelProgressBar;
@@ -18,7 +18,7 @@ public class PlayerInfoBar : MonoBehaviour
 
     private void Awake()
     {
-        this.playerInfo = Player.Instance;
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
         var basicSprite = this.transform.Find("Basic Sprite");
 

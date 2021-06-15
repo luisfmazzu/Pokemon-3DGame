@@ -10,7 +10,7 @@ public class LoadingScreen : MonoBehaviour
     #endregion
 
     #region Private Variables
-        private Player      playerInfo;
+        private PlayerInfo  playerInfo;
         private CtrlPlayer  ctrlPlayer;
         private Text        text;
         private ProgressBar loadingBar;
@@ -31,7 +31,7 @@ public class LoadingScreen : MonoBehaviour
     {
         ctrlPlayer = new CtrlPlayer();
 
-        this.playerInfo = Player.Instance;
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
         yield return StartCoroutine(this.HandleLoadingSteps());
     }
@@ -58,6 +58,9 @@ public class LoadingScreen : MonoBehaviour
         this.playerInfo.RetrievePlayerInformation(ctrlPlayer, this.playerInfo.accountID);
 
         yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+
+        // Sets player position correctly
+        PlayerManager.Instance.PlayerController.transform.position = this.playerInfo.playerPosition;
 
         this.loadingBar.BarValue = (100.0f / LoadingSteps.steps.Length);
 

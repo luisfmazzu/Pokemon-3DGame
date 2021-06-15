@@ -7,13 +7,10 @@ public class AreaExit : MonoBehaviour
 {
 
     public string areaToLoad;
-    public string areaTransitionName;
+    public string areaTransitionNameToLoad;
 
     public float waitToLoad = 1f;
     private bool shouldLoadAfterFade;
-
-    [SerializeField]
-    private PlayerController player;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +36,10 @@ public class AreaExit : MonoBehaviour
     {
         if (boundaryArea.tag == "Player")
         {
-            UIFadeController.instance.FadeToBlack();
+            UIFadeController.Instance.FadeToBlack();
             shouldLoadAfterFade = true;
 
-            player.SetCurrentAreaTransitionName(areaTransitionName);
+            PlayerManager.Instance.PlayerController.SetCurrentAreaTransitionName(areaTransitionNameToLoad);
         }
     }
 }

@@ -9,12 +9,12 @@ public class PokemonInfo : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-        private Player playerInfo;
+        private PlayerInfo playerInfo;
     #endregion
 
     private void Awake()
     {
-        this.playerInfo = Player.Instance;
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
     }
 
     IEnumerator Start()

@@ -33,7 +33,7 @@ public class TeamButton : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-        private Player      playerInfo;
+        private PlayerInfo playerInfo;
         private Text        text;
         private Pokemon[]   pokemons = { null, null, null, null, null, null };
 
@@ -42,7 +42,7 @@ public class TeamButton : MonoBehaviour
 
     private void Awake()
     {
-        this.playerInfo = Player.Instance;
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
         this.text       = this.transform.Find("Text").GetComponent<Text>();
 

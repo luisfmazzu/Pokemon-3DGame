@@ -886,7 +886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398897819381342188}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3.36}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5332668320194818066}
@@ -1513,6 +1513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 659585915733446839}
+  - component: {fileID: 8454444480096327046}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1528,7 +1529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2195773075736212048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.16, y: 0.41, z: 36.71}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7402383553570434767}
@@ -1536,6 +1537,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8454444480096327046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2195773075736212048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ea392fbee01bd4ca64060f0e4f12ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerInfo: {fileID: 4831334005500286755}
+  PlayerController: {fileID: 54932910}
+  PokemonFollower: {fileID: 3514107324064427615}
 --- !u!1 &2247128515856169435
 GameObject:
   m_ObjectHideFlags: 0

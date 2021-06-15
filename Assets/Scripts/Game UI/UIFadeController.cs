@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIFadeController : MonoBehaviour
 {
 
-    public static UIFadeController instance;
+    public static UIFadeController _instance;
     public Image fadeImage;
 
     public float fadeSpeed = 1;
@@ -14,13 +14,38 @@ public class UIFadeController : MonoBehaviour
     public bool shouldFadeToBlack;
     public bool shouldFadeFromBlack;
 
+    public static UIFadeController Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = (UIFadeController)GameObject.FindObjectOfType(typeof(UIFadeController));
+            }
+            return _instance;
+        }
+        set
+        {
+            _instance = value;
+        }
+    }
+
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this);
+
+            return;
+        }
+
+        _instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         fadeSpeed = 1;
-
-        instance = this;
     }
 
     // Update is called once per frame

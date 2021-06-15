@@ -14,8 +14,6 @@ public class MainMenu : MonoBehaviour
     #endregion
 
     #region Private Variables
-    private Player      playerInfo;
-
         private InputField  username;
         private InputField  password;
         private Button      clientLoginButton;
@@ -75,7 +73,8 @@ public class MainMenu : MonoBehaviour
         else
         {
             essentialsLoader.LoadEssentialObjects();
-            Player.Instance.accountID = accountID;
+            // Set parameters for the first loading
+            PlayerManager.Instance.PlayerInfo.accountID = accountID;
 
             SceneManager.LoadScene(loadingScreenSceneAsset.name);
         }

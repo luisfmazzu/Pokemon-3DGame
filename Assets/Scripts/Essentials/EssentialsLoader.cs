@@ -24,9 +24,10 @@ public class EssentialsLoader : MonoBehaviour
     {
         GameObject characterInstance = Instantiate(Character);
         DontDestroyOnLoad(characterInstance);
-        Player.Instance = characterInstance.GetComponentInChildren<Player>();
+        PlayerManager.Instance = characterInstance.GetComponent<PlayerManager>();
 
         GameObject globalInstance = Instantiate(Global);
         DontDestroyOnLoad(globalInstance);
+        UIFadeController.Instance = globalInstance.GetComponentInChildren<UIFadeController>();
     }
 }

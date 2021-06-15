@@ -12,7 +12,7 @@ public class Woman01Controller : MonoBehaviour
 
         private CharacterController characterController;
 
-        private Player              playerInfo;
+        private PlayerInfo playerInfo;
     #endregion
 
     static class Animations
@@ -22,7 +22,7 @@ public class Woman01Controller : MonoBehaviour
     }
     private void Awake()
     {
-        this.playerInfo             = Player.Instance;
+        this.playerInfo             = PlayerManager.Instance.PlayerInfo;
 
         this.characterController    = GetComponent<CharacterController>();
         this.animator               = GetComponent<Animator>();

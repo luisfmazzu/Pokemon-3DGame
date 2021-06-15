@@ -2,7 +2,7 @@
 using System.Data;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerInfo : MonoBehaviour
 {
     #region Internal Variables Declaration 
         internal int        accountID           { get; set; }
@@ -18,38 +18,7 @@ public class Player : MonoBehaviour
 
     #region Private Variables Declaration
         private         bool        ready       = false;
-
-        private static  Player      _instance;
     #endregion
-
-    public static Player Instance
-    {
-        get
-        {
-            if(_instance == null)
-            {
-                _instance = (Player)GameObject.FindObjectOfType(typeof(Player));
-            }
-            return _instance;
-        }
-        set
-        {
-            _instance = value;
-        }
-    }
-
-    void Awake()
-    {
-        if(_instance != null && _instance != this)
-        {
-            Destroy(this);
-         
-            return;
-        }
-
-        _instance = this;
-        //DontDestroyOnLoad(this.gameObject);
-    }
 
     void Start()
     {

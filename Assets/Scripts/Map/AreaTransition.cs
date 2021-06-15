@@ -6,10 +6,6 @@ public class AreaTransition : MonoBehaviour
 {
     public string transitionName;
     [SerializeField]
-    private PlayerController player;
-    [SerializeField]
-    private PokemonFollower pokemonFollower;
-    [SerializeField]
     private Transform playerStartPosition;
     [SerializeField]
     private Transform followerStartPosition;
@@ -17,13 +13,15 @@ public class AreaTransition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerController player = PlayerManager.Instance.PlayerController;
+        PokemonFollower pokemonFollower = PlayerManager.Instance.PokemonFollower;
         if (transitionName == player.GetCurrentAreaTransitionName())
         {
-            player.transform.position = transform.position;
-            pokemonFollower.UpdateFollowerPosition(transform.position, transform.rotation);
+            player.transform.position = playerStartPosition.transform.position;
+            pokemonFollower.UpdateFollowerPosition(followerStartPosition.transform.position, followerStartPosition.transform.rotation);
         }
 
-        UIFadeController.instance.FadeFromBlack();
+        UIFadeController.Instance.FadeFromBlack();
     }
 
     // Update is called once per frame

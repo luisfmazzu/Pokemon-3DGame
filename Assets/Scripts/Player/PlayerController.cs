@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PrivateVariables
-    private Player player;
+    private PlayerInfo playerInfo;
 
     private CharacterController controller;
 
@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool isRunning = false;
 
     private string CurrentAreaTransitionName = "";
+
+    private bool isFirstLoading = true;
     #endregion
 
     #region GettersAndSetters
@@ -35,11 +37,21 @@ public class PlayerController : MonoBehaviour
     {
         this.CurrentAreaTransitionName = CurrentAreaTransitionName;
     }
+
+    public bool IsFirstLoading()
+    {
+        return isFirstLoading;
+    }
+
+    public void SetIsFirstLoading(bool isFirstLoading)
+    {
+        this.isFirstLoading = isFirstLoading;
+    }
     #endregion
 
     private void Awake()
     {
-        this.player = Player.Instance;
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
         this.controller = GetComponent<CharacterController>();
         this.animator   = GetComponent<Animator>();
@@ -47,9 +59,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return StartCoroutine(this.player.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
-        controller.Move(this.player.playerPosition);
+        controller.Move(this.playerInfo.playerPosition);
     }
 
     void Update()
@@ -59,6 +71,7 @@ public class PlayerController : MonoBehaviour
         float horizontal        = Input.GetAxisRaw("Horizontal");
         float vertical          = Input.GetAxisRaw("Vertical");
         float verticalSpeed     = -9.8f;
+        //float verticalSpeed = 0;
         float horizontalSpeed   = isRunning ? runningSpeed : normalSpeed;
 
         Vector3 direction = new Vector3(-horizontal, 0, -vertical).normalized;

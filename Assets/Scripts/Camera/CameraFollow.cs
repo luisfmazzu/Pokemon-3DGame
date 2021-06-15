@@ -41,7 +41,7 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         this.m_myCam = GetComponent<Camera>();
-        this.target = Player.Instance.transform;
+        this.target = PlayerManager.Instance.PlayerController.transform;
 
     }
 
