@@ -108,5 +108,12 @@ public class PlayerController : MonoBehaviour
 
             controller.Move(updatedMotion);
         }
+        else
+        {
+            // Update the animator to default values
+            animator.SetFloat("DirX", 0);
+            animator.SetFloat("DirY", 0);
+            animator.SetBool("IsRunning", false);
+        }
     }
 }

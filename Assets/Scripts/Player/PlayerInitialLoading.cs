@@ -15,11 +15,6 @@ public class PlayerInitialLoading : MonoBehaviour
             playerController.SetIsFirstLoading(false);
             playerController.SetIsPlaying(true);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerController.gameObject.SetActive(true);
     }
 }

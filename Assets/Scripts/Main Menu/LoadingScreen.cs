@@ -33,6 +33,11 @@ public class LoadingScreen : MonoBehaviour
 
         this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
+        // Disable existing components while loading
+        PlayerManager.Instance.PlayerController.gameObject.SetActive(false);
+        PlayerManager.Instance.PokemonFollower.gameObject.SetActive(false);
+        SystemManager.Instance.PanelUI.SetActive(false);
+
         yield return StartCoroutine(this.HandleLoadingSteps());
     }
 
