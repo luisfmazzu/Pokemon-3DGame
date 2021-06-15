@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     #region Serialize Fields
-        [SerializeField]                    private UnityEditor.SceneAsset loadingSceneAsset;
+        [SerializeField]                    private UnityEditor.SceneAsset loadingScreenSceneAsset;
 
         [SerializeField, Range(0, 10.0f)]   private float                  secondsToDisplayMessageDisappear = 2;
+
+        [SerializeField] private EssentialsLoader essentialsLoader;
     #endregion
 
     #region Private Variables
-        private Player      playerInfo;
+    private Player      playerInfo;
 
         private InputField  username;
         private InputField  password;
@@ -64,8 +66,6 @@ public class MainMenu : MonoBehaviour
 
     void HandleClientLoginButton()
     {
-        this.playerInfo = Player.Instance;
-
         int accountID = 0;
 
         if((!validateInputFields()) || (!ctrlPlayer.getAccountId(this.username.text, this.password.text, out accountID)))
@@ -74,9 +74,10 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            this.playerInfo.accountID = accountID;
+            essentialsLoader.LoadEssentialObjects();
+            Player.Instance.accountID = accountID;
 
-            SceneManager.LoadScene(loadingSceneAsset.name);
+            SceneManager.LoadScene(loadingScreenSceneAsset.name);
         }
     }
 

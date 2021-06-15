@@ -13,7 +13,7 @@ public class AreaExit : MonoBehaviour
     private bool shouldLoadAfterFade;
 
     [SerializeField]
-    private PlayerTest player;
+    private PlayerController player;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,7 @@ public class AreaExit : MonoBehaviour
             UIFadeController.instance.FadeToBlack();
             shouldLoadAfterFade = true;
 
-            player.CurrentAreaTransitionName = areaTransitionName;
+            player.SetCurrentAreaTransitionName(areaTransitionName);
         }
     }
 }

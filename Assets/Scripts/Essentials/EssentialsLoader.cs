@@ -1,23 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EssentialsLoader : MonoBehaviour
 {
-    public GameObject UIScreen;
+    public GameObject Global;
+    public GameObject Character;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (UIFadeController.instance == null)
-        {
-            UIFadeController.instance = Instantiate(UIScreen).GetComponent<UIFadeController>();
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    public void LoadEssentialObjects()
+    {
+        GameObject characterInstance = Instantiate(Character);
+        DontDestroyOnLoad(characterInstance);
+        Player.Instance = characterInstance.GetComponentInChildren<Player>();
+
+        GameObject globalInstance = Instantiate(Global);
+        DontDestroyOnLoad(globalInstance);
     }
 }

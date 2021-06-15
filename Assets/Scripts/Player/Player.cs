@@ -29,15 +29,7 @@ public class Player : MonoBehaviour
             if(_instance == null)
             {
                 _instance = (Player)GameObject.FindObjectOfType(typeof(Player));
-
-                if(_instance == null)
-                {
-                    GameObject go = new GameObject("Player:Singleton");
-
-                    _instance = go.AddComponent<Player>();
-                }
             }
-
             return _instance;
         }
         set
@@ -46,17 +38,17 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Awake()
+    void Awake()
     {
         if(_instance != null && _instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(this);
          
             return;
         }
 
         _instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()

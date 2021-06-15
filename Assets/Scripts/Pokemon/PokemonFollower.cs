@@ -41,6 +41,8 @@ public class PokemonFollower : MonoBehaviour
         Vector3 followerPos = new Vector3(thePlayer.transform.position.x - 1, thePlayer.transform.position.y, thePlayer.transform.position.z - 1);
 
         theFollower = Instantiate(theFollower, followerPos, thePlayer.transform.rotation) as GameObject;
+        // the follower object is a child of the object with this script
+        theFollower.transform.parent = gameObject.transform;
 
         followerController  = theFollower.GetComponent<CharacterController>();
         animator            = theFollower.GetComponentInChildren<Animator>();
@@ -88,7 +90,7 @@ public class PokemonFollower : MonoBehaviour
 
     public void UpdateFollowerPosition(Vector3 position, Quaternion rotation)
     {
-        TheFollower.transform.position = position;
-        TheFollower.transform.rotation = rotation;
+        theFollower.transform.position = position;
+        theFollower.transform.rotation = rotation;
     }
 }

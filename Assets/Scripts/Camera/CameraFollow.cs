@@ -19,7 +19,6 @@ public class CameraFollow : MonoBehaviour
     #endregion
 
     #region SerializeFields
-        [SerializeField] private Transform  target;
         [SerializeField] private bool       interiorMap;
     #endregion
 
@@ -29,6 +28,7 @@ public class CameraFollow : MonoBehaviour
         private Vector3 offset              = new Vector3(0.00f, 1000.0f, -1000.00f);
         private float   zoom                = defaultZoom;
         private float   lastMouseYPosition  = 0.0f;
+        private Transform target;
     #endregion
 
     enum MouseButtons
@@ -41,7 +41,9 @@ public class CameraFollow : MonoBehaviour
     void Start()
     {
         this.m_myCam = GetComponent<Camera>();
-	}
+        this.target = Player.Instance.transform;
+
+    }
 
     void Update()
     {

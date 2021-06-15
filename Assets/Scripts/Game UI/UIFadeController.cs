@@ -21,8 +21,6 @@ public class UIFadeController : MonoBehaviour
         fadeSpeed = 1;
 
         instance = this;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame

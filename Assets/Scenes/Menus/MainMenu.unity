@@ -1421,6 +1421,7 @@ GameObject:
   - component: {fileID: 1825342659}
   - component: {fileID: 1825342658}
   - component: {fileID: 1825342662}
+  - component: {fileID: 1825342663}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1522,8 +1523,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df97dc4dfce1ee4ca894e7e1f0013ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingSceneAsset: {fileID: 102900000, guid: 55e5b4e22744d054587b122774090944, type: 3}
+  loadingScreenSceneAsset: {fileID: 102900000, guid: 55e5b4e22744d054587b122774090944,
+    type: 3}
   secondsToDisplayMessageDisappear: 2
+  essentialsLoader: {fileID: 1825342663}
+--- !u!114 &1825342663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825342657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b097923981073e42b068eda7100df10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Global: {fileID: 3190633575804738721, guid: 0a11ec43a59adf64ea18c24247427f8c, type: 3}
+  Character: {fileID: 2195773075736212048, guid: 92a71980b1bf2024e954eef89405e937,
+    type: 3}
 --- !u!1 &1828935899
 GameObject:
   m_ObjectHideFlags: 0

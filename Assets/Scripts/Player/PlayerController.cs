@@ -5,27 +5,41 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     #region SerializeFields
-        [SerializeField] private float  normalSpeed         = 1f;
-        [SerializeField] private float  runningSpeed        = 2.5f;
-        [SerializeField] private float  playerGraphicsScale = 20f;
-        [SerializeField] private float  turnSmoothTime      = 0.1f;
+    [SerializeField] private float normalSpeed = 1f;
+    [SerializeField] private float runningSpeed = 2.5f;
+    [SerializeField] private float playerGraphicsScale = 20f;
+    [SerializeField] private float turnSmoothTime = 0.1f;
     #endregion
 
     #region PrivateVariables
-        private Player              playerInfo;
-        
-        private CharacterController controller;
+    private Player player;
 
-        private Animator            animator;
+    private CharacterController controller;
 
-        private float               turnSmoothVelocity;
+    private Animator animator;
 
-        private bool                isRunning           = false;
+    private float turnSmoothVelocity;
+
+    private bool isRunning = false;
+
+    private string CurrentAreaTransitionName = "";
+    #endregion
+
+    #region GettersAndSetters
+    public string GetCurrentAreaTransitionName()
+    {
+        return CurrentAreaTransitionName;
+    }
+
+    public void SetCurrentAreaTransitionName(string CurrentAreaTransitionName)
+    {
+        this.CurrentAreaTransitionName = CurrentAreaTransitionName;
+    }
     #endregion
 
     private void Awake()
     {
-        this.playerInfo = Player.Instance;
+        this.player = Player.Instance;
 
         this.controller = GetComponent<CharacterController>();
         this.animator   = GetComponent<Animator>();
@@ -33,9 +47,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+        yield return StartCoroutine(this.player.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
-        controller.Move(this.playerInfo.playerPosition);
+        controller.Move(this.player.playerPosition);
     }
 
     void Update()
