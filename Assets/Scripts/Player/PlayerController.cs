@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private string CurrentAreaTransitionName = "";
 
     private bool isFirstLoading = true;
+    private bool isPlaying = false;
     #endregion
 
     #region GettersAndSetters
@@ -47,6 +48,16 @@ public class PlayerController : MonoBehaviour
     {
         this.isFirstLoading = isFirstLoading;
     }
+
+    public bool IsPlaying()
+    {
+        return isFirstLoading;
+    }
+
+    public void SetIsPlaying(bool isPlaying)
+    {
+        this.isPlaying = isPlaying;
+    }
     #endregion
 
     private void Awake()
@@ -66,34 +77,36 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        isRunning = Input.GetKey(KeyCode.LeftShift);
-
-        float horizontal        = Input.GetAxisRaw("Horizontal");
-        float vertical          = Input.GetAxisRaw("Vertical");
-        float verticalSpeed     = -9.8f;
-        //float verticalSpeed = 0;
-        float horizontalSpeed   = isRunning ? runningSpeed : normalSpeed;
-
-        Vector3 direction = new Vector3(-horizontal, 0, -vertical).normalized;
-
-        if(direction.magnitude >= 0.1f)
+        if (isPlaying)
         {
-            float targetAngle   = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle         = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            isRunning = Input.GetKey(KeyCode.LeftShift);
 
-            transform.rotation  = Quaternion.Euler(0f, angle, 0f);
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            float verticalSpeed = -9.8f;
+            float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
+
+            Vector3 direction = new Vector3(-horizontal, 0, -vertical).normalized;
+
+            if (direction.magnitude >= 0.1f)
+            {
+                float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
+                float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            }
+
+            // Update the animator
+            animator.SetFloat("DirX", direction.x);
+            animator.SetFloat("DirY", direction.z);
+            animator.SetBool("IsRunning", isRunning);
+
+            Vector3 updatedMotion = new Vector3(animator.GetFloat("DirX") * horizontalSpeed, verticalSpeed, animator.GetFloat("DirY") * horizontalSpeed);
+
+            updatedMotion.x /= playerGraphicsScale;
+            updatedMotion.z /= playerGraphicsScale;
+
+            controller.Move(updatedMotion);
         }
-
-        // Update the animator
-        animator.SetFloat("DirX", direction.x);
-        animator.SetFloat("DirY", direction.z);
-        animator.SetBool("IsRunning", isRunning);
-
-        Vector3 updatedMotion = new Vector3(animator.GetFloat("DirX") * horizontalSpeed, verticalSpeed, animator.GetFloat("DirY") * horizontalSpeed);
-
-        updatedMotion.x /= playerGraphicsScale;
-        updatedMotion.z /= playerGraphicsScale;
-
-        controller.Move(updatedMotion);
     }
 }

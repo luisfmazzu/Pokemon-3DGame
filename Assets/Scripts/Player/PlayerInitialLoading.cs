@@ -13,6 +13,7 @@ public class PlayerInitialLoading : MonoBehaviour
         {
             playerController.transform.position = playerInfo.playerPosition;
             playerController.SetIsFirstLoading(false);
+            playerController.SetIsPlaying(true);
         }
     }
 

@@ -19,6 +19,7 @@ public class AreaTransition : MonoBehaviour
         {
             player.transform.position = playerStartPosition.transform.position;
             pokemonFollower.UpdateFollowerPosition(followerStartPosition.transform.position, followerStartPosition.transform.rotation);
+            PlayerManager.Instance.PlayerController.SetIsPlaying(true);
         }
 
         UIFadeController.Instance.FadeFromBlack();

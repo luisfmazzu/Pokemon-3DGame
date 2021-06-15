@@ -40,6 +40,7 @@ public class AreaExit : MonoBehaviour
             shouldLoadAfterFade = true;
 
             PlayerManager.Instance.PlayerController.SetCurrentAreaTransitionName(areaTransitionNameToLoad);
+            PlayerManager.Instance.PlayerController.SetIsPlaying(false);
         }
     }
 }
