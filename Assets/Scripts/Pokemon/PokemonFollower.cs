@@ -7,7 +7,6 @@ public class PokemonFollower : MonoBehaviour
 {
     #region SerializeFields
         [SerializeField] private GameObject thePlayer;
-        [SerializeField] private GameObject theFollower;
 
         [SerializeField] private float      normalSpeed         = 1f;
         [SerializeField] private float      runningSpeed        = 2.5f;
@@ -16,6 +15,8 @@ public class PokemonFollower : MonoBehaviour
     #endregion
 
     #region PrivateVariables
+        private GameObject          theFollower;
+
         private Animator            animator;
 
         private CharacterController followerController;
@@ -40,51 +41,55 @@ public class PokemonFollower : MonoBehaviour
 
         Vector3 followerPos = new Vector3(thePlayer.transform.position.x - 1, thePlayer.transform.position.y, thePlayer.transform.position.z - 1);
 
-        theFollower = Instantiate(theFollower, followerPos, thePlayer.transform.rotation) as GameObject;
-        // the follower object is a child of the object with this script
-        theFollower.transform.parent = gameObject.transform;
+        if(this.theFollower != null)
+        {
+            theFollower         = Instantiate(theFollower, followerPos, thePlayer.transform.rotation) as GameObject;
 
-        followerController  = theFollower.GetComponent<CharacterController>();
-        animator            = theFollower.GetComponentInChildren<Animator>();
+            followerController  = theFollower.GetComponent<CharacterController>();
+            animator            = theFollower.GetComponentInChildren<Animator>();
+        }
     }
 
     void Update()
     {
-        float verticalSpeed = -9.8f;
-
-        float TargetDistance = Vector3.Distance(thePlayer.transform.position, theFollower.transform.position);
-
-        if(TargetDistance >= allowedDistance)
+        if (this.theFollower != null)
         {
-            theFollower.transform.LookAt(thePlayer.transform);
+            float verticalSpeed = -9.8f;
 
-            if((TargetDistance <= distanceToRun) && (isRunning == false))
+            float TargetDistance = Vector3.Distance(thePlayer.transform.position, theFollower.transform.position);
+
+            if (TargetDistance >= allowedDistance)
             {
-                animator.Play(Animations.Walking);
+                theFollower.transform.LookAt(thePlayer.transform);
+
+                if ((TargetDistance <= distanceToRun) && (isRunning == false))
+                {
+                    animator.Play(Animations.Walking);
+                }
+                else
+                {
+                    isRunning = true;
+
+                    animator.Play(Animations.Running);
+                }
+
+                float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
+
+                Vector3 norm = (thePlayer.transform.position - theFollower.transform.position).normalized;
+
+                Vector3 updatedMotion = new Vector3(norm.x * horizontalSpeed, verticalSpeed, norm.z * horizontalSpeed);
+
+                updatedMotion.x /= playerGraphicsScale;
+                updatedMotion.z /= playerGraphicsScale;
+
+                followerController.Move(updatedMotion);
             }
             else
             {
-                isRunning = true;
+                animator.Play(Animations.Idle);
 
-                animator.Play(Animations.Running);
+                isRunning = false;
             }
-
-            float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
-
-            Vector3 norm = (thePlayer.transform.position - theFollower.transform.position).normalized;
-
-            Vector3 updatedMotion = new Vector3(norm.x * horizontalSpeed, verticalSpeed, norm.z * horizontalSpeed);
-            
-            updatedMotion.x /= playerGraphicsScale;
-            updatedMotion.z /= playerGraphicsScale;
-            
-            followerController.Move(updatedMotion);
-        }
-        else
-        {
-            animator.Play(Animations.Idle);
-
-            isRunning = false;
         }
     }
 
