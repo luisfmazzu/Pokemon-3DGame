@@ -42,6 +42,7 @@ public class PlayerInfoBar : MonoBehaviour
         this.handlePlayerName();
         this.handlePlayerLevel();
         this.handlePlayerLevelProgressBar();
+        this.handlePlayerLineUp();
     }
 
     void handlePlayerName()
@@ -59,6 +60,16 @@ public class PlayerInfoBar : MonoBehaviour
     void handlePlayerLevelProgressBar()
     {
         this.playerBaseLevelProgressBar.BarValue = this.playerInfo.playerBaseLvlExp;
+    }
+
+    void handlePlayerLineUp()
+    {
+        for(int i = 0; i < this.playerInfo.partyPokemons.Count; i++)
+        {
+            int id = this.playerInfo.partyPokemons[i].speciesID;
+            string spritePath = "Pokemon/" + id + "/" + id;
+            this.lineup_small[i].sprite = Resources.Load<Sprite>(spritePath);
+        }
     }
 
     private void Update()

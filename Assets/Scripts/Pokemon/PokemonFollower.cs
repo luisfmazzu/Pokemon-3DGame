@@ -15,8 +15,6 @@ public class PokemonFollower : MonoBehaviour
     #endregion
 
     #region PrivateVariables
-        private GameObject          theFollower;
-
         private Animator            animator;
 
         private CharacterController followerController;
@@ -24,6 +22,10 @@ public class PokemonFollower : MonoBehaviour
         private float               distanceToRun;
 
         private bool                isRunning;
+
+        private GameObject          followerInstance;
+
+        private PlayerInfo          playerInfo;
     #endregion
 
     static class Animations
@@ -33,34 +35,31 @@ public class PokemonFollower : MonoBehaviour
         public const string Running     = "Motion_3";
     }
 
+    private void Awake()
+    {
+        this.playerInfo         = PlayerManager.Instance.PlayerInfo;
+
+        this.distanceToRun      = (allowedDistance * 1.5f);
+        this.isRunning          = false;
+        this.followerInstance   = null;
+    }
+
     void Start()
     {
-        distanceToRun   = (allowedDistance * 1.5f);
-
-        isRunning       = false;
-
-        Vector3 followerPos = new Vector3(thePlayer.transform.position.x - 1, thePlayer.transform.position.y, thePlayer.transform.position.z - 1);
-
-        if(this.theFollower != null)
-        {
-            theFollower         = Instantiate(theFollower, followerPos, thePlayer.transform.rotation) as GameObject;
-
-            followerController  = theFollower.GetComponent<CharacterController>();
-            animator            = theFollower.GetComponentInChildren<Animator>();
-        }
+        this.playerInfo.setFollowerController(this);
     }
 
     void Update()
     {
-        if (this.theFollower != null)
+        if (this.followerInstance != null)
         {
             float verticalSpeed = -9.8f;
 
-            float TargetDistance = Vector3.Distance(thePlayer.transform.position, theFollower.transform.position);
+            float TargetDistance = Vector3.Distance(thePlayer.transform.position, this.followerInstance.transform.position);
 
             if (TargetDistance >= allowedDistance)
             {
-                theFollower.transform.LookAt(thePlayer.transform);
+                this.followerInstance.transform.LookAt(thePlayer.transform);
 
                 if ((TargetDistance <= distanceToRun) && (isRunning == false))
                 {
@@ -75,7 +74,7 @@ public class PokemonFollower : MonoBehaviour
 
                 float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
 
-                Vector3 norm = (thePlayer.transform.position - theFollower.transform.position).normalized;
+                Vector3 norm = (thePlayer.transform.position - this.followerInstance.transform.position).normalized;
 
                 Vector3 updatedMotion = new Vector3(norm.x * horizontalSpeed, verticalSpeed, norm.z * horizontalSpeed);
 
@@ -93,9 +92,32 @@ public class PokemonFollower : MonoBehaviour
         }
     }
 
+    public void CreateFollower(GameObject theFollower)
+    {
+        Vector3 followerPos = new Vector3(this.thePlayer.transform.position.x - 1, this.thePlayer.transform.position.y, this.thePlayer.transform.position.z - 1);
+
+        this.followerInstance = Instantiate(theFollower, followerPos, this.thePlayer.transform.rotation) as GameObject;
+
+        this.followerInstance.name  = this.followerInstance.name.Replace("(Clone)", "").Trim();
+
+        this.followerController     = this.followerInstance.GetComponent<CharacterController>();
+        this.animator               = this.followerInstance.GetComponentInChildren<Animator>();
+    }
+
+    public void RemoveFollower()
+    {
+        Destroy(this.followerInstance);
+    }
+
+    public void SwitchFollower(GameObject theFollower)
+    {
+        this.RemoveFollower();
+        this.CreateFollower(theFollower);
+    }
+
     public void UpdateFollowerPosition(Vector3 position, Quaternion rotation)
     {
-        theFollower.transform.position = position;
-        theFollower.transform.rotation = rotation;
+        this.followerInstance.transform.position = position;
+        this.followerInstance.transform.rotation = rotation;
     }
 }

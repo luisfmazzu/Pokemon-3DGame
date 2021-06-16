@@ -34,5 +34,9 @@ public class PokemonInfo : MonoBehaviour
     void TaskOnClick()
     {
         Debug.Log("You Clicked on Pokemon " + this.pokemonIndex);
+
+        GameObject follower = Resources.Load("Pokemon/25/25") as GameObject;
+
+        this.playerInfo.EnableFollower(follower);
     }
 }

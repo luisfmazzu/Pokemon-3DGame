@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     #region Public Fields
-    public PlayerInfo PlayerInfo;
+        public PlayerInfo       PlayerInfo;
 
-    public PlayerController PlayerController;
+        public PlayerController PlayerController;
 
-    public PokemonFollower PokemonFollower;
+        public PokemonFollower  PokemonFollower;
     #endregion
 
     #region Private Variables Declaration

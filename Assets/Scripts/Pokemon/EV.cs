@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class EV
+﻿public class EV
 {
     #region Constant Variables
         private const int MIN_VALUE = 0;
@@ -8,11 +6,25 @@ public class EV
     #endregion
 
     #region Public Variables Declaration 
-        public int hp         { get { return hp; }        set { hp        = Mathf.Clamp(value, MIN_VALUE, MAX_VALUE); } }
-        public int attack     { get { return attack; }    set { attack    = Mathf.Clamp(value, MIN_VALUE, MAX_VALUE); } }
-        public int defense    { get { return defense; }   set { defense   = Mathf.Clamp(value, MIN_VALUE, MAX_VALUE); } }
-        public int spAttack   { get { return spAttack; }  set { spAttack  = Mathf.Clamp(value, MIN_VALUE, MAX_VALUE); } }
-        public int spDefense  { get { return spDefense; } set { spDefense = Mathf.Clamp(value, MIN_VALUE, MAX_VALUE); } }
-        public int speed      { get { return speed; }     set { speed     = Mathf.Clamp(value, MIN_VALUE, MAX_VALUE); } }
+        public int hp           { get; set; }
+        public int attack       { get; set; }
+        public int defense      { get; set; }
+        public int spAttack     { get; set; }
+        public int spDefense    { get; set; }
+        public int speed        { get; set; }
     #endregion
+
+    public EV()
+    {
+    }
+
+    public EV(int _hp, int _attack, int _defense, int _spAttack, int _spDefense, int _speed)
+    {
+        this.hp         = _hp;
+        this.attack     = _attack;
+        this.defense    = _defense;
+        this.spAttack   = _spAttack;
+        this.spDefense  = _spDefense;
+        this.speed      = _speed;
+    }
 }
