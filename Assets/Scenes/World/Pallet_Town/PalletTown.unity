@@ -15,12 +15,12 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.7344776, g: 0.7666676, b: 0.7184372, a: 1}
+  m_FogColor: {r: 0.73462, g: 0.76673377, b: 0.71831924, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.9827223, g: 0.94380826, b: 0.7840559, a: 1}
+  m_AmbientSkyColor: {r: 0.98271066, g: 0.9437704, b: 0.78391033, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -184,19 +184,13 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.548
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
---- !u!4 &2005005340 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7402383553570434767, guid: 92a71980b1bf2024e954eef89405e937,
-    type: 3}
-  m_PrefabInstance: {fileID: 4282697623087967779}
-  m_PrefabAsset: {fileID: 0}
---- !u!43 &2016741467
+--- !u!43 &1875512775
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterVolume--397252
+  m_Name: WaterVolume--253908
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -354,6 +348,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &2005005340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7402383553570434767, guid: 92a71980b1bf2024e954eef89405e937,
+    type: 3}
+  m_PrefabInstance: {fileID: 4282697623087967779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4143533592877198832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -568,7 +568,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 2016741467}
+      objectReference: {fileID: 1875512775}
     - target: {fileID: 5393881197146926000, guid: 6faf1ec22f960364a93c9090cca974b2,
         type: 3}
       propertyPath: m_Name
