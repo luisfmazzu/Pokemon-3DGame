@@ -103,7 +103,7 @@ public class TeamButton : MonoBehaviour
         {
             Pokemon pokemon = this.playerInfo.partyPokemons[i];
 
-            this.pokemons[i].image.sprite   = this.pokemonResources.RetrievePokemonResource(pokemon.speciesID).sprite;
+            this.pokemons[i].image.sprite   = this.pokemonResources.RetrievePokemonResource(pokemon.resourceID).sprite;
             this.pokemons[i].name.text      = pokemon.nickname;
             this.pokemons[i].lvl.text       = "Lv " + pokemon.baseLvl;
         }

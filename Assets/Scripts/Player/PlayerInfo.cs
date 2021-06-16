@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour
 {
     #region Constant Variables
-        private const int INVALID_FOLLOWER = -1;
+        private const string INVALID_FOLLOWER = "-1";
     #endregion
 
-    #region Internal Variables Declaration 
+    #region Internal Variables Declaration
         internal int            accountID           { get; set; }
         internal int            playerID            { get; set; }
         internal string         playerName          { get; set; }
@@ -19,7 +19,7 @@ public class PlayerInfo : MonoBehaviour
         internal Vector3        playerPosition      { get; set; }
         internal int            playerMoney         { get; set; }
         internal List<Pokemon>  partyPokemons       { get; set; }   = new List<Pokemon>();
-        internal int            followerPokemonIdx  { get; set; }   = INVALID_FOLLOWER;
+        internal string         followerPokemonIdx  { get; set; }   = INVALID_FOLLOWER;
     #endregion
 
     #region Private Variables Declaration
@@ -59,15 +59,15 @@ public class PlayerInfo : MonoBehaviour
 
         public void HandleFollower(int index)
         {
-            int speciesID = this.partyPokemons[index].speciesID;
+            string id = this.partyPokemons[index].resourceID;
 
             if(this.followerPokemonIdx == INVALID_FOLLOWER)
             {
-                this.followerInstance.CreateFollower(this.pokemonResources.RetrievePokemonResource(speciesID).prefab);
+                this.followerInstance.CreateFollower(this.pokemonResources.RetrievePokemonResource(id).prefab);
 
-                this.followerPokemonIdx = speciesID;
+                this.followerPokemonIdx = id;
             }
-            else if(this.followerPokemonIdx == speciesID)
+            else if(this.followerPokemonIdx == id)
             {
                 this.followerInstance.RemoveFollower();
 
@@ -75,9 +75,9 @@ public class PlayerInfo : MonoBehaviour
             }
             else
             {
-                this.followerInstance.SwitchFollower(this.pokemonResources.RetrievePokemonResource(speciesID).prefab);
+                this.followerInstance.SwitchFollower(this.pokemonResources.RetrievePokemonResource(id).prefab);
 
-                this.followerPokemonIdx = speciesID;
+                this.followerPokemonIdx = id;
             }
         }
     #endregion

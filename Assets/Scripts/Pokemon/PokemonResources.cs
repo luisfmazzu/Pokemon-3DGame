@@ -9,14 +9,16 @@ public class PokemonResources : MonoBehaviour
         public Sprite       sprite;
         public GameObject   prefab;
 
-        public Resource(string pokemonFormNumber)
+        public Resource(string folder, string pokemonForm)
         {
-            string spritePath = "Pokemon/" + pokemonFormNumber + "/" + pokemonFormNumber;
+            string spritePath = "Pokemon/" + folder + "/" + folder;
+            string prefabPath = "Pokemon/" + folder + "/" + pokemonForm;
 
             sprite = Resources.Load<Sprite>(spritePath);
-            prefab = Resources.Load(spritePath) as GameObject;
+            prefab = Resources.Load(prefabPath) as GameObject;
 
-            Debug.Log("Pokemon " + pokemonFormNumber + " successfully loaded");
+            if(prefab == null)
+                Debug.Log("Prefab " + prefabPath + " could not be loaded");
         }
     }
 
@@ -29,12 +31,15 @@ public class PokemonResources : MonoBehaviour
     }
 
     #region Private Variables Declaration
-        private         bool                ready;
-
-        private Dictionary<int, Resource>   pokemonResource = new Dictionary<int, Resource>();
+        private         bool                            ready           = false;
+        private         Dictionary<string, Resource>    pokemonResource = new Dictionary<string, Resource>();
     #endregion
 
     #region Unity Overloaded Methods
+        private void Awake()
+        {
+        }
+
         void Start()
         {
         }
@@ -42,13 +47,19 @@ public class PokemonResources : MonoBehaviour
 
     public void LoadResources()
     {
-        this.pokemonResource[1] = new Resource("1");
-        this.pokemonResource[25] = new Resource("25");
+        this.pokemonResource["1_n"]         = new Resource("1", "1_n");
+        this.pokemonResource["1_s"]         = new Resource("1", "1_s");
+        this.pokemonResource["2_n"]         = new Resource("2", "2_n");
+        this.pokemonResource["2_s"]         = new Resource("2", "2_s");
+        this.pokemonResource["25_n"]        = new Resource("25", "25_n");
+        this.pokemonResource["25_s"]        = new Resource("25", "25_s");
+        this.pokemonResource["25f_n"]       = new Resource("25", "25f_n");
+        this.pokemonResource["25f_s"]       = new Resource("25", "25f_s");
 
         this.ready = true;
     }
 
-    public Resource RetrievePokemonResource(int pokemonFormID)
+    public Resource RetrievePokemonResource(string pokemonFormID)
     {
         return this.pokemonResource[pokemonFormID];
     }

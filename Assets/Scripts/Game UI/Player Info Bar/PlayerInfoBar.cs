@@ -137,7 +137,7 @@ public class PlayerInfoBar : MonoBehaviour
         int i = 0;
         for(; i < this.playerInfo.partyPokemons.Count; i++)
         {
-            int id = this.playerInfo.partyPokemons[i].speciesID;
+            string id = this.playerInfo.partyPokemons[i].resourceID;
 
             this.lineup[i].image.sprite = this.pokemonResources.RetrievePokemonResource(id).sprite;
             this.lineup[i].image.color  = new Color(this.lineup[i].image.color.r, this.lineup[i].image.color.g, this.lineup[i].image.color.b, 1.00f);
