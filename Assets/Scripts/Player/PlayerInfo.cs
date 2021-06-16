@@ -24,19 +24,59 @@ public class PlayerInfo : MonoBehaviour
         private PokemonFollower followerInstance        = null;
 
         private PlayerInfoBar   playerInfoBarInstance   = null;
-    #endregion
 
-    void Start()
-    {
-    }
+        private TeamButton      teamButtonInstance;
+    #endregion
 
     public IEnumerator IsReady()
     {
-        while (!ready)
+        while(!ready)
         {
             yield return null;
         }
     }
+
+    #region Unity Overloaded Methods
+        void Start()
+        {
+        }
+    #endregion
+
+    #region Follower Controller Methods
+        public void setFollowerInstance(PokemonFollower value)
+        {
+            this.followerInstance = value;
+        }
+
+        public void EnableFollower(GameObject theFollower)
+        {
+            this.followerInstance.CreateFollower(theFollower);
+        }
+
+        public void DisableFollower()
+        {
+            this.followerInstance.RemoveFollower();
+        }
+
+        public void ReplaceFollower(GameObject newFollower)
+        {
+            this.followerInstance.SwitchFollower(newFollower);
+        }
+    #endregion
+
+    #region Player Info Bar Methods
+        public void setPlayerInfoBarInstance(PlayerInfoBar value)
+        {
+            this.playerInfoBarInstance = value;
+        }
+    #endregion
+
+    #region Team Button Methods
+        public void setTeamButtonInstance(TeamButton value)
+        {
+            this.teamButtonInstance = value;
+        }
+    #endregion
 
     public void RetrievePlayerInformation(CtrlPlayer ctrlPlayer, int _playerID)
     {
@@ -113,31 +153,7 @@ public class PlayerInfo : MonoBehaviour
         {
             this.playerBaseLvlExp += value;
         }
+
         this.playerInfoBarInstance.UpdatePlayerLevelProgressBar();
-    }
-
-    public void setFollowerController(PokemonFollower value)
-    {
-        this.followerInstance = value;
-    }
-
-    public void setPlayerInfoBar(PlayerInfoBar value)
-    {
-        this.playerInfoBarInstance = value;
-    }
-
-    public void EnableFollower(GameObject theFollower)
-    {
-        this.followerInstance.CreateFollower(theFollower);
-    }
-
-    public void DisableFollower()
-    {
-        this.followerInstance.RemoveFollower();
-    }
-
-    public void ReplaceFollower(GameObject newFollower)
-    {
-        this.followerInstance.SwitchFollower(newFollower);
     }
 }

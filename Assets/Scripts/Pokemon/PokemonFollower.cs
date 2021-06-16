@@ -46,7 +46,7 @@ public class PokemonFollower : MonoBehaviour
 
     void Start()
     {
-        this.playerInfo.setFollowerController(this);
+        this.playerInfo.setFollowerInstance(this);
     }
 
     void Update()

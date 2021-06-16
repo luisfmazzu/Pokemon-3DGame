@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     #region Serialize Fields
-        [SerializeField]                    private UnityEditor.SceneAsset loadingScreenSceneAsset;
+        [SerializeField]                    private UnityEditor.SceneAsset  loadingScreenSceneAsset;
 
-        [SerializeField, Range(0, 10.0f)]   private float                  secondsToDisplayMessageDisappear = 2;
+        [SerializeField, Range(0, 10.0f)]   private float                   secondsToDisplayMessageDisappear = 2;
 
-        [SerializeField] private EssentialsLoader essentialsLoader;
+        [SerializeField]                    private EssentialsLoader        essentialsLoader;
     #endregion
 
     #region Private Variables
@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        ctrlPlayer = new CtrlPlayer();
+        this.ctrlPlayer = new CtrlPlayer();
 
         this.clientLoginButton.onClick.AddListener(this.HandleClientLoginButton);
         this.registerButton.onClick.AddListener(this.HandleRegisterButton);
@@ -73,6 +73,7 @@ public class MainMenu : MonoBehaviour
         else
         {
             essentialsLoader.LoadEssentialObjects();
+
             // Set parameters for the first loading
             PlayerManager.Instance.PlayerInfo.accountID = accountID;
 

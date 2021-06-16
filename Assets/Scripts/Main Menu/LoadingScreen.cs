@@ -6,19 +6,17 @@ using UnityEngine.UI;
 
 public class LoadingScreen : MonoBehaviour
 {
-    #region Serialize Fields
-    #endregion
-
     #region Private Variables
-        private PlayerInfo  playerInfo;
-        private CtrlPlayer  ctrlPlayer;
-        private Text        text;
-        private ProgressBar loadingBar;
+        private PlayerInfo          playerInfo;
+        private PokemonResources    pokemonResources;
+        private CtrlPlayer          ctrlPlayer;
+        private Text                text;
+        private ProgressBar         loadingBar;
     #endregion
 
     static class LoadingSteps
     {
-        public static string[] steps = { "Retrieving Player Information", "Loading Map" };
+        public static string[] steps = { "Retrieving Player Information", "Loading Resources", "Loading Map" };
     }
 
     private void Awake()
@@ -31,7 +29,8 @@ public class LoadingScreen : MonoBehaviour
     {
         ctrlPlayer = new CtrlPlayer();
 
-        this.playerInfo = PlayerManager.Instance.PlayerInfo;
+        this.playerInfo         = PlayerManager.Instance.PlayerInfo;
+        this.pokemonResources   = SystemManager.Instance.PokemonResources;
 
         // Disable existing components while loading
         PlayerManager.Instance.PlayerController.gameObject.SetActive(false);
@@ -51,6 +50,7 @@ public class LoadingScreen : MonoBehaviour
 
         yield return StartCoroutine(this.HandleFirstLoadingStep());
         yield return StartCoroutine(this.HandleSecondLoadingStep());
+        yield return StartCoroutine(this.HandleThirdLoadingStep());
     }
 
     IEnumerator HandleFirstLoadingStep()
@@ -75,9 +75,25 @@ public class LoadingScreen : MonoBehaviour
     IEnumerator HandleSecondLoadingStep()
     {
         /**
-         * 2nd step -> Load Map
+         * 2nd step -> Load Resouces
          */
         this.text.text = LoadingSteps.steps[1];
+
+        this.pokemonResources.LoadResources();
+
+        yield return StartCoroutine(this.pokemonResources.IsReady());
+
+        this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
+
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator HandleThirdLoadingStep()
+    {
+        /**
+         * 3rd step -> Load Map
+         */
+        this.text.text = LoadingSteps.steps[2];
 
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(this.playerInfo.playerCurrentMap);
 

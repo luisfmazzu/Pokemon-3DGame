@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PokemonInfo : MonoBehaviour
 {
     #region Serialize Fields
-        [SerializeField, Range(0, 5)] private int pokemonIndex;
+     [SerializeField, Range(0, 5)] private int pokemonIndex;
     #endregion
 
     #region Private Variables Declaration
@@ -28,15 +28,13 @@ public class PokemonInfo : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 
     void TaskOnClick()
     {
         Debug.Log("You Clicked on Pokemon " + this.pokemonIndex);
 
-        GameObject follower = Resources.Load("Pokemon/25/25") as GameObject;
-
-        this.playerInfo.EnableFollower(follower);
+        //this.playerInfo.EnableFollower(this.pokemonResources.RetrievePokemonResource(1).prefab);
     }
 }
