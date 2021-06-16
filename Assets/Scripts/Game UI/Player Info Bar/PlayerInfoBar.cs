@@ -1,10 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PlayerInfoBar : MonoBehaviour
 {
+    public class LineUpObjects
+    {
+        public Image    image   { get; set; } = null;
+        public Button   button  { get; set; } = null;
+
+        public LineUpObjects(Image _image, Button _button, UnityAction TaskOnClick)
+        {
+            this.image  = _image;
+            this.button = _button;
+            
+            this.button.onClick.AddListener(TaskOnClick);
+        }
+    }
+
     #region Private Variables Declaration
         private PlayerInfo          playerInfo;
         private PokemonResources    pokemonResources;
@@ -12,46 +27,93 @@ public class PlayerInfoBar : MonoBehaviour
         private Text                playerLvl;
         private ProgressBar         playerBaseLevelProgressBar;
 
-        private List<Image>         lineup_small;
+        private List<LineUpObjects> lineup;
     #endregion
 
-    private void Awake()
-    {
-        this.playerInfo         = PlayerManager.Instance.PlayerInfo;
-        this.pokemonResources   = SystemManager.Instance.PokemonResources;
+    #region Unity Overloaded Methods
+        private void Awake()
+        {
+            this.playerInfo         = PlayerManager.Instance.PlayerInfo;
+            this.pokemonResources   = SystemManager.Instance.PokemonResources;
 
-        var basicSprite = this.transform.Find("Basic Sprite");
+            var basicSprite = this.transform.Find("Basic Sprite");
 
-        this.playerLvl                  = basicSprite.Find("Player Level").GetComponent<Text>();
-        this.playerBaseLevelProgressBar = basicSprite.Find("Player Level Progress Bar").Find("Experience Progress Bar").GetComponent<ProgressBar>();
+            this.playerLvl                  = basicSprite.Find("Player Level").GetComponent<Text>();
+            this.playerBaseLevelProgressBar = basicSprite.Find("Player Level Progress Bar").Find("Experience Progress Bar").GetComponent<ProgressBar>();
 
-        this.lineup_small = new List<Image>();
+            this.lineup = new List<LineUpObjects>();
 
-        var lineUp = basicSprite.Find("Line-Up");
+            var lineUpObject = basicSprite.Find("Line-Up");
 
-        this.lineup_small.Add(lineUp.Find("Pokemon 01").GetComponent<Image>());
-        this.lineup_small.Add(lineUp.Find("Pokemon 02").GetComponent<Image>());
-        this.lineup_small.Add(lineUp.Find("Pokemon 03").GetComponent<Image>());
-        this.lineup_small.Add(lineUp.Find("Pokemon 04").GetComponent<Image>());
-        this.lineup_small.Add(lineUp.Find("Pokemon 05").GetComponent<Image>());
-        this.lineup_small.Add(lineUp.Find("Pokemon 06").GetComponent<Image>());
-    }
+            this.lineup.Add(new LineUpObjects(lineUpObject.Find("Pokemon 01").GetComponent<Image>(), lineUpObject.Find("Pokemon 01").GetComponent<Button>(), TaskOnClickPokemon1));
+            this.lineup.Add(new LineUpObjects(lineUpObject.Find("Pokemon 02").GetComponent<Image>(), lineUpObject.Find("Pokemon 02").GetComponent<Button>(), TaskOnClickPokemon2));
+            this.lineup.Add(new LineUpObjects(lineUpObject.Find("Pokemon 03").GetComponent<Image>(), lineUpObject.Find("Pokemon 03").GetComponent<Button>(), TaskOnClickPokemon3));
+            this.lineup.Add(new LineUpObjects(lineUpObject.Find("Pokemon 04").GetComponent<Image>(), lineUpObject.Find("Pokemon 04").GetComponent<Button>(), TaskOnClickPokemon4));
+            this.lineup.Add(new LineUpObjects(lineUpObject.Find("Pokemon 05").GetComponent<Image>(), lineUpObject.Find("Pokemon 05").GetComponent<Button>(), TaskOnClickPokemon5));
+            this.lineup.Add(new LineUpObjects(lineUpObject.Find("Pokemon 06").GetComponent<Image>(), lineUpObject.Find("Pokemon 06").GetComponent<Button>(), TaskOnClickPokemon6));
+        }
 
-    IEnumerator Start()
-    {
-        this.playerInfo.setPlayerInfoBarInstance(this);
+        IEnumerator Start()
+        {
+            this.playerInfo.setPlayerInfoBarInstance(this);
 
-        yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
+            yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
-        this.UpdatePlayerName();
-        this.UpdatePlayerLevel();
-        this.UpdatePlayerLevelProgressBar();
-        this.UpdatePlayerLineUp();
-    }
+            this.UpdatePlayerName();
+            this.UpdatePlayerLevel();
+            this.UpdatePlayerLevelProgressBar();
+            this.UpdatePlayerLineUp();
+        }
 
-    private void Update()
-    {
-    }
+        private void Update()
+        {
+        }
+    #endregion
+
+    #region Buttons Callbacks
+        void TaskOnClickPokemon1()
+        {
+            if(this.lineup[0].image.sprite != null)
+            {
+                this.playerInfo.HandleFollower(0);
+            }
+        }
+        void TaskOnClickPokemon2()
+        {
+            if(this.lineup[1].image.sprite != null)
+            {
+                this.playerInfo.HandleFollower(1);
+            }
+        }
+        void TaskOnClickPokemon3()
+        {
+            if(this.lineup[2].image.sprite != null)
+            {
+                this.playerInfo.HandleFollower(2);
+            }
+        }
+        void TaskOnClickPokemon4()
+        {
+            if(this.lineup[3].image.sprite != null)
+            {
+                this.playerInfo.HandleFollower(3);
+            }
+        }
+        void TaskOnClickPokemon5()
+        {
+            if(this.lineup[4].image.sprite != null)
+            {
+                this.playerInfo.HandleFollower(4);
+            }
+        }
+        void TaskOnClickPokemon6()
+        {
+            if(this.lineup[5].image.sprite != null)
+            {
+                this.playerInfo.HandleFollower(5);
+            }
+        }
+    #endregion
 
     private void UpdatePlayerName()
     {
@@ -77,13 +139,13 @@ public class PlayerInfoBar : MonoBehaviour
         {
             int id = this.playerInfo.partyPokemons[i].speciesID;
 
-            this.lineup_small[i].sprite = this.pokemonResources.RetrievePokemonResource(id).sprite;
-            this.lineup_small[i].color  = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 1.00f);
+            this.lineup[i].image.sprite = this.pokemonResources.RetrievePokemonResource(id).sprite;
+            this.lineup[i].image.color  = new Color(this.lineup[i].image.color.r, this.lineup[i].image.color.g, this.lineup[i].image.color.b, 1.00f);
         }
 
         for(; i < 6; i++)
         {
-            this.lineup_small[i].color = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 0.00f);
+            this.lineup[i].image.color = new Color(this.lineup[i].image.color.r, this.lineup[i].image.color.g, this.lineup[i].image.color.b, 0.00f);
         }
     }
 }

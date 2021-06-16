@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
+    #region Constant Variables
+        private const int INVALID_FOLLOWER = -1;
+    #endregion
+
     #region Internal Variables Declaration 
         internal int            accountID           { get; set; }
         internal int            playerID            { get; set; }
@@ -14,18 +18,20 @@ public class PlayerInfo : MonoBehaviour
         internal string         playerCurrentMap    { get; set; }
         internal Vector3        playerPosition      { get; set; }
         internal int            playerMoney         { get; set; }
-        internal List<Pokemon>  partyPokemons       { get; set; } = new List<Pokemon>();
-        internal int            followerPokemonIdx  { get; set; }
+        internal List<Pokemon>  partyPokemons       { get; set; }   = new List<Pokemon>();
+        internal int            followerPokemonIdx  { get; set; }   = INVALID_FOLLOWER;
     #endregion
 
     #region Private Variables Declaration
-        private bool            ready                   = false;
+        private bool                ready                   = false;
 
-        private PokemonFollower followerInstance        = null;
+        private PokemonFollower     followerInstance        = null;
 
-        private PlayerInfoBar   playerInfoBarInstance   = null;
+        private PlayerInfoBar       playerInfoBarInstance   = null;
 
-        private TeamButton      teamButtonInstance;
+        private TeamButton          teamButtonInstance      = null;
+
+        private PokemonResources    pokemonResources        = null;
     #endregion
 
     public IEnumerator IsReady()
@@ -39,6 +45,9 @@ public class PlayerInfo : MonoBehaviour
     #region Unity Overloaded Methods
         void Start()
         {
+            Debug.Log("Called method PlayerInfo::Start");
+
+            this.pokemonResources = SystemManager.Instance.PokemonResources;
         }
     #endregion
 
@@ -48,19 +57,28 @@ public class PlayerInfo : MonoBehaviour
             this.followerInstance = value;
         }
 
-        public void EnableFollower(GameObject theFollower)
+        public void HandleFollower(int index)
         {
-            this.followerInstance.CreateFollower(theFollower);
-        }
+            int speciesID = this.partyPokemons[index].speciesID;
 
-        public void DisableFollower()
-        {
-            this.followerInstance.RemoveFollower();
-        }
+            if(this.followerPokemonIdx == INVALID_FOLLOWER)
+            {
+                this.followerInstance.CreateFollower(this.pokemonResources.RetrievePokemonResource(speciesID).prefab);
 
-        public void ReplaceFollower(GameObject newFollower)
-        {
-            this.followerInstance.SwitchFollower(newFollower);
+                this.followerPokemonIdx = speciesID;
+            }
+            else if(this.followerPokemonIdx == speciesID)
+            {
+                this.followerInstance.RemoveFollower();
+
+                this.followerPokemonIdx = INVALID_FOLLOWER;
+            }
+            else
+            {
+                this.followerInstance.SwitchFollower(this.pokemonResources.RetrievePokemonResource(speciesID).prefab);
+
+                this.followerPokemonIdx = speciesID;
+            }
         }
     #endregion
 

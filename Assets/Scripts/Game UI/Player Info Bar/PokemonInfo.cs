@@ -34,7 +34,5 @@ public class PokemonInfo : MonoBehaviour
     void TaskOnClick()
     {
         Debug.Log("You Clicked on Pokemon " + this.pokemonIndex);
-
-        //this.playerInfo.EnableFollower(this.pokemonResources.RetrievePokemonResource(1).prefab);
     }
 }
