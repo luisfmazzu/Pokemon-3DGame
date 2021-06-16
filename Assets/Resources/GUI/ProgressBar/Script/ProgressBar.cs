@@ -16,8 +16,8 @@ public class ProgressBar : MonoBehaviour
     #endregion
 
     #region Constant Variables
-    private const float MIN_BAR_VALUE = 0.0f;
-    private const float MAX_BAR_VALUE = 100.0f;
+        private const float MIN_BAR_VALUE = 0.0f;
+        private const float MAX_BAR_VALUE = 100.0f;
     #endregion
 
     #region SerializeFields

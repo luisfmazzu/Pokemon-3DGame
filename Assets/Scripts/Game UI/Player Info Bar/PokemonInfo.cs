@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class PokemonInfo : MonoBehaviour
 {
     #region Serialize Fields
-        [SerializeField, Range(0, 5)] private int pokemonIndex;
+     [SerializeField, Range(0, 5)] private int pokemonIndex;
     #endregion
 
     #region Private Variables Declaration
@@ -28,7 +28,7 @@ public class PokemonInfo : MonoBehaviour
 
     private void Update()
     {
-        
+
     }
 
     void TaskOnClick()

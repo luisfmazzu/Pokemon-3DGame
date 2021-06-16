@@ -32,7 +32,6 @@ public class ChatBoxWindow : MonoBehaviour
 
 #pragma warning disable 618
     void Start()
-    //IEnumerator Start()
     {
         Input.eatKeyPressOnTextFieldFocus = false;
     }

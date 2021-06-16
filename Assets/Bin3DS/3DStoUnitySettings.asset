@@ -15,11 +15,13 @@ MonoBehaviour:
   PackageVersion: 
   ImporterSettings:
     StartIndex: 0
-    EndIndex: 0
+    EndIndex: 2
     ImportModel: 1
     ImportTextures: 1
     ImportMaterials: 1
+    ImportShinyMaterials: 1
     ApplyMaterials: 1
+    ApplyShinyMaterials: 0
     ImportFireMaterials: 1
     SkeletalAnimations: 1
     FightAnimationsToImport:
@@ -90,11 +92,23 @@ MonoBehaviour:
     ImportPath: Assets/Bin3DS/
   mergedBinariesPreview:
   - PokemonMergedBinary:
-    - Assets/Bin3DS/Anim_Basic\0006 - Charmander.bin
-    - Assets/Bin3DS/Anim_Fight\0006 - Charmander.bin
-    - Assets/Bin3DS/model\0006 - Charmander.bin
-    - Assets/Bin3DS/Textures (Shiny)\0006 - Charmander.bin
-    - Assets/Bin3DS/Textures (Tex)\0006 - Charmander.bin
+    - Assets/Bin3DS/Anim_Basic\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Anim_Fight\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/model\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Textures (Shiny)\0001 - Bulbasaur.bin
+    - Assets/Bin3DS/Textures (Tex)\0001 - Bulbasaur.bin
+  - PokemonMergedBinary:
+    - Assets/Bin3DS/Anim_Basic\0038 - Pikachu.bin
+    - Assets/Bin3DS/Anim_Fight\0038 - Pikachu.bin
+    - Assets/Bin3DS/model\0038 - Pikachu.bin
+    - Assets/Bin3DS/Textures (Shiny)\0038 - Pikachu.bin
+    - Assets/Bin3DS/Textures (Tex)\0038 - Pikachu.bin
+  - PokemonMergedBinary:
+    - Assets/Bin3DS/Anim_Basic\0039 - Pikachu (Female).bin
+    - Assets/Bin3DS/Anim_Fight\0039 - Pikachu (Female).bin
+    - Assets/Bin3DS/model\0039 - Pikachu (Female).bin
+    - Assets/Bin3DS/Textures (Shiny)\0039 - Pikachu (Female).bin
+    - Assets/Bin3DS/Textures (Tex)\0039 - Pikachu (Female).bin
   customShaderSettings:
     bodyShader: {fileID: -6465566751694194690, guid: 707e4c837f2b58240a84f53df2eb732e,
       type: 3}

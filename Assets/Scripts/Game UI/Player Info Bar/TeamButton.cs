@@ -1,18 +1,23 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TeamButton : MonoBehaviour
 {
-    public class Pokemon
+    public class PokemonObjects
     {
         public Canvas   canvas  { get; set; } = null;
         public Image    image   { get; set; } = null;
+        public Text     name    { get; set; } = null;
+        public Text     lvl     { get; set; } = null;
 
-        public Pokemon(Canvas _canvas, Image _image)
+        public PokemonObjects(Canvas _canvas, Image _image, Text _name, Text _lvl)
         {
             this.canvas = _canvas;
             this.image  = _image;
+            this.name   = _name;
+            this.lvl    = _lvl;
         }
     }
 
@@ -33,54 +38,79 @@ public class TeamButton : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-        private PlayerInfo playerInfo;
-        private Text        text;
-        private Pokemon[]   pokemons = { null, null, null, null, null, null };
+        private PlayerInfo              playerInfo;
+        private PokemonResources        pokemonResources;
 
-        private FSM         currentState;
+        private Text                    text;
+        private List<PokemonObjects>    pokemons;
+
+        private FSM                     currentState;
     #endregion
 
     private void Awake()
     {
-        this.playerInfo = PlayerManager.Instance.PlayerInfo;
+        this.playerInfo         = PlayerManager.Instance.PlayerInfo;
+        this.pokemonResources   = SystemManager.Instance.PokemonResources;
 
         this.text       = this.transform.Find("Text").GetComponent<Text>();
 
+        this.pokemons = new List<PokemonObjects>();
+
         Transform currentTransform  = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
-        this.pokemons[0]            = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 02").Find("Pokemon Info");
-        this.pokemons[1] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 03").Find("Pokemon Info");
-        this.pokemons[2] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 04").Find("Pokemon Info");
-        this.pokemons[3] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 05").Find("Pokemon Info");
-        this.pokemons[4] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 06").Find("Pokemon Info");
-        this.pokemons[5] = new Pokemon(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>());
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
     }
 
     IEnumerator Start()
     {
+        this.playerInfo.setTeamButtonInstance(this);
+
         Button button = this.GetComponent<Button>();
 
         button.onClick.AddListener(TaskOnClick);
 
+        this.SwitchState(FSM.HiddingTeam);
+
         yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do nothing until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
-        this.SwitchState(FSM.HiddingTeam);
+        yield return StartCoroutine(this.pokemonResources.IsReady());
+
+        this.UpdatePokemons();
     }
 
     private void Update()
     {
-        if(this.currentState == FSM.ShowingTeam)
+    }
+
+    public void UpdatePokemons()
+    {
+        int i = 0;
+        for(; i < this.playerInfo.partyPokemons.Count; i++)
         {
-            this.EnableCanvasIfPokemonExists();
+            Pokemon pokemon = this.playerInfo.partyPokemons[i];
+
+            this.pokemons[i].image.sprite   = this.pokemonResources.RetrievePokemonResource(pokemon.resourceID).sprite;
+            this.pokemons[i].name.text      = pokemon.nickname;
+            this.pokemons[i].lvl.text       = "Lv " + pokemon.baseLvl;
+        }
+
+        for (; i < 6; i++)
+        {
+            this.pokemons[i].image.sprite = null;
         }
     }
 
@@ -105,12 +135,9 @@ public class TeamButton : MonoBehaviour
 
     void EnableCanvasIfPokemonExists()
     {
-        foreach(Pokemon pokemon in this.pokemons)
+        foreach(PokemonObjects pokemon in this.pokemons)
         {
-            if(pokemon.image.sprite != null)
-            {
-                pokemon.canvas.enabled = true;
-            }
+            pokemon.canvas.enabled = (pokemon.image.sprite != null) ? (true) : (false);
         }
     }
 
@@ -127,7 +154,7 @@ public class TeamButton : MonoBehaviour
         this.currentState   = FSM.HiddingTeam;
         this.text.text      = SHOW_TEAM;
 
-        foreach(Pokemon pokemon in this.pokemons)
+        foreach(PokemonObjects pokemon in this.pokemons)
         {
             pokemon.canvas.enabled = false;
         }
