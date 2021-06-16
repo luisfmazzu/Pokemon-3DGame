@@ -37,50 +37,52 @@ public class PlayerInfoBar : MonoBehaviour
 
     IEnumerator Start()
     {
+        this.playerInfo.setPlayerInfoBar(this);
+
         yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
-        this.handlePlayerName();
-        this.handlePlayerLevel();
-        this.handlePlayerLevelProgressBar();
-        this.handlePlayerLineUp();
+        this.UpdatePlayerName();
+        this.UpdatePlayerLevel();
+        this.UpdatePlayerLevelProgressBar();
+        this.UpdatePlayerLineUp();
     }
 
-    void handlePlayerName()
+    private void Update()
+    {
+    }
+
+    private void UpdatePlayerName()
     {
         Text text = this.transform.Find("Basic Sprite").Find("Player Name").GetComponent<Text>();
 
         text.text = this.playerInfo.playerName;
     }
 
-    void handlePlayerLevel()
+    public void UpdatePlayerLevel()
     {
         this.playerLvl.text = "Lv " + this.playerInfo.playerBaseLvl.ToString();
     }
 
-    void handlePlayerLevelProgressBar()
+    public void UpdatePlayerLevelProgressBar()
     {
         this.playerBaseLevelProgressBar.BarValue = this.playerInfo.playerBaseLvlExp;
     }
 
-    void handlePlayerLineUp()
+    public void UpdatePlayerLineUp()
     {
-        for(int i = 0; i < this.playerInfo.partyPokemons.Count; i++)
+        int i = 0;
+        for(; i < this.playerInfo.partyPokemons.Count; i++)
         {
             int id = this.playerInfo.partyPokemons[i].speciesID;
             string spritePath = "Pokemon/" + id + "/" + id;
             this.lineup_small[i].sprite = Resources.Load<Sprite>(spritePath);
+
+            this.lineup_small[i].color = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 1.00f);
         }
-    }
 
-    private void Update()
-    {
-        this.handlePlayerLevel();
-        this.handlePlayerLevelProgressBar();
-
-        for (int i = 0; i < 6; i++)
+        for(; i < 6; i++)
         {
-            this.lineup_small[i].color = (this.lineup_small[i].sprite == null) ? (this.lineup_small[i].color = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 0.00f))
-                                                                               : (this.lineup_small[i].color = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 1.00f));
+            this.lineup_small[i].color = new Color(this.lineup_small[i].color.r, this.lineup_small[i].color.g, this.lineup_small[i].color.b, 0.00f);
         }
     }
 }

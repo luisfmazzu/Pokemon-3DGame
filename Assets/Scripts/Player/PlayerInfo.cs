@@ -19,13 +19,23 @@ public class PlayerInfo : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-        private bool            ready               = false;
+        private bool            ready                   = false;
 
-        private PokemonFollower followerInstance    = null;
+        private PokemonFollower followerInstance        = null;
+
+        private PlayerInfoBar   playerInfoBarInstance   = null;
     #endregion
 
     void Start()
     {
+    }
+
+    public IEnumerator IsReady()
+    {
+        while (!ready)
+        {
+            yield return null;
+        }
     }
 
     public void RetrievePlayerInformation(CtrlPlayer ctrlPlayer, int _playerID)
@@ -89,14 +99,6 @@ public class PlayerInfo : MonoBehaviour
         }
     }
 
-    public IEnumerator IsReady()
-    {
-        while(!ready)
-        { 
-            yield return null;
-        }
-    }
-
     public void AwardExp(float value)
     {
         if((this.playerBaseLvlExp + value) >= 100.0f)
@@ -104,16 +106,24 @@ public class PlayerInfo : MonoBehaviour
             this.playerBaseLvl++;
 
             this.playerBaseLvlExp  = (this.playerBaseLvlExp + value) - 100.0f;
+
+            this.playerInfoBarInstance.UpdatePlayerLevel();
         }
         else
         {
             this.playerBaseLvlExp += value;
         }
+        this.playerInfoBarInstance.UpdatePlayerLevelProgressBar();
     }
 
     public void setFollowerController(PokemonFollower value)
     {
         this.followerInstance = value;
+    }
+
+    public void setPlayerInfoBar(PlayerInfoBar value)
+    {
+        this.playerInfoBarInstance = value;
     }
 
     public void EnableFollower(GameObject theFollower)
