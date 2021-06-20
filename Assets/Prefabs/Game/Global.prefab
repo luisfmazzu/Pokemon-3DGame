@@ -832,9 +832,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5592597676199711790}
-  - component: {fileID: 7488158271247110404}
+  - component: {fileID: 3378315573764269329}
   m_Layer: 0
-  m_Name: PokemonResources
+  m_Name: PokemonData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -854,7 +854,7 @@ Transform:
   m_Father: {fileID: 3190633575804738726}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7488158271247110404
+--- !u!114 &3378315573764269329
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,9 +863,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2145706474109214489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f075399fcd1424d8ef8e3bbc5a75f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 180a51605470c9c4382f95ef977437df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pokemonResources: {fileID: 0}
+  pokemonAbilities: {fileID: 0}
 --- !u!1 &2372858490190653772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1353,7 @@ MonoBehaviour:
   Camera: {fileID: 3190633576912732120}
   PanelUI: {fileID: 3190633575898419073}
   DayNightCycle: {fileID: 4143533591046718021}
-  PokemonResources: {fileID: 7488158271247110404}
+  PokemonData: {fileID: 3378315573764269329}
 --- !u!1 &3190633575898419073
 GameObject:
   m_ObjectHideFlags: 0

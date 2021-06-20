@@ -34,7 +34,7 @@ public class PlayerInfoBar : MonoBehaviour
         private void Awake()
         {
             this.playerInfo         = PlayerManager.Instance.PlayerInfo;
-            this.pokemonResources   = SystemManager.Instance.PokemonResources;
+            this.pokemonResources   = SystemManager.Instance.PokemonData.pokemonResources;
 
             var basicSprite = this.transform.Find("Basic Sprite");
 

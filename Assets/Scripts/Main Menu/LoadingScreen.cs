@@ -8,7 +8,6 @@ public class LoadingScreen : MonoBehaviour
 {
     #region Private Variables
         private PlayerInfo          playerInfo;
-        private PokemonResources    pokemonResources;
         private CtrlPlayer          ctrlPlayer;
         private Text                text;
         private ProgressBar         loadingBar;
@@ -16,7 +15,7 @@ public class LoadingScreen : MonoBehaviour
 
     static class LoadingSteps
     {
-        public static string[] steps = { "Retrieving Player Information", "Loading Resources", "Loading Map" };
+        public static string[] steps = { "Retrieving Player Information", "Retrieving Pokemons Data", "Loading Resources", "Loading Map" };
     }
 
     private void Awake()
@@ -29,8 +28,7 @@ public class LoadingScreen : MonoBehaviour
     {
         ctrlPlayer = new CtrlPlayer();
 
-        this.playerInfo         = PlayerManager.Instance.PlayerInfo;
-        this.pokemonResources   = SystemManager.Instance.PokemonResources;
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
         // Disable existing components while loading
         PlayerManager.Instance.PlayerController.gameObject.SetActive(false);
@@ -51,6 +49,7 @@ public class LoadingScreen : MonoBehaviour
         yield return StartCoroutine(this.HandleFirstLoadingStep());
         yield return StartCoroutine(this.HandleSecondLoadingStep());
         yield return StartCoroutine(this.HandleThirdLoadingStep());
+        yield return StartCoroutine(this.HandleFourthLoadingStep());
     }
 
     IEnumerator HandleFirstLoadingStep()
@@ -77,11 +76,13 @@ public class LoadingScreen : MonoBehaviour
         /**
          * 2nd step -> Load Resouces
          */
+        PokemonAbilities pokemonAbilities = SystemManager.Instance.PokemonData.pokemonAbilities;
+
         this.text.text = LoadingSteps.steps[1];
 
-        this.pokemonResources.LoadResources();
+        pokemonAbilities.LoadAbilities();
 
-        yield return StartCoroutine(this.pokemonResources.IsReady());
+        yield return StartCoroutine(pokemonAbilities.IsReady());
 
         this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
 
@@ -91,9 +92,27 @@ public class LoadingScreen : MonoBehaviour
     IEnumerator HandleThirdLoadingStep()
     {
         /**
-         * 3rd step -> Load Map
+         * 3rd step -> Load Resouces
          */
+        PokemonResources pokemonResources = SystemManager.Instance.PokemonData.pokemonResources;
+
         this.text.text = LoadingSteps.steps[2];
+
+        pokemonResources.LoadResources();
+
+        yield return StartCoroutine(pokemonResources.IsReady());
+
+        this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
+
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator HandleFourthLoadingStep()
+    {
+        /**
+         * 4th step -> Load Map
+         */
+        this.text.text = LoadingSteps.steps[3];
 
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(this.playerInfo.playerCurrentMap);
 
