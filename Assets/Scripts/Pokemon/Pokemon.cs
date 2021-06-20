@@ -21,19 +21,6 @@ public class Pokemon
         internal string     resourceID          { get; set; }
     #endregion
 
-    public enum Gender
-    {
-        Female      = 1,
-        Male        = 2,
-        Genderless  = 3
-    }
-
-    public enum Variances
-    {
-        Normal  = 1,
-        Shiny   = 2
-    }
-
     public Pokemon(int _pokemonID, int _speciesID, int _originalTrainerID, int _variantID, string _nickname, int _currentHP, int _baseLvl, int _abilityID, int _natureID, int _captureBallID, int _genderID, float _baseLvlExp, IV _ivs, EV _untrainedEVs, EV _trainedEVs)
     {
         this.pokemonID          = _pokemonID;
@@ -52,11 +39,11 @@ public class Pokemon
         this.untrainedEVs       = _untrainedEVs;
         this.trainedEVs         = _trainedEVs;
 
-        if(this.variantID == (int)Variances.Normal)
+        if(this.variantID == (int)PokemonEnums.Variances.Normal)
         {
             this.resourceID = this.speciesID.ToString() + "_n";
         }
-        else if(this.variantID == (int)Variances.Shiny)
+        else if(this.variantID == (int)PokemonEnums.Variances.Shiny)
         {
             this.resourceID = this.speciesID.ToString() + "_s";
         }
