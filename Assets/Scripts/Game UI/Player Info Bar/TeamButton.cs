@@ -50,7 +50,7 @@ public class TeamButton : MonoBehaviour
     private void Awake()
     {
         this.playerInfo         = PlayerManager.Instance.PlayerInfo;
-        this.pokemonResources   = SystemManager.Instance.PokemonResources;
+        this.pokemonResources   = SystemManager.Instance.PokemonData.pokemonResources;
 
         this.text       = this.transform.Find("Text").GetComponent<Text>();
 

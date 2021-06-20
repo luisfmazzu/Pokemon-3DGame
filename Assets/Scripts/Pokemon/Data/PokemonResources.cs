@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PokemonResources : MonoBehaviour
+public class PokemonResources
 {
     public struct Resource
     {
@@ -33,16 +33,6 @@ public class PokemonResources : MonoBehaviour
     #region Private Variables Declaration
         private         bool                            ready           = false;
         private         Dictionary<string, Resource>    pokemonResource = new Dictionary<string, Resource>();
-    #endregion
-
-    #region Unity Overloaded Methods
-        private void Awake()
-        {
-        }
-
-        void Start()
-        {
-        }
     #endregion
 
     public void LoadResources()

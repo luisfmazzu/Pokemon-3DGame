@@ -5,13 +5,13 @@ using UnityEngine;
 public class SystemManager : MonoBehaviour
 {
     #region Public Fields
-        public GameObject       Camera;
+        public GameObject   Camera;
 
-        public GameObject       PanelUI;
+        public GameObject   PanelUI;
 
-        public GameObject       DayNightCycle;
+        public GameObject   DayNightCycle;
 
-        public PokemonResources PokemonResources;
+        public PokemonData  PokemonData;
     #endregion
 
     #region Private Variables Declaration

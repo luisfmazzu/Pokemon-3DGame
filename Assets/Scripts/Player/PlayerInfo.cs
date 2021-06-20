@@ -47,7 +47,7 @@ public class PlayerInfo : MonoBehaviour
         {
             Debug.Log("Called method PlayerInfo::Start");
 
-            this.pokemonResources = SystemManager.Instance.PokemonResources;
+            this.pokemonResources = SystemManager.Instance.PokemonData.pokemonResources;
         }
     #endregion
 
