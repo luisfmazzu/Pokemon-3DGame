@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public class PokemonAbilities
 {
@@ -31,11 +32,11 @@ public class PokemonAbilities
 
     public void LoadAbilities()
     {
-        CtrlPlayer ctrlPlayer = new CtrlPlayer();
+        CtrlPokemon ctrlPokemon = new CtrlPokemon();
 
         List<Tuple<int, string, string>> abilities;
 
-        ctrlPlayer.getPokemonAbilities(out abilities);
+        ctrlPokemon.getPokemonAbilities(out abilities);
 
         foreach(Tuple<int, string, string> ability in abilities)
         {
@@ -48,5 +49,19 @@ public class PokemonAbilities
     public Ability RetrievePokemonAbility(int abilityID)
     {
         return this.pokemonAbility[abilityID];
+    }
+
+    public string SimplifyAbilityEffect(string effect)
+    {
+        /**
+         * In a Ability Effect text, three scenarios can happen
+         *  1) No Brackets and no Curly Brackets following              --> Nothing needs to be done
+         *  2) Non-empty Brackets Followed by non-empty Curly Brackets  --> Must keep only the content after ':' inside the curly brackets
+         *  3) Empty Brackets Followed by non-empty Curly Brackets      --> Must keep only the content after ':' inside the curly brackets
+         */
+
+        effect = Regex.Replace(effect, @"\[(?<brackets>[^]]*)\]\{(?<type>[^:]*)\:(?<curlyBrackets>[^}]*)\}", "${curlyBrackets}");
+
+        return effect;
     }
 }

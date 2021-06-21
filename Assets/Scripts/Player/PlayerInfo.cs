@@ -96,13 +96,13 @@ public class PlayerInfo : MonoBehaviour
         }
     #endregion
 
-    public void RetrievePlayerInformation(CtrlPlayer ctrlPlayer, int _playerID)
+    public void RetrievePlayerInformation(CtrlPlayer ctrlPlayer, CtrlPokemon ctrlPokemon, int _playerID)
     {
         this.playerID = _playerID;
 
         this.GetPlayerInfo(ctrlPlayer);
 
-        this.GetPlayerPartyInfo(ctrlPlayer);
+        this.GetPlayerPartyInfo(ctrlPlayer, ctrlPokemon);
 
         ready = true;
     }
@@ -128,7 +128,7 @@ public class PlayerInfo : MonoBehaviour
         this.playerMoney         = _playerMoney;
     }
 
-    private void GetPlayerPartyInfo(CtrlPlayer ctrlPlayer)
+    private void GetPlayerPartyInfo(CtrlPlayer ctrlPlayer, CtrlPokemon ctrlPokemon)
     {
         List<int> pokemonIDs;
 
@@ -151,7 +151,7 @@ public class PlayerInfo : MonoBehaviour
             EV      _untrainedEVs       = new EV(0, 0, 0, 0, 0, 0);
             EV      _trainedEVs         = new EV(0, 0, 0, 0, 0, 0);
 
-            ctrlPlayer.getPokemonInformation(pokemonID, out _speciesID, out _originalTrainerID, out _variantID, out _nickname, out _currentHP, out _baseLvl, out _abilityID, out _natureID, out _captureBallID, out _genderID, out _baseLvlExp, out _ivs, out _untrainedEVs, out _trainedEVs);
+            ctrlPokemon.getPokemonInformation(pokemonID, out _speciesID, out _originalTrainerID, out _variantID, out _nickname, out _currentHP, out _baseLvl, out _abilityID, out _natureID, out _captureBallID, out _genderID, out _baseLvlExp, out _ivs, out _untrainedEVs, out _trainedEVs);
 
             this.partyPokemons.Add(new Pokemon(pokemonID, _speciesID, _originalTrainerID, _variantID, _nickname, _currentHP, _baseLvl, _abilityID, _natureID, _captureBallID, _genderID, _baseLvlExp, _ivs, _untrainedEVs, _trainedEVs));
         }
