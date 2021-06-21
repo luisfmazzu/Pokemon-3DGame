@@ -117,7 +117,10 @@ public class PokemonFollower : MonoBehaviour
 
     public void UpdateFollowerPosition(Vector3 position, Quaternion rotation)
     {
-        this.followerInstance.transform.position = position;
-        this.followerInstance.transform.rotation = rotation;
+        if (this.followerInstance != null)
+        {
+            this.followerInstance.transform.position = position;
+            this.followerInstance.transform.rotation = rotation;
+        }
     }
 }
