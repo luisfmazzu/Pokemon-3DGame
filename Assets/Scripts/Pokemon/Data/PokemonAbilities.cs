@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 public class PokemonAbilities
 {
@@ -50,12 +51,17 @@ public class PokemonAbilities
         return this.pokemonAbility[abilityID];
     }
 
+    public string SimplifyAbilityEffect(string effect)
+    {
+        /**
+         * In a Ability Effect text, three scenarios can happen
+         *  1) No Brackets and no Curly Brackets following              --> Nothing needs to be done
+         *  2) Non-empty Brackets Followed by non-empty Curly Brackets  --> Must keep only the content after ':' inside the curly brackets
+         *  3) Empty Brackets Followed by non-empty Curly Brackets      --> Must keep only the content after ':' inside the curly brackets
+         */
 
-    /**
-     * The [weather]{mechanic:weather} changes to [rain]{mechanic:rain} when this Pokémon enters battle and does not end unless replaced by another weather condition.
+        effect = Regex.Replace(effect, @"\[(?<brackets>[^]]*)\]\{(?<type>[^:]*)\:(?<curlyBrackets>[^}]*)\}", "${curlyBrackets}");
 
-        If multiple Pokémon with this ability, []{ability:drought}, []{ability:sand-stream}, or []{ability:snow-warning} are sent out at the same time, the abilities will activate in order of [Speed]{mechanic:speed}, respecting []{move:trick-room}.  Each ability's weather will cancel the previous weather, and only the weather summoned by the slowest of the Pokémon will stay.
-     */
-
-
+        return effect;
+    }
 }
