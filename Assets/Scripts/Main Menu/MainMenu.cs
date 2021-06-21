@@ -21,8 +21,6 @@ public class MainMenu : MonoBehaviour
         private Button      registerButton;
         private Text        dynamicDisplayMessage;
 
-        private CtrlPlayer  ctrlPlayer;
-
         private float       startMessageTime;
         private bool        isMessageBeingDisplayed;
     #endregion
@@ -44,8 +42,6 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        this.ctrlPlayer = new CtrlPlayer();
-
         this.clientLoginButton.onClick.AddListener(this.HandleClientLoginButton);
         this.registerButton.onClick.AddListener(this.HandleRegisterButton);
     }
@@ -64,9 +60,11 @@ public class MainMenu : MonoBehaviour
 
     void HandleClientLoginButton()
     {
+        CtrlAccount ctrlAccount = new CtrlAccount();
+
         int accountID = 0;
 
-        if((!validateInputFields()) || (!ctrlPlayer.getAccountId(this.username.text, this.password.text, out accountID)))
+        if((!validateInputFields()) || (!ctrlAccount.getAccountId(this.username.text, this.password.text, out accountID)))
         {
             this.DisplayMessage("Invalid Login Information");
         }
@@ -83,17 +81,19 @@ public class MainMenu : MonoBehaviour
 
     void HandleRegisterButton()
     {
-        if(!validateInputFields())
+        CtrlAccount ctrlAccount = new CtrlAccount();
+
+        if (!validateInputFields())
         {
             this.DisplayMessage("Invalid Register Information");
         }
-        else if(ctrlPlayer.accountExists(this.username.text))
+        else if(ctrlAccount.accountExists(this.username.text))
         {
             this.DisplayMessage("Account already Exists");
         }
         else
         {
-            ctrlPlayer.registerPlayer(this.username.text, this.password.text);
+            ctrlAccount.registerAccount(this.username.text, this.password.text);
 
             this.DisplayMessage("Account successfully created");
         }

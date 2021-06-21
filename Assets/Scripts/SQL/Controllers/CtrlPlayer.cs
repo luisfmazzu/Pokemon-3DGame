@@ -95,61 +95,8 @@ public class CtrlPlayer
         dao.getPlayerInfo(playerID, out playerName, out playerClass, out playerBaseLvl, out playerBaseLvlExp, out playerCurrentMap, out playerPosition, out playerMoney);
     }
 
-    public bool accountExists(string username)
-    {
-        bool exists = false;
-
-        if(dao.accountExists(username))
-        {
-            exists = true;
-        }
-
-        return exists;
-    }
-
-    public bool getAccountId(string username, string password, out int id)
-    {
-        string passwordHash = computeSha256Hash(password);
-
-        return dao.getAccountId(username, passwordHash, out id);
-    }
-
     public void getPlayerLineUp(int playerID, out List<int> pokemonID)
     {
         dao.getPlayerLineUp(playerID, out pokemonID);
-    }
-
-    public void getPokemonInformation(int pokemonID, out int _speciesID, out int _originalTrainerID, out int _variantID, out string _nickname, out int _currentHP, out int _baseLvl, out int _abilityID, out int _natureID, out int _captureBallID, out int _genderID, out float _baseLvlExp, out IV _ivs, out EV _untrainedEVs, out EV _trainedEVs)
-    {
-        dao.getPokemonInformation(pokemonID, out _speciesID, out _originalTrainerID, out _variantID, out _nickname, out _currentHP, out _baseLvl, out _abilityID, out _natureID, out _captureBallID, out _genderID, out _baseLvlExp, out _ivs, out _untrainedEVs, out _trainedEVs);
-    }
-
-    public void getPokemonAbilities(out List<Tuple<int, string, string>> abilities)
-    {
-        dao.getPokemonAbilities(out abilities);
-    }
-
-    public void registerPlayer(string username, string password)
-    {
-        string passwordHash = computeSha256Hash(password);
-
-        dao.registerPlayer(username, passwordHash);
-    }
-
-    public string computeSha256Hash(string rawData)
-    {
-        using(SHA256 sha256Hash = SHA256.Create())
-        {
-            byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-
-            StringBuilder builder = new StringBuilder();
-
-            for(int i = 0; i < bytes.Length; i++)
-            {
-                builder.Append(bytes[i].ToString("x2"));
-            }
-
-            return builder.ToString();
-        }
     }
 }

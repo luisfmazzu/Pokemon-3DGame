@@ -8,7 +8,6 @@ public class LoadingScreen : MonoBehaviour
 {
     #region Private Variables
         private PlayerInfo          playerInfo;
-        private CtrlPlayer          ctrlPlayer;
         private Text                text;
         private ProgressBar         loadingBar;
     #endregion
@@ -26,8 +25,6 @@ public class LoadingScreen : MonoBehaviour
 
     IEnumerator Start()
     {
-        ctrlPlayer = new CtrlPlayer();
-
         this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
         // Disable existing components while loading
@@ -59,7 +56,10 @@ public class LoadingScreen : MonoBehaviour
          */
         this.text.text = LoadingSteps.steps[0];
 
-        this.playerInfo.RetrievePlayerInformation(ctrlPlayer, this.playerInfo.accountID);
+        CtrlPlayer  ctrlPlayer  = new CtrlPlayer();
+        CtrlPokemon ctrlPokemon = new CtrlPokemon();
+
+        this.playerInfo.RetrievePlayerInformation(ctrlPlayer, ctrlPokemon, this.playerInfo.accountID);
 
         yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
