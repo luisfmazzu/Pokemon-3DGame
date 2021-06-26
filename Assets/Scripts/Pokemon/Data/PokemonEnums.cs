@@ -12,4 +12,11 @@
         Normal  = 1,
         Shiny   = 2
     }
+
+    public enum BattleFormats
+    {
+        SingleBattle = 1,
+        DoubleBattle = 2,
+        TripleBattle = 3
+    }
 }

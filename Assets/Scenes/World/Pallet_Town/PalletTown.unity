@@ -456,13 +456,13 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.548
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
---- !u!43 &1693112796
+--- !u!43 &1488872050
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterVolume--111670
+  m_Name: WaterVolume--142574
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -714,67 +714,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5051776058124251547, guid: 6faf1ec22f960364a93c9090cca974b2,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 500.5899
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051776058124251547, guid: 6faf1ec22f960364a93c9090cca974b2,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 225.32425
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051776058124251547, guid: 6faf1ec22f960364a93c9090cca974b2,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 189.78386
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051776058124251547, guid: 6faf1ec22f960364a93c9090cca974b2,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 404.20258
-      objectReference: {fileID: 0}
     - target: {fileID: 5391037107121244142, guid: 6faf1ec22f960364a93c9090cca974b2,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 1693112796}
+      objectReference: {fileID: 1488872050}
     - target: {fileID: 5393881197146926000, guid: 6faf1ec22f960364a93c9090cca974b2,
         type: 3}
       propertyPath: m_Name
-      value: Pallet Town
+      value: Map
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6faf1ec22f960364a93c9090cca974b2, type: 3}
---- !u!1 &5051776057356988783 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7477061773926733374, guid: 6faf1ec22f960364a93c9090cca974b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 5051776057356988782}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &5051776057356988784
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5051776057356988783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 82.913055, y: 377.0349, z: 111.05614}
-  m_Center: {x: -1441.3547, y: 189.78386, z: 572.14886}
---- !u!65 &5051776057356988785
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5051776057356988783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 312.86362, y: 377.0349, z: 112.181244}
-  m_Center: {x: -1744.0549, y: 189.78386, z: 571.5857}
