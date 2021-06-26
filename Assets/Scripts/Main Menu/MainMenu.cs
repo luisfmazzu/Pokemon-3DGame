@@ -23,6 +23,8 @@ public class MainMenu : MonoBehaviour
 
         private float       startMessageTime;
         private bool        isMessageBeingDisplayed;
+
+        private CtrlAccount ctrlAccount = null;
     #endregion
 
     private void Awake()
@@ -38,6 +40,8 @@ public class MainMenu : MonoBehaviour
         this.registerButton         = this.transform.Find("Buttons").Find("Register Button").GetComponent<Button>();
 
         this.isMessageBeingDisplayed = false;
+
+        this.ctrlAccount = new CtrlAccount();
     }
 
     void Start()
@@ -60,11 +64,9 @@ public class MainMenu : MonoBehaviour
 
     void HandleClientLoginButton()
     {
-        CtrlAccount ctrlAccount = new CtrlAccount();
-
         int accountID = 0;
 
-        if((!validateInputFields()) || (!ctrlAccount.getAccountId(this.username.text, this.password.text, out accountID)))
+        if((!validateInputFields()) || (!this.ctrlAccount.getAccountId(this.username.text, this.password.text, out accountID)))
         {
             this.DisplayMessage("Invalid Login Information");
         }
@@ -81,19 +83,17 @@ public class MainMenu : MonoBehaviour
 
     void HandleRegisterButton()
     {
-        CtrlAccount ctrlAccount = new CtrlAccount();
-
         if (!validateInputFields())
         {
             this.DisplayMessage("Invalid Register Information");
         }
-        else if(ctrlAccount.accountExists(this.username.text))
+        else if(this.ctrlAccount.accountExists(this.username.text))
         {
             this.DisplayMessage("Account already Exists");
         }
         else
         {
-            ctrlAccount.registerAccount(this.username.text, this.password.text);
+            this.ctrlAccount.registerAccount(this.username.text, this.password.text);
 
             this.DisplayMessage("Account successfully created");
         }

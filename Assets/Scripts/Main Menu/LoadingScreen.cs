@@ -68,7 +68,7 @@ public class LoadingScreen : MonoBehaviour
 
         this.loadingBar.BarValue = (100.0f / LoadingSteps.steps.Length);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
     }
 
     IEnumerator HandleSecondLoadingStep()
@@ -86,7 +86,7 @@ public class LoadingScreen : MonoBehaviour
 
         this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
     }
 
     IEnumerator HandleThirdLoadingStep()
@@ -104,7 +104,7 @@ public class LoadingScreen : MonoBehaviour
 
         this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
     }
 
     IEnumerator HandleFourthLoadingStep()

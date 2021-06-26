@@ -3,24 +3,26 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DAOPlayer : DAOGeneric
+public class DAOPlayer
 {
+    DAOGeneric daoGeneric = DAOGeneric.Instance;
+
     public int getPlayerID(string username, string password)
     {
         int id = 0;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.playerID" +
-                                                            " FROM " + database + ".Players players, " + database + ".Accounts accounts" +
-                                                            " WHERE accounts.username = '" + username + "'" +
-                                                            " AND accounts.password = '" + password + "'" +
-                                                            " AND players.accountID = accounts.accountID");
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT players.playerID" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players, " + daoGeneric.database + ".Accounts accounts" +
+                                                                                                        " WHERE accounts.username = '" + username + "'" +
+                                                                                                        " AND accounts.password = '" + password + "'" +
+                                                                                                        " AND players.accountID = accounts.accountID");
 
-        while (reader.Read())
+        while(daoGeneric.reader.Read())
         {
-            id = reader.GetInt32(0);
+            id = daoGeneric.reader.GetInt32(0);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return id;
     }
@@ -29,16 +31,16 @@ public class DAOPlayer : DAOGeneric
     {
         string name = null;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.name" +
-                                                            " FROM " + database + ".Players players" +
-                                                            " WHERE players.playerID = " + playerID);
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT players.name" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players" +
+                                                                                                        " WHERE players.playerID = " + playerID);
 
-        while (reader.Read())
+        while (daoGeneric.reader.Read())
         {
-            name = reader.GetString(0);
+            name = daoGeneric.reader.GetString(0);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return name;
     }
@@ -47,17 +49,17 @@ public class DAOPlayer : DAOGeneric
     {
         string playerClass = null;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT playableClasses.name" +
-                                                            " FROM " + database + ".Players players, " + database + ".PlayableClasses playableClasses" +
-                                                            " WHERE players.playerID = " + playerID +
-                                                            " AND playableClasses.classID = players.classID");
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT playableClasses.name" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players, " + daoGeneric.database + ".PlayableClasses playableClasses" +
+                                                                                                        " WHERE players.playerID = " + playerID +
+                                                                                                        " AND playableClasses.classID = players.classID");
 
-        while (reader.Read())
+        while (daoGeneric.reader.Read())
         {
-            playerClass = reader.GetString(0);
+            playerClass = daoGeneric.reader.GetString(0);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return playerClass;
     }
@@ -66,15 +68,15 @@ public class DAOPlayer : DAOGeneric
     {
         int lvl = 0;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.baseLvl" +
-                                                            " FROM " + database + ".Players players" +
-                                                            " WHERE players.playerID = " + playerID);
-        while (reader.Read())
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT players.baseLvl" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players" +
+                                                                                                        " WHERE players.playerID = " + playerID);
+        while (daoGeneric.reader.Read())
         {
-            lvl = reader.GetInt32(0);
+            lvl = daoGeneric.reader.GetInt32(0);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return lvl;
     }
@@ -83,15 +85,15 @@ public class DAOPlayer : DAOGeneric
     {
         float exp = 0;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.baseLvlExp" +
-                                                            " FROM " + database + ".Players players" +
-                                                            " WHERE players.playerID = " + playerID);
-        while (reader.Read())
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT players.baseLvlExp" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players" +
+                                                                                                        " WHERE players.playerID = " + playerID);
+        while (daoGeneric.reader.Read())
         {
-            exp = reader.GetFloat(0);
+            exp = daoGeneric.reader.GetFloat(0);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return exp;
     }
@@ -100,17 +102,17 @@ public class DAOPlayer : DAOGeneric
     {
         string currentMap = null;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT maps.name" +
-                                                            " FROM " + database + ".Players players, " + database + ".Maps maps" +
-                                                            " WHERE players.playerID = " + playerID +
-                                                            " AND players. = maps.mapID");
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT maps.name" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players, " + daoGeneric.database + ".Maps maps" +
+                                                                                                        " WHERE players.playerID = " + playerID +
+                                                                                                        " AND players. = maps.mapID");
 
-        while (reader.Read())
+        while (daoGeneric.reader.Read())
         {
-            currentMap = reader.GetString(0);
+            currentMap = daoGeneric.reader.GetString(0);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return currentMap;
     }
@@ -119,17 +121,17 @@ public class DAOPlayer : DAOGeneric
     {
         Vector3 position = Vector3.zero;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.positionX, players.positionY, players.positionZ" +
-                                                            " FROM " + database + ".Players players" +
-                                                            " WHERE players.playerID = " + playerID);
-        while (reader.Read())
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT players.positionX, players.positionY, players.positionZ" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players" +
+                                                                                                        " WHERE players.playerID = " + playerID);
+        while (daoGeneric.reader.Read())
         {
-            position.x = reader.GetFloat(0);
-            position.y = reader.GetFloat(1);
-            position.z = reader.GetFloat(2);
+            position.x = daoGeneric.reader.GetFloat(0);
+            position.y = daoGeneric.reader.GetFloat(1);
+            position.z = daoGeneric.reader.GetFloat(2);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return position;
     }
@@ -138,25 +140,25 @@ public class DAOPlayer : DAOGeneric
     {
         int money = 0;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT players.money" +
-                                                            " FROM " + database + ".Players players" +
-                                                            " WHERE players.playerID = " + playerID);
-        while (reader.Read())
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT players.money" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players players" +
+                                                                                                        " WHERE players.playerID = " + playerID);
+        while (daoGeneric.reader.Read())
         {
-            money = reader.GetInt32(0);
+            money = daoGeneric.reader.GetInt32(0);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return money;
     }
 
     public void getPlayerInfo(int playerID, out string playerName, out string playerClass, out int playerBaseLvl, out float playerBaseLvlExp, out string playerCurrentMap, out Vector3 playerPosition, out int playerMoney)
     {
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT Players.name, PlayableClasses.name, Players.baseLvl, Players.baseLvlExp, Maps.scene, Players.positionX, Players.positionY, Players.positionZ, Players.money" +
-                                                            " FROM " + database + ".Players INNER JOIN " + database + ".PlayableClasses ON Players.classID = PlayableClasses.classID" +
-                                                            " LEFT JOIN " + database + ".Maps ON Players.currentMapID = Maps.mapID" +
-                                                            " WHERE Players.playerID = " + playerID);
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT Players.name, PlayableClasses.name, Players.baseLvl, Players.baseLvlExp, Maps.scene, Players.positionX, Players.positionY, Players.positionZ, Players.money" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players INNER JOIN " + daoGeneric.database + ".PlayableClasses ON Players.classID = PlayableClasses.classID" +
+                                                                                                        " LEFT JOIN " + daoGeneric.database + ".Maps ON Players.currentMapID = Maps.mapID" +
+                                                                                                        " WHERE Players.playerID = " + playerID);
 
         playerName = "";
         playerClass = "";
@@ -166,20 +168,20 @@ public class DAOPlayer : DAOGeneric
         playerPosition = Vector3.zero;
         playerMoney = 0;
 
-        while (reader.Read())
+        while (daoGeneric.reader.Read())
         {
-            playerName = reader.GetString(0);
-            playerClass = reader.GetString(1);
-            playerBaseLvl = reader.GetInt32(2);
-            playerBaseLvlExp = reader.GetFloat(3);
-            playerCurrentMap = reader.GetString(4);
-            playerPosition.x = reader.GetFloat(5);
-            playerPosition.y = reader.GetFloat(6);
-            playerPosition.z = reader.GetFloat(7);
-            playerMoney = reader.GetInt32(8);
+            playerName = daoGeneric.reader.GetString(0);
+            playerClass = daoGeneric.reader.GetString(1);
+            playerBaseLvl = daoGeneric.reader.GetInt32(2);
+            playerBaseLvlExp = daoGeneric.reader.GetFloat(3);
+            playerCurrentMap = daoGeneric.reader.GetString(4);
+            playerPosition.x = daoGeneric.reader.GetFloat(5);
+            playerPosition.y = daoGeneric.reader.GetFloat(6);
+            playerPosition.z = daoGeneric.reader.GetFloat(7);
+            playerMoney = daoGeneric.reader.GetInt32(8);
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
     }
 
     public void getPlayerLineUp(int playerID, out List<int> pokemonID)
@@ -187,17 +189,17 @@ public class DAOPlayer : DAOGeneric
         pokemonID = new List<int>();
 
         string query = "SELECT PlayerLineUp.pokemonID" +
-                       " FROM " + database + ".PlayerLineUp" +
+                       " FROM " + daoGeneric.database + ".PlayerLineUp" +
                        " WHERE PlayerLineUp.playerID=" + playerID +
                        " ORDER BY PlayerLineUp.teamPosition ASC";
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, query);
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, query);
 
-        while (reader.Read())
+        while (daoGeneric.reader.Read())
         {
-            pokemonID.Add(reader.GetInt32(0));
+            pokemonID.Add(daoGeneric.reader.GetInt32(0));
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
     }
 }

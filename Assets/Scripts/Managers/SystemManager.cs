@@ -15,8 +15,7 @@ public class SystemManager : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-
-    private static SystemManager _instance;
+        private static SystemManager _instance;
     #endregion
 
     public static SystemManager Instance

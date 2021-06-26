@@ -8,16 +8,6 @@ public class CtrlPlayer
 {
     DAOPlayer dao = new DAOPlayer();
 
-    public CtrlPlayer()
-    {
-        dao.connectToDB();
-    }
-
-    ~CtrlPlayer()
-    {
-        dao.closeConnection();
-    }
-
     public int getPlayerID(string username, string password)
     {
         int playerID = 0;
