@@ -165,7 +165,7 @@ Transform:
   - {fileID: 158673921}
   - {fileID: 808763410}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &1522283495
 LightingSettings:
@@ -237,7 +237,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5303135887826766, guid: cae3883b260ee3c4eb6dd0f6696af2b0, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5303135887826766, guid: cae3883b260ee3c4eb6dd0f6696af2b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -874,13 +874,27 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653307214433}
+  - component: {fileID: 919132149589000412}
   m_Layer: 0
-  m_Name: t001r0102_00
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
+--- !u!114 &919132149589000412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149589000411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765c01c4424aa7840a50a36de89f86bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interiorMap: 1
 --- !u!4 &923155918519625508
 Transform:
   m_ObjectHideFlags: 0

@@ -5159,6 +5159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4724622297127301386}
+  - component: {fileID: 6841622757921416472}
   m_Layer: 0
   m_Name: Pallet Town
   m_TagString: Untagged
@@ -5251,6 +5252,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6841622757921416472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5393881197146926000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 765c01c4424aa7840a50a36de89f86bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interiorMap: 0
 --- !u!1 &5398952698352055608
 GameObject:
   m_ObjectHideFlags: 0
@@ -7573,6 +7587,8 @@ GameObject:
   - component: {fileID: 7468193958787339139}
   - component: {fileID: 8270626248202084548}
   - component: {fileID: 5051776058124251547}
+  - component: {fileID: 5051776057356988784}
+  - component: {fileID: 5051776057356988785}
   m_Layer: 0
   m_Name: e0d5c89e446ea0e2569c3a993
   m_TagString: Untagged
@@ -7658,8 +7674,34 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500.58987, y: 377.0349, z: 336.13513}
-  m_Center: {x: -1650.1909, y: 189.78384, z: 459.60803}
+  m_Size: {x: 500.5899, y: 377.0349, z: 225.32425}
+  m_Center: {x: -1650.1909, y: 189.78386, z: 404.20258}
+--- !u!65 &5051776057356988784
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477061773926733374}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 82.913055, y: 377.0349, z: 111.05614}
+  m_Center: {x: -1441.3547, y: 189.78386, z: 572.14886}
+--- !u!65 &5051776057356988785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477061773926733374}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 312.86362, y: 377.0349, z: 112.181244}
+  m_Center: {x: -1744.0549, y: 189.78386, z: 571.5857}
 --- !u!1 &7551859431946350701
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,11 +21,23 @@ public class PokemonFollower : MonoBehaviour
 
         private float               distanceToRun;
 
+        private float               distanceToStartFollow;
+
         private bool                isRunning;
+
+        private FSM                 fsm;
 
         private GameObject          followerInstance;
 
         private PlayerInfo          playerInfo;
+    #endregion
+
+    #region Enums
+        private enum FSM
+        {
+            Idle,
+            FollowTarget
+        }
     #endregion
 
     static class Animations
@@ -37,11 +49,13 @@ public class PokemonFollower : MonoBehaviour
 
     private void Awake()
     {
-        this.playerInfo         = PlayerManager.Instance.PlayerInfo;
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
 
-        this.distanceToRun      = (allowedDistance * 1.5f);
-        this.isRunning          = false;
-        this.followerInstance   = null;
+        this.distanceToRun          = (allowedDistance * 2.0f);
+        this.distanceToStartFollow  = (allowedDistance * 1.5f);
+        this.isRunning              = false;
+        this.fsm                    = FSM.Idle;
+        this.followerInstance       = null;
     }
 
     void Start()
@@ -57,37 +71,49 @@ public class PokemonFollower : MonoBehaviour
 
             float TargetDistance = Vector3.Distance(thePlayer.transform.position, this.followerInstance.transform.position);
 
-            if (TargetDistance >= allowedDistance)
+            if(this.fsm == FSM.Idle)
             {
-                this.followerInstance.transform.LookAt(thePlayer.transform);
-
-                if ((TargetDistance <= distanceToRun) && (isRunning == false))
+                if(TargetDistance >= distanceToStartFollow)
                 {
-                    animator.Play(Animations.Walking);
+                    this.fsm = FSM.FollowTarget;
+                }
+            }
+            else if(this.fsm == FSM.FollowTarget)
+            {
+                if(TargetDistance >= allowedDistance)
+                {
+                    this.followerInstance.transform.LookAt(thePlayer.transform);
+
+                    if((TargetDistance <= distanceToRun) && (!isRunning))
+                    {
+                        animator.Play(Animations.Walking);
+                    }
+                    else if(!isRunning)
+                    {
+                        isRunning = true;
+
+                        animator.Play(Animations.Running);
+                    }
+
+                    float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
+
+                    Vector3 norm = (thePlayer.transform.position - this.followerInstance.transform.position).normalized;
+
+                    Vector3 updatedMotion = new Vector3(norm.x * horizontalSpeed, verticalSpeed, norm.z * horizontalSpeed);
+
+                    updatedMotion.x /= playerGraphicsScale;
+                    updatedMotion.z /= playerGraphicsScale;
+
+                    followerController.Move(updatedMotion);
                 }
                 else
                 {
-                    isRunning = true;
+                    this.fsm = FSM.Idle;
 
-                    animator.Play(Animations.Running);
+                    animator.Play(Animations.Idle);
+
+                    isRunning = false;
                 }
-
-                float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
-
-                Vector3 norm = (thePlayer.transform.position - this.followerInstance.transform.position).normalized;
-
-                Vector3 updatedMotion = new Vector3(norm.x * horizontalSpeed, verticalSpeed, norm.z * horizontalSpeed);
-
-                updatedMotion.x /= playerGraphicsScale;
-                updatedMotion.z /= playerGraphicsScale;
-
-                followerController.Move(updatedMotion);
-            }
-            else
-            {
-                animator.Play(Animations.Idle);
-
-                isRunning = false;
             }
         }
     }

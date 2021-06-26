@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
-/// <summary>
-/// Class responsible for the Camera's follow script
-/// </summary>
 public class CameraFollow : MonoBehaviour
 {
     #region Constant Variables
@@ -18,17 +16,14 @@ public class CameraFollow : MonoBehaviour
         private Vector3 defaultOffset   { get { return new Vector3(0.0f, 1000.0f, -1000.0f); } }
     #endregion
 
-    #region SerializeFields
-        [SerializeField] private bool       interiorMap;
-    #endregion
-
     #region PrivateVariables
-        private Camera  m_myCam;
-        private float   currentYaw          = 180.00f;
-        private Vector3 offset              = new Vector3(0.00f, 1000.0f, -1000.00f);
-        private float   zoom                = defaultZoom;
-        private float   lastMouseYPosition  = 0.0f;
-        private Transform target;
+    private Camera          m_myCam;
+        private float       currentYaw          = 180.00f;
+        private Vector3     offset              = new Vector3(0.00f, 1000.0f, -1000.00f);
+        private float       zoom                = defaultZoom;
+        private float       lastMouseYPosition  = 0.0f;
+        private Transform   target;
+        private bool        interiorMap         = true;
     #endregion
 
     enum MouseButtons
@@ -43,6 +38,17 @@ public class CameraFollow : MonoBehaviour
         this.m_myCam = GetComponent<Camera>();
         this.target = PlayerManager.Instance.PlayerController.transform;
 
+        SceneManager.activeSceneChanged += ChangedActiveScene;
+    }
+
+    private void ChangedActiveScene(Scene current, Scene next)
+    {
+        var mapConfigs = FindObjectsOfType<GenericMapConfigs>();
+
+        if (mapConfigs.Length != 0)
+        {
+            this.interiorMap = mapConfigs[0].interiorMap;
+        }
     }
 
     void Update()
