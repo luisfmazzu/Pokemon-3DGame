@@ -8,16 +8,6 @@ public class CtrlAccount
 {
     DAOAccount dao = new DAOAccount();
 
-    public CtrlAccount()
-    {
-        dao.connectToDB();
-    }
-
-    ~CtrlAccount()
-    {
-        dao.closeConnection();
-    }
-
     public bool accountExists(string username)
     {
         bool exists = false;

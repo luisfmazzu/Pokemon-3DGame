@@ -6,6 +6,8 @@ using UnityEngine;
 public class DAOGeneric
 {
     #region Private Variables
+        private static DAOGeneric _instance = null;
+
         public MySQLConnector   con     = new MySQLConnector();
 
         public MySqlConnection  dbconn  = null;
@@ -15,16 +17,39 @@ public class DAOGeneric
         public string database = "leonar14_pokemon_unity";
     #endregion
 
-    public void connectToDB()
+    public static DAOGeneric Instance
     {
-        con.ConnectToDB(ref dbconn, database);
+        get
+        {
+            if(_instance == null)
+            {
+                _instance = new DAOGeneric();
+            }
+
+            return _instance;
+        }
+    }
+
+    private DAOGeneric()
+    {
+        this.connectToDB();
+    }
+
+    ~DAOGeneric()
+    {
+        this.closeConnection();
+    }
+
+    private void connectToDB()
+    {
+        this.con.ConnectToDB(ref dbconn, database);
 
         Debug.Log("Connected to DB");
     }
 
-    public void closeConnection()
+    private void closeConnection()
     {
-        con.CloseConnection(ref dbconn, ref dbcmd);
+        this.con.CloseConnection(ref dbconn, ref dbcmd);
 
         Debug.Log("Closed Connection with DB");
     }

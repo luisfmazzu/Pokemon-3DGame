@@ -3,22 +3,24 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DAOAccount : DAOGeneric
+public class DAOAccount
 {
+    DAOGeneric daoGeneric = DAOGeneric.Instance;
+
     public bool accountExists(string username)
     {
         bool exists = false;
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, "SELECT Accounts.username" +
-                                                            " FROM " + database + ".Accounts" +
-                                                            " WHERE Accounts.username='" + username + "'");
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT Accounts.username" +
+                                                                                                        " FROM " + daoGeneric.database + ".Accounts" +
+                                                                                                        " WHERE Accounts.username='" + username + "'");
 
-        while (reader.Read())
+        while(daoGeneric.reader.Read())
         {
             exists = true;
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return exists;
     }
@@ -30,29 +32,29 @@ public class DAOAccount : DAOGeneric
         id = 0;
 
         string query = "SELECT Accounts.accountID" +
-                       " FROM " + database + ".Accounts" +
+                       " FROM " + daoGeneric.database + ".Accounts" +
                        " WHERE Accounts.username='" + username + "' AND Accounts.passwordHash='" + passwordHash + "'";
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, query);
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, query);
 
-        while (reader.Read())
+        while(daoGeneric.reader.Read())
         {
-            id = reader.GetInt32(0);
+            id = daoGeneric.reader.GetInt32(0);
 
             success = true;
         }
 
-        reader.Close();
+        daoGeneric.reader.Close();
 
         return success;
     }
 
     public void registerAccount(string username, string passwordHash)
     {
-        string query = "INSERT INTO " + database + ".Accounts(`username`, `passwordHash`) VALUES ('" + username + "', '" + passwordHash + "')";
+        string query = "INSERT INTO " + daoGeneric.database + ".Accounts(`username`, `passwordHash`) VALUES ('" + username + "', '" + passwordHash + "')";
 
-        con.ExecuteQuery(ref dbconn, ref dbcmd, ref reader, query);
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, query);
 
-        reader.Close();
+        daoGeneric.reader.Close();
     }
 }
