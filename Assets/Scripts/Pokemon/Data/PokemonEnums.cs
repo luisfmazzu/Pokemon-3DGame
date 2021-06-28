@@ -19,4 +19,14 @@
         DoubleBattle = 2,
         TripleBattle = 3
     }
+
+    public enum Stats
+    {
+        hp          = 1,
+        attack      = 2,
+        defense     = 3,
+        spAttack    = 4,
+        spDefense   = 5,
+        speed       = 6
+    }
 }
