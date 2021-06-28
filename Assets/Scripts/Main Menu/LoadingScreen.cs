@@ -14,7 +14,7 @@ public class LoadingScreen : MonoBehaviour
 
     static class LoadingSteps
     {
-        public static string[] steps = { "Retrieving Player Information", "Retrieving Pokemons Data", "Loading Resources", "Loading Map" };
+        public static string[] steps = { "Retrieving Pokemons Data", "Retrieving Player Information", "Loading Resources", "Loading Map" };
     }
 
     private void Awake()
@@ -52,9 +52,37 @@ public class LoadingScreen : MonoBehaviour
     IEnumerator HandleFirstLoadingStep()
     {
         /**
+         * 2nd step -> Load Resouces
+         */
+        PokemonAbilities pokemonAbilities   = SystemManager.Instance.PokemonData.pokemonAbilities;
+        PokemonBaseStats pokemonBaseStats   = SystemManager.Instance.PokemonData.pokemonBaseStats;
+        PokemonNatures   pokemonNatures     = SystemManager.Instance.PokemonData.pokemonNatures;
+
+        this.text.text = LoadingSteps.steps[0];
+
+        pokemonAbilities.LoadAbilities();
+
+        yield return StartCoroutine(pokemonAbilities.IsReady());
+
+        pokemonBaseStats.LoadBaseStats();
+
+        yield return StartCoroutine(pokemonBaseStats.IsReady());
+
+        pokemonNatures.LoadNatures();
+
+        yield return StartCoroutine(pokemonNatures.IsReady());
+
+        this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
+
+        yield return new WaitForSeconds(0.25f);
+    }
+
+    IEnumerator HandleSecondLoadingStep()
+    {
+        /**
          * 1st step -> Retrieve Player Information
          */
-        this.text.text = LoadingSteps.steps[0];
+        this.text.text = LoadingSteps.steps[1];
 
         CtrlPlayer  ctrlPlayer  = new CtrlPlayer();
         CtrlPokemon ctrlPokemon = new CtrlPokemon();
@@ -67,24 +95,6 @@ public class LoadingScreen : MonoBehaviour
         PlayerManager.Instance.PlayerController.transform.position = this.playerInfo.playerPosition;
 
         this.loadingBar.BarValue = (100.0f / LoadingSteps.steps.Length);
-
-        yield return new WaitForSeconds(0.25f);
-    }
-
-    IEnumerator HandleSecondLoadingStep()
-    {
-        /**
-         * 2nd step -> Load Resouces
-         */
-        PokemonAbilities pokemonAbilities = SystemManager.Instance.PokemonData.pokemonAbilities;
-
-        this.text.text = LoadingSteps.steps[1];
-
-        pokemonAbilities.LoadAbilities();
-
-        yield return StartCoroutine(pokemonAbilities.IsReady());
-
-        this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
 
         yield return new WaitForSeconds(0.25f);
     }

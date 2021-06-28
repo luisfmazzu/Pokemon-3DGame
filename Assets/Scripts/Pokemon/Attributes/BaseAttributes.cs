@@ -1,8 +1,9 @@
-﻿public class EV
+﻿public class BaseAttributes
 {
     #region Constant Variables
-        private const int MIN_VALUE = 0;
-        private const int MAX_VALUE = 255;
+        private const int MIN_VALUE     = 0;
+        private const int MAX_IV_VALUE  = 31;
+        private const int MAX_EV_VALUE  = 255;
     #endregion
 
     #region Public Variables Declaration 
@@ -14,11 +15,11 @@
         public int speed        { get; set; }
     #endregion
 
-    public EV()
+    public BaseAttributes()
     {
     }
 
-    public EV(int _hp, int _attack, int _defense, int _spAttack, int _spDefense, int _speed)
+    public BaseAttributes(int _hp, int _attack, int _defense, int _spAttack, int _spDefense, int _speed)
     {
         this.hp         = _hp;
         this.attack     = _attack;

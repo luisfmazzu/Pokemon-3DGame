@@ -136,20 +136,20 @@ public class PlayerInfo : MonoBehaviour
 
         foreach(int pokemonID in pokemonIDs)
         {
-            int     _speciesID          = 0;
-            int     _originalTrainerID  = 0;
-            int     _variantID          = 0;
-            string  _nickname           = "";
-            int     _currentHP          = 0;
-            int     _baseLvl            = 0;
-            int     _abilityID          = 0;
-            int     _natureID           = 0;
-            int     _captureBallID      = 0;
-            int     _genderID           = 0;
-            float   _baseLvlExp         = 0;
-            IV      _ivs                = new IV(0, 0, 0, 0, 0, 0);
-            EV      _untrainedEVs       = new EV(0, 0, 0, 0, 0, 0);
-            EV      _trainedEVs         = new EV(0, 0, 0, 0, 0, 0);
+            int             _speciesID          = 0;
+            int             _originalTrainerID  = 0;
+            int             _variantID          = 0;
+            string          _nickname           = "";
+            int             _currentHP          = 0;
+            int             _baseLvl            = 0;
+            int             _abilityID          = 0;
+            int             _natureID           = 0;
+            int             _captureBallID      = 0;
+            int             _genderID           = 0;
+            float           _baseLvlExp         = 0;
+            BaseAttributes  _ivs                = new BaseAttributes(0, 0, 0, 0, 0, 0);
+            BaseAttributes  _untrainedEVs       = new BaseAttributes(0, 0, 0, 0, 0, 0);
+            BaseAttributes  _trainedEVs         = new BaseAttributes(0, 0, 0, 0, 0, 0);
 
             ctrlPokemon.getPokemonInformation(pokemonID, out _speciesID, out _originalTrainerID, out _variantID, out _nickname, out _currentHP, out _baseLvl, out _abilityID, out _natureID, out _captureBallID, out _genderID, out _baseLvlExp, out _ivs, out _untrainedEVs, out _trainedEVs);
 
