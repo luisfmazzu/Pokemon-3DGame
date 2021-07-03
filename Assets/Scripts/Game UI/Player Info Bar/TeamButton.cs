@@ -7,17 +7,21 @@ public class TeamButton : MonoBehaviour
 {
     public class PokemonObjects
     {
-        public Canvas   canvas  { get; set; } = null;
-        public Image    image   { get; set; } = null;
-        public Text     name    { get; set; } = null;
-        public Text     lvl     { get; set; } = null;
+        public Canvas       canvas  { get; set; } = null;
+        public Image        image   { get; set; } = null;
+        public Text         name    { get; set; } = null;
+        public Text         lvl     { get; set; } = null;
+        public ProgressBar  hpBar   { get; set; } = null;
+        public ProgressBar  expBar  { get; set; } = null;
 
-        public PokemonObjects(Canvas _canvas, Image _image, Text _name, Text _lvl)
+        public PokemonObjects(Canvas _canvas, Image _image, Text _name, Text _lvl, ProgressBar _hpBar, ProgressBar _expBar)
         {
             this.canvas = _canvas;
             this.image  = _image;
             this.name   = _name;
             this.lvl    = _lvl;
+            this.hpBar  = _hpBar;
+            this.expBar = _expBar;
         }
     }
 
@@ -58,27 +62,27 @@ public class TeamButton : MonoBehaviour
 
         Transform currentTransform  = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
         currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 0;
-        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>(), currentTransform.Find("Health").Find("Health Progress Bar").GetComponent<ProgressBar>(), currentTransform.Find("Experience").Find("Experience Progress Bar").GetComponent<ProgressBar>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 02").Find("Pokemon Info");
         currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 1;
-        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>(), currentTransform.Find("Health").Find("Health Progress Bar").GetComponent<ProgressBar>(), currentTransform.Find("Experience").Find("Experience Progress Bar").GetComponent<ProgressBar>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 03").Find("Pokemon Info");
         currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 2;
-        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>(), currentTransform.Find("Health").Find("Health Progress Bar").GetComponent<ProgressBar>(), currentTransform.Find("Experience").Find("Experience Progress Bar").GetComponent<ProgressBar>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 04").Find("Pokemon Info");
         currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 3;
-        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>(), currentTransform.Find("Health").Find("Health Progress Bar").GetComponent<ProgressBar>(), currentTransform.Find("Experience").Find("Experience Progress Bar").GetComponent<ProgressBar>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 05").Find("Pokemon Info");
         currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 4;
-        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>(), currentTransform.Find("Health").Find("Health Progress Bar").GetComponent<ProgressBar>(), currentTransform.Find("Experience").Find("Experience Progress Bar").GetComponent<ProgressBar>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 06").Find("Pokemon Info");
         currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 5;
-        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
+        this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>(), currentTransform.Find("Health").Find("Health Progress Bar").GetComponent<ProgressBar>(), currentTransform.Find("Experience").Find("Experience Progress Bar").GetComponent<ProgressBar>()));
     }
 
     IEnumerator Start()
@@ -112,6 +116,7 @@ public class TeamButton : MonoBehaviour
             this.pokemons[i].image.sprite   = this.pokemonResources.RetrievePokemonResource(pokemon.resourceID).sprite;
             this.pokemons[i].name.text      = pokemon.nickname;
             this.pokemons[i].lvl.text       = "Lv " + pokemon.baseLvl;
+            this.pokemons[i].hpBar.BarValue = (pokemon.stats.currentHP / (float)pokemon.stats.maxHP) * 100.0f;
         }
 
         for (; i < 6; i++)
