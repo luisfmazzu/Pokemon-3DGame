@@ -12,6 +12,8 @@ public class SystemManager : MonoBehaviour
         public GameObject   DayNightCycle;
 
         public PokemonData  PokemonData;
+
+        public PlayerData   PlayerData;
     #endregion
 
     #region Private Variables Declaration

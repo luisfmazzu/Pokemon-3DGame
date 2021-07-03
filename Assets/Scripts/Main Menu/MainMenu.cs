@@ -1,4 +1,3 @@
-using LukeWaffel.BUI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,8 +5,6 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     #region Serialize Fields
-        [SerializeField]                    private UnityEditor.SceneAsset  loadingScreenSceneAsset;
-
         [SerializeField, Range(0, 10.0f)]   private float                   secondsToDisplayMessageDisappear = 2;
 
         [SerializeField]                    private EssentialsLoader        essentialsLoader;
@@ -77,7 +74,7 @@ public class MainMenu : MonoBehaviour
             // Set parameters for the first loading
             PlayerManager.Instance.PlayerInfo.accountID = accountID;
 
-            SceneManager.LoadScene(loadingScreenSceneAsset.name);
+            SceneManager.LoadScene("LoadingScreen");
         }
     }
 

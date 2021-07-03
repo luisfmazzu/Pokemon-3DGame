@@ -84,15 +84,18 @@ public class LoadingScreen : MonoBehaviour
          */
         this.text.text = LoadingSteps.steps[1];
 
-        CtrlPlayer  ctrlPlayer  = new CtrlPlayer();
-        CtrlPokemon ctrlPokemon = new CtrlPokemon();
+        PlayersInfo allPlayersInfo = SystemManager.Instance.PlayerData.playersInfo;
 
-        this.playerInfo.RetrievePlayerInformation(ctrlPlayer, ctrlPokemon, this.playerInfo.accountID);
+        allPlayersInfo.LoadPlayers();
+
+        yield return StartCoroutine(allPlayersInfo.IsReady());
+
+        this.playerInfo.RetrievePlayerInformation(this.playerInfo.accountID);
 
         yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
         // Sets player position correctly
-        PlayerManager.Instance.PlayerController.transform.position = this.playerInfo.playerPosition;
+        PlayerManager.Instance.PlayerController.transform.position = this.playerInfo.playerData.playerPosition;
 
         this.loadingBar.BarValue = (100.0f / LoadingSteps.steps.Length);
 
@@ -124,7 +127,7 @@ public class LoadingScreen : MonoBehaviour
          */
         this.text.text = LoadingSteps.steps[3];
 
-        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(this.playerInfo.playerCurrentMap);
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(this.playerInfo.playerData.playerCurrentMap);
 
         while (!loadingOperation.isDone)
         {

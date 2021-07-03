@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DAOPlayer
@@ -177,6 +178,22 @@ public class DAOPlayer
             playerPosition.y = daoGeneric.reader.GetFloat(6);
             playerPosition.z = daoGeneric.reader.GetFloat(7);
             playerMoney = daoGeneric.reader.GetInt32(8);
+        }
+
+        daoGeneric.reader.Close();
+    }
+
+    public void getAllPlayersInfo(out List<Tuple<int, string, string, int, float, string, Vector3, Tuple<int>>> allPlayersInfo)
+    {
+        allPlayersInfo = new List<Tuple<int, string, string, int, float, string, Vector3, Tuple<int>>>();
+
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, "SELECT Players.playerID, Players.name, PlayableClasses.name, Players.baseLvl, Players.baseLvlExp, Maps.scene, Players.positionX, Players.positionY, Players.positionZ, Players.money" +
+                                                                                                        " FROM " + daoGeneric.database + ".Players INNER JOIN " + daoGeneric.database + ".PlayableClasses ON Players.classID = PlayableClasses.classID" +
+                                                                                                        " LEFT JOIN " + daoGeneric.database + ".Maps ON Players.currentMapID = Maps.mapID");
+
+        while(daoGeneric.reader.Read())
+        {
+            allPlayersInfo.Add(new Tuple<int, string, string, int, float, string, Vector3, Tuple<int>>(daoGeneric.reader.GetInt32(0), daoGeneric.reader.GetString(1), daoGeneric.reader.GetString(2), daoGeneric.reader.GetInt32(3), daoGeneric.reader.GetFloat(4), daoGeneric.reader.GetString(5), new Vector3(daoGeneric.reader.GetFloat(6), daoGeneric.reader.GetFloat(7), daoGeneric.reader.GetFloat(8)), new Tuple<int>(daoGeneric.reader.GetInt32(9))));
         }
 
         daoGeneric.reader.Close();

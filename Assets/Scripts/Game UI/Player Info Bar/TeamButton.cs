@@ -57,21 +57,27 @@ public class TeamButton : MonoBehaviour
         this.pokemons = new List<PokemonObjects>();
 
         Transform currentTransform  = this.transform.parent.Find("Pokemon 01").Find("Pokemon Info");
+        currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 0;
         this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 02").Find("Pokemon Info");
+        currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 1;
         this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 03").Find("Pokemon Info");
+        currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 2;
         this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 04").Find("Pokemon Info");
+        currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 3;
         this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 05").Find("Pokemon Info");
+        currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 4;
         this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
 
         currentTransform = this.transform.parent.Find("Pokemon 06").Find("Pokemon Info");
+        currentTransform.GetComponent<PokemonInfo>().pokemonIndex = 5;
         this.pokemons.Add(new PokemonObjects(currentTransform.GetComponent<Canvas>(), currentTransform.Find("Basic Sprite").GetComponent<Image>(), currentTransform.Find("Pokemon Name").GetComponent<Text>(), currentTransform.Find("Pokemon Level").GetComponent<Text>()));
     }
 
