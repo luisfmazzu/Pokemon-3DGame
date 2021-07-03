@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return StartCoroutine(this.playerInfo.IsReady()); // Don't do anything until the end of the playerInfo.IsReady() function (this function only GUARANTEE that our Player Class finishes before this one
 
-        controller.Move(this.playerInfo.playerPosition);
+        controller.Move(this.playerInfo.playerData.playerPosition);
     }
 
     void Update()

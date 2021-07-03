@@ -119,17 +119,17 @@ public class PlayerInfoBar : MonoBehaviour
     {
         Text text = this.transform.Find("Basic Sprite").Find("Player Name").GetComponent<Text>();
 
-        text.text = this.playerInfo.playerName;
+        text.text = this.playerInfo.playerData.playerName;
     }
 
     public void UpdatePlayerLevel()
     {
-        this.playerLvl.text = "Lv " + this.playerInfo.playerBaseLvl.ToString();
+        this.playerLvl.text = "Lv " + this.playerInfo.playerData.playerBaseLvl.ToString();
     }
 
     public void UpdatePlayerLevelProgressBar()
     {
-        this.playerBaseLevelProgressBar.BarValue = this.playerInfo.playerBaseLvlExp;
+        this.playerBaseLevelProgressBar.BarValue = this.playerInfo.playerData.playerBaseLvlExp;
     }
 
     public void UpdatePlayerLineUp()

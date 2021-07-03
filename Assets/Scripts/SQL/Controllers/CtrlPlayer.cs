@@ -85,6 +85,11 @@ public class CtrlPlayer
         dao.getPlayerInfo(playerID, out playerName, out playerClass, out playerBaseLvl, out playerBaseLvlExp, out playerCurrentMap, out playerPosition, out playerMoney);
     }
 
+    public void getAllPlayersInfo(out List<Tuple<int, string, string, int, float, string, Vector3, Tuple<int>>> allPlayersInfo)
+    {
+        dao.getAllPlayersInfo(out allPlayersInfo);
+    }
+
     public void getPlayerLineUp(int playerID, out List<int> pokemonID)
     {
         dao.getPlayerLineUp(playerID, out pokemonID);

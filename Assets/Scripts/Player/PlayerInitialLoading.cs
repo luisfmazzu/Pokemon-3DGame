@@ -11,7 +11,7 @@ public class PlayerInitialLoading : MonoBehaviour
         PlayerInfo playerInfo = PlayerManager.Instance.PlayerInfo;
         if (playerController.IsFirstLoading())
         {
-            playerController.transform.position = playerInfo.playerPosition;
+            playerController.transform.position = playerInfo.playerData.playerPosition;
             playerController.SetIsFirstLoading(false);
             playerController.SetIsPlaying(true);
         }
