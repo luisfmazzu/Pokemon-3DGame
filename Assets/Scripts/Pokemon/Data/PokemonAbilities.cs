@@ -12,7 +12,17 @@ public class PokemonAbilities
 
         public Ability(string _name, string _effect)
         {
-            name    = _name;
+            name = char.ToUpper(_name[0]) + _name.Substring(1);
+
+            int toUpperIndex = name.IndexOf("-");
+
+            while(toUpperIndex != -1)
+            {
+                name = name.Substring(0, toUpperIndex) + " "  + char.ToUpper(name[toUpperIndex + 1]) + name.Substring(toUpperIndex + 2);
+
+                toUpperIndex = name.IndexOf("-");
+            }
+
             effect  = _effect;
         }
     }

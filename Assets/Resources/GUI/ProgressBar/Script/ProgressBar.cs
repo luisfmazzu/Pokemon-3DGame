@@ -7,7 +7,9 @@ public class ProgressBar : MonoBehaviour
         enum BarTypes
         {
             ExperienceBar,
-            HealthBar
+            HealthBar,
+            LoadingBar,
+            HappinessBar
         }
     #endregion
 
@@ -35,10 +37,11 @@ public class ProgressBar : MonoBehaviour
         private Image   barBackground;
         private Text    text;
         private float   barValue;
+        private int     maxIntBarValue;
     #endregion
 
     #region Internal Variables Declaration
-        internal float CurrentBarValue;
+    internal float CurrentBarValue;
 
         internal HandlerDelegate HandleBarFunction;
     #endregion
@@ -51,6 +54,16 @@ public class ProgressBar : MonoBehaviour
         {
             value = Mathf.Clamp(value, MIN_BAR_VALUE, MAX_BAR_VALUE);
             barValue = value;
+        }
+    }
+
+    public int MaxIntBarValue
+    {
+        get { return maxIntBarValue; }
+
+        set
+        {
+            maxIntBarValue = value;
         }
     }
 
@@ -71,19 +84,33 @@ public class ProgressBar : MonoBehaviour
         barBackground.color     = BarBackGroundColor;
         barBackground.sprite    = BarBackGroundSprite;
 
-        UpdateValue(barValue);
-
         if (this.BarType == BarTypes.ExperienceBar)
         {
+            UpdatePercentageValue(barValue);
+
             this.HandleBarFunction = this.HandleExperienceBar;
         }
         else if (this.BarType == BarTypes.HealthBar)
         {
-            this.HandleBarFunction = this.HandleHealthBar;
+            UpdateNumericValue(barValue);
+
+            this.HandleBarFunction = this.HandleNumericBar;
+        }
+        else if (this.BarType == BarTypes.LoadingBar)
+        {
+            UpdatePercentageValue(barValue);
+
+            this.HandleBarFunction = this.HandleLoadingBar;
+        }
+        else if (this.BarType == BarTypes.HappinessBar)
+        {
+            UpdateNumericValue(barValue);
+
+            this.HandleBarFunction = this.HandleNumericBar;
         }
     }
 
-    void UpdateValue(float val)
+    void UpdatePercentageValue(float val)
     {
         bar.fillAmount  = this.GetValueNormalized(val);
         CurrentBarValue = val;
@@ -91,6 +118,18 @@ public class ProgressBar : MonoBehaviour
         if (IsTextAvailable)
         {
             text.text = val.ToString("F2") + "%";
+        }
+    }
+
+    void UpdateNumericValue(float val)
+    {
+        bar.fillAmount = this.GetValueNormalized(val);
+        CurrentBarValue = val;
+
+        if (IsTextAvailable)
+        {
+            int currentValue = Mathf.FloorToInt((val / 100.0f) * this.maxIntBarValue);
+            text.text = currentValue + " / " + this.maxIntBarValue;
         }
     }
 
@@ -116,7 +155,7 @@ public class ProgressBar : MonoBehaviour
             this.CurrentBarValue += this.GetValueTimesDelta(this.barValue);
             this.CurrentBarValue  = Mathf.Clamp(this.CurrentBarValue, MIN_BAR_VALUE, this.barValue);
 
-            this.UpdateValue(this.CurrentBarValue);
+            this.UpdatePercentageValue(this.CurrentBarValue);
         }
         else if(this.barValue < this.CurrentBarValue) // Leveled Up
         {
@@ -130,25 +169,36 @@ public class ProgressBar : MonoBehaviour
                 this.CurrentBarValue = 0.0f;
             }
 
-            this.UpdateValue(this.CurrentBarValue);
+            this.UpdatePercentageValue(this.CurrentBarValue);
         }
     }
 
-    private void HandleHealthBar()
+    private void HandleNumericBar()
     {
         if(this.barValue > this.CurrentBarValue)    // Health Increased
         {
             this.CurrentBarValue += this.GetValueTimesDelta(this.barValue);
             this.CurrentBarValue  = Mathf.Clamp(this.CurrentBarValue, MIN_BAR_VALUE, this.barValue);
 
-            this.UpdateValue(this.CurrentBarValue);
+            this.UpdateNumericValue(this.CurrentBarValue);
         }
         else if (this.barValue < this.CurrentBarValue)  // Health Decreased
         {
             this.CurrentBarValue -= this.GetValueTimesDelta(this.barValue);
             this.CurrentBarValue  = Mathf.Clamp(this.CurrentBarValue, this.barValue, MAX_BAR_VALUE);
 
-            this.UpdateValue(this.CurrentBarValue);
+            this.UpdateNumericValue(this.CurrentBarValue);
+        }
+    }
+
+    private void HandleLoadingBar()
+    {
+        if (this.barValue > this.CurrentBarValue)
+        {
+            this.CurrentBarValue += this.GetValueTimesDelta(this.barValue);
+            this.CurrentBarValue = Mathf.Clamp(this.CurrentBarValue, MIN_BAR_VALUE, this.barValue);
+
+            this.UpdatePercentageValue(this.CurrentBarValue);
         }
     }
 }

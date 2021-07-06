@@ -5,7 +5,7 @@ public class DAOPokemon
 {
     DAOGeneric daoGeneric = DAOGeneric.Instance;
 
-    public void getPokemonInformation(int pokemonID, out int _speciesID, out int _originalTrainerID, out int _variantID, out string _nickname, out int _currentHP, out int _baseLvl, out int _abilityID, out int _natureID, out int _captureBallID, out int _genderID, out float _baseLvlExp, out BaseAttributes _ivs, out BaseAttributes _untrainedEVs, out BaseAttributes _trainedEVs)
+    public void getPokemonInformation(int pokemonID, out int _speciesID, out int _originalTrainerID, out int _variantID, out string _nickname, out int _currentHP, out int _baseLvl, out int _abilityID, out int _natureID, out int _captureBallID, out int _genderID, out float _baseLvlExp, out BaseAttributes _ivs, out BaseAttributes _untrainedEVs, out BaseAttributes _trainedEVs, out int _happiness)
     {
         _speciesID          = 0;
         _originalTrainerID  = 0;
@@ -17,6 +17,7 @@ public class DAOPokemon
         _natureID           = 0;
         _captureBallID      = 0;
         _genderID           = 0;
+        _happiness          = 0;
         _baseLvlExp         = 0;
         _ivs                = new BaseAttributes(0, 0, 0, 0, 0, 0);
         _untrainedEVs       = new BaseAttributes(0, 0, 0, 0, 0, 0);
@@ -47,6 +48,7 @@ public class DAOPokemon
             _natureID           = daoGeneric.reader.GetInt32(28);
             _captureBallID      = daoGeneric.reader.GetInt32(29);
             _genderID           = daoGeneric.reader.GetInt32(30);
+            _happiness          = daoGeneric.reader.GetInt32(31);
         }
 
         daoGeneric.reader.Close();
