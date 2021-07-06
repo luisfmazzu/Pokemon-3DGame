@@ -14,6 +14,7 @@ public class Pokemon
         internal int                natureID            { get; set; }
         internal int                captureBallID       { get; set; }
         internal int                genderID            { get; set; }
+        internal int                happinness          { get; set; }
         internal float              baseLvlExp          { get; set; }
         internal BaseAttributes     ivs                 { get; set; }
         internal BaseAttributes     untrainedEVs        { get; set; }
@@ -22,7 +23,7 @@ public class Pokemon
         internal string             resourceID          { get; set; }
     #endregion
 
-    public Pokemon(int _pokemonID, int _speciesID, int _originalTrainerID, int _currentTrainerID, int _variantID, string _nickname, int _currentHP, int _baseLvl, int _abilityID, int _natureID, int _captureBallID, int _genderID, float _baseLvlExp, BaseAttributes _ivs, BaseAttributes _untrainedEVs, BaseAttributes _trainedEVs)
+    public Pokemon(int _pokemonID, int _speciesID, int _originalTrainerID, int _currentTrainerID, int _variantID, string _nickname, int _currentHP, int _baseLvl, int _abilityID, int _natureID, int _captureBallID, int _genderID, int _happiness, float _baseLvlExp, BaseAttributes _ivs, BaseAttributes _untrainedEVs, BaseAttributes _trainedEVs)
     {
         this.pokemonID          = _pokemonID;
         this.speciesID          = _speciesID;
@@ -35,6 +36,7 @@ public class Pokemon
         this.natureID           = _natureID;
         this.captureBallID      = _captureBallID;
         this.genderID           = _genderID;
+        this.happinness         = _happiness;
         this.baseLvlExp         = _baseLvlExp;
         this.ivs                = _ivs;
         this.untrainedEVs       = _untrainedEVs;

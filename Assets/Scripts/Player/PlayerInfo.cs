@@ -128,14 +128,15 @@ public class PlayerInfo : MonoBehaviour
             int             _natureID           = 0;
             int             _captureBallID      = 0;
             int             _genderID           = 0;
+            int             _happiness          = 0;
             float           _baseLvlExp         = 0;
             BaseAttributes  _ivs                = new BaseAttributes(0, 0, 0, 0, 0, 0);
             BaseAttributes  _untrainedEVs       = new BaseAttributes(0, 0, 0, 0, 0, 0);
             BaseAttributes  _trainedEVs         = new BaseAttributes(0, 0, 0, 0, 0, 0);
 
-            ctrlPokemon.getPokemonInformation(pokemonID, out _speciesID, out _originalTrainerID, out _variantID, out _nickname, out _currentHP, out _baseLvl, out _abilityID, out _natureID, out _captureBallID, out _genderID, out _baseLvlExp, out _ivs, out _untrainedEVs, out _trainedEVs);
+            ctrlPokemon.getPokemonInformation(pokemonID, out _speciesID, out _originalTrainerID, out _variantID, out _nickname, out _currentHP, out _baseLvl, out _abilityID, out _natureID, out _captureBallID, out _genderID, out _baseLvlExp, out _ivs, out _untrainedEVs, out _trainedEVs, out _happiness);
 
-            this.partyPokemons.Add(new Pokemon(pokemonID, _speciesID, _originalTrainerID, this.playerID, _variantID, _nickname, _currentHP, _baseLvl, _abilityID, _natureID, _captureBallID, _genderID, _baseLvlExp, _ivs, _untrainedEVs, _trainedEVs));
+            this.partyPokemons.Add(new Pokemon(pokemonID, _speciesID, _originalTrainerID, this.playerID, _variantID, _nickname, _currentHP, _baseLvl, _abilityID, _natureID, _captureBallID, _genderID, _happiness, _baseLvlExp, _ivs, _untrainedEVs, _trainedEVs));
         }
     }
 

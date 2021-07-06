@@ -48,6 +48,28 @@ public class PokeInfoGUI : MonoBehaviour
         this.etcPanel   = new EtcPanel(this.pokemon, tabsTransform.Find("Etc"), this);
     }
 
+    void Update()
+    {
+        switch(this.fsm)
+        {
+            case FSM.Info:
+                this.infoPanel.Update();
+                break;
+
+            case FSM.Moves:
+                this.movesPanel.Update();
+                break;
+
+            case FSM.IVEV:
+                this.ivevPanel.Update();
+                break;
+
+            case FSM.Etc:
+                this.etcPanel.Update();
+                break;
+        }
+    }
+
     public void UpdateState(FSM _newState)
     {
         if(_newState != this.fsm)
@@ -128,6 +150,8 @@ public abstract class GenericInfoGUI
 
     public abstract void Start();
 
+    public abstract void Update();
+
     public abstract void TaskOnClick();
 
     public void DisablePanel()
@@ -152,6 +176,12 @@ public class InfoPanel : GenericInfoGUI
         private Text        spAtkStat;
         private Text        spDefStat;
         private Text        speedStat;
+
+        private Text        natureText;
+        private Text        abilityText;
+
+        private ProgressBar hpBar;
+        private ProgressBar happinessBar;
     #endregion
 
     public InfoPanel(Pokemon _pokemon, Transform _coreTransform, PokeInfoGUI _rootGUI) : base(_pokemon, _coreTransform, _rootGUI)
@@ -167,13 +197,36 @@ public class InfoPanel : GenericInfoGUI
         this.spAtkStat  = statsTransform.Find("Sp. Attack").Find("Value").Find("Value").GetComponent<Text>();
         this.spDefStat  = statsTransform.Find("Sp. Defense").Find("Value").Find("Value").GetComponent<Text>();
         this.speedStat  = statsTransform.Find("Speed").Find("Value").Find("Value").GetComponent<Text>();
+
+        this.natureText     = this.coreTransform.Find("Panel").Find("Nature").Find("Value").Find("Value").GetComponent<Text>();
+        this.abilityText    = this.coreTransform.Find("Panel").Find("Ability").Find("Value").Find("Value").GetComponent<Text>();
+
+        this.hpBar          = this.coreTransform.Find("Panel").Find("HP").Find("Value").Find("Health Bar").GetComponent<ProgressBar>();
+        this.happinessBar   = this.coreTransform.Find("Panel").Find("Happiness").Find("Value").Find("Happinness Bar").GetComponent<ProgressBar>();
     }
 
     public override void Start()
     {
-        this.hpStat.text    = this.pokemon.stats.maxHP.ToString();
-        this.atkStat.text   = this.pokemon.stats.attack.ToString();
-        this.defStat.text   = this.pokemon.stats.defense.ToString();
+        this.hpBar.MaxIntBarValue           = this.pokemon.stats.maxHP;
+        this.happinessBar.MaxIntBarValue    = BaseAttributes.MAX_HAPPINESS_VALUE;
+
+        this.natureText.text    = SystemManager.Instance.PokemonData.pokemonNatures.RetrievePokemonNature(this.pokemon.natureID).name;
+        this.abilityText.text   = SystemManager.Instance.PokemonData.pokemonAbilities.RetrievePokemonAbility(this.pokemon.abilityID).name;
+
+        this.UpdateStats();
+        this.UpdateBars();
+    }
+
+    public override void Update()
+    {
+        this.UpdateBars();
+    }
+
+    public void UpdateStats()
+    {
+        this.hpStat.text = this.pokemon.stats.maxHP.ToString();
+        this.atkStat.text = this.pokemon.stats.attack.ToString();
+        this.defStat.text = this.pokemon.stats.defense.ToString();
         this.spAtkStat.text = this.pokemon.stats.spAttack.ToString();
         this.spDefStat.text = this.pokemon.stats.spDefense.ToString();
         this.speedStat.text = this.pokemon.stats.speed.ToString();
@@ -230,6 +283,12 @@ public class InfoPanel : GenericInfoGUI
         }
     }
 
+    public void UpdateBars()
+    {
+        this.hpBar.BarValue         = (this.pokemon.stats.currentHP / (float)this.pokemon.stats.maxHP) * 100.0f;
+        this.happinessBar.BarValue  = (this.pokemon.happinness / (float)BaseAttributes.MAX_HAPPINESS_VALUE) * 100.0f;
+    }
+
     public override void TaskOnClick()
     {
         this.rootGUI.UpdateState(PokeInfoGUI.FSM.Info);
@@ -251,6 +310,11 @@ public class MovesPanel : GenericInfoGUI
 
     public override void Start()
     {
+    }
+
+    public override void Update()
+    {
+
     }
 
     public override void TaskOnClick()
@@ -276,6 +340,11 @@ public class IVEVPanel : GenericInfoGUI
     {
     }
 
+    public override void Update()
+    {
+
+    }
+
     public override void TaskOnClick()
     {
         this.rootGUI.UpdateState(PokeInfoGUI.FSM.IVEV);
@@ -285,6 +354,7 @@ public class IVEVPanel : GenericInfoGUI
 public class EtcPanel : GenericInfoGUI
 {
     #region Private Variables Declaration
+        private Text originalTrainerText;
     #endregion
 
     public EtcPanel(Pokemon _pokemon, Transform _coreTransform, PokeInfoGUI _rootGUI) : base(_pokemon, _coreTransform, _rootGUI)
@@ -293,10 +363,17 @@ public class EtcPanel : GenericInfoGUI
 
     public override void Awake()
     {
+        this.originalTrainerText = this.coreTransform.Find("Panel").Find("OT").Find("Value").Find("Value").GetComponent<Text>();
     }
 
     public override void Start()
     {
+        this.originalTrainerText.text = SystemManager.Instance.PlayerData.playersInfo.RetrievePlayer(this.pokemon.originalTrainerID).playerName;
+    }
+
+    public override void Update()
+    {
+
     }
 
     public override void TaskOnClick()

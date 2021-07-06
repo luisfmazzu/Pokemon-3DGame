@@ -13,7 +13,17 @@ public class PokemonNatures
 
         public Nature(string _name, int _decreased_stat_id, int _increased_stat_id)
         {
-            name                = _name;
+            name = char.ToUpper(_name[0]) + _name.Substring(1);
+
+            int toUpperIndex = name.IndexOf("-");
+
+            while (toUpperIndex != -1)
+            {
+                name = name.Substring(0, toUpperIndex) + " " + char.ToUpper(name[toUpperIndex + 1]) + name.Substring(toUpperIndex + 2);
+
+                toUpperIndex = name.IndexOf("-");
+            }
+
             decreased_stat_id   = _decreased_stat_id;
             increased_stat_id   = _increased_stat_id;
         }

@@ -1,13 +1,14 @@
 ﻿public class BaseAttributes
 {
     #region Constant Variables
-        private const int MIN_VALUE     = 0;
-        private const int MAX_IV_VALUE  = 31;
-        private const int MAX_EV_VALUE  = 255;
+        public const int MIN_VALUE              = 0;
+        public const int MAX_IV_VALUE           = 31;
+        public const int MAX_EV_VALUE           = 255;
+        public const int MAX_HAPPINESS_VALUE    = 255;
     #endregion
 
     #region Public Variables Declaration 
-        public int hp           { get; set; }
+    public int hp           { get; set; }
         public int attack       { get; set; }
         public int defense      { get; set; }
         public int spAttack     { get; set; }
