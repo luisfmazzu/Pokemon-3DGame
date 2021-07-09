@@ -28,6 +28,8 @@ public class PokeInfoGUI : MonoBehaviour
         private MovesPanel  movesPanel;
         private IVEVPanel   ivevPanel;
         private EtcPanel    etcPanel;
+
+        private GameObject  pokemonModel;
     #endregion
 
     private void Awake()
@@ -48,6 +50,8 @@ public class PokeInfoGUI : MonoBehaviour
         this.movesPanel = new MovesPanel(this.pokemon, tabsTransform.Find("Moves"), this);
         this.ivevPanel  = new IVEVPanel(this.pokemon, tabsTransform.Find("IVsEVs"), this);
         this.etcPanel   = new EtcPanel(this.pokemon, tabsTransform.Find("Etc"), this);
+
+        this.pokemonModel = Instantiate(SystemManager.Instance.PokemonData.pokemonResources.RetrievePokemonResource(this.pokemon.resourceID).prefab, Vector3.zero, new Quaternion(0, 180, 0, 0)) as GameObject;
     }
 
     void Update()
