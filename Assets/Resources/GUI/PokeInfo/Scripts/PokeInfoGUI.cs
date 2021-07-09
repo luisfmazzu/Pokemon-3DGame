@@ -5,8 +5,16 @@ using UnityEngine.UI;
 
 public class PokeInfoGUI : MonoBehaviour
 {
+    #region Constant Values
+        private         Vector3 cameraOffset = new Vector3(-1.76f, 1.52f, -5.62f);
+
+        private const   int     RENDER_TEXTURE_DEPTH    = 32;
+        private const   int     MIN_16_BITS_VALUE       = -32767;
+        private const   int     MAX_16_BITS_VALUE       = 32767;
+    #endregion
+
     #region FSM
-        public enum FSM
+    public enum FSM
         {
             Info,
             Moves,
@@ -20,16 +28,21 @@ public class PokeInfoGUI : MonoBehaviour
     #endregion
 
     #region Private Variables Declaration
-        private FSM         fsm;
+        private FSM             fsm;
 
-        private Text        titleText;
+        private Text            titleText;
 
-        private InfoPanel   infoPanel;
-        private MovesPanel  movesPanel;
-        private IVEVPanel   ivevPanel;
-        private EtcPanel    etcPanel;
+        private InfoPanel       infoPanel;
+        private MovesPanel      movesPanel;
+        private IVEVPanel       ivevPanel;
+        private EtcPanel        etcPanel;
 
-        private GameObject  pokemonModel;
+        private GameObject      pokemonModel;
+        private RawImage        pokemonRawImage;
+        private RenderTexture   pokemonRenderTexture;
+
+        private Camera          pokemonModelCamera;
+        private Light           pokemonModelDirectionalLight;
     #endregion
 
     private void Awake()
@@ -38,6 +51,10 @@ public class PokeInfoGUI : MonoBehaviour
 
         Transform panelTransform = this.transform.Find("Canvas").Find("Panel");
         this.titleText = panelTransform.Find("Header").Find("Text").GetComponent<Text>();
+
+        this.pokemonRawImage                = panelTransform.Find("PokeModel").Find("Pokemon").GetComponent<RawImage>();
+        this.pokemonModelCamera             = this.transform.Find("ModelCamera").GetComponent<Camera>();
+        this.pokemonModelDirectionalLight   = this.transform.Find("DirectionalLight").GetComponent<Light>();
     }
 
     void Start()
@@ -51,7 +68,7 @@ public class PokeInfoGUI : MonoBehaviour
         this.ivevPanel  = new IVEVPanel(this.pokemon, tabsTransform.Find("IVsEVs"), this);
         this.etcPanel   = new EtcPanel(this.pokemon, tabsTransform.Find("Etc"), this);
 
-        this.pokemonModel = Instantiate(SystemManager.Instance.PokemonData.pokemonResources.RetrievePokemonResource(this.pokemon.resourceID).prefab, Vector3.zero, new Quaternion(0, 180, 0, 0)) as GameObject;
+        this.ConfigurePokemonModel();
     }
 
     void Update()
@@ -74,6 +91,37 @@ public class PokeInfoGUI : MonoBehaviour
                 this.etcPanel.Update();
                 break;
         }
+    }
+
+    void ConfigurePokemonModel()
+    {
+        RectTransform panelTransform = this.transform.Find("Canvas").Find("Panel").Find("PokeModel").GetComponent<RectTransform>();
+
+        this.pokemonRenderTexture = new RenderTexture((int)panelTransform.rect.width, (int)panelTransform.rect.height, RENDER_TEXTURE_DEPTH);
+
+        this.pokemonModelCamera.targetTexture   = this.pokemonRenderTexture;
+        this.pokemonRawImage.texture            = this.pokemonRenderTexture;
+
+        float randomCoord = this.GenerateRandomFloat(DateTime.Now.Millisecond);
+        Vector3 randomPosition = new Vector3(randomCoord, randomCoord, randomCoord);
+
+        Debug.Log(randomPosition);
+
+        this.pokemonModel = Instantiate(SystemManager.Instance.PokemonData.pokemonResources.RetrievePokemonResource(this.pokemon.resourceID).prefab, randomPosition, new Quaternion(0, 180, 0, 0)) as GameObject;
+        this.pokemonModel.transform.parent = gameObject.transform;
+
+        this.pokemonModelCamera.transform.position = randomPosition + this.cameraOffset;
+
+        this.pokemonModelDirectionalLight.transform.position = this.pokemonModelCamera.transform.position;
+    }
+
+    float GenerateRandomFloat(int seed)
+    {
+        System.Random random = new System.Random(seed);
+
+        double val = random.NextDouble() * (MAX_16_BITS_VALUE - MIN_16_BITS_VALUE) + MIN_16_BITS_VALUE;
+
+        return (float)val;
     }
 
     public void UpdateState(FSM _newState)
