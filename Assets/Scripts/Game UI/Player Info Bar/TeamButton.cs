@@ -104,6 +104,7 @@ public class TeamButton : MonoBehaviour
 
     private void Update()
     {
+        this.UpdatePokemons();
     }
 
     public void UpdatePokemons()

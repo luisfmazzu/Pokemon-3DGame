@@ -4,11 +4,12 @@
         public const int MIN_VALUE              = 0;
         public const int MAX_IV_VALUE           = 31;
         public const int MAX_EV_VALUE           = 255;
+        public const int MAX_SUMMED_EV_VALUE    = 510;
         public const int MAX_HAPPINESS_VALUE    = 255;
     #endregion
 
     #region Public Variables Declaration 
-    public int hp           { get; set; }
+        public int hp           { get; set; }
         public int attack       { get; set; }
         public int defense      { get; set; }
         public int spAttack     { get; set; }
@@ -28,5 +29,10 @@
         this.spAttack   = _spAttack;
         this.spDefense  = _spDefense;
         this.speed      = _speed;
+    }
+
+    public int SummedAttributes()
+    {
+        return (this.hp + this.attack + this.defense + this.spAttack + this.spDefense + this.speed);
     }
 }
