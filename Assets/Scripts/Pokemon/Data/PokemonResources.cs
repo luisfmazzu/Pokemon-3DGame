@@ -36,10 +36,8 @@ public class PokemonResources
 
     public void LoadResources()
     {
-        string AssetBundlePath = Application.streamingAssetsPath + "/AssetBundles/StandaloneWindows/";
-
-        AssetBundle pokemonIconsBundle  = AssetBundle.LoadFromFile(AssetBundlePath + "pokemonicons");
-        AssetBundle pokemonModelsBundle = AssetBundle.LoadFromFile(AssetBundlePath + "pokemonmodels");
+        AssetBundle pokemonIconsBundle  = GenericMethods.RetrieveAssetBundle(GenericMethods.AssetBundlesNames.PokemonIcons);
+        AssetBundle pokemonModelsBundle = GenericMethods.RetrieveAssetBundle(GenericMethods.AssetBundlesNames.PokemonModels);
 
         this.pokemonResource["1_n"]         = new Resource(pokemonIconsBundle.LoadAsset<Sprite>("1"),        pokemonModelsBundle.LoadAsset<GameObject>("1_n"));                 // Normal Bulbasaur
         this.pokemonResource["1_s"]         = new Resource(pokemonIconsBundle.LoadAsset<Sprite>("1"),        pokemonModelsBundle.LoadAsset<GameObject>("1_s"));                 // Shiny Bulbasaur
