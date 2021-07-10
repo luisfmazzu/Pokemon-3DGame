@@ -40,13 +40,6 @@ public class PokemonFollower : MonoBehaviour
         }
     #endregion
 
-    static class Animations
-    {
-        public const string Idle        = "Motion_0";
-        public const string Walking     = "Motion_1";
-        public const string Running     = "Motion_3";
-    }
-
     private void Awake()
     {
         this.playerInfo = PlayerManager.Instance.PlayerInfo;
@@ -86,13 +79,13 @@ public class PokemonFollower : MonoBehaviour
 
                     if((TargetDistance <= distanceToRun) && (!isRunning))
                     {
-                        animator.Play(Animations.Walking);
+                        animator.Play(PokemonAnimations.animationsDict["Walking"]);
                     }
                     else if(!isRunning)
                     {
                         isRunning = true;
 
-                        animator.Play(Animations.Running);
+                        animator.Play(PokemonAnimations.animationsDict["Running"]);
                     }
 
                     float horizontalSpeed = isRunning ? runningSpeed : normalSpeed;
@@ -110,7 +103,7 @@ public class PokemonFollower : MonoBehaviour
                 {
                     this.fsm = FSM.Idle;
 
-                    animator.Play(Animations.Idle);
+                    animator.Play(PokemonAnimations.animationsDict["Idle"]);
 
                     isRunning = false;
                 }

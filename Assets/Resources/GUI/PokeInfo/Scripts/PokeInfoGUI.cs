@@ -38,8 +38,10 @@ public class PokeInfoGUI : MonoBehaviour
         private EtcPanel        etcPanel;
 
         private GameObject      pokemonModel;
+        private Animator        pokemonModelAnimator;
         private RawImage        pokemonRawImage;
         private RenderTexture   pokemonRenderTexture;
+        private Dropdown        animationSelector;
 
         private Camera          pokemonModelCamera;
         private Light           pokemonModelDirectionalLight;
@@ -52,7 +54,11 @@ public class PokeInfoGUI : MonoBehaviour
         Transform panelTransform = this.transform.Find("Canvas").Find("Panel");
         this.titleText = panelTransform.Find("Header").Find("Text").GetComponent<Text>();
 
-        this.pokemonRawImage                = panelTransform.Find("PokeModel").Find("Pokemon").GetComponent<RawImage>();
+        Transform pokeModelTransform = panelTransform.Find("PokeModel");
+
+        this.animationSelector              = pokeModelTransform.Find("AnimationSelector").GetComponent<Dropdown>();
+        this.pokemonRawImage                = pokeModelTransform.Find("Pokemon").GetComponent<RawImage>();
+
         this.pokemonModelCamera             = this.transform.Find("ModelCamera").GetComponent<Camera>();
         this.pokemonModelDirectionalLight   = this.transform.Find("DirectionalLight").GetComponent<Light>();
     }
@@ -68,6 +74,7 @@ public class PokeInfoGUI : MonoBehaviour
         this.ivevPanel  = new IVEVPanel(this.pokemon, tabsTransform.Find("IVsEVs"), this);
         this.etcPanel   = new EtcPanel(this.pokemon, tabsTransform.Find("Etc"), this);
 
+        this.ConfigureAnimationSelector();
         this.ConfigurePokemonModel();
     }
 
@@ -93,6 +100,26 @@ public class PokeInfoGUI : MonoBehaviour
         }
     }
 
+    void ConfigureAnimationSelector()
+    {
+        this.animationSelector.options.Clear();
+
+        foreach(string key in PokemonAnimations.animationsDict.Keys)
+        {
+            this.animationSelector.options.Add(new Dropdown.OptionData(key));
+        }
+
+        this.animationSelector.onValueChanged.AddListener(delegate
+        {
+            ChangeModelAnimation();
+        });
+    }
+
+    void ChangeModelAnimation()
+    {
+        this.pokemonModelAnimator.Play(PokemonAnimations.animationsDict[this.animationSelector.options[this.animationSelector.value].text]);
+    }
+
     void ConfigurePokemonModel()
     {
         RectTransform panelTransform = this.transform.Find("Canvas").Find("Panel").Find("PokeModel").GetComponent<RectTransform>();
@@ -105,10 +132,10 @@ public class PokeInfoGUI : MonoBehaviour
         float randomCoord = this.GenerateRandomFloat(DateTime.Now.Millisecond);
         Vector3 randomPosition = new Vector3(randomCoord, randomCoord, randomCoord);
 
-        Debug.Log(randomPosition);
-
         this.pokemonModel = Instantiate(SystemManager.Instance.PokemonData.pokemonResources.RetrievePokemonResource(this.pokemon.resourceID).prefab, randomPosition, new Quaternion(0, 180, 0, 0)) as GameObject;
         this.pokemonModel.transform.parent = gameObject.transform;
+
+        this.pokemonModelAnimator = this.pokemonModel.GetComponentInChildren<Animator>();
 
         this.pokemonModelCamera.transform.position = randomPosition + this.cameraOffset;
 
