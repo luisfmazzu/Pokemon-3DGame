@@ -13,6 +13,8 @@ public class SpawnNPC : MonoBehaviour
         AssetBundle characterModelsBundle = GenericMethods.RetrieveAssetBundle(GenericMethods.AssetBundlesNames.CharacterModels);
 
         this.woman01 = characterModelsBundle.LoadAsset<GameObject>("Woman01");
+
+        characterModelsBundle.Unload(false);
     }
 
     void Start()

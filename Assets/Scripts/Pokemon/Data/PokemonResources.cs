@@ -110,6 +110,9 @@ public class PokemonResources
         this.pokemonResource["149_n"]       = new Resource(pokemonIconsBundle.LoadAsset<Sprite>("149"),      pokemonModelsBundle.LoadAsset<GameObject>("149_n"));               // Normal Dragonite
         this.pokemonResource["149_s"]       = new Resource(pokemonIconsBundle.LoadAsset<Sprite>("149"),      pokemonModelsBundle.LoadAsset<GameObject>("149_s"));               // Shiny Dragonite
 
+        pokemonIconsBundle.Unload(false);
+        pokemonModelsBundle.Unload(false);
+
         this.ready = true;
     }
 

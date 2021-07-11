@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class PokeInfoGUI : MonoBehaviour
 {
     #region Constant Values
-        private         Vector3 cameraOffset = new Vector3(-1.76f, 1.52f, -5.62f);
-
-        private const   int     RENDER_TEXTURE_DEPTH    = 32;
-        private const   int     MIN_16_BITS_VALUE       = -32767;
-        private const   int     MAX_16_BITS_VALUE       = 32767;
+        private const   int     RENDER_TEXTURE_DEPTH                = 32;
+        private const   int     MIN_16_BITS_VALUE                   = -32767;
+        private const   int     MAX_16_BITS_VALUE                   = 32767;
+        private const int       NUMBER_OF_FRAMES_TO_UPDATE_MODEL    = 2;
     #endregion
 
     #region FSM
@@ -45,6 +44,8 @@ public class PokeInfoGUI : MonoBehaviour
 
         private Camera          pokemonModelCamera;
         private Light           pokemonModelDirectionalLight;
+
+        private int             framesToUpdateCamera;
     #endregion
 
     private void Awake()
@@ -76,11 +77,20 @@ public class PokeInfoGUI : MonoBehaviour
 
         this.ConfigureAnimationSelector();
         this.ConfigurePokemonModel();
+
+        this.framesToUpdateCamera = NUMBER_OF_FRAMES_TO_UPDATE_MODEL;
     }
 
     void Update()
     {
-        switch(this.fsm)
+        if(this.framesToUpdateCamera > 0)
+        {
+            this.CalculateCameraAndLightConfigs();
+
+            this.framesToUpdateCamera--;
+        }
+
+        switch (this.fsm)
         {
             case FSM.Info:
                 this.infoPanel.Update();
@@ -112,28 +122,68 @@ public class PokeInfoGUI : MonoBehaviour
         this.animationSelector.onValueChanged.AddListener(delegate
         {
             this.pokemonModelAnimator.Play(PokemonAnimations.animationsDict[this.animationSelector.options[this.animationSelector.value].text]);
+
+            this.framesToUpdateCamera = NUMBER_OF_FRAMES_TO_UPDATE_MODEL;
         });
     }
 
     void ConfigurePokemonModel()
     {
+        this.ConfigureRenderTexture();
+
+        this.InstantiateModel();
+
+        this.CalculateCameraAndLightConfigs();
+    }
+
+    private void ConfigureRenderTexture()
+    {
         RectTransform panelTransform = this.transform.Find("Canvas").Find("Panel").Find("PokeModel").GetComponent<RectTransform>();
 
         this.pokemonRenderTexture = new RenderTexture((int)panelTransform.rect.width, (int)panelTransform.rect.height, RENDER_TEXTURE_DEPTH);
 
-        this.pokemonModelCamera.targetTexture   = this.pokemonRenderTexture;
-        this.pokemonRawImage.texture            = this.pokemonRenderTexture;
+        this.pokemonModelCamera.targetTexture = this.pokemonRenderTexture;
+        this.pokemonRawImage.texture = this.pokemonRenderTexture;
+    }
 
+    private void InstantiateModel()
+    {
         float randomCoord = GenericMethods.GenerateRandomFloat(DateTime.Now.Millisecond, MIN_16_BITS_VALUE, MAX_16_BITS_VALUE);
         Vector3 randomPosition = new Vector3(randomCoord, randomCoord, randomCoord);
 
-        this.pokemonModel = Instantiate(SystemManager.Instance.PokemonData.pokemonResources.RetrievePokemonResource(this.pokemon.resourceID).prefab, randomPosition, new Quaternion(0, 180, 0, 0)) as GameObject;
+        this.pokemonModel = SystemManager.Instance.PokemonData.pokemonResources.RetrievePokemonResource(this.pokemon.resourceID).prefab;
+
+        this.pokemonModel = Instantiate(this.pokemonModel, randomPosition, new Quaternion(0, 180, 0, 0)) as GameObject;
         this.pokemonModel.transform.parent = gameObject.transform;
 
         this.pokemonModelAnimator = this.pokemonModel.GetComponentInChildren<Animator>();
+    }
 
-        this.pokemonModelCamera.transform.position = randomPosition + this.cameraOffset;
+    private void CalculateCameraAndLightConfigs()
+    {
+        Renderer pokemonModelRenderer = this.pokemonModel.GetComponentInChildren<Renderer>();
 
+        Renderer[] childrenRenderers = pokemonModel.GetComponentsInChildren<Renderer>();
+
+        Bounds bounds = pokemonModelRenderer.bounds;
+           
+        if(childrenRenderers.Length > 0)
+        {
+            foreach (Renderer renderer in childrenRenderers)
+            {
+                if (renderer.enabled)
+                {
+                    bounds.Encapsulate(renderer.bounds);
+                }
+            }
+        }
+
+        float maxExtent = bounds.extents.magnitude;
+        float minDistance = (maxExtent * 0.8f) / Mathf.Sin(Mathf.Deg2Rad * this.pokemonModelCamera.fieldOfView / 2f);
+        this.pokemonModelCamera.transform.position = this.pokemonModel.transform.position - (Vector3.forward * minDistance);
+        this.pokemonModelCamera.transform.position += new Vector3(0, Math.Min(bounds.extents.x, Math.Min(bounds.extents.y, bounds.extents.z)), 0);
+
+        this.pokemonModelCamera.nearClipPlane = minDistance - maxExtent;
         this.pokemonModelDirectionalLight.transform.position = this.pokemonModelCamera.transform.position;
     }
 
