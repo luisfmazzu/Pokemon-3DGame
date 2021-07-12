@@ -9,7 +9,7 @@ public class PokeInfoGUI : MonoBehaviour
         private const   int     RENDER_TEXTURE_DEPTH                = 32;
         private const   int     MIN_16_BITS_VALUE                   = -32767;
         private const   int     MAX_16_BITS_VALUE                   = 32767;
-        private const int       NUMBER_OF_FRAMES_TO_UPDATE_MODEL    = 2;
+        private const   int     NUMBER_OF_FRAMES_TO_UPDATE_MODEL    = 2;
     #endregion
 
     #region FSM
@@ -36,6 +36,8 @@ public class PokeInfoGUI : MonoBehaviour
         private IVEVPanel       ivevPanel;
         private EtcPanel        etcPanel;
 
+        private Image           pokemonSpecieSex;
+        private Text            pokemonSpecieName;
         private GameObject      pokemonModel;
         private Animator        pokemonModelAnimator;
         private RawImage        pokemonRawImage;
@@ -57,6 +59,8 @@ public class PokeInfoGUI : MonoBehaviour
 
         Transform pokeModelTransform = panelTransform.Find("PokeModel");
 
+        this.pokemonSpecieSex               = pokeModelTransform.Find("Details").Find("Gender").GetComponent<Image>();
+        this.pokemonSpecieName              = pokeModelTransform.Find("Details").Find("SpeciesName").GetComponent<Text>();
         this.animationSelector              = pokeModelTransform.Find("AnimationSelector").GetComponent<Dropdown>();
         this.pokemonRawImage                = pokeModelTransform.Find("Pokemon").GetComponent<RawImage>();
 
@@ -75,10 +79,14 @@ public class PokeInfoGUI : MonoBehaviour
         this.ivevPanel  = new IVEVPanel(this.pokemon, tabsTransform.Find("IVsEVs"), this);
         this.etcPanel   = new EtcPanel(this.pokemon, tabsTransform.Find("Etc"), this);
 
-        this.ConfigureAnimationSelector();
         this.ConfigurePokemonModel();
+        this.ConfigureAnimationSelector();
 
         this.framesToUpdateCamera = NUMBER_OF_FRAMES_TO_UPDATE_MODEL;
+
+        this.pokemonSpecieName.text = SystemManager.Instance.PokemonData.pokemonSpecies.RetrievePokemonSpecie(this.pokemon.speciesID).name;
+
+        this.HandlePokemonGender();
     }
 
     void Update()
@@ -110,18 +118,48 @@ public class PokeInfoGUI : MonoBehaviour
         }
     }
 
+    void HandlePokemonGender()
+    {
+        switch (pokemon.genderID)
+        {
+            case (int)PokemonEnums.Gender.Female:
+                this.pokemonSpecieSex.sprite = Resources.Load("GUI/Texture2D/gender_female") as Sprite;
+
+                break;
+
+            case (int)PokemonEnums.Gender.Male:
+                this.pokemonSpecieSex.sprite = Resources.Load("GUI/Texture2D/gender_male") as Sprite;
+
+                break;
+
+            case (int)PokemonEnums.Gender.Genderless:
+            default:
+                this.pokemonSpecieSex.color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+
+                break;
+        }
+    }
+
     void ConfigureAnimationSelector()
     {
         this.animationSelector.options.Clear();
 
-        foreach(string key in PokemonAnimations.animationsDict.Keys)
+        foreach(string key in PokemonAnimations.overWorldnimationsDict.Keys)
         {
-            this.animationSelector.options.Add(new Dropdown.OptionData(key));
+            foreach(AnimationClip animationClip in this.pokemonModelAnimator.runtimeAnimatorController.animationClips)
+            {
+                if(animationClip.name == PokemonAnimations.overWorldnimationsDict[key])
+                {
+                    this.animationSelector.options.Add(new Dropdown.OptionData(key));
+
+                    break;
+                }
+            }
         }
 
         this.animationSelector.onValueChanged.AddListener(delegate
         {
-            this.pokemonModelAnimator.Play(PokemonAnimations.animationsDict[this.animationSelector.options[this.animationSelector.value].text]);
+            this.pokemonModelAnimator.Play(PokemonAnimations.overWorldnimationsDict[this.animationSelector.options[this.animationSelector.value].text]);
 
             this.framesToUpdateCamera = NUMBER_OF_FRAMES_TO_UPDATE_MODEL;
         });
