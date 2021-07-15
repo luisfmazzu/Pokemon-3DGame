@@ -144,15 +144,26 @@ public class PokeInfoGUI : MonoBehaviour
     {
         this.animationSelector.options.Clear();
 
+        PokemonEnums.MovementTypes pokemonMovementType = SystemManager.Instance.PokemonData.pokemonSpecies.RetrievePokemonSpecie(this.pokemon.speciesID).movement_type;
+
+        bool pokemon_flies_and_walks = (pokemonMovementType == PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise) || (pokemonMovementType == PokemonEnums.MovementTypes.GroundWhenIdleAndSlowlyMovingFlyingOtherwise);
+
         foreach(string key in PokemonAnimations.overWorldnimationsDict.Keys)
         {
-            foreach(AnimationClip animationClip in this.pokemonModelAnimator.runtimeAnimatorController.animationClips)
+            if((!pokemon_flies_and_walks) && (key == PokemonAnimations.AnimationNames.FLYING))
             {
-                if(animationClip.name == PokemonAnimations.overWorldnimationsDict[key])
+                // Doesnt do anything in this case
+            }
+            else if((key != PokemonAnimations.AnimationNames.JUMPING) && (key != PokemonAnimations.AnimationNames.JUMP_RUNNING))
+            {
+                foreach(AnimationClip animationClip in this.pokemonModelAnimator.runtimeAnimatorController.animationClips)
                 {
-                    this.animationSelector.options.Add(new Dropdown.OptionData(key));
+                    if(animationClip.name == PokemonAnimations.overWorldnimationsDict[key])
+                    {
+                        this.animationSelector.options.Add(new Dropdown.OptionData(key));
 
-                    break;
+                        break;
+                    }
                 }
             }
         }

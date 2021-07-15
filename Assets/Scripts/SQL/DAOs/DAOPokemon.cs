@@ -106,4 +106,22 @@ public class DAOPokemon
 
         daoGeneric.reader.Close();
     }
+
+    public void getPokemonSpecies(out List<Tuple<int, string, int>> species)
+    {
+        species = new List<Tuple<int, string, int>>();
+
+        string query = "SELECT pokemon_species.id, pokemon_species.identifier, pokemon_species.movement_type_id" +
+                       " FROM " + daoGeneric.database + ".pokemon_species" +
+                       " ORDER BY pokemon_species.id ASC";
+
+        daoGeneric.con.ExecuteQuery(ref daoGeneric.dbconn, ref daoGeneric.dbcmd, ref daoGeneric.reader, query);
+
+        while(daoGeneric.reader.Read())
+        {
+            species.Add(new Tuple<int, string, int>(daoGeneric.reader.GetInt32(0), daoGeneric.reader.GetString(1), daoGeneric.reader.GetInt32(2)));
+        }
+
+        daoGeneric.reader.Close();
+    }
 }

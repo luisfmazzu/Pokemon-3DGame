@@ -54,9 +54,10 @@ public class LoadingScreen : MonoBehaviour
         /**
          * 2nd step -> Load Resouces
          */
-        PokemonAbilities pokemonAbilities   = SystemManager.Instance.PokemonData.pokemonAbilities;
-        PokemonBaseStats pokemonBaseStats   = SystemManager.Instance.PokemonData.pokemonBaseStats;
-        PokemonNatures   pokemonNatures     = SystemManager.Instance.PokemonData.pokemonNatures;
+        PokemonAbilities    pokemonAbilities    = SystemManager.Instance.PokemonData.pokemonAbilities;
+        PokemonBaseStats    pokemonBaseStats    = SystemManager.Instance.PokemonData.pokemonBaseStats;
+        PokemonNatures      pokemonNatures      = SystemManager.Instance.PokemonData.pokemonNatures;
+        PokemonSpecies      pokemonSpecies      = SystemManager.Instance.PokemonData.pokemonSpecies;
 
         this.text.text = LoadingSteps.steps[0];
 
@@ -71,6 +72,10 @@ public class LoadingScreen : MonoBehaviour
         pokemonNatures.LoadNatures();
 
         yield return StartCoroutine(pokemonNatures.IsReady());
+
+        pokemonSpecies.LoadSpecies();
+
+        yield return StartCoroutine(pokemonSpecies.IsReady());
 
         this.loadingBar.BarValue += (100.0f / LoadingSteps.steps.Length);
 

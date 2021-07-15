@@ -27,4 +27,9 @@ public class CtrlPokemon
     {
         dao.getPokemonNatures(out natures);
     }
+
+    public void getPokemonSpecies(out List<Tuple<int, string, int>> species)
+    {
+        dao.getPokemonSpecies(out species);
+    }
 }

@@ -58,7 +58,7 @@ public class PlayerInfo : MonoBehaviour
 
             if(this.followerPokemonIdx == INVALID_FOLLOWER)
             {
-                this.followerInstance.CreateFollower(this.pokemonResources.RetrievePokemonResource(id).prefab);
+                this.followerInstance.CreateFollower(this.pokemonResources.RetrievePokemonResource(id).prefab, this.partyPokemons[index]);
 
                 this.followerPokemonIdx = id;
             }
@@ -70,7 +70,7 @@ public class PlayerInfo : MonoBehaviour
             }
             else
             {
-                this.followerInstance.SwitchFollower(this.pokemonResources.RetrievePokemonResource(id).prefab);
+                this.followerInstance.SwitchFollower(this.pokemonResources.RetrievePokemonResource(id).prefab, this.partyPokemons[index]);
 
                 this.followerPokemonIdx = id;
             }

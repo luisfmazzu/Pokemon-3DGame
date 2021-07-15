@@ -29,4 +29,12 @@
         spDefense   = 5,
         speed       = 6
     }
+
+    public enum MovementTypes
+    {
+        AlwaysOnTheGround                               = 1,
+        AlwaysFlying                                    = 2,
+        GroundWhenIdleAndFlyingOtherwise                = 3,
+        GroundWhenIdleAndSlowlyMovingFlyingOtherwise    = 4
+    }
 }
