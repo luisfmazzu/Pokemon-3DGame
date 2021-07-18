@@ -6,87 +6,97 @@ using UnityEngine.AI;
 public class PokemonFollower : MonoBehaviour
 {
     #region SerializeFields
-        [SerializeField] private GameObject thePlayer;
+    [SerializeField] private GameObject thePlayer;
 
-        [SerializeField] private float      normalSpeed         = 1f;
-        [SerializeField] private float      runningSpeed        = 2.5f;
-        [SerializeField] private float      playerGraphicsScale = 20f;
-        [SerializeField] private float      allowedDistance     = 2f;
+    [SerializeField] private float normalSpeed = 1f;
+    [SerializeField] private float runningSpeed = 2.5f;
+    [SerializeField] private float playerGraphicsScale = 20f;
+    [SerializeField] private float allowedDistance = 2f;
     #endregion
 
     #region PrivateVariables
-        private Animator            animator;
+    private Animator animator;
 
-        private CharacterController followerController;
+    private CharacterController followerController;
 
-        private float               distanceToRun;
+    private float distanceToRun;
 
-        private float               distanceToStartFollow;
+    private float distanceToStartFollow;
 
-        private FSM                 fsm;
+    private FSM fsm;
 
-        private GameObject          followerInstance;
+    private GameObject followerInstance;
 
-        private PlayerInfo          playerInfo;
+    private PlayerInfo playerInfo;
 
-        private Pokemon             pokemon;
+    private Pokemon pokemon;
     #endregion
 
     #region Enums
-        private enum FSM
-        {
-            Idle,
-            MovingSlow,
-            MovingFast,
-            Reacting,
-            Jumping,
-            JumpRunning
-        }
+    private enum FSM
+    {
+        Idle,
+        MovingSlow,
+        TakingOff,
+        Landing,
+        MovingFast,
+        Reacting,
+        Jumping,
+        JumpRunning
+    }
     #endregion
 
     #region Unity Overriden Methods
-        private void Awake()
-        {
-            this.playerInfo = PlayerManager.Instance.PlayerInfo;
-
-            this.distanceToRun          = (allowedDistance * 2.0f);
-            this.distanceToStartFollow  = (allowedDistance * 1.5f);
-            this.fsm                    = FSM.Idle;
-
-            this.ResetFollower();
-        }
-
-        void Start()
-        {
-            this.playerInfo.setFollowerInstance(this);
-        }
-
-        void Update()
+    private void Awake()
     {
-        if(this.followerInstance != null)
+        this.playerInfo = PlayerManager.Instance.PlayerInfo;
+
+        this.distanceToRun = (allowedDistance * 2.0f);
+        this.distanceToStartFollow = (allowedDistance * 1.5f);
+        this.fsm = FSM.Idle;
+
+        this.ResetFollower();
+    }
+
+    void Start()
+    {
+        this.playerInfo.setFollowerInstance(this);
+    }
+
+    void Update()
+    {
+        if (this.followerInstance != null)
         {
-            switch(this.fsm)
+            switch (this.fsm)
             {
                 case FSM.Idle:
                     this.HandleIdleState();
                     break;
-                
+
                 case FSM.MovingSlow:
                     this.HandleMovingSlowState();
                     break;
-                
+
+                case FSM.TakingOff:
+                    this.HandleTakingOffState();
+                    break;
+
+                case FSM.Landing:
+                    this.HandleLandingState();
+                    break;
+
                 case FSM.MovingFast:
                     this.HandleMovingFastState();
                     break;
-                
+
                 case FSM.Reacting:
                     this.HandleReactingState();
                     break;
-                
+
                 case FSM.Jumping:
                     this.HandleJumpingState();
                     break;
-                
+
                 case FSM.JumpRunning:
                     this.HandleJumpRunningState();
                     break;
@@ -100,17 +110,55 @@ public class PokemonFollower : MonoBehaviour
         {
             PokemonEnums.MovementTypes pokemonMovementType = SystemManager.Instance.PokemonData.pokemonSpecies.RetrievePokemonSpecie(this.pokemon.speciesID).movement_type;
 
-            switch(pokemonMovementType)
+            switch (pokemonMovementType)
             {
-                case PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise:
                 case PokemonEnums.MovementTypes.GroundWhenIdleAndSlowlyMovingFlyingOtherwise:
                 case PokemonEnums.MovementTypes.AlwaysOnTheGround:
                 case PokemonEnums.MovementTypes.AlwaysFlying:
-                {
-                    this.DoCheckIdleState();
+                    this.ProcessIdleState(this.CalculateDistance(), false);
 
                     break;
-                }
+
+                case PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise:
+                    this.ProcessIdleState(this.CalculateDistance(), true);
+
+                    break;
+            }
+        }
+
+        private void HandleTakingOffState()
+        {
+            PokemonEnums.MovementTypes pokemonMovementType = SystemManager.Instance.PokemonData.pokemonSpecies.RetrievePokemonSpecie(this.pokemon.speciesID).movement_type;
+
+            switch (pokemonMovementType)
+            {
+                case PokemonEnums.MovementTypes.GroundWhenIdleAndSlowlyMovingFlyingOtherwise:
+                case PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise:
+                    this.ProcessTakingOffState(pokemonMovementType);
+
+                    break;
+
+                case PokemonEnums.MovementTypes.AlwaysFlying:
+                case PokemonEnums.MovementTypes.AlwaysOnTheGround:
+                    break;
+            }
+        }
+
+        private void HandleLandingState()
+        {
+            PokemonEnums.MovementTypes pokemonMovementType = SystemManager.Instance.PokemonData.pokemonSpecies.RetrievePokemonSpecie(this.pokemon.speciesID).movement_type;
+
+            switch(pokemonMovementType)
+            {
+                case PokemonEnums.MovementTypes.GroundWhenIdleAndSlowlyMovingFlyingOtherwise:
+                case PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise:
+                    this.ProcessLandingState();
+
+                    break;
+
+                case PokemonEnums.MovementTypes.AlwaysFlying:
+                case PokemonEnums.MovementTypes.AlwaysOnTheGround:
+                    break;
             }
         }
 
@@ -118,122 +166,27 @@ public class PokemonFollower : MonoBehaviour
         {
             PokemonEnums.MovementTypes pokemonMovementType = SystemManager.Instance.PokemonData.pokemonSpecies.RetrievePokemonSpecie(this.pokemon.speciesID).movement_type;
 
-            // Dont need to consider y direction
-            Vector3 playerPos = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
-            Vector3 pokemonPos = new Vector3(followerInstance.transform.position.x, 0, followerInstance.transform.position.z);
-
-            float TargetDistance = Vector3.Distance(playerPos, pokemonPos);
-
-            switch(pokemonMovementType)
+            switch (pokemonMovementType)
             {
                 case PokemonEnums.MovementTypes.GroundWhenIdleAndSlowlyMovingFlyingOtherwise:
-                case PokemonEnums.MovementTypes.AlwaysOnTheGround:
-                {
-                    float verticalSpeed = -9.8f;
-
-                    if(TargetDistance > distanceToRun)
-                    {
-                        this.fsm = FSM.MovingFast;
-
-                        animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_FAST]);
-                    }
-                    else if(TargetDistance >= allowedDistance)
-                    {
-                        this.followerInstance.transform.LookAt(thePlayer.transform);
-
-                        Vector3 norm = (thePlayer.transform.position - this.followerInstance.transform.position).normalized;
-
-                        Vector3 updatedMotion = new Vector3(norm.x * normalSpeed / playerGraphicsScale, verticalSpeed, norm.z * normalSpeed / playerGraphicsScale);
-
-                        followerController.Move(updatedMotion);
-                    }
-                    else
-                    {
-                        animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
-
-                        this.fsm = FSM.Idle;
-                    }
+                    this.ProcessMovingSlowState(true, true, false);
 
                     break;
-                }
+
+                case PokemonEnums.MovementTypes.AlwaysOnTheGround:
+                    this.ProcessMovingSlowState(true, false, false);
+
+                    break;
 
                 case PokemonEnums.MovementTypes.AlwaysFlying:
-                {
-                    if (TargetDistance > distanceToRun)
-                    {
-                        this.fsm = FSM.MovingFast;
-
-                        animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_FAST]);
-                    }
-                    else if(TargetDistance >= allowedDistance)
-                    {
-                        this.followerInstance.transform.LookAt(thePlayer.transform);
-
-                        Vector3 norm = (playerPos - pokemonPos).normalized;
-
-                        Vector3 updatedMotion = new Vector3(norm.x * normalSpeed / playerGraphicsScale, 0, norm.z * normalSpeed / playerGraphicsScale);
-
-                        followerController.Move(updatedMotion);
-
-                        followerController.transform.position = new Vector3(followerController.transform.position.x, 2, followerController.transform.position.z);
-                    }
-                    else
-                    {
-                        this.followerInstance.transform.LookAt(new Vector3(thePlayer.transform.position.x, this.followerInstance.transform.position.y, thePlayer.transform.position.z));
-
-                        animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
-
-                        this.fsm = FSM.Idle;
-                    }
+                    this.ProcessMovingSlowState(false, false, false);
 
                     break;
-                }
 
                 case PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise:
-                {
-                    if(TargetDistance > distanceToRun)
-                    {
-                        this.fsm = FSM.MovingFast;
-
-                        animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_FAST]);
-                    }
-                    else if(TargetDistance >= allowedDistance)
-                    {
-                        if(followerController.transform.position.y < 2.0f)
-                        {
-                            followerController.transform.position = new Vector3(followerController.transform.position.x, followerController.transform.position.y + (Time.deltaTime * 2), followerController.transform.position.z);
-                        }
-                        else
-                        { 
-                            this.followerInstance.transform.LookAt(thePlayer.transform);
-
-                            Vector3 norm = (playerPos - pokemonPos).normalized;
-
-                            Vector3 updatedMotion = new Vector3(norm.x * normalSpeed / playerGraphicsScale, 0, norm.z * normalSpeed / playerGraphicsScale);
-
-                            followerController.Move(updatedMotion);
-
-                            followerController.transform.position = new Vector3(followerController.transform.position.x, 2, followerController.transform.position.z);
-                        }
-                    }
-                    else
-                    {
-                        this.followerInstance.transform.LookAt(new Vector3(thePlayer.transform.position.x, this.followerInstance.transform.position.y, thePlayer.transform.position.z));
-
-                        if(followerController.transform.position.y > 0)
-                        {
-                            followerController.transform.position = new Vector3(followerController.transform.position.x, followerController.transform.position.y - (Time.deltaTime * 2), followerController.transform.position.z);
-                        }
-                        else
-                        { 
-                            animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
-
-                            this.fsm = FSM.Idle;
-                        }
-                    }
+                    this.ProcessMovingSlowState(false, false, true);
 
                     break;
-                }
             }
         }
 
@@ -241,106 +194,23 @@ public class PokemonFollower : MonoBehaviour
         {
             PokemonEnums.MovementTypes pokemonMovementType = SystemManager.Instance.PokemonData.pokemonSpecies.RetrievePokemonSpecie(this.pokemon.speciesID).movement_type;
 
-            Vector3 playerPos = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
-            Vector3 pokemonPos = new Vector3(followerInstance.transform.position.x, 0, followerInstance.transform.position.z);
-
-            float TargetDistance = Vector3.Distance(playerPos, pokemonPos);
-
             switch(pokemonMovementType)
             {
                 case PokemonEnums.MovementTypes.AlwaysOnTheGround:
-                {
-                    float verticalSpeed = -9.8f;
-
-                    if (TargetDistance >= allowedDistance)
-                    {
-                        this.followerInstance.transform.LookAt(thePlayer.transform);
-
-                        Vector3 norm = (thePlayer.transform.position - this.followerInstance.transform.position).normalized;
-
-                        Vector3 updatedMotion = new Vector3(norm.x * runningSpeed, verticalSpeed, norm.z * runningSpeed);
-
-                        updatedMotion.x /= playerGraphicsScale;
-                        updatedMotion.z /= playerGraphicsScale;
-
-                        followerController.Move(updatedMotion);
-                    }
-                    else
-                    {
-                        animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
-
-                        this.fsm = FSM.Idle;
-                    }
+                    this.ProcessMovingFastState(true, false);
 
                     break;
-                }
 
                 case PokemonEnums.MovementTypes.AlwaysFlying:
-                {
-                    if(TargetDistance >= allowedDistance)
-                    {
-                        this.followerInstance.transform.LookAt(thePlayer.transform);
-
-                        Vector3 norm = (thePlayer.transform.position - this.followerInstance.transform.position).normalized;
-
-                        Vector3 updatedMotion = new Vector3(norm.x * runningSpeed / playerGraphicsScale, 0, norm.z * runningSpeed / playerGraphicsScale);
-
-                        followerController.Move(updatedMotion);
-
-                        followerController.transform.position = new Vector3(followerController.transform.position.x, 2, followerController.transform.position.z);
-                    }
-                    else
-                    {
-                        this.followerInstance.transform.LookAt(new Vector3(thePlayer.transform.position.x, this.followerInstance.transform.position.y, thePlayer.transform.position.z));
-
-                        animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
-
-                        this.fsm = FSM.Idle;
-                    }
+                    this.ProcessMovingFastState(false, false);
 
                     break;
-                }
 
                 case PokemonEnums.MovementTypes.GroundWhenIdleAndSlowlyMovingFlyingOtherwise:
                 case PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise:
-                {
-                    if(TargetDistance >= allowedDistance)
-                    {
-                        if(followerController.transform.position.y < 2.0f)
-                        {
-                            followerController.transform.position = new Vector3(followerController.transform.position.x, followerController.transform.position.y + (Time.deltaTime * 2), followerController.transform.position.z);
-                        }
-                        else
-                        {
-                            this.followerInstance.transform.LookAt(thePlayer.transform);
-
-                            Vector3 norm = (playerPos - pokemonPos).normalized;
-
-                            Vector3 updatedMotion = new Vector3(norm.x * runningSpeed / playerGraphicsScale, 0, norm.z * runningSpeed / playerGraphicsScale);
-
-                            followerController.Move(updatedMotion);
-
-                            followerController.transform.position = new Vector3(followerController.transform.position.x, 2, followerController.transform.position.z);
-                        }
-                    }
-                    else
-                    {
-                        this.followerInstance.transform.LookAt(new Vector3(thePlayer.transform.position.x, this.followerInstance.transform.position.y, thePlayer.transform.position.z));
-
-                        if (followerController.transform.position.y > 0)
-                        {
-                            followerController.transform.position = new Vector3(followerController.transform.position.x, followerController.transform.position.y - (Time.deltaTime * 2), followerController.transform.position.z);
-                        }
-                        else
-                        {
-                            animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
-
-                            this.fsm = FSM.Idle;
-                        }
-                    }
+                    this.ProcessMovingFastState(false, true);
 
                     break;
-                }
             }
         }
 
@@ -361,24 +231,178 @@ public class PokemonFollower : MonoBehaviour
     #endregion
 
     #region  Finite State Machine Process Methods
-        private void DoCheckIdleState()
+        private float CalculateDistance()
         {
-            Vector3 playerPos = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
-            Vector3 pokemonPos = new Vector3(followerInstance.transform.position.x, 0, followerInstance.transform.position.z);
+            // Dont need to consider y direction
+            Vector3 playerPos   = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
+            Vector3 pokemonPos  = new Vector3(followerInstance.transform.position.x, 0, followerInstance.transform.position.z);
 
-            float targetDistance = Vector3.Distance(playerPos, pokemonPos);
-            
+            return Vector3.Distance(playerPos, pokemonPos);
+    }
+
+        private void ProcessIdleState(float targetDistance, bool requiresTakingOff)
+        {
             if(targetDistance >= distanceToStartFollow)
             {
-                animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_SLOW]);
+                if(requiresTakingOff)
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.FLYING]);
 
-                this.fsm = FSM.MovingSlow;
+                    this.fsm = FSM.TakingOff;
+                }
+                else
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_SLOW]);
+
+                    this.fsm = FSM.MovingSlow;
+                }
+            }
+        }
+
+        private void ProcessTakingOffState(PokemonEnums.MovementTypes movementType)
+        {
+            if(followerController.transform.position.y < 2.0f)
+            {
+                followerController.transform.position = new Vector3(followerController.transform.position.x, followerController.transform.position.y + (Time.deltaTime * 2), followerController.transform.position.z);
+            }
+            else
+            {
+                if(movementType == PokemonEnums.MovementTypes.GroundWhenIdleAndFlyingOtherwise)
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_SLOW]);
+
+                    this.fsm = FSM.MovingSlow;
+                }
+                else if(movementType == PokemonEnums.MovementTypes.GroundWhenIdleAndSlowlyMovingFlyingOtherwise)
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_FAST]);
+
+                    this.fsm = FSM.MovingFast;
+                }
+            }
+        }
+
+        private void ProcessLandingState()
+        {
+            this.followerInstance.transform.LookAt(new Vector3(thePlayer.transform.position.x, this.followerInstance.transform.position.y, thePlayer.transform.position.z));
+
+            if (followerController.transform.position.y > 0)
+            {
+                followerController.transform.position = new Vector3(followerController.transform.position.x, followerController.transform.position.y - (Time.deltaTime * 2), followerController.transform.position.z);
+            }
+            else
+            {
+                animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
+
+                this.fsm = FSM.Idle;
+            }
+        }
+
+        private void ProcessMovingSlowState(bool stayOnGround, bool doesTakeOff, bool doesLand)
+        {
+            Vector3 playerPos   = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
+            Vector3 pokemonPos  = new Vector3(followerInstance.transform.position.x, 0, followerInstance.transform.position.z);
+
+            float TargetDistance = Vector3.Distance(playerPos, pokemonPos);
+
+            float verticalSpeed = stayOnGround ? (-9.8f) : (0.0f);
+
+            if(TargetDistance > distanceToRun)
+            {
+                if(doesTakeOff)
+                {
+                    this.fsm = FSM.TakingOff;
+
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.FLYING]);
+                }
+                else
+                {
+                    this.fsm = FSM.MovingFast;
+
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_FAST]);
+                }
+            }
+            else if (TargetDistance >= allowedDistance)
+            {
+                this.followerInstance.transform.LookAt(thePlayer.transform);
+
+                Vector3 norm = (playerPos - pokemonPos).normalized;
+
+                Vector3 updatedMotion = new Vector3(norm.x * normalSpeed / playerGraphicsScale, verticalSpeed, norm.z * normalSpeed / playerGraphicsScale);
+
+                followerController.Move(updatedMotion);
+
+                if(!stayOnGround)
+                {
+                    followerController.transform.position = new Vector3(followerController.transform.position.x, 2, followerController.transform.position.z);
+                }
+            }
+            else
+            {
+                if(!stayOnGround)
+                {
+                    this.followerInstance.transform.LookAt(new Vector3(thePlayer.transform.position.x, this.followerInstance.transform.position.y, thePlayer.transform.position.z));
+                }
+
+                if(doesLand)
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.FLYING]);
+
+                    this.fsm = FSM.Landing;
+                }
+                else
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.IDLE]);
+
+                    this.fsm = FSM.Idle;
+                }
+            }
+        }
+
+        private void ProcessMovingFastState(bool stayOnGround, bool doesLand)
+        {
+            Vector3 playerPos   = new Vector3(thePlayer.transform.position.x, 0, thePlayer.transform.position.z);
+            Vector3 pokemonPos  = new Vector3(followerInstance.transform.position.x, 0, followerInstance.transform.position.z);
+
+            float TargetDistance = Vector3.Distance(playerPos, pokemonPos);
+
+            float verticalSpeed = stayOnGround ? (-9.8f) : (0.0f);
+
+            if (TargetDistance >= allowedDistance)
+            {
+                this.followerInstance.transform.LookAt(thePlayer.transform);
+
+                Vector3 norm = (playerPos - pokemonPos).normalized;
+
+                Vector3 updatedMotion = new Vector3(norm.x * runningSpeed / playerGraphicsScale, verticalSpeed, norm.z * runningSpeed / playerGraphicsScale);
+
+                followerController.Move(updatedMotion);
+
+                if(!stayOnGround)
+                {
+                    followerController.transform.position = new Vector3(followerController.transform.position.x, 2, followerController.transform.position.z);
+                }
+            }
+            else
+            {
+                if(doesLand)
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.FLYING]);
+
+                    this.fsm = FSM.Landing;
+                }
+                else
+                {
+                    animator.Play(PokemonAnimations.overWorldnimationsDict[PokemonAnimations.AnimationNames.MOVING_SLOW]);
+
+                    this.fsm = FSM.MovingSlow;
+                }
             }
         }
     #endregion
 
     #region Follower Controller Methods
-    private void ResetFollower()
+        private void ResetFollower()
         {
             this.followerInstance   = null;
             this.pokemon            = null;
@@ -429,12 +453,12 @@ public class PokemonFollower : MonoBehaviour
         }
 
         public void UpdateFollowerPosition(Vector3 position, Quaternion rotation)
-    {
-        if (this.followerInstance != null)
         {
-            this.followerInstance.transform.position = position;
-            this.followerInstance.transform.rotation = rotation;
+            if (this.followerInstance != null)
+            {
+                this.followerInstance.transform.position = position;
+                this.followerInstance.transform.rotation = rotation;
+            }
         }
-    }
     #endregion
 }
